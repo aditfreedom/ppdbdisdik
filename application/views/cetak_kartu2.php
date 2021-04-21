@@ -17,11 +17,10 @@
     <td style="padding:15px;">
     <?php foreach ($cetak_kartu as $data) : ?>
       <?php echo form_open_multipart('user/updateformulir');?>
-      <label for="">No. Peserta : <?php echo $data->id;?></label>
-      <img class="mx-auto d-block" src="<?= base_url();?>/logo.png" width="150" style="margin-bottom:5px;">
-      <h3 class="text-center text-bold">KARTU PESERTA UJIAN<br>PENERIMAAN PESERTA DIDIK BARU <br>SEKOLAH SUKMA BANGSA BIREUEN<br>TP.2021/2022</h3><br>
+      <label for="">NISN : <?php echo $data->nisn;?></label>
+      <img class="mx-auto d-block" src="<?= base_url();?>/assets/img/favicon.png" width="150" style="margin-bottom:5px;">
+      <h4 class="text-center text-bold">KARTU PESERTA UJIAN<br>PPDB DISDIKBUD<br>KAB.BIREUEN<br>TP.2021/2022</h4><br>
 
-      <img src="<?php echo base_url();?>asset/foto/<?php echo $data->foto;?>" class="border border-dark rounded mx-auto d-block" width="150px">
     <div class="form-group">
         <input type="hidden" name="id" class="form-control" value="<?php echo $data->id;?>">
         </div>
@@ -46,7 +45,6 @@
   <br>
     </div>
     <p align="center"><button style="width:100%;" type="button" onclick="window.print();" class="btn btn-primary no-print"><i class="fa fa-print"></i> Cetak Kartu Ujian</button></button></p>
-
     <br>
     </section>
 </div>

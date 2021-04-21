@@ -2,9 +2,9 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="<?php echo base_url()?>logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="<?=base_url()?>assets/img/favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light"><b style="font-size:18px;">PPDB SSB BIREUEN</b></span>
+      <span class="brand-text font-weight-light"><b style="font-size:15px;">PPDB KAB BIREUEN</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -12,10 +12,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?php echo base_url()?>asset/dist/img/adit.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo base_url()?>assets/img/team/team-1.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Halo, <?php echo $nama_lengkap;?>!</a>
+          <a href="#" class="d-block"><?php echo $nama_lengkap;?></a>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
             <a href="<?=base_url('user/isi_formulir/'.$id);?>" class="nav-link">
               <i class="nav-icon fa fa-money-check-alt"></i>
               <p>
-                Isi Formulir & Pembayaran
+                Isi Formulir
               </p>
             </a>
           </li>
@@ -47,7 +47,7 @@
             <a href="<?=base_url('user/cetak_kartu/'.$id);?>" class="nav-link">
               <i class="nav-icon fa fa-id-card-alt"></i>
               <p>
-                Cetak Kartu Ujian
+                Kartu Ujian
               </p>
             </a>
           </li>
@@ -62,13 +62,16 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=base_url('user/registrasi_ulang/'.$id);?>" class="nav-link">
+                <a href="#" class="nav-link">
+                <!-- <a href="<?=base_url('user/registrasi_ulang/'.$id);?>" class="nav-link"> -->
+
                   <i class="far fa fa-clipboard-check nav-icon"></i>
                   <p>Daftar Ulang</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url('user/cetakdaftarulang/'.$id);?>" class="nav-link">
+                <a href="#" class="nav-link">
+                <!-- <a href="<?=base_url('user/cetakdaftarulang/'.$id);?>" class="nav-link"> -->
                   <i class="far fa fa-print nav-icon"></i>
                   <p>Cetak Formulir Daftar Ulang</p>
                 </a>

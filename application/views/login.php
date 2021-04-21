@@ -21,18 +21,19 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <img src="<?=base_url()?>assets/img/favicon.png" class="mx-auto d-block" width="100px"><br>
+            <img src="<?=base_url()?>assets/img/favicon.png" class="mx-auto d-block" width="100px">
+            <h6 class="text-center" style="margin-top:5px;"><b>PPDB DARING<br>DISDIKBUD KAB. BIREUEN<br>TA.2021/2022</b></h6><br>
             <h5 class="text-center"><b>LOGIN PENGGUNA</b></h5>
 
             <?php echo form_open('hal/login_aksi');?>
               <div class="form-label-group">
-                <input  name="username" id="inputEmail" class="form-control" placeholder="NISN" required autofocus>
-                <label for="inputEmail">NISN</label>
+                <input  name="username" id="inputEmail" class="form-control" placeholder="NIK" required autofocus>
+                <label for="inputEmail">NIK</label>
               </div>
 
               <div class="form-label-group">
-                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="TGL LAHIR" required>
-                <label for="inputPassword">TGL LAHIR</label>
+                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="NISN" required>
+                <label for="inputPassword">NISN</label>
               </div>
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold rounded-pill" type="submit"><b>Login</b></button>

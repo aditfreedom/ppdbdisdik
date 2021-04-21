@@ -1,5 +1,5 @@
 <footer class="main-footer no-print">
-    <strong>Copyright &copy; 2021 <a href="#">Sekolah Sukma Bangsa Bireuen</a>.</strong>
+    <strong>Copyright &copy; 2021 <a href="#">Disdikbud Kab. Bireuen</a>.</strong>
     All rights reserved.
   </footer>
 
@@ -62,6 +62,8 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>
  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
 
 
   <script type="text/javascript">

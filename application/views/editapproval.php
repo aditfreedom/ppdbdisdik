@@ -15,7 +15,7 @@
       </div><!-- /.container-fluid -->
     </div>
     <section class="content">
-    <?php foreach ($approval as $data) : ?>
+    <!-- <?php foreach ($approval as $data) : ?>
 		<form method="post" action="<?php echo base_url().'home/cetakformulir'; ?>">
         <div class="form-group">
         <input hidden type="text" name="nama" class="form-control" value="<?php echo $data->nama_lengkap;?>">
@@ -46,7 +46,7 @@
 
         <p align="right"><button type="submit" class="btn btn-success"><i class="fa fa-print"></i> Cetak</button></p>         
         </form>
-	<?php endforeach ;?>
+	<?php endforeach ;?> -->
 
     <?php foreach ($approval as $data) : ?>
 		<form method="post" action="<?php echo base_url().'home/updateapproval'; ?>">
@@ -70,34 +70,26 @@
 
     <div class="form-group">
         <label for="">Jenis Penerimaan</label>
-        <select readonly class="form-control form-control" name="jenis">
-          <option selected hidden><?php echo $data->jenis;?></option>
-          <option>Peserta Didik Baru SD</option>
-          <option>Peserta Didik Baru SMP</option>
-          <option>Peserta Didik Baru SMA</option>
-          <option>Pindahan SD</option>
-          <option>Pindahan SMP</option>
-          <option>Pindahan SMA</option>
-          </select>
-      </div>
+          <input type="text" name="jenis" class="form-control" value="<?php echo $data->jenis;?>" readonly>
+      </div> 
         <div class="form-group">
         <label for="">NISN</label>
         <input readonly type="text" name="nisn" class="form-control" value="<?php echo $data->nisn;?>">
-        </div>
-        <div class="form-group">
-        <label for="">Alamat</label>
-        <input readonly type="text" name="alamat" class="form-control" value="<?php echo $data->alamat;?>">
         </div>
         <div class="form-group">
         <label for="">Sekolah Asal</label>
         <input readonly type="text" name="sekolah_asal" class="form-control" value="<?php echo $data->sekolah_asal;?>">
         </div>
         <div class="form-group">
-        <label for="">Nama Ayah</label>
+        <label for="">Kecamatan Tempat Tinggal</label>
+        <input readonly type="text" name="alamat" class="form-control" value="<?php echo $data->alamat;?>">
+        </div>
+        <div class="form-group">
+        <label for="">Desa Tempat Tinggal</label>
         <input readonly type="text" name="namaayah" class="form-control" value="<?php echo $data->namaayah;?>">
         </div>
         <div class="form-group">
-        <label for="">Nama Ibu</label>
+        <label for="">Sekolah Tujuan</label>
         <input readonly type="text" name="namaibu" class="form-control" value="<?php echo $data->namaibu;?>">
         </div>
         <div class="form-group">
@@ -105,21 +97,21 @@
         <input readonly type="text" name="no_hp" class="form-control" value="<?php echo $data->no_hp;?>">
         </div>
         <div class="form-group">
-        <label for="">No WA Aktif</label>
+        <label for="">No WA Aktif Orang Tua</label>
         <input readonly type="text" name="no_wa" class="form-control" value="<?php echo $data->no_wa;?>">
         </div>
-        <div class="form-group">
+        <div class="form-group" hidden>
         <label for="">Foto</label><br>
         <input  type="hidden" name="foto" class="form-control" value="<?php echo $data->foto;?>">
         <img src="<?php echo base_url();?>asset/foto/<?php echo $data->foto;?>" class="border border-dark rounded" width="150px">
         </div>
         <div class="form-group">
-        <label for="">Akte Kelahiran</label><br>
+        <label for="">Surat Keterangan Kurang Mampu</label><br>
         <input  type="hidden" name="akte" class="form-control" value="<?php echo $data->akte;?>">
         <img src="<?php echo base_url();?>asset/akte/<?php echo $data->akte;?>" class="border border-dark rounded" width="150px">
         </div>
         <div class="form-group">
-        <label for="">Bukti Transfer</label><br>
+        <label for="">Sertifikat Prestasi</label><br>
         <input  type="hidden" name="bukti_tf" class="form-control" value="<?php echo $data->bukti_tf;?>">
         <img src="<?php echo base_url();?>asset/buktitf/<?php echo $data->bukti_tf;?>" class="border border-dark rounded" width="150px">
         </div>

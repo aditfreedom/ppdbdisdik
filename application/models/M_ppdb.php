@@ -87,22 +87,22 @@ class M_ppdb extends CI_Model{
     }
 
     public function tampilpensd(){
-        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Peserta Didik Baru SD' ");
+        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Zonasi' ");
         return $query;
     }
 
     public function tampilpensmp(){
-        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Peserta Didik Baru SMP' ");
+        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Afirmasi' ");
         return $query;
     }
 
     public function tampilpensma(){
-        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Peserta Didik Baru SMA' ");
+        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Pindahan Orang Tua' ");
         return $query;
     }
 
     public function tampilpindsd(){
-        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Pindahan SD' ");
+        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Jalur Prestasi' ");
         return $query;
     }
 

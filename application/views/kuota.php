@@ -17,9 +17,9 @@
     </div>
     <!-- /.content-header -->
     <div class="content">
-    <!-- <p align="right">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    <i class="fa fa-plus"></i> Tambah Data</button><br><br></p> -->
+    <!-- <p align="left">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+    <i class="fa fa-plus"></i> Tambah Data</button></p> -->
 
     <table class="table table-hover" id="example">
           <thead class="text-center">
@@ -68,12 +68,10 @@
       <div class="form-group">
         <label for="">Jenis Penerimaan</label>
         <select class="form-control form-control" name="jenis">
-          <option>Peserta Didik Baru SD</option>
-          <option>Peserta Didik Baru SMP</option>
-          <option>Peserta Didik Baru SMA</option>
-          <option>Pindahan SD</option>
-          <option>Pindahan SMP</option>
-          <option>Pindahan SMA</option>
+          <option>Zonasi</option>
+          <option>Afirmasi</option>
+          <option>Pindahan Orang Tua</option>
+          <option>Jalur Prestasi</option>
           </select>
       </div>
         <div class="form-group">

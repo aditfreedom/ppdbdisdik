@@ -11,7 +11,7 @@
     <section class="content">
       <div class="alert alert-danger" role="alert">
         Anda Belum Dapat Cetak Kartu Dikarenakan Status Pendaftaran Formulir Belum Diapprove!
-        <br> Silahkan Hubungi Admin Untuk Approval | <b>085377137849 [Helmiati] atau 085206743404 [Amrul Hakim] (WhatsApp Only)</b>
+        <br> Silahkan Hubungi Admin Sekolah Untuk Approval</b>
       </div>
   
     </section>

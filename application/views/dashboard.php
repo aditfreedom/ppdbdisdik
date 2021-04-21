@@ -8,7 +8,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">PPDB</a></li>
+              <li class="breadcrumb-item"><a href="#">PPDB BIREUEN</a></li>
               <li class="breadcrumb-item active">Beranda</li>
             </ol>
           </div><!-- /.col -->
@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-        <div class="col-lg-4 col-4">
+        <div class="col-lg-3 col-3">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -29,7 +29,7 @@
 	             foreach ($pensd as $data) : ?>
                 <h3><?php echo $data->kuota;?></h3>
                 <?php endforeach ;?>
-                <p>Kuota Penerimaan SD</p>
+                <p>Kuota Zonasi</p>
               </div>
               <div class="icon">
                 <i class="fa fa-user-graduate"></i>
@@ -38,7 +38,7 @@
           </div>
           <!-- ./col -->
 
-        <div class="col-lg-4 col-4">
+        <div class="col-lg-3 col-3">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -47,7 +47,7 @@
                 <h3><?php echo $data->kuota;?></h3>
                 <?php endforeach ;?>
 
-                <p>Kuota Penerimaan SMP</p>
+                <p>Kuota Afirmasi</p>
               </div>
               <div class="icon">
                 <i class="fa fa-user-graduate"></i>
@@ -55,7 +55,7 @@
             </div>
           </div>
           <!-- ./col -->
-        <div class="col-lg-4 col-4">
+        <div class="col-lg-3 col-3">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -65,41 +65,24 @@
                 <?php endforeach ;?>
 
 
-                <p>Kuota Penerimaan SMA</p>
+                <p>Kuota Pindahan Orang Tua</p>
               </div>
               <div class="icon">
                 <i class="fa fa-user-graduate"></i>
               </div>
             </div>
           </div>
-             <!-- ./col -->
-             <div class="col-lg-4 col-4">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php  
-	             foreach ($pindsd as $data) : ?>
-                <h3><?php echo $data->kuota;?></h3>
-                <?php endforeach ;?>
 
-                <p>Kuota pindahan SD</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user-graduate"></i>
-              </div>
-            </div>
-          </div>
                     <!-- ./col -->
-        <div class="col-lg-4 col-4">
+        <div class="col-lg-3 col-3">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
               <?php  
-	             foreach ($pindsmp as $data) : ?>
+	             foreach ($pensma as $data) : ?>
                 <h3><?php echo $data->kuota;?></h3>
                 <?php endforeach ;?>
-
-                <p>Kuota pindahan SMP</p>
+                <p>Kuota Jalur Prestasi</p>
               </div>
               <div class="icon">
                 <i class="fa fa-user-graduate"></i>
@@ -107,172 +90,26 @@
             </div>
           </div>
 
-                       <!-- ./col -->
-        <div class="col-lg-4 col-4">
+          <div class="col-lg-4 col-4">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-dark">
               <div class="inner">
-              <?php  
-	             foreach ($pindsma as $data) : ?>
-                <h3><?php echo $data->kuota;?></h3>
-                <?php endforeach ;?>
-
-                <p>Kuota pindahan SMA</p>
+              <h3><?php echo $hitungsdformulir?></h3>
+                <p>Calon PD Telah Approval</p>
               </div>
               <div class="icon">
-                <i class="fa fa-user-graduate"></i>
+                <i class="fa fa-tasks"></i>
               </div>
             </div>
           </div>
-
+          <!-- ./col -->
 
           <div class="col-lg-4 col-4">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-              <h3><?php echo $hitungsdformulir?></h3>
-                <p>Calon PD SD Telah Bayar Formulir</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-money-check-alt"></i>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
-
-        <div class="col-lg-4 col-4">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-              <h3><?php echo $hitungsmpformulir?></h3>
-
-
-                <p>Calon PD SMP Telah Bayar Formulir</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-money-check-alt"></i>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
-        <div class="col-lg-4 col-4">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-              <h3><?php echo $hitungsmaformulir?></h3>
-
-
-                <p>Calon PD SMA Telah Bayar Formulir</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-money-check-alt"></i>
-              </div>
-            </div>
-          </div>
-             <!-- ./col -->
-             <div class="col-lg-4 col-4">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-              <h3><?php echo $hitungpindsdformulir?></h3>
-
-                <p>Pindahan SD Telah Bayar Formulir</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-money-check-alt"></i>
-              </div>
-            </div>
-          </div>
-                    <!-- ./col -->
-        <div class="col-lg-4 col-4">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-              <h3><?php echo $hitungpindsmpformulir?></h3>
-
-
-                <p>Pindahan SMP Telah Bayar Formulir</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-money-check-alt"></i>
-              </div>
-            </div>
-          </div>
-
-                       <!-- ./col -->
-        <div class="col-lg-4 col-4">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-              <h3><?php echo $hitungpindsmaformulir?></h3>
-
-
-                <p>Pindahan SMA Telah Bayar Formulir</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-money-check-alt"></i>
-              </div>
-            </div>
-          </div>
-          
-          <!-- ./col -->
-          <div class="col-lg-2 col-2">
-            <!-- small box -->
-            <div class="small-box bg-primary">
-              <div class="inner">
-                <h3><?php echo $hitunguser?></h3>
-
-                <p>Jumlah User Terdaftar</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-            </div>
-          </div>
-
-          <!-- ./col -->
-          <div class="col-lg-2 col-2">
-            <!-- small box -->
-            <div class="small-box bg-primary">
-              <div class="inner">
-                <h3><?php echo $hitungformulir?></h3>
-
-                <p>Total Calon PD Bayar Formulir</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-2 col-2">
-            <!-- small box -->
-            <div class="small-box bg-primary">
-              <div class="inner">
-                <h3><?php echo $hitungformulirpindahan?><sup style="font-size: 20px"></sup></h3>
-
-                <p>Total Pindahan Bayar Formulir</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-money-check-alt"></i>
-                
-              </div>
-            </div>
-
-            
-
-            
-
-    
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-3">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
               <h3><?php echo $hitungpdlulus?></h3>
-
-                <p>Jumlah Calon PD Lulus</p><br>
+                <p>Calon PD Yang Lulus</p>
               </div>
               <div class="icon">
                 <i class="fa fa-check"></i>
@@ -280,13 +117,13 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-3">
+
+          <div class="col-lg-4 col-4">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
               <h3><?php echo $hitungpdtidaklulus?></h3>
-
-                <p>Jumlah Calon PD Tidak Lulus</p><br>
+                <p>Calon PD Yang Tidak Lulus</p>
               </div>
               <div class="icon">
                 <i class="fa fa-times"></i>
@@ -294,40 +131,37 @@
             </div>
           </div>
           <!-- ./col -->
-        </div>
 
-        
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
           <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
               <h3><?php echo $hitungpddaftarulang?></h3>
-
-                <p>Jumlah PD Telah Daftar Ulang</p>
+                <p>Calon PD Daftar Ulang</p>
               </div>
               <div class="icon">
-                <i class="fa fa-user-check"></i>
+                <i class="fa fa-times"></i>
               </div>
             </div>
           </div>
+          <!-- ./col -->
 
           <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
               <h3><?php echo $hitungpdtidakdaftarulang?></h3>
-
-                <p>Jumlah PD Tidak Daftar Ulang</p>
+                <p>Calon PD Tidak Daftar Ulang</p>
               </div>
               <div class="icon">
-                <i class="fa fa-user-times"></i>
+                <i class="fa fa-times"></i>
               </div>
             </div>
           </div>
+          <!-- ./col -->
+        
+       
+
           <!-- ./col -->
         </div>
           

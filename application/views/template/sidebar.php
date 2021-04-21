@@ -2,9 +2,9 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="<?php echo base_url()?>logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="<?=base_url()?>assets/img/favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light"><b style="font-size:18px;">PPDB SSB BIREUEN</b></span>
+      <span class="brand-text font-weight-light"><b style="font-size:15px;">PPDB DARING BIREUEN</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -12,10 +12,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?php echo base_url()?>asset/dist/img/adit.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo base_url()?>assets/img/team/team-1.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Halo, <?php echo $username ?>!</a>
+          <a href="#" class="d-block"><?php echo $nama_lengkap ?></a>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
             <a href="<?=base_url('home/kuota');?>" class="nav-link">
               <i class="nav-icon fa fa-tasks"></i>
               <p>
-                Kuota Penerimaan
+                Kuota
               </p>
             </a>
           </li>
@@ -55,45 +55,19 @@
             <a href="<?=base_url('home/approve_lulus');?>" class="nav-link">
               <i class="nav-icon fa fa-check"></i>
               <p>
-                Konfirmasi Kelulusan
+                Approve Kelulusan
               </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a href="<?=base_url('home/approve_daftarulang');?>" class="nav-link">
+            <a href="#" class="nav-link">
+            <!-- <a href="<?=base_url('home/approve_daftarulang');?>" class="nav-link"> -->
               <i class="nav-icon fa fa-user-check"></i>
               <p>
-                Konfirmasi Daftar Ulang
+                Approve Daftar Ulang
               </p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a href="<?=base_url('home/datapengguna');?>" class="nav-link">
-              <i class="nav-icon fa fa-users"></i>
-              <p>
-                Data Pengguna
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item ">
-            <a href="<?=base_url('alur.jpg');?>" class="nav-link" target="_blank">
-              <i class="nav-icon fa fa-download"></i>
-              <p>
-                Alur Pendaftaran
-              </p>
-            </a>
-          </li>
-          
-          <!-- <li class="nav-item ">
-            <a href="<?=base_url('dashboard/datakonsumen');?>" class="nav-link">
-              <i class="nav-icon fa fa-users"></i>
-              <p>
-                Data Konsumen
-              </p>
-            </a> -->
-          </li>         
-
 
           <li class="nav-item">
             <a href="<?= base_url('home/logout')?>" class="nav-link bg-danger">
@@ -103,9 +77,6 @@
               </p>
             </a>
           </li>
-
-         
-
 
         </ul>
       </nav>
