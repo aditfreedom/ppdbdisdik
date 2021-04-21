@@ -201,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
   }
   #header .logo {
-    font-size: 28px;
+    font-size: 20px;
   }
 }
 
@@ -448,14 +448,14 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("../img/hero-bg.jpeg") top left;
+  background: url("../img/hero-bg.jpg") top left;
   background-size: cover;
   position: relative;
 }
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(235, 219, 219, 0.6);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -488,7 +488,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero h2 {
-  color: #555555;
+  color: #202020;
   margin: 5px 0 30px 0;
   font-size: 24px;
   font-weight: 400;
