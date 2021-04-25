@@ -294,7 +294,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
-        Created By <a href="#">Aditya Aziz Fikhri</a>
+        Created By <a href="#">PPDB Team</a>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -339,8 +339,8 @@
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
     // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = "( "+days + " Hari " + hours + " Jam "
-    + minutes + " Menit " + seconds + " Detik )";
+    document.getElementById("demo").innerHTML = "( "+days + " Hari : " + hours + " Jam : "
+    + minutes + " Menit : " + seconds + " Detik )";
  
       
     // If the count down is over, write some text 
