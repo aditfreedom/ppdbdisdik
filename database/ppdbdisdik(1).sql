@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Apr 2021 pada 17.58
--- Versi server: 10.4.18-MariaDB
--- Versi PHP: 7.4.16
+-- Generation Time: Apr 27, 2021 at 06:18 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bentuk_pendidikan`
+-- Table structure for table `bentuk_pendidikan`
 --
 
 CREATE TABLE `bentuk_pendidikan` (
@@ -33,7 +33,7 @@ CREATE TABLE `bentuk_pendidikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `bentuk_pendidikan`
+-- Dumping data for table `bentuk_pendidikan`
 --
 
 INSERT INTO `bentuk_pendidikan` (`id_bentuk_pendidikan`, `nama_bentuk`) VALUES
@@ -95,7 +95,7 @@ INSERT INTO `bentuk_pendidikan` (`id_bentuk_pendidikan`, `nama_bentuk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `daftarulang`
+-- Table structure for table `daftarulang`
 --
 
 CREATE TABLE `daftarulang` (
@@ -162,7 +162,7 @@ CREATE TABLE `daftarulang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `daftarulang`
+-- Dumping data for table `daftarulang`
 --
 
 INSERT INTO `daftarulang` (`id_daftarulang`, `id`, `tingkat`, `nama_lengkap`, `nama_panggilan`, `nisn`, `tpt_lahir`, `tgl_lahir`, `agama`, `suku`, `jk`, `goldar`, `anak_ke`, `dari_saudara`, `alamat`, `jarak`, `desa`, `kecamatan`, `kabupaten`, `provinsi`, `nama_ayah`, `tptlahir_ayah`, `tgllahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `alamat_ayah`, `desa_ayah`, `kecamatan_ayah`, `kabupaten_ayah`, `provinsi_ayah`, `hp_ayah`, `nama_ibu`, `tptlahir_ibu`, `tgllahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `alamat_ibu`, `desa_ibu`, `kecamatan_ibu`, `kabupaten_ibu`, `provinsi_ibu`, `hp_ibu`, `sekolah_asal`, `npsn`, `alamat_sekolah`, `kabupaten_sekolah`, `provinsi_sekolah`, `penyakit`, `olah_raga`, `seni`, `tari`, `lukis`, `drama`, `sastra`, `organisasi`, `prestasi`, `alasan`, `tentang_sekolah`) VALUES
@@ -171,7 +171,7 @@ INSERT INTO `daftarulang` (`id_daftarulang`, `id`, `tingkat`, `nama_lengkap`, `n
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `datasiswa`
+-- Table structure for table `datasiswa`
 --
 
 CREATE TABLE `datasiswa` (
@@ -206,7 +206,7 @@ CREATE TABLE `datasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `datasiswa`
+-- Dumping data for table `datasiswa`
 --
 
 INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_siswa`, `tempat_lahir`, `tanggal_lahir`, `jk`, `nik`, `nisn`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `nama_dusun`, `nama_ibu_kandung`, `pekerjaan_ibu_kandung`, `penghasilan_ibu_kandung`, `nama_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nama_wali`, `pekerjaan_wali`, `penghasilan_wali`, `kebutuhan_khusus`, `no_kip`, `no_pkh`, `lintang`, `bujur`) VALUES
@@ -8667,7 +8667,7 @@ INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_desa`
+-- Table structure for table `data_desa`
 --
 
 CREATE TABLE `data_desa` (
@@ -8677,7 +8677,7 @@ CREATE TABLE `data_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `data_desa`
+-- Dumping data for table `data_desa`
 --
 
 INSERT INTO `data_desa` (`id_desa`, `kode_wilayah`, `nama_desa`) VALUES
@@ -9440,7 +9440,7 @@ INSERT INTO `data_desa` (`id_desa`, `kode_wilayah`, `nama_desa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_sd`
+-- Table structure for table `data_sd`
 --
 
 CREATE TABLE `data_sd` (
@@ -9459,7 +9459,7 @@ CREATE TABLE `data_sd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `data_sd`
+-- Dumping data for table `data_sd`
 --
 
 INSERT INTO `data_sd` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `bentuk_pendidikan`, `status_sekolah`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `lintang`, `bujur`) VALUES
@@ -9756,7 +9756,7 @@ INSERT INTO `data_sd` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `be
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_smp`
+-- Table structure for table `data_smp`
 --
 
 CREATE TABLE `data_smp` (
@@ -9775,7 +9775,7 @@ CREATE TABLE `data_smp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `data_smp`
+-- Dumping data for table `data_smp`
 --
 
 INSERT INTO `data_smp` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `bentuk_pendidikan`, `status_sekolah`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `lintang`, `bujur`) VALUES
@@ -9876,7 +9876,7 @@ INSERT INTO `data_smp` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `b
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_wilayah`
+-- Table structure for table `data_wilayah`
 --
 
 CREATE TABLE `data_wilayah` (
@@ -9886,7 +9886,7 @@ CREATE TABLE `data_wilayah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `data_wilayah`
+-- Dumping data for table `data_wilayah`
 --
 
 INSERT INTO `data_wilayah` (`kode_wilayah`, `nama_wilayah`, `id_level`) VALUES
@@ -9912,7 +9912,7 @@ INSERT INTO `data_wilayah` (`kode_wilayah`, `nama_wilayah`, `id_level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kuota`
+-- Table structure for table `kuota`
 --
 
 CREATE TABLE `kuota` (
@@ -9923,7 +9923,7 @@ CREATE TABLE `kuota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `kuota`
+-- Dumping data for table `kuota`
 --
 
 INSERT INTO `kuota` (`id`, `jenis`, `kuota`, `keterangan`) VALUES
@@ -9935,7 +9935,7 @@ INSERT INTO `kuota` (`id`, `jenis`, `kuota`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengguna`
+-- Table structure for table `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -9951,7 +9951,7 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pengguna`
+-- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`id`, `id_pesertadidik`, `username`, `password`, `role`, `approve_formulir`, `approve_lulus`, `approve_daftarulang`, `status`) VALUES
@@ -9961,11 +9961,12 @@ INSERT INTO `pengguna` (`id`, `id_pesertadidik`, `username`, `password`, `role`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `zonasi`
+-- Table structure for table `zonasi`
 --
 
 CREATE TABLE `zonasi` (
   `id_zonasi` int(255) NOT NULL,
+  `id_pesertadidik` varchar(255) NOT NULL,
   `jenis_pendaftaran` varchar(50) NOT NULL,
   `id_desa` varchar(255) NOT NULL,
   `kode_wilayah` varchar(20) NOT NULL,
@@ -9977,95 +9978,95 @@ CREATE TABLE `zonasi` (
 --
 
 --
--- Indeks untuk tabel `bentuk_pendidikan`
+-- Indexes for table `bentuk_pendidikan`
 --
 ALTER TABLE `bentuk_pendidikan`
   ADD PRIMARY KEY (`id_bentuk_pendidikan`);
 
 --
--- Indeks untuk tabel `daftarulang`
+-- Indexes for table `daftarulang`
 --
 ALTER TABLE `daftarulang`
   ADD PRIMARY KEY (`id_daftarulang`);
 
 --
--- Indeks untuk tabel `datasiswa`
+-- Indexes for table `datasiswa`
 --
 ALTER TABLE `datasiswa`
   ADD PRIMARY KEY (`id_pesertadidik`);
 
 --
--- Indeks untuk tabel `data_desa`
+-- Indexes for table `data_desa`
 --
 ALTER TABLE `data_desa`
   ADD PRIMARY KEY (`id_desa`);
 
 --
--- Indeks untuk tabel `data_sd`
+-- Indexes for table `data_sd`
 --
 ALTER TABLE `data_sd`
   ADD PRIMARY KEY (`id_sekolah`);
 
 --
--- Indeks untuk tabel `data_smp`
+-- Indexes for table `data_smp`
 --
 ALTER TABLE `data_smp`
   ADD PRIMARY KEY (`id_sekolah`);
 
 --
--- Indeks untuk tabel `data_wilayah`
+-- Indexes for table `data_wilayah`
 --
 ALTER TABLE `data_wilayah`
   ADD PRIMARY KEY (`kode_wilayah`);
 
 --
--- Indeks untuk tabel `kuota`
+-- Indexes for table `kuota`
 --
 ALTER TABLE `kuota`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pengguna`
+-- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `zonasi`
+-- Indexes for table `zonasi`
 --
 ALTER TABLE `zonasi`
   ADD PRIMARY KEY (`id_zonasi`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `daftarulang`
+-- AUTO_INCREMENT for table `daftarulang`
 --
 ALTER TABLE `daftarulang`
   MODIFY `id_daftarulang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `data_desa`
+-- AUTO_INCREMENT for table `data_desa`
 --
 ALTER TABLE `data_desa`
   MODIFY `id_desa` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1025;
 
 --
--- AUTO_INCREMENT untuk tabel `kuota`
+-- AUTO_INCREMENT for table `kuota`
 --
 ALTER TABLE `kuota`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `pengguna`
+-- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT untuk tabel `zonasi`
+-- AUTO_INCREMENT for table `zonasi`
 --
 ALTER TABLE `zonasi`
   MODIFY `id_zonasi` int(255) NOT NULL AUTO_INCREMENT;
