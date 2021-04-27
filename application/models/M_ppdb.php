@@ -10,8 +10,13 @@ class M_ppdb extends CI_Model{
         return $this->db->query("SELECT * FROM pengguna WHERE NOT role='0' ");
      }
 
-     public function tampildatapengguna1($username){
-        $result = $this->db->query("SELECT * FROM pengguna WHERE username='$username'");
+     public function tampilsiswa($nisn){
+        return $this->db->query("SELECT * FROM datasiswa LEFT JOIN data_sd ON
+        datasiswa.id_sekolah = data_sd.id_sekolah WHERE nisn='$nisn' OR nik='$nisn'");
+     }
+
+     public function tampildatapengguna1($username,$password){
+        $result = $this->db->query("SELECT * FROM pengguna WHERE username='$username' AND password='$password'");
         return $result->num_rows();
 
      }

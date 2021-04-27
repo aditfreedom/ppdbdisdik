@@ -27,18 +27,19 @@
 
             <?php echo form_open('hal/login_aksi');?>
               <div class="form-label-group">
-                <input  name="username" id="inputEmail" class="form-control" placeholder="NIK" required autofocus>
-                <label for="inputEmail">NIK</label>
+                <input  name="username" id="inputEmail" class="form-control" placeholder="NIK/USERNAME" required autofocus>
+                <label for="inputEmail">NIK/USERNAME</label>
               </div>
 
               <div class="form-label-group">
-                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="NISN" required>
-                <label for="inputPassword">NISN</label>
+                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="NISN/PASSWORD" required>
+                <label for="inputPassword">NISN/PASSWORD</label>
               </div>
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold rounded-pill" type="submit"><b>Login</b></button>
               <hr class="my-4">
               <?php echo form_close();?>
+              <a href="#" class="btn btn-lg btn-danger btn-block text-uppercase rounded-pill"><b>Lupa Password</b></a>
             </div>
         </div>
       </div>

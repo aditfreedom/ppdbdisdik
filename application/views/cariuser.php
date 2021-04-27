@@ -59,8 +59,6 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="<?=base_url()?>hal/login">PENDAFTARAN NON DAPODIK</a></li>
-          <li><a href="<?=base_url()?>hal/login">LOGIN</a></li>
-
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -69,22 +67,59 @@
   
     <div class="container text-center">
     <br>
-<h3 class="text-dark" style="margin-top:10px;">REGISTRASI PENGGUNA<br>CALON PESERTA DIDIK BARU<br>DISDIKBUD KAB. BIREUEN TA.2021/2022</h3>
+<h2 class="text-dark" style="margin-top:10px;">FORM<br>REGISTRASI PENGGUNA</h2>
 <hr>
 </div>
 <br>
+
     <div class="container">
-    <a href="#" class="btn btn-danger rounded-pill"><b>ISI DATA UNTUK PEMBUATAN AKUN</b></a><br><br>
-    <form action="<?=base_url('hal/cariuser')?>" method="get">
-    <div class="form-group">
-        <label for=""><b>NISN/NIK</b></label>
-        <input type="text" name="nisn" class="form-control" placeholder="Isi NISN atau NIK" maxlength="16" required>
-        </div>       
-        <button type="submit" class="btn btn-primary font-weight-bold" style="width:100%;">CARI DATA</button>
-      </div>
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>DATA DITEMUKAN</b></a><br><br>
+    <?php foreach ($cariuser as $data) : ?>
+    <form action="<?=base_url('hal/tambahuser')?>" method="get">
+
+    <div class="row">
+    <div class="col">
+    <div class="container">
+        <div class="form-group">
+        <label for=""><b>NAMA CALON PESERTA DIDIK : </b></label>
+        <h2 class="text-uppercase"><?php echo $data->nama_siswa;?></h2>
+        </div>  
+
+        <div class="form-group">
+        <label for=""><b>ASAL SEKOLAH</b></label>
+        <h2><?php echo $data->nama_sekolah;?></h2>
+        </div>  
+
+        <div class="form-group">
+        <label for=""><b>NPSN :</b></label>
+        <h2 class="text-uppercase"><?php echo $data->npsn;?></h2>
+        </div>  
+        </div>    
+        </div>
+
+    <div class="col">
+    <a href="#" class="btn btn-info rounded-pill text-left" style="width:100%"><b>INFORMASI AKUN</b></a><br><br>
+        <div class="container">
+        <div class="form-group">
+        <label for=""><b>NIK :</b></label>
+        <input type="text" name="nik" class="form-control" maxlength="16" value="<?php echo $data->nik;?>" required>
+        </div>  
+
+        <div class="form-group">
+        <label for=""><b>NISN :</b></label>
+        <input type="text" name="nisn" class="form-control" maxlength="10" value="<?php echo $data->nisn;?>" required>
+        </div>  
+        <div class="form-group" hidden>
+        <label for=""><b>id</b></label>
+        <input type="text" name="hsh" class="form-control" value="<?php echo $data->id_pesertadidik;?>" required>
+        </div>  
+        </div>    
+        </div>
+  </div>
+        <button type="submit" class="btn btn-primary font-weight-bold" style="width:100%;">BUAT AKUN</button><br><br>
         </form>
 
-<br>
+    <?php endforeach ;?>
     </div>
 
 

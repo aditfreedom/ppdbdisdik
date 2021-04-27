@@ -63,12 +63,12 @@ class Hal extends CI_Controller {
  
                 //  redirect(base_url('home'));
 
-                 if ($sess_data['role'] == 0){
+                 if ($sess_data['role'] == 1){
                     $this->session->set_userdata($sess_data); 
                      redirect(base_url('home')); 
                  }
 
-                 else if ($sess_data['role'] == 1){
+                 else if ($sess_data['role'] == 2){
                     $this->session->set_userdata($sess_data); 
                     redirect(base_url('user')); 
                  }
@@ -92,52 +92,44 @@ class Hal extends CI_Controller {
 	}
 
     public function tambahuser(){
-		$nama_lengkap       = $this->input->post('nama_lengkap');
-		$sekolah_asal       = $this->input->post('sekolah_asal');
-		$jenis    		    = $this->input->post('jenis');
-		$username           = $this->input->post('username');
-		$password           = $this->input->post('password');
-		$status             = $this->input->post('status');
+		$id_pesertadidik       = $this->input->get('hsh');
+		$username           = $this->input->get('nik');
+		$password           = $this->input->get('nisn');
 	
 		
 		$data = array(
-			'nama_lengkap' => $nama_lengkap,
-			'sekolah_asal' => $sekolah_asal,
-			'nisn' => "0",
-			'alamat' => "",
-			'no_hp' => "",
-			'bukti_tf' => "",
-			'jenis' => $jenis,
-			'foto' => "Foto",
-            'bukti_tf' => "",
-            'tptlahir' => "",
-            'tgllahir' => "",
-            'namaayah' => "",
-            'namaibu' => "",
-            'no_wa' => "",
-            'akte' => "",
+			'id_pesertadidik' => $id_pesertadidik,
 			'username' => $username,
 			'password' => $password,
-			'role' => "1",
+			'role' => "2",
 			'approve_formulir' 	=> "Antrian",
 			'approve_lulus' 	=> "Antrian",
-			'approve_daftarulang' => "Antrian",
-
-
-
+			'approve_daftarulang' => "Antrian"
 		);
 
-		$hitungusername= $this->M_ppdb->tampildatapengguna1($username);
+		$hitungusername= $this->M_ppdb->tampildatapengguna1($username,$password);
 
 		if ($hitungusername >=1) {
-			$this->load->view('username_gagal');    
+			$this->load->view('username_gagal');   
+            $this->load->view('registrasi');     
 		}else{
 			$this->M_ppdb->tambahuser($data,'pengguna');
 			$this->load->view('status');    
-			// redirect(base_url('home/registrasi'));
+            $this->load->view('login');     
 		}
 		
 
 	}
+
+    public function cariuser(){
+		$nisn       = $this->input->get('nisn');
+        $data['cariuser'] = $this->M_ppdb->tampilsiswa($nisn,'datasiswa')->result();
+        $this->load->view('cariuser',$data);
+
+
+		
+
+	}
+
 
 }

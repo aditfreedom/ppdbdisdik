@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2021 at 05:55 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- Waktu pembuatan: 27 Apr 2021 pada 08.41
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bentuk_pendidikan`
+-- Struktur dari tabel `bentuk_pendidikan`
 --
 
 CREATE TABLE `bentuk_pendidikan` (
@@ -33,7 +33,7 @@ CREATE TABLE `bentuk_pendidikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `bentuk_pendidikan`
+-- Dumping data untuk tabel `bentuk_pendidikan`
 --
 
 INSERT INTO `bentuk_pendidikan` (`id_bentuk_pendidikan`, `nama_bentuk`) VALUES
@@ -95,7 +95,7 @@ INSERT INTO `bentuk_pendidikan` (`id_bentuk_pendidikan`, `nama_bentuk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `daftarulang`
+-- Struktur dari tabel `daftarulang`
 --
 
 CREATE TABLE `daftarulang` (
@@ -162,7 +162,7 @@ CREATE TABLE `daftarulang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `daftarulang`
+-- Dumping data untuk tabel `daftarulang`
 --
 
 INSERT INTO `daftarulang` (`id_daftarulang`, `id`, `tingkat`, `nama_lengkap`, `nama_panggilan`, `nisn`, `tpt_lahir`, `tgl_lahir`, `agama`, `suku`, `jk`, `goldar`, `anak_ke`, `dari_saudara`, `alamat`, `jarak`, `desa`, `kecamatan`, `kabupaten`, `provinsi`, `nama_ayah`, `tptlahir_ayah`, `tgllahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `alamat_ayah`, `desa_ayah`, `kecamatan_ayah`, `kabupaten_ayah`, `provinsi_ayah`, `hp_ayah`, `nama_ibu`, `tptlahir_ibu`, `tgllahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `alamat_ibu`, `desa_ibu`, `kecamatan_ibu`, `kabupaten_ibu`, `provinsi_ibu`, `hp_ibu`, `sekolah_asal`, `npsn`, `alamat_sekolah`, `kabupaten_sekolah`, `provinsi_sekolah`, `penyakit`, `olah_raga`, `seni`, `tari`, `lukis`, `drama`, `sastra`, `organisasi`, `prestasi`, `alasan`, `tentang_sekolah`) VALUES
@@ -171,7 +171,7 @@ INSERT INTO `daftarulang` (`id_daftarulang`, `id`, `tingkat`, `nama_lengkap`, `n
 -- --------------------------------------------------------
 
 --
--- Table structure for table `datasiswa`
+-- Struktur dari tabel `datasiswa`
 --
 
 CREATE TABLE `datasiswa` (
@@ -206,7 +206,7 @@ CREATE TABLE `datasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `datasiswa`
+-- Dumping data untuk tabel `datasiswa`
 --
 
 INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_siswa`, `tempat_lahir`, `tanggal_lahir`, `jk`, `nik`, `nisn`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `nama_dusun`, `nama_ibu_kandung`, `pekerjaan_ibu_kandung`, `penghasilan_ibu_kandung`, `nama_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nama_wali`, `pekerjaan_wali`, `penghasilan_wali`, `kebutuhan_khusus`, `no_kip`, `no_pkh`, `lintang`, `bujur`) VALUES
@@ -8666,7 +8666,780 @@ INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_sd`
+-- Struktur dari tabel `data_desa`
+--
+
+CREATE TABLE `data_desa` (
+  `id_desa` int(255) NOT NULL,
+  `kode_wilayah` varchar(10) NOT NULL,
+  `nama_desa` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `data_desa`
+--
+
+INSERT INTO `data_desa` (`id_desa`, `kode_wilayah`, `nama_desa`) VALUES
+(3, '061210', 'Lhok Mambang'),
+(4, '061210', 'Blang Keude'),
+(5, '061210', 'Keude Lapang'),
+(6, '061210', 'Lingka Kuta'),
+(7, '061210', 'Lapang Barat'),
+(8, '061210', 'Alue Mangki'),
+(9, '061210', 'Ie Rhob'),
+(10, '061210', 'Ceubo'),
+(11, '061210', 'Teupin Siron'),
+(12, '061210', 'Lapang Timu'),
+(13, '061210', 'Cot Jabet'),
+(14, '061210', 'Paloh Me'),
+(15, '061210', 'Geurugok'),
+(16, '061210', 'Cot Puuk'),
+(17, '061210', 'Cot Tufah'),
+(18, '061210', 'Samuti Makmur'),
+(19, '061210', 'Samuti Rayeuk '),
+(20, '061210', 'Samuti Aman'),
+(21, '061210', 'Samuti Krueng'),
+(22, '061210', 'Cot Mane'),
+(23, '061210', 'Blang Rheue'),
+(24, '061210', 'Monjambee'),
+(25, '061210', 'Monkeulayu'),
+(26, '061210', 'Tanjong Bungong'),
+(27, '061210', 'Cot Tubee'),
+(28, '061210', 'Paloh Me'),
+(29, '061210', 'Blang Kubu'),
+(30, '061210', 'Pulo Gisa'),
+(31, '061210', 'Tanjong Mesjid'),
+(32, '061210', 'Ujong Bayu'),
+(33, '061210', 'Cot Rambat'),
+(34, '061210', 'Tanjong Raya'),
+(35, '061210', 'Mon Jeureujak'),
+(36, '061210', 'Damakawan'),
+(37, '061210', 'Ujong Bayu'),
+(38, '061210', 'Tanjong Mesjid'),
+(39, '061210', 'Paya Baro'),
+(40, '061207', 'Linggong'),
+(41, '061207', 'Alue Buya'),
+(42, '061207', 'Tanoh Anoe'),
+(43, '061207', 'Abeuk Jaloh'),
+(44, '061207', 'Pulo Reudeup'),
+(45, '061207', 'Pulo Seuna'),
+(46, '061207', 'Pulon Iboih'),
+(47, '061207', 'Pulo Blang'),
+(48, '061207', 'Lhok Bugeng'),
+(49, '061207', 'Linggong'),
+(50, '061207', 'Lampoh Rayok'),
+(51, '061207', 'Alue Buya'),
+(52, '061207', 'Alue Buya'),
+(53, '061207', 'Pasi'),
+(54, '061207', 'Tanoh Anoe'),
+(55, '061207', 'Pulo U'),
+(56, '061207', 'Abeuk'),
+(57, '061207', 'Jangka Alue Bie'),
+(58, '061207', 'Alue Buya Pasi'),
+(59, '061207', 'Jangka Alue U'),
+(60, '061207', 'Jangka Alue, '),
+(61, '061207', 'Jangka Mesjid'),
+(62, '061207', 'Jangka Keutapang'),
+(63, '061207', 'Paya Bieng'),
+(64, '061207', 'Bada Barat'),
+(65, '061207', 'Pante Ranup'),
+(66, '061207', 'Pante Peusangan'),
+(67, '061207', 'Kambuk'),
+(68, '061207', 'Meunasah Krueng'),
+(69, '061207', 'Lamkuta'),
+(70, '061207', 'Geundot'),
+(71, '061207', 'Gampong Meulinteung'),
+(72, '061207', 'Lampoh Raye'),
+(73, '061207', 'Tanoh Anoe'),
+(74, '061207', 'Linggong'),
+(75, '061207', 'Tanjongan'),
+(76, '061207', 'Pante Paku'),
+(77, '061207', 'Pante Ranup'),
+(78, '061207', 'Pante Sukon'),
+(79, '061207', 'Pante Peusangan'),
+(80, '061207', 'Bugak Blang'),
+(81, '061207', 'Bugak Krueng'),
+(82, '061207', 'Bugak Mesjid'),
+(83, '061207', 'Bugak Krueng Mate'),
+(84, '061207', 'Bugeng'),
+(85, '061207', 'Punjot'),
+(86, '061207', 'Pulo'),
+(87, '061207', 'Pineung Mns Dua'),
+(88, '061207', 'Ulee Ceu'),
+(89, '061207', 'Alue Kuta'),
+(90, '061207', 'Alue Bayeu Utang'),
+(91, '061207', 'Kuala Ceurape'),
+(92, '061207', 'Bada Timu'),
+(93, '061207', 'Bada Barat'),
+(94, '061207', 'Kambuk'),
+(95, '061207', 'Jarommah Baroh'),
+(96, '061207', 'Jarommah Mee'),
+(97, '061207', 'Cot Ara'),
+(98, '061207', 'Pulo Pisang'),
+(99, '061207', 'Asam Bideuen'),
+(100, '061207', 'Paya Bieng'),
+(101, '061207', 'Alue Bayeu Utang'),
+(102, '061207', 'Alue Kuta'),
+(103, '061207', 'Kuala Ceurape'),
+(104, '061206', 'Blang Cot Baroh'),
+(105, '061206', 'Blang Cot Tunong'),
+(106, '061206', 'Blang Bladeh'),
+(107, '061206', 'Blang Rheum'),
+(108, '061206', 'Blang Seunong'),
+(109, '061206', 'Cot Iboeh Timu'),
+(110, '061206', 'Cot Iboih (Cot Iboh)'),
+(111, '061206', 'Cot Keutapang'),
+(112, '061206', 'Cot Leusong'),
+(113, '061206', 'Cot Tarom Baroh'),
+(114, '061206', 'Cot Tarom Tunong'),
+(115, '061206', 'Cot Ulim'),
+(116, '061206', 'Geudong Tampu'),
+(117, '061206', 'Gleumpang Payong'),
+(118, '061206', 'Paloh Panyang'),
+(119, '061206', 'Seulembah'),
+(120, '061206', 'Seuneobok Lhong'),
+(121, '061206', 'Cot Trieng'),
+(122, '061206', 'Geudong Tampu'),
+(123, '061206', 'Lipah Cut'),
+(124, '061206', 'Beurawang'),
+(125, '061206', 'Krueng Juli Timu'),
+(126, '061206', 'Krueng Juli Barat'),
+(127, '061206', 'Cot Trieng'),
+(128, '061206', 'Cot Unoe'),
+(129, '061206', 'Teupok Tunong'),
+(130, '061206', 'Teupok Baroh'),
+(131, '061206', 'Pulo Lawang'),
+(132, '061206', 'Paloh Seulimeng'),
+(133, '061206', 'Abeuk Usong'),
+(134, '061206', 'Cot Bada'),
+(135, '061206', 'Cot Gadong'),
+(136, '061206', 'Kuala Jeumpa'),
+(137, '061206', 'Blang Dalam'),
+(138, '061206', 'Blang Bladeh'),
+(139, '061206', 'Blang Mee'),
+(140, '061206', 'Cot Ulim'),
+(141, '061206', 'Mon Mane'),
+(142, '061206', 'Lipah Rayeuk'),
+(143, '061206', 'Lipah Cut'),
+(144, '061206', 'Cot Geurundong'),
+(145, '061206', 'Batee Timoh'),
+(146, '061206', 'Mon Jambee'),
+(147, '061206', 'Geulumpang Payong'),
+(148, '061206', 'Laksamana'),
+(149, '061206', 'Blang Dalam'),
+(150, '061206', 'Blang Bladeh'),
+(151, '061206', 'Beurawang'),
+(152, '061206', 'Seulembah'),
+(153, '061206', 'Kuala Jeumpa'),
+(154, '061206', 'Cot Tarom Baroh'),
+(155, '061206', 'Cot Tarom Tunong'),
+(156, '061206', 'Blang Cot Baroh'),
+(157, '061206', 'Blang Cot Tunong.'),
+(158, '061206', 'Abeuk Tingkeum'),
+(159, '061206', 'Abeuk Usong'),
+(160, '061206', 'Mon Mane'),
+(161, '061206', 'Blang Gandai'),
+(162, '061206', 'Blang Mee'),
+(163, '061206', 'Blang Seupeung'),
+(164, '061206', 'Cot Iboih'),
+(165, '061206', 'Cot Meugo'),
+(166, '061206', 'Cot Ulim'),
+(167, '061203', 'Desa Cot Geulumpang Baroh'),
+(168, '061203', 'Desa Cot Geulumpang Tunong'),
+(169, '061203', 'Desa Blang Mee Barat'),
+(170, '061203', 'Desa Keudee Jeunieb'),
+(171, '061203', 'Desa Matang Nibong'),
+(172, '061203', 'Desa Matang Teungoh'),
+(173, '061203', 'Desa Matang Bangka'),
+(174, '061203', 'Desa Janggot Seungko'),
+(175, '061203', 'Desa Ulee Rabo'),
+(176, '061203', 'Desa Mns Dayah'),
+(177, '061203', 'Desa Lhung Teungoh'),
+(178, '061203', 'Desa Blang Mee Timu'),
+(179, '061203', 'Desa Teupin Keupula'),
+(180, '061203', 'Desa Dayah Baro'),
+(181, '061203', 'Desa Blang Lancang'),
+(182, '061203', 'Desa Mns Blang'),
+(183, '061203', 'Desa Lancang'),
+(184, '061203', 'Desa Kota Jeunieb'),
+(185, '061203', 'Desa Blang Ralee'),
+(186, '061203', 'Desa Lampoh Oe'),
+(187, '061203', 'Desa Lhee Simpang'),
+(188, '061203', 'Desa Tufah'),
+(189, '061203', 'Desa Pulo Rangkileh'),
+(190, '061203', 'Desa Sampo Ajad'),
+(191, '061203', 'Desa Darul Aman'),
+(192, '061203', 'Desa Lhok Kulam'),
+(193, '061203', 'Desa Ule Blang'),
+(194, '061203', 'Desa Uten Pupaleh'),
+(195, '061203', 'Desa Blangneubok'),
+(196, '061203', 'Desa Paya Bilie'),
+(197, '061203', 'Desa Tanjong bungong'),
+(198, '061203', 'Desa Garab '),
+(199, '061203', 'Desa Meunasah Tambo'),
+(200, '061203', 'Desa Meunasah Keupula'),
+(201, '061203', 'Desa Meunasah Tunong Lueng'),
+(202, '061203', 'Desa Meunasah Lueng'),
+(203, '061203', 'Desa Meunasah Alue'),
+(204, '061203', 'Desa Ulee Gajah'),
+(205, '061203', 'Desa Blang Poroh'),
+(206, '061203', 'Desa Alue Lamsaba'),
+(207, '061203', 'Desa Jeumpa Sikureng'),
+(208, '061203', 'Desa Lheu Barat'),
+(209, '061205', 'Juli Mee Teungoh'),
+(210, '061205', 'Juli Meunasah Teungoh'),
+(211, '061205', 'Juli Teungku Dilampoh'),
+(212, '061205', 'Juli Seupeng/Lampoh'),
+(213, '061205', 'Blang Keutumba'),
+(214, '061205', 'Geulumpang Meujim-Jim'),
+(215, '061205', 'Seneubok Gunci'),
+(216, '061205', 'Juli Keude Dua'),
+(217, '061205', 'Juli Tambo Tanjong'),
+(218, '061205', 'Juli Meunasah Jok'),
+(219, '061205', 'Paseh'),
+(220, '061205', 'Abeuk Budi'),
+(221, '061205', 'Alue Unou/Unoe'),
+(222, '061205', 'Batee Raya'),
+(223, '061205', 'Juli Meunsah Tambo'),
+(224, '061205', 'Juli Seutuy'),
+(225, '061205', 'Mane Meujingki'),
+(226, '061205', 'Seneubok Peuraden'),
+(227, '061205', 'Juli Cot Mesjid'),
+(228, '061205', 'Pante Baro'),
+(229, '061205', 'Juli Uruk Anoe'),
+(230, '061205', 'Blang Tingkeum'),
+(231, '061205', 'Juli Payaru'),
+(232, '061205', 'Juli Cot Mesjid'),
+(233, '061205', 'Juli Cot Meurak'),
+(234, '061205', 'Juli Paseh'),
+(235, '061205', 'Juli Seutuy'),
+(236, '061205', 'Bunyot'),
+(237, '061205', 'Paya Cut'),
+(238, '061205', 'Balee Panah'),
+(239, '061205', 'Kubang Hitam'),
+(240, '061205', 'Seuneubok Dalam'),
+(241, '061205', 'Teupin Mane'),
+(242, '061205', 'Buket Mulia'),
+(243, '061205', 'Krueng Simpo'),
+(244, '061205', 'Ranto Panyang'),
+(245, '061205', 'Alue Rambong'),
+(246, '061205', 'Buket Mulia.'),
+(247, '061205', 'Simpang Jaya'),
+(248, '061205', 'Simpang Mulia'),
+(249, '061205', 'Alue Limeng'),
+(250, '061205', 'Salah Sirong Jaya'),
+(251, '061205', 'Bivak'),
+(252, '061205', 'Blang Rheu'),
+(253, '061205', 'Suka Tani'),
+(254, '061205', 'Pante Peusangan'),
+(255, '061213', 'Pulo Kiton'),
+(256, '061213', 'Gampong Baro'),
+(257, '061213', 'Geudong Gedong'),
+(258, '061213', 'Geudong Alue'),
+(259, '061213', 'Bandar Bireuen'),
+(260, '061213', 'Pulo Ara Geudong Teungoh'),
+(261, '061213', 'Bireuen Meunasah Dayah'),
+(262, '061213', 'Bireuen Meunasah Capa'),
+(263, '061213', 'Bireuen Meunasah Tgk Digadong'),
+(264, '061213', 'Geulanggang Gampong'),
+(265, '061213', 'Geulanggang Teungoh'),
+(266, '061213', 'Geulanggang Kulam'),
+(267, '061213', 'Cot Gapu'),
+(268, '061213', 'Cot Glumpang Tunong'),
+(269, '061213', 'Geulanggang Teungoh'),
+(270, '061213', 'Geulanggang Kulam'),
+(271, '061213', 'Geulanggang Gampong'),
+(272, '061213', 'Pulo Ara Geudong Teungoh'),
+(273, '061213', 'Pulo Ara Geudong Teungoh'),
+(274, '061213', 'Geulanggang Baro'),
+(275, '061213', 'Blang Reuling'),
+(276, '061213', 'Buket Teukuh'),
+(277, '061213', 'Bireuen Meunasah Blang'),
+(278, '061213', 'Bireuen Meunasah Capa'),
+(279, '061213', 'Bireuen Meunasah Dayah'),
+(280, '061213', 'Bireuen Meunasah Reulet'),
+(281, '061213', 'Bireuen Meunasah Tgk Digadong'),
+(282, '061213', 'Lhok Awe Teungoh'),
+(283, '061213', 'Pulo Kiton'),
+(284, '061213', 'Geudong Alue'),
+(285, '061213', 'Gampong Baro'),
+(286, '061213', 'Cot Jrat'),
+(287, '061213', 'Cot Putek'),
+(288, '061213', 'Buket Teukuh'),
+(289, '061213', 'Geulanggang Baro'),
+(290, '061213', 'Geulanggang Gampong'),
+(291, '061213', 'Pulo Ara Geudong Teungoh'),
+(292, '061213', 'Cot Gapu'),
+(293, '061213', 'Uteuen Reutoh'),
+(294, '061214', 'Cot Kuta'),
+(295, '061214', 'Cot Kuta'),
+(296, '061214', 'Kuta Baro'),
+(297, '061214', 'Lhok Awe-Awe'),
+(298, '061214', 'Ujong Blang'),
+(299, '061214', 'Kuala Raja'),
+(300, '061214', 'Ujong Blang Mesjid'),
+(301, '061214', 'Weu Jangka'),
+(302, '061214', 'Cot Batee'),
+(303, '061214', 'Cot Tarom Baroh'),
+(304, '061214', 'Bale Kuyun'),
+(305, '061214', 'Cot Batee'),
+(306, '061214', 'Cot Glumpang'),
+(307, '061214', 'Cot Kuta'),
+(308, '061214', 'Cot Laga Sawa'),
+(309, '061214', 'Cot Trieng'),
+(310, '061214', 'Cot U Sibak'),
+(311, '061214', 'Cot Unoe'),
+(312, '061214', 'Glumpang Baroh'),
+(313, '061214', 'Kareung'),
+(314, '061214', 'Krueng Juli Barat'),
+(315, '061214', 'Krueng Juli Timu'),
+(316, '061214', 'Kuala Raja'),
+(317, '061214', 'Kuta Baro'),
+(318, '061214', 'Lancok Lancok'),
+(319, '061214', 'Lancok Pante Ara'),
+(320, '061214', 'Lhok Awe Awe'),
+(321, '061214', 'Ujong Blang'),
+(322, '061214', 'Ujong Blang Mesjid'),
+(323, '061214', 'Weu Jangka'),
+(324, '061214', 'Pulo Naleung'),
+(325, '061217', 'Pulo Nga'),
+(326, '061217', 'Tingkeum Manyang'),
+(327, '061217', 'Ulee Pusong'),
+(328, '061217', 'Blang Mee'),
+(329, '061217', 'Blang Panjoe'),
+(330, '061217', 'Kulu'),
+(331, '061217', 'Kulu Kuta'),
+(332, '061217', 'Cot Baroh '),
+(333, '061217', 'Cot Tunong'),
+(334, '061217', 'Paya Rangkuluh'),
+(335, '061217', 'Gle Putoh'),
+(336, '061217', 'Balee Me'),
+(337, '061217', 'Babah Suak'),
+(338, '061217', 'Cot Mee'),
+(339, '061217', 'Paloh Peuradi'),
+(340, '061217', 'Paloh Dama'),
+(341, '061217', 'Babah Jurong'),
+(342, '061217', 'Imbudee'),
+(343, '061217', 'Meuse'),
+(344, '061217', 'Dayah Panjoe'),
+(345, '061217', 'Pulo Reudeup'),
+(346, '061217', 'Keude Tanjong'),
+(347, '061217', 'Geulanggang Meunje'),
+(348, '061217', 'Geulanggan Panah'),
+(349, '061217', 'Pulo Blang'),
+(350, '061217', 'Meunasah Rayeuk'),
+(351, '061217', 'Tanjong Paya'),
+(352, '061217', 'Lhok Nga'),
+(353, '061217', 'Pulo U Baroe'),
+(354, '061217', 'Pulo U'),
+(355, '061217', 'Tanjong Nie'),
+(356, '061217', 'Asan Biduen'),
+(357, '061217', 'Blang Panjoe'),
+(358, '061217', 'Kulu'),
+(359, '061217', 'Tingkeum Baroe'),
+(360, '061217', 'Tanjong Mesjid'),
+(361, '061217', 'Jarommah Me'),
+(362, '061217', 'Jarommah Baro'),
+(363, '061217', 'Pante Pisang'),
+(364, '061217', 'Blang Cut'),
+(365, '061217', 'Pante Cut'),
+(366, '061217', 'Bayu'),
+(367, '061217', 'Rusep Dayah'),
+(368, '061217', 'Rusep Ara'),
+(369, '061217', 'Paloh Dama'),
+(370, '061217', 'Paloh Kaye Kunyet'),
+(371, '061217', 'Crueng Kumbang'),
+(372, '061217', 'Tanjong Siron'),
+(373, '061217', 'Paloh Raya'),
+(374, '061217', 'Parang Sikureueng'),
+(375, '061217', 'Paloh Jeuriket'),
+(376, '061217', 'Dayah Mesjid'),
+(377, '061217', 'Ujong Blang'),
+(378, '061217', 'Keurumbok'),
+(379, '061217', 'Cot Ara'),
+(380, '061217', 'Rancong'),
+(381, '061217', 'Jambo Kajeung'),
+(382, '061209', 'Ulee Gle'),
+(383, '061209', 'Pulo Teungoh'),
+(384, '061209', 'Pandak'),
+(385, '061209', 'Mon Ara'),
+(386, '061209', 'Seuneubok Baro'),
+(387, '061209', 'Blang Mane'),
+(388, '061209', 'Lapehan Mesjid'),
+(389, '061209', 'Panteu Breuh'),
+(390, '061209', 'Blang Kuthang'),
+(391, '061209', 'Cot Kruet'),
+(392, '061209', 'Buket Seulamat'),
+(393, '061209', 'Leubu Cot'),
+(394, '061209', 'Leubu Me'),
+(395, '061209', 'Paya Dua'),
+(396, '061209', 'Leubu Mesjid'),
+(397, '061209', 'Kuta Barat'),
+(398, '061209', 'Trieng Gadeng'),
+(399, '061209', 'Ara Lipeh'),
+(400, '061209', 'Suka Rame'),
+(401, '061209', 'Tanjong Mulia'),
+(402, '061209', 'Panton Mesjid'),
+(403, '061209', 'Blang Peureulak'),
+(404, '061209', 'Meureubo'),
+(405, '061209', 'Matang Kumbang'),
+(406, '061209', 'Alue Dua'),
+(407, '061209', 'Batee Dabai'),
+(408, '061209', 'Blang Dalam'),
+(409, '061202', 'Desa Alue Igeuh'),
+(410, '061202', 'Desa Uteun Kruet'),
+(411, '061202', 'Desa Lhok Dagang'),
+(412, '061202', 'Desa Lancok Ulim'),
+(413, '061202', 'Desa Mns. Reudeub'),
+(414, '061202', 'Desa Nase Barat'),
+(415, '061202', 'Desa Pandrah kandeh'),
+(416, '061202', 'Desa Panton'),
+(417, '061202', 'Desa Pandrah Janeung'),
+(418, '061202', 'Desa Nase mee'),
+(419, '061202', 'Desa Bantayan'),
+(420, '061202', 'Desa Cot Leubeng'),
+(421, '061202', 'Desa Meunasah Teungoh'),
+(422, '061202', 'Desa Seuneubok Baro'),
+(423, '061202', 'Desa Panton Bili'),
+(424, '061202', 'Desa Blang Samagadeng'),
+(425, '061202', 'Desa Kuta Rusep'),
+(426, '061202', 'Desa Gampong Blang'),
+(427, '061202', 'Desa Garot'),
+(428, '061204', 'Desa Pulo'),
+(429, '061204', 'Desa Mns. Baroh'),
+(430, '061204', 'Desa Mns. Tambo'),
+(431, '061204', 'Desa Mns. Rabo'),
+(432, '061204', 'Desa Mns. Krueng'),
+(433, '061204', 'Desa Mns. Hagu'),
+(434, '061204', 'Desa Mns. Lawang'),
+(435, '061204', 'Desa Desa Cot Keutapang'),
+(436, '061204', 'Desa Mns. Calok'),
+(437, '061204', 'Desa Mns. Matang Reuleut'),
+(438, '061204', 'Desa Mns. Matang Pasi'),
+(439, '061204', 'Desa Mns. Kukue'),
+(440, '061204', 'Desa Mns. Blang'),
+(441, '061204', 'Desa Mns. Mesjid'),
+(442, '061204', 'Desa Mns. Teungoh'),
+(443, '061204', 'Desa Mns. Tunong'),
+(444, '061204', 'Desa Mns. Cut'),
+(445, '061204', 'Desa Blang Matang'),
+(446, '061204', 'Desa Blang Bati'),
+(447, '061204', 'Desa Keude Alue Reng'),
+(448, '061204', 'Desa Kareung'),
+(449, '061204', 'Desa Pulo Lawang'),
+(450, '061204', 'Desa Buket Paya'),
+(451, '061204', 'Desa Dayah Mon Ara'),
+(452, '061204', 'Desa Cot Laut'),
+(453, '061204', 'Desa Blang Langgang'),
+(454, '061204', 'Desa Paya Timu'),
+(455, '061204', 'Desa Paya Induk'),
+(456, '061204', 'Desa Seunebok Paya'),
+(457, '061204', 'Desa Cot Kruet'),
+(458, '061204', 'Desa Alue Gandai'),
+(459, '061204', 'Desa Tgk. Dibathon'),
+(460, '061204', 'Desa Gampong Baro'),
+(461, '061204', 'Desa Blang Geulumpang'),
+(462, '061204', 'Desa Neubok naleung'),
+(463, '061204', 'Desa Blang Kubu'),
+(464, '061204', 'Desa Garot'),
+(465, '061204', 'Desa Ara Bungong'),
+(466, '061204', 'Desa Sawang'),
+(467, '061204', 'Desa Blang Beruru'),
+(468, '061204', 'Desa Jabiet'),
+(469, '061204', 'Desa Gampong Mulia'),
+(470, '061204', 'Desa Mns Alue'),
+(471, '061204', 'Desa Mns Bungo'),
+(472, '061204', 'Desa Paya Beunot'),
+(473, '061204', 'Desa Blang Rangkuluh'),
+(474, '061204', 'Desa Tanjong Seulamat'),
+(475, '061204', 'Desa Alue Keutapang'),
+(476, '061204', 'Desa Jaba'),
+(477, '061204', 'Desa Pinto Rimba'),
+(478, '061204', 'Pulo Lawang'),
+(479, '061204', 'Seneubok Paya'),
+(480, '061204', 'Paya Barat'),
+(481, '061204', 'Paya Timu'),
+(482, '061204', 'Gampong Baro'),
+(483, '061212', 'Desa Jambo Dalam'),
+(484, '061212', 'Desa Cot Geulumpang'),
+(485, '061212', 'Desa Padang Kasab'),
+(486, '061212', 'Desa Puuk'),
+(487, '061212', 'Desa Kuta Trieng'),
+(488, '061212', 'Desa Seuneubok Seumawe'),
+(489, '061212', 'Desa Seuneubok Teungoh'),
+(490, '061212', 'Desa Rambong Payong'),
+(491, '061212', 'Desa Keude Plimbang'),
+(492, '061212', 'Desa Seuneubok Plimbang'),
+(493, '061212', 'Desa Seuneubok Nalan'),
+(494, '061212', 'Desa Krueng Baroe'),
+(495, '061212', 'Desa Seuneubok Aceh'),
+(496, '061212', 'Desa Seuneubok Punti'),
+(497, '061212', 'Desa Teupin Panah'),
+(498, '061212', 'Desa Balee Daka'),
+(499, '061212', 'Desa Matang kulee'),
+(500, '061212', 'Desa Uteun Rungkom'),
+(501, '061212', 'Desa Lancok Bungo'),
+(502, '061212', 'Desa Uteun Sikumbong'),
+(503, '061212', 'Desa Garap'),
+(504, '061212', 'Desa Paloh Pupu'),
+(505, '061208', 'Desa Sagoe'),
+(506, '061208', 'Uteun Bunta'),
+(507, '061208', 'Cot Keuranji'),
+(508, '061208', 'Gampong Baro'),
+(509, '061208', 'Paya Meuneng'),
+(510, '061208', 'Paya Lipah'),
+(511, '061208', 'Cot Panjoe'),
+(512, '061208', 'Matang Sago'),
+(513, '061208', 'Matang'),
+(514, '061208', 'Mesjid'),
+(515, '061208', 'Matang Cot Paseh'),
+(516, '061208', 'Meunasah Dayah'),
+(517, '061208', 'Keude Matangglumpang Dua'),
+(518, '061208', 'Meunasah Timu'),
+(519, '061208', 'Neuheun'),
+(520, '061208', 'Panton Geulima'),
+(521, '061208', 'Paya Cut'),
+(522, '061208', 'Seuneubok Aceh'),
+(523, '061208', 'Pante Piyeu'),
+(524, '061208', 'Blang Cut Peusangan'),
+(525, '061208', 'Pante Cut'),
+(526, '061208', 'Pante Gajah'),
+(527, '061208', 'Blang Asan'),
+(528, '061208', 'Blang Cut'),
+(529, '061208', 'Lueng Kuli'),
+(530, '061208', 'Gampong Raya Dagang'),
+(531, '061208', 'Blang Panjoe'),
+(532, '061208', 'Gampong Raya Tambo'),
+(533, '061208', 'Kapa'),
+(534, '061208', 'Pante Lhong'),
+(535, '061208', 'Keude Tanjong'),
+(536, '061208', 'Tanjong Paya'),
+(537, '061208', 'Tanjong Nie'),
+(538, '061208', 'Tanjong Gajah'),
+(539, '061208', 'Meunasah Dayah'),
+(540, '061208', 'Blang Asan'),
+(541, '061208', 'Pante Pisang'),
+(542, '061208', 'Pante Gajah'),
+(543, '061208', 'Paya Cut'),
+(544, '061208', 'Neuheun'),
+(545, '061208', 'Panton Geulima'),
+(546, '061208', 'Blang Cut'),
+(547, '061208', 'Pante Cut'),
+(548, '061208', 'Matang Mesjid'),
+(549, '061208', 'Matang Cot Paseh'),
+(550, '061208', 'Cot Panjoe'),
+(551, '061208', 'Seuneubok Aceh'),
+(552, '061208', 'Lueng Kuli'),
+(553, '061208', 'Simpang Kameng'),
+(554, '061208', 'Cot Iju'),
+(555, '061208', 'Cot Buket'),
+(556, '061208', 'Nicah'),
+(557, '061208', 'Cot Keuranji'),
+(558, '061208', 'Gampong Baro'),
+(559, '061208', 'Blang Rambong'),
+(560, '061208', 'Paya Aboe'),
+(561, '061208', 'Seuneubok Rawa'),
+(562, '061208', 'Paloh'),
+(563, '061208', 'Alue Peunoe'),
+(564, '061208', 'Tanoh Mirah'),
+(565, '061208', 'Blang Geulanggang'),
+(566, '061208', 'Paya Reuhat'),
+(567, '061208', 'Cot Nga'),
+(568, '061208', 'Cot Panjoe'),
+(569, '061208', 'Paya Meuneng'),
+(570, '061208', 'Pulo Naleueng'),
+(571, '061208', 'Matamamplam'),
+(572, '061208', 'Alue Glumpang'),
+(573, '061208', 'Cot Rabo Tunong'),
+(574, '061208', 'Cot Panjoe'),
+(575, '061208', 'Cot Puuk'),
+(576, '061208', 'Matamamplam'),
+(577, '061208', 'Cot Puuk'),
+(578, '061208', 'Cot Rabo Tunong'),
+(579, '061208', 'Cot Rabo Baroh'),
+(580, '061208', 'Karieng'),
+(581, '061208', 'Abeuk Jaloh'),
+(582, '061208', 'Pulo Reudeup'),
+(583, '061208', 'Pulo Seuna'),
+(584, '061208', 'Pulo Iboeh'),
+(585, '061208', 'Pulo Blang'),
+(586, '061208', 'Lhok Bugeng'),
+(587, '061208', 'Balee Kiro'),
+(588, '061208', 'Pulo Naleung'),
+(589, '061208', 'Sagoe'),
+(590, '061208', 'Cot Bada Barat'),
+(591, '061208', 'Cot Bada Baroh'),
+(592, '061208', 'Cot Bada Tunong'),
+(593, '061208', 'Cot Keumude'),
+(594, '061208', 'Cot Girek'),
+(595, '061208', 'Cot Buket'),
+(596, '061208', 'Krung Baro Mesjid'),
+(597, '061208', 'Krung Baro Babah Krung'),
+(598, '061208', 'Pante Piyeu'),
+(599, '061208', 'Menasah Paya'),
+(600, '061208', 'Blang Cut'),
+(601, '061208', 'Pante Cut'),
+(602, '061208', 'Glumpang Tujoh '),
+(603, '061208', 'Tanjong Ni'),
+(604, '061208', 'Bayu'),
+(605, '061208', 'Mns Nibong'),
+(606, '061208', 'Mns Meucap'),
+(607, '061208', 'Pante Ara'),
+(608, '061208', 'Gampong Putoh'),
+(609, '061208', 'Karieng'),
+(610, '061208', 'Cot Panjo'),
+(611, '061208', 'Pulo U'),
+(612, '061208', 'Matang Cot Paseh'),
+(613, '061208', 'Abeuk Jaloh'),
+(614, '061208', 'Rusep Ara'),
+(615, '061208', 'Rusep Dayah'),
+(616, '061208', 'Blang Dalam'),
+(617, '061208', 'Alue Udeung'),
+(618, '061208', 'Blang Glanggang'),
+(619, '061208', 'Uteun Bunta'),
+(620, '061208', 'Tanoh Mirah'),
+(621, '061208', 'Paya Reuhat'),
+(622, '061208', 'Mata Mamplam'),
+(623, '061208', 'Cot Puuk'),
+(624, '061208', 'Cot Rabo Tunong'),
+(625, '061208', 'Cot Rabo Baroh'),
+(626, '061208', 'Karieng'),
+(627, '061208', 'Bale Kiro'),
+(628, '061208', 'Pulo Naleung'),
+(629, '061208', 'Alue Glumpang'),
+(630, '061208', 'Krueng Deu'),
+(631, '061215', 'Darul Aman'),
+(632, '061215', 'Suwak'),
+(633, '061215', 'Tanjong Beuridi'),
+(634, '061215', 'Blang Mane'),
+(635, '061215', 'Darussalam'),
+(636, '061215', 'Pulo Harapan'),
+(637, '061215', 'Darussalam'),
+(638, '061216', 'Pante Baro Gle Siblah'),
+(639, '061216', 'Pante Baro Kumbang'),
+(640, '061216', 'Pante Baro Buket Panyang'),
+(641, '061216', 'Kubu Raya'),
+(642, '061216', 'Lueng Daneuen'),
+(643, '061216', 'Rambong Payong'),
+(644, '061216', 'Kubu'),
+(645, '061216', 'Alue Kupula'),
+(646, '061216', 'Dayah Baro'),
+(647, '061216', 'Alue Krueb'),
+(648, '061216', 'Teupin Raya'),
+(649, '061216', 'Cot Aneuk Mate'),
+(650, '061216', 'Blang Cirih'),
+(651, '061216', 'Alue Iet'),
+(652, '061216', 'Alue Glumpang'),
+(653, '061216', 'Buket Sudan'),
+(654, '061216', 'Paloh Mampree'),
+(655, '061216', 'Cot Saleut'),
+(656, '061216', 'Awe Geutah Paya'),
+(657, '061216', 'Blang Cirih'),
+(658, '061216', 'Tanjong Mulia'),
+(659, '061216', 'Suka Rame'),
+(660, '061216', 'Pante Karya,'),
+(661, '061216', 'Paloh Harapan,'),
+(662, '061216', 'Alue Glumpang'),
+(663, '061216', 'Buket Sudan'),
+(664, '061201', 'Keude Aceh'),
+(665, '061201', 'Kandang'),
+(666, '061201', 'Gampong Putoh'),
+(667, '061201', 'Mideun Jok'),
+(668, '061201', 'Namploh Manyang'),
+(669, '061201', 'Namploh Baro'),
+(670, '061201', 'Namploh Blang Garang'),
+(671, '061201', 'Namploh Krueng'),
+(672, '061201', 'Namploh Papeun '),
+(673, '061201', 'Meunasah Lueng'),
+(674, '061201', 'Lhok Seumira'),
+(675, '061201', 'Ulee Jeumatan'),
+(676, '061201', 'Meuliek'),
+(677, '061201', 'Pante Rheng'),
+(678, '061201', 'Gampong Baro'),
+(679, '061201', 'Pineung Siribee '),
+(680, '061201', 'Sangso'),
+(681, '061201', 'Angkieng Barat '),
+(682, '061201', 'Matang Teungoh'),
+(683, '061201', 'Meunasah Lancok'),
+(684, '061201', 'Meunasah Lincah'),
+(685, '061201', 'Meunasah Puuk'),
+(686, '061201', 'Tanjong Baro'),
+(687, '061201', 'Tanjongan Idem '),
+(688, '061201', 'Ulee Ue'),
+(689, '061201', 'Meurah'),
+(690, '061201', 'Batee Iliek'),
+(691, '061201', 'Pulo Baroh'),
+(692, '061201', 'Mesjid Baro'),
+(693, '061201', 'Lancok'),
+(694, '061201', 'Paloh'),
+(695, '061201', 'Cot Siren'),
+(696, '061201', 'Alue Barat'),
+(697, '061201', 'Cot Mane'),
+(698, '061201', 'Darussalam'),
+(699, '061201', 'Glumpang Payong'),
+(700, '061201', 'Matang'),
+(701, '061201', 'Matang Jareung '),
+(702, '061201', 'Matang Wakeuh'),
+(703, '061201', 'Ulee Alue'),
+(704, '061201', 'Cot Meurak Baroh'),
+(705, '061201', 'Cot Meurak Blang'),
+(706, '061201', 'Glumpang Meulum'),
+(707, '061201', 'Glumpang Bungkok'),
+(708, '061201', 'Lueng Keubeu'),
+(709, '061201', 'Mideun Geudong'),
+(710, '061211', 'Arongan'),
+(711, '061211', 'Balee'),
+(712, '061211', 'Meunasah Barat (Curucok Barat)'),
+(713, '061211', 'Rheum Barat'),
+(714, '061211', 'Rheum Baroh'),
+(715, '061211', 'Gle Meudong '),
+(716, '061211', 'Ceurucok '),
+(717, '061211', 'Blang Kuta Coh'),
+(718, '061211', 'Blang Kuta Dua Meunasah'),
+(719, '061211', 'Blang Teumulek'),
+(720, '061211', 'Cot Trieng'),
+(721, '061211', 'Blang Mane Barat'),
+(722, '061211', 'Blang Mane Dua Meunasah'),
+(723, '061211', 'Jurong Binjee'),
+(724, '061211', 'Krueng Meuseugob'),
+(725, '061211', 'Lancang'),
+(726, '061211', 'Lhok Tanoh'),
+(727, '061211', 'Meunasah Dayah'),
+(728, '061211', 'Meunasah Mesjid'),
+(729, '061211', 'Meunasah Mamplam'),
+(730, '061211', 'Pulo Dapong'),
+(731, '061211', 'Pulo Drien'),
+(732, '061211', 'Rheum Timu'),
+(733, '061211', 'Peuneulet Tunong'),
+(734, '061211', 'Cureh Baroh'),
+(735, '061211', 'Cureh Tunong'),
+(736, '061211', 'Meunasah Asan'),
+(737, '061211', 'Keude Tambue'),
+(738, '061211', 'Blang Tambue'),
+(739, '061211', 'Tambue Barat'),
+(740, '061211', 'Paku '),
+(741, '061211', 'Blang Panyang '),
+(742, '061211', 'Lhok Mane'),
+(743, '061211', 'Calok'),
+(744, '061211', 'Alue Leuhop'),
+(745, '061211', 'Ulee Kareung'),
+(746, '061211', 'Peuneulet Baroh'),
+(747, '061211', 'Ie Rhob Babah Lueng'),
+(748, '061211', 'Ie Rhob Barat'),
+(749, '061211', 'Ie Rhob Geulumpang'),
+(750, '061211', 'Ie Rhob Timu'),
+(751, '061211', 'Desa Alue Leuhob'),
+(752, '061218', 'Kiran Krueng'),
+(753, '061218', 'Kiran Dayah'),
+(754, '061218', 'Kiran Baroh'),
+(755, '061218', 'Kuta Baroh'),
+(756, '061218', 'Meuko Meugit'),
+(757, '061218', 'Desa Alue Leuhob');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_sd`
 --
 
 CREATE TABLE `data_sd` (
@@ -8685,7 +9458,7 @@ CREATE TABLE `data_sd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_sd`
+-- Dumping data untuk tabel `data_sd`
 --
 
 INSERT INTO `data_sd` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `bentuk_pendidikan`, `status_sekolah`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `lintang`, `bujur`) VALUES
@@ -8982,7 +9755,7 @@ INSERT INTO `data_sd` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `be
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_smp`
+-- Struktur dari tabel `data_smp`
 --
 
 CREATE TABLE `data_smp` (
@@ -9001,7 +9774,7 @@ CREATE TABLE `data_smp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_smp`
+-- Dumping data untuk tabel `data_smp`
 --
 
 INSERT INTO `data_smp` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `bentuk_pendidikan`, `status_sekolah`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `lintang`, `bujur`) VALUES
@@ -9102,7 +9875,7 @@ INSERT INTO `data_smp` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_wilayah`
+-- Struktur dari tabel `data_wilayah`
 --
 
 CREATE TABLE `data_wilayah` (
@@ -9112,32 +9885,33 @@ CREATE TABLE `data_wilayah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_wilayah`
+-- Dumping data untuk tabel `data_wilayah`
 --
 
 INSERT INTO `data_wilayah` (`kode_wilayah`, `nama_wilayah`, `id_level`) VALUES
 ('061201', 'Kec. Samalanga', '3'),
-('061202 ', 'Kec. Pandrah', '3'),
+('061202', 'Kec. Pandrah', '3'),
 ('061203', 'Kec. Jeunib', '3'),
 ('061204', 'Kec. Peudada', '3'),
 ('061205', 'Kec. Juli', '3'),
 ('061206', 'Kec. Jeumpa', '3'),
 ('061207', 'Kec. Jangka', '3'),
-('061208  ', 'Kec. Peusangan', '3'),
-('061209  ', 'Kec. Makmur', '3'),
-('061210  ', 'Kec. Ganda Pura', '3'),
-('061211  ', 'Kec. Simpang Mamplam', '3'),
-('061212  ', 'Kec. Peulimbang', '3'),
-('061213  ', 'Kec. Kota Juang', '3'),
-('061214  ', 'Kec. Kuala', '3'),
-('061215  ', 'Kec. Peusangan Selatan', '3'),
-('061216  ', 'Kec. Peusangan Siblah Krueng', '3'),
-('061217  ', 'Kec. Kuta Blang', '3');
+('061208', 'Kec. Peusangan', '3'),
+('061209', 'Kec. Makmur', '3'),
+('061210', 'Kec. Ganda Pura', '3'),
+('061211', 'Kec. Simpang Mamplam', '3'),
+('061212', 'Kec. Peulimbang', '3'),
+('061213', 'Kec. Kota Juang', '3'),
+('061214', 'Kec. Kuala', '3'),
+('061215', 'Kec. Peusangan Selatan', '3'),
+('061216', 'Kec. Peusangan Siblah Krueng', '3'),
+('061217', 'Kec. Kuta Blang', '3'),
+('061218', 'Kec. Bandar Dua Pijay', '3');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kuota`
+-- Struktur dari tabel `kuota`
 --
 
 CREATE TABLE `kuota` (
@@ -9148,7 +9922,7 @@ CREATE TABLE `kuota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kuota`
+-- Dumping data untuk tabel `kuota`
 --
 
 INSERT INTO `kuota` (`id`, `jenis`, `kuota`, `keterangan`) VALUES
@@ -9160,25 +9934,12 @@ INSERT INTO `kuota` (`id`, `jenis`, `kuota`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE `pengguna` (
   `id` int(11) NOT NULL,
-  `nama_lengkap` varchar(255) NOT NULL,
-  `tptlahir` varchar(255) NOT NULL,
-  `tgllahir` varchar(255) NOT NULL,
-  `nisn` varchar(20) NOT NULL,
-  `alamat` varchar(500) NOT NULL,
-  `sekolah_asal` varchar(255) NOT NULL,
-  `namaayah` varchar(255) NOT NULL,
-  `namaibu` varchar(255) NOT NULL,
-  `no_hp` varchar(15) NOT NULL,
-  `no_wa` varchar(255) NOT NULL,
-  `foto` varchar(255) NOT NULL,
-  `akte` varchar(255) NOT NULL,
-  `bukti_tf` varchar(255) NOT NULL,
-  `jenis` varchar(50) NOT NULL,
+  `id_pesertadidik` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(1) NOT NULL,
@@ -9188,86 +9949,99 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data untuk tabel `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `nama_lengkap`, `tptlahir`, `tgllahir`, `nisn`, `alamat`, `sekolah_asal`, `namaayah`, `namaibu`, `no_hp`, `no_wa`, `foto`, `akte`, `bukti_tf`, `jenis`, `username`, `password`, `role`, `approve_formulir`, `approve_lulus`, `approve_daftarulang`) VALUES
-(1, 'SMPN 1 Bireuen', '', '', 'admin', 'admin', 'admin', '', '', 'admin', '', 'admin', '', 'admin', 'admin', 'smp1', 'smp1', '0', 'admin', 'admin', 'admin'),
-(19, 'Aditya Aziz Fikhri', 'Lhokseumawe', '1996-01-31', '096001234', 'Kota Juang', 'SDN 21 Bireuen', 'Kampung Baru', 'SMPN 1 Bireuen', '-', '-', 'Foto', 'Scan-surat-apel-HUT-RI-74.jpg', 'unnamed.jpg', 'Zonasi', '1111093101960001', '096001234', '1', 'Diterima', 'Lulus', 'Antrian');
+INSERT INTO `pengguna` (`id`, `id_pesertadidik`, `username`, `password`, `role`, `approve_formulir`, `approve_lulus`, `approve_daftarulang`) VALUES
+(1, 'SMPN 1 Bireuen', 'smp1', 'smp1', '0', 'admin', 'admin', 'admin'),
+(19, 'Aditya Aziz Fikhri', '1111093101960001', '096001234', '1', 'Diterima', 'Lulus', 'Antrian'),
+(38, 'DFD71872-5211-11E5-B979-E3E5FE4328BF', '1111134111080002', '0087166553', '2', 'Antrian', 'Antrian', 'Antrian');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `bentuk_pendidikan`
+-- Indeks untuk tabel `bentuk_pendidikan`
 --
 ALTER TABLE `bentuk_pendidikan`
   ADD PRIMARY KEY (`id_bentuk_pendidikan`);
 
 --
--- Indexes for table `daftarulang`
+-- Indeks untuk tabel `daftarulang`
 --
 ALTER TABLE `daftarulang`
   ADD PRIMARY KEY (`id_daftarulang`);
 
 --
--- Indexes for table `datasiswa`
+-- Indeks untuk tabel `datasiswa`
 --
 ALTER TABLE `datasiswa`
   ADD PRIMARY KEY (`id_pesertadidik`);
 
 --
--- Indexes for table `data_sd`
+-- Indeks untuk tabel `data_desa`
+--
+ALTER TABLE `data_desa`
+  ADD PRIMARY KEY (`id_desa`);
+
+--
+-- Indeks untuk tabel `data_sd`
 --
 ALTER TABLE `data_sd`
   ADD PRIMARY KEY (`id_sekolah`);
 
 --
--- Indexes for table `data_smp`
+-- Indeks untuk tabel `data_smp`
 --
 ALTER TABLE `data_smp`
   ADD PRIMARY KEY (`id_sekolah`);
 
 --
--- Indexes for table `data_wilayah`
+-- Indeks untuk tabel `data_wilayah`
 --
 ALTER TABLE `data_wilayah`
   ADD PRIMARY KEY (`kode_wilayah`);
 
 --
--- Indexes for table `kuota`
+-- Indeks untuk tabel `kuota`
 --
 ALTER TABLE `kuota`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengguna`
+-- Indeks untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `daftarulang`
+-- AUTO_INCREMENT untuk tabel `daftarulang`
 --
 ALTER TABLE `daftarulang`
   MODIFY `id_daftarulang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `kuota`
+-- AUTO_INCREMENT untuk tabel `data_desa`
+--
+ALTER TABLE `data_desa`
+  MODIFY `id_desa` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1025;
+
+--
+-- AUTO_INCREMENT untuk tabel `kuota`
 --
 ALTER TABLE `kuota`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `pengguna`
+-- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
