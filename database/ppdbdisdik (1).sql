@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Apr 2021 pada 08.41
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.2.34
+-- Waktu pembuatan: 27 Apr 2021 pada 17.58
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -487,6 +487,7 @@ INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_
 ('08040082-3F14-11E5-BF1B-4FED138C8F4B', '00FDAF90-2EF5-E011-A192-AF0AE4276A87', '061213  ', 'Rizky pratama', 'medan', '2009-09-02', 'L', '1209090209090002', '0098201666', 'jln. medan banda aceh', 'geulanggang baro', 0, 0, 'sejahtera', 'erlina arisca', 'Tidak bekerja', 'Tidak Berpenghasilan', 'indra siregar', 'Wiraswasta', 'Rp. 2,000,000 - Rp. 4,999,999', '', '', '', 'Tidak ada', '', '', '5.200150396', '96.65874779'),
 ('080819A0-3F06-11E5-9F07-67D9F3F5890A', '0065AE90-2EF5-E011-8B0E-B7EF7301AE7A', '061208  ', 'Firrijal', 'Bireuen', '2009-04-20', 'L', '1111052004090001', '0091259662', 'Gampong Raya Dagang', 'Gampong Raya Dagang', 0, 0, 'Gle kapai', 'RISNA', 'Wiraswasta', 'Rp. 500,000 - Rp. 999,999', 'DEDI SAPUTRA', 'Wiraswasta', 'Rp. 1,000,000 - Rp. 1,999,999', 'ZULHERI', 'Karyawan Swasta', 'Rp. 500,000 - Rp. 999,999', 'Tidak ada', '', '', '5.25122167', '96.81907654'),
 ('080E57FC-3F06-11E5-8FF9-F361EB13DDB4', '50DEA890-2EF5-E011-9C59-3B248A81B56C', '061204  ', 'Cut Lisz Andini', 'Peudada', '2009-03-13', 'P', '1111035303090001', '0094725820', 'blang lubok', 'kukue', 0, 0, 'blang lubok', 'Khalidah', 'Tidak bekerja', 'Tidak Berpenghasilan', 'Johansyah', 'Wiraswasta', 'Rp. 1,000,000 - Rp. 1,999,999', '', '', '', 'Tidak ada', '', '', '5.2023', '96.6021'),
+('081362059403', '80D1B090-2EF5-E011-A5B7-05C69BAC8E15', '0', 'Aditya Aziz Fikhri', 'Lhokseumawe', '1996-01-31', 'L', '1111093101960001', '096001234', 'H. Hanafiah', 'Juli Cot Meurak', 0, 0, 'Utara', 'Endang Fitrianty', 'IRT', 'Rp. 2,000,000 - Rp. 4,999,999', 'Asnawir Azhar', 'Wiraswasta', 'Rp. 2,000,000 - Rp. 4,999,999', 'M. Raul Farhan', 'Mahasiswa', 'Rp. 2,000,000 - Rp. 4,999,999', 'Tidak Ada', '01', '0', '0', '0'),
 ('081418BC-3B2E-11E5-99A1-77EC824E9F94', '1055A990-2EF5-E011-BF2D-1FB19E9DF08B', '061206  ', 'MULKAN AL-FASYA', 'BIREUEN', '2009-01-18', 'L', '1111041801090001', '0094652176', 'KUALA JEUMPA', 'KUALA JEUMPA', 0, 0, 'JEUMPA', 'SITI ASMA', 'Tidak bekerja', '', 'HALIM', 'Petani', 'Rp. 1,000,000 - Rp. 1,999,999', '', '', '', 'Tidak ada', '', '', '5.2073', '96.6587'),
 ('081A45C8-46ED-11E5-8EEB-DF3E4534461A', 'B0E8AC90-2EF5-E011-B762-FB5A45CA5C4D', '061202  ', 'NOVI ARISTA', 'BIREUEN', '2009-11-10', 'P', '1111085612090001', '0092859883', 'NASE MEE', 'NASE MEE', 0, 0, '', 'ROHANI', 'Tidak bekerja', 'Tidak Berpenghasilan', 'M SOFYAN', 'Wiraswasta', 'Rp. 1,000,000 - Rp. 1,999,999', '', '', '', 'Tidak ada', '', '', '5.199082519', '96.42537117'),
 ('081DB3BC-3DAA-11E5-8E75-CFFBB7E542E1', 'E0E15444-9BFA-E111-A55C-B321A64A0B85', '061214  ', 'MUHAMMAD ARKAN PASHA', 'BIREUEN', '2008-10-13', 'L', '1111141310080001', '0089612333', 'PHR LAPANGAN VOA', 'KRUENG JULI TIMU', 0, 0, 'SUKA MAJU', 'INTAN MUTIA', 'Tidak bekerja', '', 'MUHAMMAD RAJA KHANDARFI', 'Wiraswasta', 'Rp. 2,000,000 - Rp. 4,999,999', '', '', '', 'Tidak ada', '', '', '5.1954', '96.7149'),
@@ -494,9 +495,9 @@ INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_
 ('082B522B-8B7D-4C56-BD1E-772771E16321', '5682B425-5837-454E-879F-494C79586EDC', '111103  ', 'AZKIA NABILA', 'PEUDADA', '2009-12-29', 'P', '1111036701100001', '3095358218', '', '', 0, 0, '', 'ELYANA', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('0833BE20-4195-11E5-9B08-6B46C40C9753', '00BCAA90-2EF5-E011-A95C-535D7D7D95CB', '061208  ', 'SALSABILA', 'BIREUEN', '2009-05-05', 'P', '1111054505090002', '0096393091', 'PALOH', 'DESA PALOH', 0, 0, '', 'WARDIAH', 'Tidak bekerja', '', 'TAUFIK', 'Petani', 'Kurang dari Rp. 500,000', 'M.DAUD', '', '', 'Tidak ada', '', '', '5.1061', '96.6623'),
 ('0833F71B-56FC-457A-BECC-97B813055FA1', 'D2733845-030D-4EC4-971F-4C5C49A1326F', '111105  ', 'LUTHFIA ULFA', 'BIREUEN', '2009-02-01', 'P', '1111124102090001', '3098397640', '', '', 0, 0, '', 'WARTINI', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('08343336-E68E-4A48-B6EB-BDA4DFBD209F', 'F7F6C484-F5B5-48D6-8D99-85AA414CB1AF', '111106  ', 'MUHAMMAD ASYRAF', 'BIREUEN', '2008-10-07', 'L', '1111070710080001', '3085886035', '', '', 0, 0, '', 'HAMIDAH', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('083704D8-3AA4-11E5-B14C-F3D6BF54414A', 'B08EA790-2EF5-E011-98AF-4DAEF9A37B0E', '061203  ', 'Muhammad Hendra', 'Bireuen', '2009-04-02', 'L', '1111111111111111', '0099901563', 'Blang Poroh', 'Mns.Lueng', 0, 0, '', 'Rosmawar', 'Tidak bekerja', 'Tidak Berpenghasilan', 'Mulyadi', 'Petani', '', '', '', '', 'Tidak ada', '', '', '5.113770159', '96.46725655');
+('08343336-E68E-4A48-B6EB-BDA4DFBD209F', 'F7F6C484-F5B5-48D6-8D99-85AA414CB1AF', '111106  ', 'MUHAMMAD ASYRAF', 'BIREUEN', '2008-10-07', 'L', '1111070710080001', '3085886035', '', '', 0, 0, '', 'HAMIDAH', '', '', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_siswa`, `tempat_lahir`, `tanggal_lahir`, `jk`, `nik`, `nisn`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `nama_dusun`, `nama_ibu_kandung`, `pekerjaan_ibu_kandung`, `penghasilan_ibu_kandung`, `nama_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nama_wali`, `pekerjaan_wali`, `penghasilan_wali`, `kebutuhan_khusus`, `no_kip`, `no_pkh`, `lintang`, `bujur`) VALUES
+('083704D8-3AA4-11E5-B14C-F3D6BF54414A', 'B08EA790-2EF5-E011-98AF-4DAEF9A37B0E', '061203  ', 'Muhammad Hendra', 'Bireuen', '2009-04-02', 'L', '1111111111111111', '0099901563', 'Blang Poroh', 'Mns.Lueng', 0, 0, '', 'Rosmawar', 'Tidak bekerja', 'Tidak Berpenghasilan', 'Mulyadi', 'Petani', '', '', '', '', 'Tidak ada', '', '', '5.113770159', '96.46725655'),
 ('0841B69A-4CC8-11E5-9727-07C43AB9981C', '80D1B090-2EF5-E011-A5B7-05C69BAC8E15', '061213  ', 'ZAHRATUL NAFIS', 'BIREUEN', '2009-08-18', 'P', '1111135808090001', '0091289745', 'Jln. Tgk Chik Ditiro', 'Mnsa. Capa', 0, 0, 'Dusun Kommes', 'SRI LIZA AFRIANI', 'Tidak bekerja', '', 'SAIFUL BAHRI', 'Pedagang Besar', 'Rp. 2,000,000 - Rp. 4,999,999', '', '', '', 'Tidak ada', '', '', '5.2045', '96.8838'),
 ('08485E4E-CCDA-4508-BC39-8358D74C5579', '901FAFB2-2E2D-4D4B-B713-13733EE70B0C', '111109  ', 'MUHAMMAD IHSAN', 'BIREUEN', '2007-11-27', 'L', '1111092711070001', '0089737950', '', '', 0, 0, '', 'ZAHARA', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('08498279-F2E5-4766-A75C-E87A44DFDA18', '8ABB10C9-297B-4998-BC61-53CC2C2EF8C5', '111105  ', 'MUHAMMAD RALFI', 'BIREUEN', '2008-01-11', 'L', '1111051101080002', '3086822898', '', '', 0, 0, '', 'NELIANA', '', '', '', '', '', '', '', '', '', '', '', '', ''),
@@ -639,9 +640,9 @@ INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_
 ('0C91D5B0-3FD3-11E5-9A56-CF96105D9041', '6033B190-2EF5-E011-8607-8DA82D638B57', '061214  ', 'Amira', 'Bireuen', '2009-07-25', 'P', '1111146507090001', '0091480058', 'Kuala Raja', 'Kuala Raja', 0, 0, 'Dusun Timur', 'Meida Wati', 'Tidak bekerja', 'Tidak Berpenghasilan', 'Ismadi', 'Pedagang Kecil', 'Rp. 1,000,000 - Rp. 1,999,999', '', '', '', 'Tidak ada', '', '', '5.2405', '96.7119'),
 ('0C941859-8CE3-414C-9A0D-DFA484CC4E71', '074432EC-1A7B-4184-9296-053E747080BE', '111103  ', 'MUHAMMAD DARUN NAFIS', 'BIREUEN', '2009-11-17', 'L', '1111031711090001', '3091656140', '', '', 0, 0, '', 'NURHASANAH HARUN', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('0C98E1CA-3FFB-11E5-8489-9F81B8260795', '00C4AE90-2EF5-E011-AF83-AB9C3BF90C8C', '061211  ', 'AULIA SAFIRA', 'BIREUEN', '2009-05-15', 'P', '1111115505090001', '0093062995', 'Tambue', 'Keude Tambue', 0, 0, 'Keude Tambue', 'Roswati', 'Tidak bekerja', 'Tidak Berpenghasilan', 'Alamsyah M.Piah', 'Wiraswasta', '', '', '', '', 'Tidak ada', '', '', '5.136082413', '96.40803337'),
-('0C99E3B2-4551-11E5-9293-FBF602040924', '309FB290-2EF5-E011-BE3A-C181399A529D', '061217  ', 'Muhammad Farhan', 'Bireuen', '2009-02-11', 'L', '1111171102090001', '0099354707', 'Geulanggang Meunjee', 'Geulanggang Meunjee', 0, 0, 'Kuta Baro', 'Nurmalawati', 'Tidak bekerja', 'Kurang dari Rp. 500,000', 'Mulia Karim', 'Wiraswasta', 'Rp. 500,000 - Rp. 999,999', 'Abdullah', 'Wiraswasta', 'Rp. 500,000 - Rp. 999,999', 'Tidak ada', 'DDPZ08', '', '5.2231', '96.8274'),
-('0C9B5691-31F8-4872-A1EB-F7503401B935', '13BD7891-1646-4981-86B2-7DEB548C1EEB', '111117  ', 'ZACKYAL ABRAR', 'BIREUEN', '2008-10-16', 'L', '1111171610080001', '3087579122', '', '', 0, 0, '', 'ROSTINA', '', '', '', '', '', '', '', '', '', '', '', '', '');
+('0C99E3B2-4551-11E5-9293-FBF602040924', '309FB290-2EF5-E011-BE3A-C181399A529D', '061217  ', 'Muhammad Farhan', 'Bireuen', '2009-02-11', 'L', '1111171102090001', '0099354707', 'Geulanggang Meunjee', 'Geulanggang Meunjee', 0, 0, 'Kuta Baro', 'Nurmalawati', 'Tidak bekerja', 'Kurang dari Rp. 500,000', 'Mulia Karim', 'Wiraswasta', 'Rp. 500,000 - Rp. 999,999', 'Abdullah', 'Wiraswasta', 'Rp. 500,000 - Rp. 999,999', 'Tidak ada', 'DDPZ08', '', '5.2231', '96.8274');
 INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_siswa`, `tempat_lahir`, `tanggal_lahir`, `jk`, `nik`, `nisn`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `nama_dusun`, `nama_ibu_kandung`, `pekerjaan_ibu_kandung`, `penghasilan_ibu_kandung`, `nama_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nama_wali`, `pekerjaan_wali`, `penghasilan_wali`, `kebutuhan_khusus`, `no_kip`, `no_pkh`, `lintang`, `bujur`) VALUES
+('0C9B5691-31F8-4872-A1EB-F7503401B935', '13BD7891-1646-4981-86B2-7DEB548C1EEB', '111117  ', 'ZACKYAL ABRAR', 'BIREUEN', '2008-10-16', 'L', '1111171610080001', '3087579122', '', '', 0, 0, '', 'ROSTINA', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('0CAC1C05-7673-4A92-8101-76DA1FED1F89', 'BEA745B6-58D6-410D-9577-6321718B599C', '111114  ', 'ASSYIFA ULKHAIRA', 'BIREUEN', '2008-11-15', 'P', '1111145511080001', '3085640061', '', '', 0, 0, '', 'MUTIA', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('0CACCD76-4987-11E5-BF1B-83A5A527DB2F', 'D001AA90-2EF5-E011-8019-0F2B7354D052', '061208  ', 'INSANUL KAMIL', 'Neuheun', '2008-07-21', 'L', '1111172107080001', '0092493057', 'Neuheun', 'Neuheun', 0, 0, 'Neuheun', 'Nelli Fitria', 'Lainnya', 'Rp. 500,000 - Rp. 999,999', 'Azhar', 'Petani', 'Kurang dari Rp. 500,000', 'Azhar', '', '', 'Tidak ada', '', '', '5.437433647', '95.97278595'),
 ('0CB69092-1D10-4D7A-81E8-EB49A0D9166E', '27AB3D4D-F494-40D3-BCFF-9B1B3F31E25A', '111116  ', 'VARADILA', 'RAMBONG PAYONG', '2009-01-27', 'P', '1111156701090001', '3099195598', '', '', 0, 0, '', 'VASNIDAR', '', '', '', '', '', '', '', '', '', '', '', '', ''),
@@ -9945,17 +9946,31 @@ CREATE TABLE `pengguna` (
   `role` varchar(1) NOT NULL,
   `approve_formulir` varchar(30) NOT NULL,
   `approve_lulus` varchar(30) NOT NULL,
-  `approve_daftarulang` varchar(30) NOT NULL
+  `approve_daftarulang` varchar(30) NOT NULL,
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `id_pesertadidik`, `username`, `password`, `role`, `approve_formulir`, `approve_lulus`, `approve_daftarulang`) VALUES
-(1, 'SMPN 1 Bireuen', 'smp1', 'smp1', '0', 'admin', 'admin', 'admin'),
-(19, 'Aditya Aziz Fikhri', '1111093101960001', '096001234', '1', 'Diterima', 'Lulus', 'Antrian'),
-(38, 'DFD71872-5211-11E5-B979-E3E5FE4328BF', '1111134111080002', '0087166553', '2', 'Antrian', 'Antrian', 'Antrian');
+INSERT INTO `pengguna` (`id`, `id_pesertadidik`, `username`, `password`, `role`, `approve_formulir`, `approve_lulus`, `approve_daftarulang`, `status`) VALUES
+(1, 'SMPN 1 Bireuen', 'smp1', 'smp1', '0', 'admin', 'admin', 'admin', 0),
+(53, '081362059403', '1111093101960001', '096001234', '2', 'Antrian', 'Antrian', 'Antrian', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `zonasi`
+--
+
+CREATE TABLE `zonasi` (
+  `id_zonasi` int(255) NOT NULL,
+  `jenis_pendaftaran` varchar(50) NOT NULL,
+  `id_desa` varchar(255) NOT NULL,
+  `kode_wilayah` varchar(20) NOT NULL,
+  `id_sekolah` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -10016,6 +10031,12 @@ ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `zonasi`
+--
+ALTER TABLE `zonasi`
+  ADD PRIMARY KEY (`id_zonasi`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -10041,7 +10062,13 @@ ALTER TABLE `kuota`
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT untuk tabel `zonasi`
+--
+ALTER TABLE `zonasi`
+  MODIFY `id_zonasi` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

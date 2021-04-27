@@ -12,11 +12,11 @@
 <script type="text/javascript">
 function jsFunction(){
     Swal.fire(
-        'Berhasil Membuat Akun!',
-        'Silahkan login untuk melanjutkan pendaftaran',
-        'success'
+        'Gagal!',
+        'Data tidak ditemukan',
+        'error'
 ).then(function() {
-    window.location = "./login";
+    window.location = "./registrasi";
 });
 }
 </script>

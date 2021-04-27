@@ -58,7 +58,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="<?=base_url()?>hal/login">PENDAFTARAN NON DAPODIK</a></li>
+          <li><a href="<?=base_url()?>hal/login">PENDAFTARAN NON NISN</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -67,7 +67,7 @@
   
     <div class="container text-center">
     <br>
-<h2 class="text-dark" style="margin-top:10px;">FORM<br>REGISTRASI PENGGUNA</h2>
+<h2 class="text-dark" style="margin-top:10px;">REGISTRASI AKUN PENGGUNA</h2>
 <hr>
 </div>
 <br>
@@ -116,10 +116,12 @@
         </div>    
         </div>
   </div>
-        <button type="submit" class="btn btn-primary font-weight-bold" style="width:100%;">BUAT AKUN</button><br><br>
+  <?php endforeach ;?>
+
+        <button type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">BUAT AKUN</button><br><br>
         </form>
 
-    <?php endforeach ;?>
+
     </div>
 
 

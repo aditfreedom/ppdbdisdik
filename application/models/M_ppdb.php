@@ -15,10 +15,22 @@ class M_ppdb extends CI_Model{
         datasiswa.id_sekolah = data_sd.id_sekolah WHERE nisn='$nisn' OR nik='$nisn'");
      }
 
+     public function joinsekolah(){
+        return $this->db->query("SELECT * FROM data_sd ");
+     }
+
+     public function tampilwilayah(){
+        return $this->db->query("SELECT * FROM data_wilayah ");
+     }
+
      public function tampildatapengguna1($username,$password){
         $result = $this->db->query("SELECT * FROM pengguna WHERE username='$username' AND password='$password'");
         return $result->num_rows();
+     }
 
+     public function tampildatasiswa($username,$password){
+        $result = $this->db->query("SELECT * FROM datasiswa WHERE nik='$username' AND nisn='$password'");
+        return $result->num_rows();
      }
 
     public function tambahkuota($data)
@@ -50,9 +62,19 @@ class M_ppdb extends CI_Model{
         $this->db->update('pengguna',$data); 
     }
 
+    public function updateformulirsiswa($where,$data)
+    {   $this->db->where($where);
+        $this->db->update('datasiswa',$data); 
+    }
+
     public function tambahuser($data)
     {
         $this->db->insert('pengguna', $data);
+    }
+
+    public function tambahdatasiswa($data)
+    {
+        $this->db->insert('datasiswa', $data);
     }
 
     public function tampil_approval(){
@@ -77,7 +99,19 @@ class M_ppdb extends CI_Model{
 
     public function tampilpengguna($id)
     {
-        return $this->db->get_where('pengguna',$id);  
+        return $this->db->query("SELECT * FROM datasiswa WHERE id_pesertadidik=$id");  
+    }
+
+    public function tampilpengguna2($id)
+    {
+        return $this->db->query("SELECT * FROM datasiswa LEFT JOIN data_sd ON
+        data_sd.id_sekolah = datasiswa.id_sekolah WHERE id_pesertadidik=$id");  
+    }
+
+    public function tampilpengguna3()
+    {
+        return $this->db->query("SELECT * FROM datasiswa LEFT JOIN data_sd ON
+        data_sd.id_sekolah = datasiswa.id_sekolah");  
     }
 
 
@@ -222,8 +256,11 @@ class M_ppdb extends CI_Model{
     }
 
 
-    function cek_login($where){
-        return $this->db->get_where('pengguna',$where);
+    function cek_login($username,$password){
+        return $this->db->query("SELECT * FROM pengguna LEFT JOIN
+        datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
+        where username=$username AND password=$password");
     }
 }
 ?>

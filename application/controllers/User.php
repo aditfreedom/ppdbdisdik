@@ -33,15 +33,96 @@ class User extends CI_Controller {
 
     public function isi_formulir($id){
 		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
 		$data['isi_formulir'] = $this->M_ppdb->tampilpengguna($id,'pengguna')->result();
+        $data['isi_formulir2'] = $this->M_ppdb->tampilpengguna2($id,'pengguna')->result();
+        $data['isi_formulir3'] = $this->M_ppdb->tampilpengguna3('pengguna')->result();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebaruser',$sess_data);
 		$this->load->view('isi_formulir',$data);
 		$this->load->view('template/footer');
 	}
 
+    public function sekolahtujuan($id){
+		$sess_data = $this->session->userdata();
+		$data['sekolahtujuan'] = $this->M_ppdb->tampilwilayah('data_wilayah')->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebaruser',$sess_data);
+		$this->load->view('sekolahtujuan',$data);
+		$this->load->view('template/footer');
+	}
+
     public function updateformulir(){
+        $sess_data = $this->session->userdata();
+        $id_pesertadidik        = $this->input->post('id_pesertadidik');
+		$id_sekolah             = $this->input->post('id_sekolah');
+        $kode_wilayah           = $this->input->post('kode_wilayah');
+		$nama_siswa             = $this->input->post('nama_siswa');
+        $tempat_lahir           = $this->input->post('tempat_lahir');
+		$tanggal_lahir          = $this->input->post('tanggal_lahir');
+		$jk                     = $this->input->post('jk');
+		$nik                    = $this->input->post('nik');
+		$nisn                   = $this->input->post('nisn');
+		$alamat_jalan           = $this->input->post('alamat_jalan');
+		$desa_kelurahan         = $this->input->post('desa_kelurahan');
+		$rt                     = $this->input->post('rt');
+		$rw                     = $this->input->post('rw');
+		$nama_dusun             = $this->input->post('nama_dusun');
+		$nama_ibu_kandung       = $this->input->post('nama_ibu_kandung');
+		$pekerjaan_ibu_kandung  = $this->input->post('pekerjaan_ibu_kandung');
+		$penghasilan_ibu_kandung= $this->input->post('penghasilan_ibu_kandung');
+		$nama_ayah              = $this->input->post('nama_ayah');
+		$pekerjaan_ayah         = $this->input->post('pekerjaan_ayah');
+		$penghasilan_ayah       = $this->input->post('penghasilan_ayah');
+		$nama_wali              = $this->input->post('nama_wali');
+		$pekerjaan_wali         = $this->input->post('pekerjaan_wali');
+		$penghasilan_wali       = $this->input->post('penghasilan_wali');
+        $kebutuhan_khusus       = $this->input->post('kebutuhan_khusus');
+		$no_kip                 = $this->input->post('no_kip');
+		$no_pkh                 = $this->input->post('no_pkh');
+		$lintang                = $this->input->post('lintang');
+		$bujur                  = $this->input->post('bujur');
+
+    
+        $data = array(
+            'id_sekolah' => $id_sekolah,
+			'kode_wilayah' => $kode_wilayah,
+			'nama_siswa' => $nama_siswa,
+			'tempat_lahir' => $tempat_lahir,
+			'tanggal_lahir' => $tanggal_lahir,
+			'jk' => $jk,
+			'nik' => $nik,
+			'nisn' => $nisn,
+			'alamat_jalan' => $alamat_jalan,
+			'desa_kelurahan' => $desa_kelurahan,
+			'rt' => $rt,
+			'rw' => $rw,
+			'nama_dusun' => $nama_dusun,
+			'nama_ibu_kandung' => $nama_ibu_kandung,
+			'pekerjaan_ibu_kandung' => $pekerjaan_ibu_kandung,
+			'penghasilan_ibu_kandung' => $penghasilan_ibu_kandung,
+			'nama_ayah' => $nama_ayah,
+			'pekerjaan_ayah' => $pekerjaan_ayah,
+			'penghasilan_ayah' => $penghasilan_ayah,
+			'nama_wali' => $nama_wali,
+			'pekerjaan_wali' => $pekerjaan_wali,
+			'penghasilan_wali' => $penghasilan_wali,
+			'kebutuhan_khusus' => $kebutuhan_khusus,
+			'no_kip' => $no_kip,
+			'no_pkh' => $no_pkh,
+			'lintang' => $lintang,
+			'bujur' => $bujur
+        );
+    
+        $where = array(
+            'id_pesertadidik' => $id_pesertadidik
+        );
+        $this->M_ppdb->updateformulirsiswa($where,$data,'datasiswa');
+		$this->load->view('berhasil_update_formulir');
+
+    }
+
+
+    public function kirimfoto(){
         $id                = $this->input->post('id');
         $nama              = $this->input->post('nama');
         $tptlahir              = $this->input->post('tptlahir');

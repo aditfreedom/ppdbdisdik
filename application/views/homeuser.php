@@ -22,7 +22,7 @@
         <h1 class="text-center">TP. 2021/2022</h1>
         <img src="<?=base_url()?>assets/img/favicon.png" width="250px" srcset="" class="img-fluid mx-auto d-block" alt="Responsive image">
         <br>
-        <a class="btn btn-primary" href="<?=base_url('user/isi_formulir/'.$id)?>" style="width:100%;" role="button"><b>MENDAFTAR</b></a>     
+        <a class="btn btn-primary" href="<?=base_url('user/isi_formulir/'.$id_pesertadidik)?>" style="width:100%;" role="button"><b>MENDAFTAR</b></a>     
 
 
 

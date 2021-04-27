@@ -49,7 +49,7 @@
   </div>
 
   <!-- ======= Header ======= -->
-  <header id="header">
+  <header id="header" >
     <div class="container d-flex align-items-center">
 
       <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="40px"><h2 class="logo mr-auto"><a href="#">&nbsp;DISDIKBUD<br>&nbsp;KAB. BIREUEN<span></span></a></h2></img>
@@ -58,9 +58,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="<?=base_url()?>hal/login">PENDAFTARAN NON DAPODIK</a></li>
           <li><a href="<?=base_url()?>hal/login">LOGIN</a></li>
-
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -69,20 +67,24 @@
   
     <div class="container text-center">
     <br>
-<h3 class="text-dark" style="margin-top:10px;">REGISTRASI PENGGUNA<br>CALON PESERTA DIDIK BARU<br>DISDIKBUD KAB. BIREUEN TA.2021/2022</h3>
+<h3 class="text-dark" style="margin-top:10px;">REGISTRASI AKUN PENGGUNA</h3>
 <hr>
 </div>
 <br>
     <div class="container">
-    <a href="#" class="btn btn-danger rounded-pill"><b>ISI DATA UNTUK PEMBUATAN AKUN</b></a><br><br>
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>ISI DATA UNTUK PEMBUATAN AKUN</b></a><br><br>
     <form action="<?=base_url('hal/cariuser')?>" method="get">
     <div class="form-group">
         <label for=""><b>NISN/NIK</b></label>
         <input type="text" name="nisn" class="form-control" placeholder="Isi NISN atau NIK" maxlength="16" required>
         </div>       
-        <button type="submit" class="btn btn-primary font-weight-bold" style="width:100%;">CARI DATA</button>
-      </div>
+        <button type="submit" class="btn btn-primary font-weight-bold btn-block" style="margin-bottom:14px;">CARI DATA</button>
         </form>
+        <p class="text-dark font-weight-bold text-center">ATAU</p>
+        <a href="<?=base_url('hal/tanpanisn');?>" class="btn btn btn-dark btn-block text-uppercase font-weight-bold">PENDAFTARAN NON NISN</a>
+
+      </div>
+
 
 <br>
     </div>

@@ -12,10 +12,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?php echo base_url()?>assets/img/team/team-1.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo base_url()?>assets/img/team/tutwuri.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $nama_lengkap;?></a>
+          <a href="#" class="d-block"><?php echo $nama_siswa;?></a>
         </div>
       </div>
 
@@ -35,7 +35,7 @@
 
 
           <li class="nav-item ">
-            <a href="<?=base_url('user/isi_formulir/'.$id);?>" class="nav-link">
+            <a href="<?=base_url('user/isi_formulir/'.$id_pesertadidik);?>" class="nav-link">
               <i class="nav-icon fa fa-money-check-alt"></i>
               <p>
                 Isi Formulir
@@ -44,45 +44,27 @@
           </li>
 
           <li class="nav-item ">
-            <a href="<?=base_url('user/cetak_kartu/'.$id);?>" class="nav-link">
-              <i class="nav-icon fa fa-id-card-alt"></i>
+            <a href="<?=base_url('user/isi_formulir/'.$id_pesertadidik);?>" class="nav-link">
+              <i class="nav-icon fas fa-user-check"></i>
               <p>
-                Kartu Ujian
+                Pengumuman Kelulusan
               </p>
             </a>
           </li>
 
-          <li class="nav-item has-treeview menu-close">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user-check"></i>
+          <li class="nav-item ">
+            <a href="<?=base_url('user/isi_formulir/'.$id_pesertadidik);?>" class="nav-link">
+              <i class="nav-icon fa fa fa-clipboard-check"></i>
               <p>
-                Registrasi Ulang
-                <i class="right fas fa-angle-left"></i>
+                Daftar Ulang
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                <!-- <a href="<?=base_url('user/registrasi_ulang/'.$id);?>" class="nav-link"> -->
-
-                  <i class="far fa fa-clipboard-check nav-icon"></i>
-                  <p>Daftar Ulang</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                <!-- <a href="<?=base_url('user/cetakdaftarulang/'.$id);?>" class="nav-link"> -->
-                  <i class="far fa fa-print nav-icon"></i>
-                  <p>Cetak Formulir Daftar Ulang</p>
-                </a>
-              </li>
-              </ul>
-              </li>       
+          </li>
 
           <li class="nav-item">
-            <a href="<?= base_url('user/logout')?>" class="nav-link bg-danger">
+            <a href="<?= base_url('user/logout')?>" class="nav-link bg-primary">
               <i class="nav-icon fa fa-sign-out-alt"></i>
-              <p>
+              <p >
                 Logout
               </p>
             </a>

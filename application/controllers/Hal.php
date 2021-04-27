@@ -27,37 +27,28 @@ class Hal extends CI_Controller {
         $this->form_validation->set_rules('password','Password','required');
  
         if($this->form_validation->run() != FALSE){
-             $where = array(
-                 'username' => $username,
-                 'password' => $password,
-             );
+            
  
-             $ceklogin = $this->M_ppdb->cek_login($where)->num_rows();
-             $cekloginid = $this->M_ppdb->cek_login($where)->result();
-             if ($ceklogin > 0) {
+             $ceklogin = $this->M_ppdb->cek_login($username,$password)->num_rows();
+             $cekloginid = $this->M_ppdb->cek_login($username,$password)->result();
+             if ($ceklogin == 1) {
                  foreach ($cekloginid as $cek) {
-                     $id = $cek->id;
-                     $nama_lengkap = $cek->nama_lengkap;
-                     $nisn = $cek->nisn;
-                     $no_hp = $cek->no_hp;
+                     $id = $cek->id_pesertadidik;
+                     $nama_lengkap = $cek->nama_siswa;
                      $role = $cek->role;
-                     $approve_formulir = $cek->approve_formulir;
-                     $approve_lulus = $cek->approve_lulus;
+                     $status = $cek->status;
                      $username = $cek->username;
                      $password = $cek->password;
                     }
  
-                     
+
                      $sess_data =  array(
                          'username' => $username,
                          'password' => $password,
-                         'id' => $id,
-                         'nama_lengkap' => $nama_lengkap,
-                         'nisn' => $nisn,
-                         'no_hp' => $no_hp,
+                         'id_pesertadidik' => $id,
+                         'nama_siswa' => $nama_lengkap,
                          'role' => $role,
-                         'approve_formulir' => $approve_formulir,
-                         'approve_lulus' => $approve_lulus,
+                         'status' => $status,
                          'login' => 'Berhasil'              
                         );
  
@@ -104,30 +95,127 @@ class Hal extends CI_Controller {
 			'role' => "2",
 			'approve_formulir' 	=> "Antrian",
 			'approve_lulus' 	=> "Antrian",
-			'approve_daftarulang' => "Antrian"
+			'approve_daftarulang' => "Antrian",
+            'status' => 0
+
 		);
 
 		$hitungusername= $this->M_ppdb->tampildatapengguna1($username,$password);
 
 		if ($hitungusername >=1) {
 			$this->load->view('username_gagal');   
-            $this->load->view('registrasi');     
 		}else{
-			$this->M_ppdb->tambahuser($data,'pengguna');
-			$this->load->view('status');    
-            $this->load->view('login');     
+            $hitungusernamedata= $this->M_ppdb->tampildatasiswa($username,$password);
+           
+                $this->M_ppdb->tambahuser($data,'pengguna');
+                $this->load->view('status');  
+  
 		}
 		
 
 	}
 
+    public function tambahnonisn(){
+		$id_pesertadidik        = $this->input->post('id_pesertadidik');
+		$id_sekolah             = $this->input->post('id_sekolah');
+		$nama_siswa             = $this->input->post('nama_siswa');
+        $tempat_lahir           = $this->input->post('tempat_lahir');
+		$tanggal_lahir          = $this->input->post('tanggal_lahir');
+		$jk                     = $this->input->post('jk');
+		$nik                    = $this->input->post('nik');
+		$nisn                   = $this->input->post('nisn');
+		$alamat_jalan           = $this->input->post('alamat_jalan');
+		$desa_kelurahan         = $this->input->post('desa_kelurahan');
+		$rt                     = $this->input->post('rt');
+		$rw                     = $this->input->post('rw');
+		$nama_dusun             = $this->input->post('nama_dusun');
+		$nama_ibu_kandung       = $this->input->post('nama_ibu_kandung');
+		$pekerjaan_ibu_kandung  = $this->input->post('pekerjaan_ibu_kandung');
+		$penghasilan_ibu_kandung= $this->input->post('penghasilan_ibu_kandung');
+		$nama_ayah              = $this->input->post('nama_ayah');
+		$pekerjaan_ayah         = $this->input->post('pekerjaan_ayah');
+		$penghasilan_ayah       = $this->input->post('penghasilan_ayah');
+		$nama_wali              = $this->input->post('nama_wali');
+		$pekerjaan_wali         = $this->input->post('pekerjaan_wali');
+		$penghasilan_wali       = $this->input->post('penghasilan_wali');
+		$no_kip                 = $this->input->post('no_kip');
+		$no_pkh                 = $this->input->post('no_pkh');
+		
+        $data = array(
+			'id_pesertadidik' => $id_pesertadidik,
+            'id_sekolah' => $id_sekolah,
+			'kode_wilayah' => "0",
+			'nama_siswa' => $nama_siswa,
+			'tempat_lahir' => $tempat_lahir,
+			'tanggal_lahir' => $tanggal_lahir,
+			'jk' => $jk,
+			'nik' => $nik,
+			'nisn' => $nisn,
+			'alamat_jalan' => $alamat_jalan,
+			'desa_kelurahan' => $desa_kelurahan,
+			'rt' => $rt,
+			'rw' => $rw,
+			'nama_dusun' => $nama_dusun,
+			'nama_ibu_kandung' => $nama_ibu_kandung,
+			'pekerjaan_ibu_kandung' => $pekerjaan_ibu_kandung,
+			'penghasilan_ibu_kandung' => $penghasilan_ibu_kandung,
+			'nama_ayah' => $nama_ayah,
+			'pekerjaan_ayah' => $pekerjaan_ayah,
+			'penghasilan_ayah' => $penghasilan_ayah,
+			'nama_wali' => $nama_wali,
+			'pekerjaan_wali' => $pekerjaan_wali,
+			'penghasilan_wali' => $penghasilan_wali,
+			'kebutuhan_khusus' => "Tidak Ada",
+			'no_kip' => $no_kip,
+			'no_pkh' => $no_pkh,
+			'lintang' => "0",
+			'bujur' => "0",
+		);
+
+		$data2 = array(
+			'id_pesertadidik' => $id_pesertadidik,
+			'username' => $nik,
+			'password' => $nisn,
+			'role' => "2",
+			'approve_formulir' 	=> "Antrian",
+			'approve_lulus' 	=> "Antrian",
+			'approve_daftarulang' => "Antrian",
+            'status' => 0
+		);
+
+		$hitungusername= $this->M_ppdb->tampildatapengguna1($nik,$nisn);
+
+		if ($hitungusername >=1) {
+			$this->load->view('username_gagal');   
+		}else{
+            $hitungusernamedata= $this->M_ppdb->tampildatasiswa($nik,$nisn);
+            if ($hitungusernamedata>=1) {
+                $this->load->view('username_gagal');   
+            }else {
+                $this->M_ppdb->tambahuser($data2,'pengguna');
+                $this->M_ppdb->tambahdatasiswa($data,'datasiswa');
+                $this->load->view('status');    
+            }   
+		}
+		
+
+	}
+
+
     public function cariuser(){
 		$nisn       = $this->input->get('nisn');
         $data['cariuser'] = $this->M_ppdb->tampilsiswa($nisn,'datasiswa')->result();
-        $this->load->view('cariuser',$data);
+        if ($data['cariuser']==null) {
+            $this->load->view('data_tidak_ditemukan');    
+        }else {
+            $this->load->view('cariuser',$data);
+        }
 
+	}
 
-		
+    public function tanpanisn(){
+        $data['joinsekolah'] = $this->M_ppdb->joinsekolah()->result();
+        $this->load->view('tanpanisn',$data);
 
 	}
 
