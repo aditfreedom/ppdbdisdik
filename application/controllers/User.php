@@ -7,8 +7,9 @@ class User extends CI_Controller {
     function __construct(){
         parent::__construct();
         $datauser = $this->session->userdata('login'); 
-		if (empty($datauser)) {
-			redirect(base_url());
+		if ($datauser!= "Berhasil") {
+            $this->session->sess_destroy();
+			redirect(base_url('hal/login'));
 		}
     }
 

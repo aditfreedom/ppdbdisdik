@@ -25,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item ">
-            <a href="<?=base_url('home');?>" class="nav-link">
+            <a href="<?=base_url('admin');?>" class="nav-link">
               <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -35,7 +35,7 @@
 
 
           <!-- <li class="nav-item ">
-            <a href="<?=base_url('home/kuota');?>" class="nav-link">
+            <a href="<?=base_url('admin/kuota');?>" class="nav-link">
               <i class="nav-icon fa fa-tasks"></i>
               <p>
                 Kuota
@@ -44,32 +44,44 @@
           </li> -->
 
           <li class="nav-item ">
-            <a href="<?=base_url('home/kuota');?>" class="nav-link">
+            <a href="<?=base_url('admin/approve_formulir');?>" class="nav-link">
               <i class="nav-icon fa fa-clipboard-check"></i>
               <p>
-                Kuota Penerimaan
+                Approve Formulir
               </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a href="<?=base_url('home/approve_lulus');?>" class="nav-link">
+            <a href="<?=base_url('admin/approve_lulus');?>" class="nav-link">
               <i class="nav-icon fa fa-building"></i>
               <p>
-                Data Sekolah
+                Approve Kelulusan
               </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a href="<?=base_url('home/datapengguna');?>" class="nav-link">
+            <a href="<?=base_url('admin/approve_daftarulang');?>" class="nav-link">
               <i class="nav-icon fa fa-user-check"></i>
               <p>
-                Data Siswa Pendaftar
+                Approve Daftar Ulang
               </p>
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a href="#" class="nav-link">
+            <!-- <a href="<?=base_url('admin/approve_daftarulang');?>" class="nav-link"> -->
+              <i class="nav-icon fa fa-database"></i>
+              <p>
+                Data Pendaftar
+              </p>
+            </a>
+          </li>
+
+          
+
           <li class="nav-item">
-            <a href="<?= base_url('home/logout')?>" class="nav-link bg-danger">
+            <a href="<?= base_url('admin/logout')?>" class="nav-link bg-danger">
               <i class="nav-icon fa fa-sign-out-alt"></i>
               <p>
                 Logout

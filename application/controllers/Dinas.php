@@ -2,25 +2,30 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Hal extends CI_Controller {
+class Dinas extends CI_Controller {
 
     function __construct(){
         parent::__construct();
-        $datauser = $this->session->userdata('login'); 
+		$datauser = $this->session->userdata('login'); 
 		$role=$this->session->userdata('role');
-		if ($datauser== "Berhasil") {
-			redirect(base_url('user'));
+		if (($datauser == "Berhasil") && ($role == "1") ) {
+			redirect(base_url('admin'));
 		}
-		if($role=="2"){
-			redirect(base_url('user'));
+		if (($datauser == "Berhasil") && ($role == "0") ) {
+			redirect(base_url('home'));
 		}
-
+		if($role=="0"){
+			redirect(base_url('home'));
+		}
+		if ($role=="1"){
+			redirect(base_url('admin'));
+		}
     }
 
     public function login()
 	{
 		$this->load->model('M_ppdb');
-		$this->load->view('login');	
+		$this->load->view('login_dinas');	
 	}
 
 
@@ -34,14 +39,14 @@ class Hal extends CI_Controller {
         if($this->form_validation->run() != FALSE){
             
  
-             $ceklogin = $this->M_ppdb->cek_login($username,$password)->num_rows();
-             $cekloginid = $this->M_ppdb->cek_login($username,$password)->result();
+             $ceklogin = $this->M_ppdb->cek_login_dinas($username,$password)->num_rows();
+             $cekloginid = $this->M_ppdb->cek_login_dinas($username,$password)->result();
              if ($ceklogin == 1) {
                  foreach ($cekloginid as $cek) {
                      $id = $cek->id_pesertadidik;
-                     $nama_lengkap = $cek->nama_siswa;
                      $role = $cek->role;
                      $status = $cek->status;
+					 $approve_formulir = $cek->approve_formulir;
                      $username = $cek->username;
                      $password = $cek->password;
                     }
@@ -51,30 +56,38 @@ class Hal extends CI_Controller {
                          'username' => $username,
                          'password' => $password,
                          'id_pesertadidik' => $id,
-                         'nama_siswa' => $nama_lengkap,
                          'role' => $role,
                          'status' => $status,
+						 'approve_formulir' => $approve_formulir,
                          'login' => 'Berhasil'              
                         );
  
                 //  redirect(base_url('home'));
 
-                if ($sess_data['role'] == "2"){
+
+                 if ($sess_data["role"] == "0"){
                     $this->session->set_userdata($sess_data); 
-                    redirect(base_url('user')); 
+                     redirect(base_url('home')); 
+                 }
+
+                 else if ($sess_data["role"] == "1"){
+                    $this->session->set_userdata($sess_data); 
+                    redirect(base_url('admin')); 
                  }
                  else{
                     $this->load->view('gagallogin');
+
                 }
                  
-             }else{
+			}else{
                  $this->load->view('error');
              }
  
         }else{
+
          $this->load->view('error');
- 
-        }
+		}
+    
      }
 
      public function registrasi()

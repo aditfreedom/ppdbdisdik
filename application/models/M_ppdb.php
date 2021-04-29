@@ -3,7 +3,7 @@
 class M_ppdb extends CI_Model{
 
     public function tampil_data_kuota(){
-        return $this->db->get('kuota');
+        return $this->db->get('kuota_siswa');
      }
 
      public function tampildatapengguna(){
@@ -99,13 +99,13 @@ class M_ppdb extends CI_Model{
 
     public function tampilpengguna($id)
     {
-        return $this->db->query("SELECT * FROM datasiswa WHERE id_pesertadidik=$id");  
+        return $this->db->query("SELECT * FROM datasiswa WHERE id_pesertadidik='$id'");  
     }
 
     public function tampilpengguna2($id)
     {
         return $this->db->query("SELECT * FROM datasiswa LEFT JOIN data_sd ON
-        data_sd.id_sekolah = datasiswa.id_sekolah WHERE id_pesertadidik=$id");  
+        data_sd.id_sekolah = datasiswa.id_sekolah WHERE id_pesertadidik='$id'");  
     }
 
     public function tampilpengguna3()
@@ -125,8 +125,11 @@ class M_ppdb extends CI_Model{
         return $result->num_rows();
     }
 
-    public function tampilpensd(){
-        $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Zonasi' ");
+    public function tampilkuota($datauser){
+        $query = $this->db->query("SELECT * FROM kuota_siswa
+        LEFT JOIN jenis_pendaftaran ON kuota_siswa.id_kuota = jenis_pendaftaran.id_jenis
+        LEFT JOIN data_smp ON kuota_siswa.id_sekolah = data_smp.id_sekolah
+        WHERE kuota_siswa.id_sekolah='$datauser'");
         return $query;
     }
 
@@ -262,5 +265,11 @@ class M_ppdb extends CI_Model{
         LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
         where username='$username' AND password='$password'");
     }
+
+    function cek_login_dinas($username,$password){
+        return $this->db->query("SELECT * FROM pengguna
+        where username='$username' AND password='$password'");
+    }
+
 }
 ?>

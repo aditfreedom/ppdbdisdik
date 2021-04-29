@@ -70,7 +70,7 @@
           <li><a href="#jalur">Jalur Penerimaan</a></li>
           <li><a href="#portfolio">Jadwal Seleksi</a></li>
           <li><a href="#team">Kontak</a></li>
-          <li><a href="<?=base_url()?>hal/login">Login</a></li>
+          <li><a href="<?=base_url('dinas/login')?>">Login Admin</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
