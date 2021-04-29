@@ -82,7 +82,6 @@ class Admin extends CI_Controller {
 	public function kuota()
 	{
 		$data['kuota'] = $this->M_ppdb->tampil_data_kuota()->result();
-		$data['kuota22'] = $this->M_ppdb->tampilsekolah_kuota()->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);

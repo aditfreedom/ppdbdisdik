@@ -27,10 +27,10 @@
               <th scope="col">NO</th>
               <th scope="col">NAMA SEKOLAH</th>
               <th scope="col">TOTAL</th>
-              <th scope="col">SISA ZONASI</th>
-              <th scope="col">SISA AFIRMASI</th>
-              <th scope="col">SISA PINDAHAN ORANG TUA</th>
-              <th scope="col">SISA JALUR PRESTASI</th>
+              <th scope="col">ZONASI</th>
+              <th scope="col">AFIRMASI</th>
+              <th scope="col">PINDAHAN ORANG TUA</th>
+              <th scope="col">JALUR PRESTASI</th>
               <th scope="col">AKSI</th>
             </tr>
           </thead>
@@ -53,11 +53,8 @@
 	<?php endforeach ;?>
           </tbody>
         </table>
-
     </div>
-   
 </div>
-
 </div>
 
 
@@ -75,19 +72,15 @@
       <form method="post" action="<?php echo base_url().'home/tambahkuota'; ?>">
       <div class="form-group">
         <label for="">Nama Sekolah</label>
-        <?php foreach ($kuota22 as $data) : ?>
-        <select class="form-control selectpicker" data-size="5" name="id_sekolah" data-style="btn-info" data-live-search="true">
+        <select class="form-control selectpicker" data-size="3" name="id_sekolah" data-style="btn-info" data-live-search="true">
+        <?php foreach ($kuota2 as $data) : ?>
         <option value="<?php echo $data->id_sekolah;?>"><?php echo $data->nama_sekolah;?></option>
-        </select>
         <?php endforeach ;?>
+        </select>
       </div>
         <div class="form-group">
-        <label for="">Kuota Penerimaan</label>
-        <input type="text" name="kuota" class="form-control">
-        </div>
-        <div class="form-group">
-        <label for="">Keterangan</label>
-        <input type="text" name="keterangan" class="form-control">
+        <label for="">Total Kuota Penerimaan</label>
+        <input type="text" name="total" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
       </div>

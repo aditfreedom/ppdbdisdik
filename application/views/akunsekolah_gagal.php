@@ -13,10 +13,10 @@
 function jsFunction(){
     Swal.fire(
         'Gagal!',
-        'Akun sudah terdaftar',
+        'NIK dan NISN sudah terdaftar',
         'error'
 ).then(function() {
-    window.location = "./data_sekolah";
+    window.location = "./registrasi";
 });
 }
 </script>

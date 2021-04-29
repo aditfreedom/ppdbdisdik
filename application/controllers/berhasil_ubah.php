@@ -7,7 +7,3 @@ window.location.href = "./kuota";
 <?php
 echo '<script type="text/javascript">jsFunction();</script>';
 ?>
-
-
-
-

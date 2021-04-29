@@ -6,13 +6,27 @@ class M_ppdb extends CI_Model{
         return $this->db->query("SELECT * FROM kuota_siswa LEFT JOIN data_smp ON kuota_siswa.id_sekolah = data_smp.id_sekolah");
      }
 
+     public function tampilsekolah_kuota()
+    {
+        return $this->db->query("SELECT * FROM data_smp");  
+    }
+
      public function tampildatapengguna(){
         return $this->db->query("SELECT * FROM pengguna WHERE NOT role='0' ");
+     }
+
+     public function tampilakunsekolah($id){
+        return $this->db->query("SELECT * FROM pengguna WHERE id_pesertadidik ='$id' ");
      }
 
      public function tampilsiswa($nisn){
         return $this->db->query("SELECT * FROM datasiswa LEFT JOIN data_sd ON
         datasiswa.id_sekolah = data_sd.id_sekolah WHERE nisn='$nisn' OR nik='$nisn'");
+     }
+
+     public function tampilsekolah_admin(){
+        return $this->db->query("SELECT * FROM pengguna LEFT JOIN data_smp ON
+        pengguna.id_pesertadidik = data_smp.id_sekolah WHERE role = 1");
      }
 
      public function joinsekolah(){
@@ -35,21 +49,37 @@ class M_ppdb extends CI_Model{
 
     public function tambahkuota($data)
     {
-        $this->db->insert('kuota',$data);
+        $this->db->insert('kuota_siswa',$data);
     }
 
     public function hapuskuota($id)
     {   
-        $this->db->delete('kuota',$id);  
+        $this->db->delete('kuota_siswa',$id);  
     }
+
+    public function hapus_sekolah($id)
+    {   
+        $this->db->delete('pengguna',$id);  
+    }
+    
     public function editkuota($id)
     {
         return $this->db->get_where('kuota',$id);  
     }
 
+    public function edit_sekolah($id)
+    {
+        return $this->db->get_where('pengguna',$id);  
+    }
+
     public function updatekuota($where,$data)
     {   $this->db->where($where);
         $this->db->update('kuota',$data); 
+    }
+
+    public function update_sekolah($where,$data)
+    {   $this->db->where($where);
+        $this->db->update('pengguna',$data); 
     }
 
     public function updatedatapengguna($where,$data)
@@ -112,11 +142,6 @@ class M_ppdb extends CI_Model{
     {
         return $this->db->query("SELECT * FROM datasiswa LEFT JOIN data_sd ON
         data_sd.id_sekolah = datasiswa.id_sekolah");  
-    }
-
-    public function tampilsekolah_kuota()
-    {
-        return $this->db->query("SELECT * FROM data_smp");  
     }
 
     public function tampiliddaftarulang($id)

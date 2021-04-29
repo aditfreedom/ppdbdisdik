@@ -12,9 +12,9 @@
 <script type="text/javascript">
 function jsFunction(){
     Swal.fire(
-        'Gagal!',
-        'Akun sudah terdaftar',
-        'error'
+        'Berhasil!',
+        'Sukses Ubah Akun Sekolah',
+        'success'
 ).then(function() {
     window.location = "./data_sekolah";
 });
@@ -28,6 +28,3 @@ echo '<script type="text/javascript">jsFunction();</script>';
  
 </body>
 </html>
-
-
-

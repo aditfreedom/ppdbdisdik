@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Apr 2021 pada 08.20
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.2.34
+-- Waktu pembuatan: 29 Apr 2021 pada 12.00
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -9928,9 +9928,9 @@ CREATE TABLE `jenis_pendaftaran` (
 
 INSERT INTO `jenis_pendaftaran` (`id_jenis`, `nama`, `pembagian_kuota`, `keterangan`) VALUES
 (1, 'Zonasi', 50, 'Zonasi Desa'),
-(2, 'Afirmasi', 35, 'Afirmasi/Siswa Kurang Mampu'),
-(3, 'Pindahan Orang Tua', 10, 'Pindah Dinas Orang Tua'),
-(4, 'Jalur Prestasi', 5, 'Jalur Prestasi');
+(2, 'Afirmasi', 15, 'Afirmasi/Siswa Kurang Mampu'),
+(3, 'Pindahan Orang Tua', 5, 'Pindah Dinas Orang Tua'),
+(4, 'Jalur Prestasi', 30, 'Jalur Prestasi');
 
 -- --------------------------------------------------------
 
@@ -9945,15 +9945,16 @@ CREATE TABLE `kuota_siswa` (
   `sisa_zonasi` int(11) NOT NULL,
   `sisa_afirmasi` int(11) NOT NULL,
   `sisa_pindahan` int(11) NOT NULL,
-  `sisa_prestasi` int(11) NOT NULL
+  `sisa_prestasi` int(11) NOT NULL,
+  `total_in` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kuota_siswa`
 --
 
-INSERT INTO `kuota_siswa` (`id_kuota`, `id_sekolah`, `total`, `sisa_zonasi`, `sisa_afirmasi`, `sisa_pindahan`, `sisa_prestasi`) VALUES
-(1, 'C0782C91-2EF5-E011-9655-A5E59AD8C88A', 200, 0, 0, 0, 0);
+INSERT INTO `kuota_siswa` (`id_kuota`, `id_sekolah`, `total`, `sisa_zonasi`, `sisa_afirmasi`, `sisa_pindahan`, `sisa_prestasi`, `total_in`) VALUES
+(2, 'C0782C91-2EF5-E011-9655-A5E59AD8C88A', 200, 100, 30, 10, 60, 0);
 
 -- --------------------------------------------------------
 
@@ -9978,10 +9979,10 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `id_pesertadidik`, `username`, `password`, `role`, `approve_formulir`, `approve_lulus`, `approve_daftarulang`, `status`) VALUES
-(1, 'C0782C91-2EF5-E011-9655-A5E59AD8C88A', 'smp1', 'smp1', '1', 'SMPN 1 BIREUEN', 'SMPN 1 BIREUEN', 'SMPN 1 BIREUEN', 0),
 (53, '081362059403', '1111093101960001', '096001234', '2', 'Antrian', 'Antrian', 'Antrian', 0),
 (54, '001409E6-483B-11E5-86EB-57DE874865AC', '1111075009090001', '0096000836', '2', 'Antrian', 'Antrian', 'Antrian', 0),
-(55, '007', 'disdikbud@bireuenkab.go.id', 'disdik2021', '0', 'ADMIN BIREUEN', 'ADMIN BIREUEN', 'ADMIN BIREUEN', 0);
+(55, '007', 'disdikbud@bireuenkab.go.id', 'disdik2021', '0', 'ADMIN BIREUEN', 'ADMIN BIREUEN', 'ADMIN BIREUEN', 0),
+(58, 'C0782C91-2EF5-E011-9655-A5E59AD8C88A', 'smp1', 'smp1', '1', 'SMP NEGERI 1 BIREUEN', 'SMP NEGERI 1 BIREUEN', 'SMP NEGERI 1 BIREUEN', 0);
 
 -- --------------------------------------------------------
 
@@ -10111,13 +10112,13 @@ ALTER TABLE `jenis_pendaftaran`
 -- AUTO_INCREMENT untuk tabel `kuota_siswa`
 --
 ALTER TABLE `kuota_siswa`
-  MODIFY `id_kuota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kuota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT untuk tabel `sekolah_tujuan`

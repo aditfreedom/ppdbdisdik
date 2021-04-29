@@ -83,6 +83,7 @@ class Home extends CI_Controller {
 	
 	public function kuota()
 	{
+		$data['kuota2'] = $this->M_ppdb->tampilsekolah_kuota()->result();
 		$data['kuota'] = $this->M_ppdb->tampil_data_kuota()->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
@@ -92,16 +93,19 @@ class Home extends CI_Controller {
 	}
 
 	public function tambahkuota(){
-		$jenis           = $this->input->post('jenis');
-		$kuota          = $this->input->post('kuota');
-		$keterangan          = $this->input->post('keterangan');
+		$id_sekolah           = $this->input->post('id_sekolah');
+		$total          	  = $this->input->post('total');
 
 
 	   
 		$data = array(
-			'jenis' => $jenis,
-			'kuota' => $kuota,
-			'keterangan' => $keterangan
+			'id_sekolah' => $id_sekolah,
+			'total' => $total,
+			'sisa_zonasi' => 0.5*$total,
+			'sisa_afirmasi' => 0.15*$total,
+			'sisa_pindahan' => 0.05*$total,
+			'sisa_prestasi' => 0.3*$total,
+			'total_in' => 0,
 
 		);
 	
@@ -109,10 +113,49 @@ class Home extends CI_Controller {
 		redirect(base_url('home/kuota'));
 	}
 
+	public function tambahpengguna_sekolah(){
+		$id_pesertadidik    = $this->input->post('id_pesertadidik');
+		$username           = $this->input->post('username');
+		$password           = $this->input->post('password');
+		$nama_sekolah       = $this->input->post('nama_sekolah');
+
+	
+		
+		$data = array(
+			'id_pesertadidik' => $id_pesertadidik,
+			'username' => $username,
+			'password' => $password,
+			'role' => "1",
+			'approve_formulir' 	=> $nama_sekolah,
+			'approve_lulus' 	=> $nama_sekolah,
+			'approve_daftarulang' => $nama_sekolah,
+            'status' => 0
+
+		);
+
+		$hitungusername= $this->M_ppdb->tampilakunsekolah($id_pesertadidik)->num_rows();
+
+		if ($hitungusername >=1) {
+			$this->load->view('username_gagal');   
+		}else{          
+                $this->M_ppdb->tambahuser($data,'pengguna');
+                $this->load->view('akunsekolah_sukses');  
+  
+		}
+		
+
+	}
+
 	public function hapuskuota($id){
-		$id =    array ('id' => $id);
+		$id =    array ('id_kuota' => $id);
 		$this->M_ppdb->hapuskuota($id,'kuota');
 		redirect(base_url('home/kuota'));
+	}
+
+	public function hapus_sekolah($id){
+		$id =    array ('id' => $id);
+		$this->M_ppdb->hapus_sekolah($id,'pengguna');
+		redirect(base_url('home/data_sekolah'));
 	}
 
 	public function editkuota($id){
@@ -122,6 +165,16 @@ class Home extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar',$sess_data);
 		$this->load->view('editkuota',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function edit_sekolah($id){
+		$sess_data = $this->session->userdata();
+		$id =    array ('id' => $id);
+		$data['data_sekolah'] = $this->M_ppdb->edit_sekolah($id,'pengguna')->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar',$sess_data);
+		$this->load->view('edit_sekolah',$data);
 		$this->load->view('template/footer');
 	}
 
@@ -158,6 +211,17 @@ class Home extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function data_sekolah()
+	{
+		$data['pengguna2'] = $this->M_ppdb->tampilsekolah_kuota()->result();
+		$data['data_sekolah'] = $this->M_ppdb->tampilsekolah_admin()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar',$sess_data);
+		$this->load->view('data_sekolah',$data);
+		$this->load->view('template/footer');
+	}
+
 	public function cetak_kartu($id){
 		$sess_data = $this->session->userdata();
 		$id =    array ('id' => $id);
@@ -171,7 +235,34 @@ class Home extends CI_Controller {
 
         }
 
+		public function update_sekolah(){
+		$id    = $this->input->post('id');
+		$id_pesertadidik    = $this->input->post('id_pesertadidik');
+		$username           = $this->input->post('username');
+		$password           = $this->input->post('password');
+		$approve_formulir       = $this->input->post('approve_formulir');
+
 	
+		
+		$data = array(
+			'id_pesertadidik' => $id_pesertadidik,
+			'username' => $username,
+			'password' => $password,
+			'role' => "1",
+			'approve_formulir' 	=> $approve_formulir,
+			'approve_lulus' 	=> $approve_formulir,
+			'approve_daftarulang' => $approve_formulir,
+            'status' => 0
+
+		);
+		
+			$where = array(
+				'id' => $id
+			);
+		
+			$this->M_ppdb->update_sekolah($where,$data,'pengguna');
+			$this->load->view('berhasil_ubah_sekolah');
+		}
 
 	public function editapproval($id){
 		$sess_data = $this->session->userdata();

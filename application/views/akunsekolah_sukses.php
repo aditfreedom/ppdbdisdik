@@ -12,9 +12,9 @@
 <script type="text/javascript">
 function jsFunction(){
     Swal.fire(
-        'Gagal!',
-        'Akun sudah terdaftar',
-        'error'
+        'Berhasil!',
+        'Akun Telah Dibuat',
+        'success'
 ).then(function() {
     window.location = "./data_sekolah";
 });
