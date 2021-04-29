@@ -17,17 +17,20 @@
     </div>
     <!-- /.content-header -->
     <div class="content">
-    <!-- <p align="left">
+    <p align="left">
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-    <i class="fa fa-plus"></i> Tambah Data</button></p> -->
+    <i class="fa fa-plus"></i> Tambah Data</button></p>
 
     <table class="table table-hover" id="example">
           <thead class="text-center">
             <tr>
               <th scope="col">NO</th>
-              <th scope="col">JENIS PENERIMAAN</th>
-              <th scope="col">KUOTA</th>
-              <th scope="col">KETERANGAN</th>
+              <th scope="col">NAMA SEKOLAH</th>
+              <th scope="col">TOTAL</th>
+              <th scope="col">SISA ZONASI</th>
+              <th scope="col">SISA AFIRMASI</th>
+              <th scope="col">SISA PINDAHAN ORANG TUA</th>
+              <th scope="col">SISA JALUR PRESTASI</th>
               <th scope="col">AKSI</th>
             </tr>
           </thead>
@@ -36,10 +39,15 @@
 	        foreach ($kuota as $data) : ?>
 		<tr class="nomor text-center">
             <th scope="row"><?php echo $i ;?></th>
-            <td><?php echo $data->jenis;?></td>
-            <td><?php echo $data->kuota;?></td>
-            <td><?php echo $data->keterangan;?></td>
-            <td><?php echo anchor('home/editkuota/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?> </td>	
+            <td><?php echo $data->nama_sekolah;?></td>
+            <td><?php echo $data->total;?></td>
+            <td><?php echo $data->sisa_zonasi;?></td>
+            <td><?php echo $data->sisa_afirmasi;?></td>
+            <td><?php echo $data->sisa_pindahan;?></td>
+            <td><?php echo $data->sisa_prestasi;?></td>
+            <td><?php echo anchor('home/editkuota/'.$data->id_kuota,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?> 
+            <?php echo anchor('home/hapuskuota/'.$data->id_kuota,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?> 
+            </td>	
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach ;?>
@@ -66,13 +74,12 @@
       <div class="modal-body">
       <form method="post" action="<?php echo base_url().'home/tambahkuota'; ?>">
       <div class="form-group">
-        <label for="">Jenis Penerimaan</label>
-        <select class="form-control form-control" name="jenis">
-          <option>Zonasi</option>
-          <option>Afirmasi</option>
-          <option>Pindahan Orang Tua</option>
-          <option>Jalur Prestasi</option>
-          </select>
+        <label for="">Nama Sekolah</label>
+        <?php foreach ($kuota22 as $data) : ?>
+        <select class="form-control selectpicker" data-size="5" name="id_sekolah" data-style="btn-info" data-live-search="true">
+        <option value="<?php echo $data->id_sekolah;?>"><?php echo $data->nama_sekolah;?></option>
+        </select>
+        <?php endforeach ;?>
       </div>
         <div class="form-group">
         <label for="">Kuota Penerimaan</label>

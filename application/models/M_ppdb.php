@@ -3,7 +3,7 @@
 class M_ppdb extends CI_Model{
 
     public function tampil_data_kuota(){
-        return $this->db->get('kuota_siswa');
+        return $this->db->query("SELECT * FROM kuota_siswa LEFT JOIN data_smp ON kuota_siswa.id_sekolah = data_smp.id_sekolah");
      }
 
      public function tampildatapengguna(){
@@ -114,6 +114,10 @@ class M_ppdb extends CI_Model{
         data_sd.id_sekolah = datasiswa.id_sekolah");  
     }
 
+    public function tampilsekolah_kuota()
+    {
+        return $this->db->query("SELECT * FROM data_smp");  
+    }
 
     public function tampiliddaftarulang($id)
     {

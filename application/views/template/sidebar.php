@@ -15,7 +15,7 @@
           <img src="<?php echo base_url()?>assets/img/team/tutwuri.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $approve_formulir; ?></a>
+          <a href="#" class="d-block"><b><?php echo $approve_formulir; ?></b></a>
         </div>
       </div>
 
@@ -28,7 +28,7 @@
             <a href="<?=base_url('home');?>" class="nav-link">
               <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Home
               </p>
             </a>
           </li>
