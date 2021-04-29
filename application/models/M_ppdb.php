@@ -260,7 +260,7 @@ class M_ppdb extends CI_Model{
         return $this->db->query("SELECT * FROM pengguna LEFT JOIN
         datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
         LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
-        where username=$username AND password=$password");
+        where username='$username' AND password='$password'");
     }
 }
 ?>
