@@ -216,18 +216,22 @@ class Home extends CI_Controller
 
 	public function tambahkuota()
 	{
-		$id_sekolah           = $this->input->post('id_sekolah');
-		$total          	  = $this->input->post('total');
+		$post = $this->input->post(NULL, TRUE);
+		$id_sekolah  = $post['id_sekolah'];
+		$total       = $post['total'];
+		$zonasi      = $post['zonasi'];
+		$afirmasi    = $post['afirmasi'];
+		$pindahan    = $post['pindahan'];
+		$prestasi    = $post['prestasi'];
 
 		$data = array(
 			'id_sekolah' => $id_sekolah,
 			'total' => $total,
-			'sisa_zonasi' => 0.5 * $total,
-			'sisa_afirmasi' => 0.15 * $total,
-			'sisa_pindahan' => 0.05 * $total,
-			'sisa_prestasi' => 0.3 * $total,
+			'sisa_zonasi' => $zonasi,
+			'sisa_afirmasi' => $afirmasi,
+			'sisa_pindahan' => $pindahan,
+			'sisa_prestasi' => $prestasi,
 			'total_in' => 0,
-
 		);
 
 		$this->M_ppdb->tambahkuota($data, 'kuota');
