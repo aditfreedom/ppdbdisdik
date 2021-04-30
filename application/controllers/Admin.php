@@ -148,8 +148,9 @@ class Admin extends CI_Controller {
 
 	public function approve_formulir()
 	{
-		$data['formulir'] = $this->M_ppdb->tampil_approval()->result();
 		$sess_data = $this->session->userdata();
+		$id_sekolah = $this->session->userdata('id_pesertadidik');
+		$data['formulir'] = $this->M_ppdb->tampil_approval($id_sekolah)->result();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('approve_formulir',$data);
@@ -173,68 +174,22 @@ class Admin extends CI_Controller {
 
 	public function editapproval($id){
 		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
-		$data['approval'] = $this->M_ppdb->tampilpengguna($id,'pengguna')->result();
+		$data['approval'] = $this->M_ppdb->tampilpengguna_upload($id)->result();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('editapproval',$data);
 		$this->load->view('template/footer');
 	}
 
+	
+
 	public function updateapproval(){
-		$id                = $this->input->post('id');
-        $nama              = $this->input->post('nama');
-        $tptlahir              = $this->input->post('tptlahir');
-        $tgllahir              = $this->input->post('tgllahir');
-        $jenis             = $this->input->post('jenis');
-        $nisn              = $this->input->post('nisn');
-        $alamat            = $this->input->post('alamat');
-        $sekolah_asal      = $this->input->post('sekolah_asal');
-        $namaayah              = $this->input->post('namaayah');
-        $namaibu              = $this->input->post('namaibu');
-        $no_wa              = $this->input->post('no_wa');
-        $akte          = $this->input->post('akte');
-        $no_hp             = $this->input->post('no_hp');
-        $foto             = $this->input->post('foto');
-        $bukti_tf          = $this->input->post('bukti_tf');
-        $username          = $this->input->post('username');
-        $password          = $this->input->post('password');
-        $role              = $this->input->post('role');
-        $approve_formulir       = $this->input->post('approve_formulir');
-        $approve_lulus          = $this->input->post('approve_lulus');
-        $approve_daftarulang    = $this->input->post('approve_daftarulang');
+		$id                	= $this->input->post('id');
+        $approve_formulir   = $this->input->post('approve_formulir');
 
-
-	
-		$data = array(
-			'nama_lengkap' => $nama,
-            'tptlahir' => $tptlahir,
-            'tgllahir' => $tgllahir,
-            'namaayah' => $namaayah,
-            'namaibu' => $namaibu,
-            'no_wa' => $no_wa,
-            'akte' => $akte,
-            'jenis' => $jenis,
-            'nisn' => $nisn,
-            'alamat' =>$alamat,
-            'sekolah_asal' =>$sekolah_asal,
-            'no_hp' =>$no_hp,
-            'foto' =>$foto,
-            'bukti_tf' =>$bukti_tf,
-            'username' =>$username,
-            'password' =>$password,
-            'role' =>$role,
-            'approve_formulir' =>$approve_formulir,
-            'approve_lulus' =>$approve_lulus,
-            'approve_daftarulang' =>$approve_daftarulang
-		);
-	
-		$where = array(
-			'id' => $id
-		);
-		$this->M_ppdb->updateformulir($where,$data,'pengguna');
+		$this->M_ppdb->updateformulir($approve_formulir,$id,'pengguna');
 		$this->load->view('berhasil_ubah_formulir');
-		$this->load->view('approve_formulir');	}
+	}
 
 		
 		public function cetakformulir(){
@@ -269,8 +224,9 @@ class Admin extends CI_Controller {
 
 		public function approve_lulus()
 	{
-		$data['lulus'] = $this->M_ppdb->tampil_lulus()->result();
 		$sess_data = $this->session->userdata();
+		$id_sekolah = $this->session->userdata('id_pesertadidik');
+		$data['lulus'] = $this->M_ppdb->tampil_lulus($id_sekolah)->result();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('approve_lulus',$data);
@@ -279,8 +235,7 @@ class Admin extends CI_Controller {
 
 	public function editlulus($id){
 		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
-		$data['lulus'] = $this->M_ppdb->tampilpengguna($id,'pengguna')->result();
+		$data['lulus'] = $this->M_ppdb->tampilpengguna_lulus($id)->result();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('editlulus',$data);
@@ -288,87 +243,11 @@ class Admin extends CI_Controller {
 	}
 
 	public function updatelulus(){
-		$id                = $this->input->post('id');
-        $nama              = $this->input->post('nama');
-        $tptlahir              = $this->input->post('tptlahir');
-        $tgllahir              = $this->input->post('tgllahir');
-        $jenis             = $this->input->post('jenis');
-        $nisn              = $this->input->post('nisn');
-        $alamat            = $this->input->post('alamat');
-        $sekolah_asal      = $this->input->post('sekolah_asal');
-        $namaayah              = $this->input->post('namaayah');
-        $namaibu              = $this->input->post('namaibu');
-        $no_wa              = $this->input->post('no_wa');
-        $akte          = $this->input->post('akte');
-        $no_hp             = $this->input->post('no_hp');
-        $foto             = $this->input->post('foto');
-        $bukti_tf          = $this->input->post('bukti_tf');
-        $username          = $this->input->post('username');
-        $password          = $this->input->post('password');
-        $role              = $this->input->post('role');
-        $approve_formulir       = $this->input->post('approve_formulir');
-        $approve_lulus          = $this->input->post('approve_lulus');
-        $approve_daftarulang    = $this->input->post('approve_daftarulang');
+		$id                	= $this->input->post('id');
+        $approve_lulus   	= $this->input->post('approve_lulus');
 
-
-	
-		$data = array(
-			'nama_lengkap' => $nama,
-            'tptlahir' => $tptlahir,
-            'tgllahir' => $tgllahir,
-            'namaayah' => $namaayah,
-            'namaibu' => $namaibu,
-            'no_wa' => $no_wa,
-            'akte' => $akte,
-            'jenis' => $jenis,
-            'nisn' => $nisn,
-            'alamat' =>$alamat,
-            'sekolah_asal' =>$sekolah_asal,
-            'no_hp' =>$no_hp,
-            'foto' =>$foto,
-            'bukti_tf' =>$bukti_tf,
-            'username' =>$username,
-            'password' =>$password,
-            'role' =>$role,
-            'approve_formulir' =>$approve_formulir,
-            'approve_lulus' =>$approve_lulus,
-            'approve_daftarulang' =>$approve_daftarulang
-		);
-
-		$where = array(
-			'id' => $id
-		);
-
-		$data2 = array(
-			'id' => $id, 'tingkat' => "", 'nama_lengkap' => "", 'nama_panggilan' => "", 'nisn' => "",
-			'tpt_lahir' => "", 'tgl_lahir' => "",'agama' => "", 'suku' => "", 'jk' => "", 'goldar' => "",
-			'anak_ke' => "", 'dari_saudara' => "", 'alamat' => "", 'jarak' => "", 'desa' => "", 'kecamatan' => "",
-			'kabupaten' => "",'provinsi' => "",'nama_ayah' => "",'tptlahir_ayah' => "",'tgllahir_ayah' => "",
-			'pendidikan_ayah' => "",'pekerjaan_ayah' => "", 'penghasilan_ayah' => "",'alamat_ayah' => "",
-			'desa_ayah' => "",'kecamatan_ayah' => "",'kabupaten_ayah' => "",'provinsi_ayah' => "",'hp_ayah' => "",
-			'nama_ibu' => "",'tptlahir_ibu' => "",'tgllahir_ibu' => "",
-			'pendidikan_ibu' => "",'pekerjaan_ibu' => "", 'penghasilan_ibu' => "",'alamat_ibu' => "",
-			'desa_ibu' => "",'kecamatan_ibu' => "",'kabupaten_ibu' => "",'provinsi_ibu' => "",'hp_ibu' => "",
-			'sekolah_asal' => "",'npsn' => "", 'alamat_sekolah' => "", 'kabupaten_sekolah' => "", 'provinsi_sekolah' => "",
-			'penyakit' => "",'olah_raga' => "", 'seni' => "",'tari' => "",'lukis' => "", 'drama' => "", 'sastra' => "",
-			'organisasi' => "",'prestasi' => "",'alasan' => "",'tentang_sekolah' => ""
-		); 
-	
-
-
-		if ($approve_lulus=="Lulus") {
-			$hitungid= $this->M_ppdb->hitungidlulus($id);
-	
-			if ($hitungid==0) {
-				$this->M_ppdb->tambahiddaftarulang($data2,'daftarulang');
-			}		
-		}
-		
-		$this->M_ppdb->updatelulus($where,$data,'pengguna');
-		$this->load->view('berhasil_ubah_lulus');
-		$this->load->view('approve_lulus');
-
-		
+		$this->M_ppdb->updatelulus($approve_lulus,$id,'pengguna');
+		$this->load->view('berhasil_ubah_lulus');	
 	
 	}
 	

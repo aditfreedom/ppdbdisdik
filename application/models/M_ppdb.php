@@ -116,8 +116,13 @@ class M_ppdb extends CI_Model{
         $this->db->insert('datasiswa', $data);
     }
 
-    public function tampil_approval(){
-        $query = $this->db->query("SELECT * from pengguna where approve_formulir = 'Antrian' OR approve_formulir = 'Diterima' OR approve_formulir = 'Ditolak'");
+    public function tampil_approval($id_sekolah){
+        $query = $this->db->query("SELECT * from sekolah_tujuan 
+                                    LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                    LEFT JOIN datasiswa ON sekolah_tujuan.id_pesertadidik = datasiswa.id_pesertadidik
+                                    LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2'");
         return $query;
     }
 
@@ -126,8 +131,13 @@ class M_ppdb extends CI_Model{
         return $query;
     }
 
-    public function tampil_lulus(){
-        $query = $this->db->query("SELECT * from pengguna where (approve_lulus = 'Antrian' OR approve_lulus = 'Lulus' OR approve_lulus = 'Tidak Lulus') AND approve_formulir = 'Diterima' ");
+    public function tampil_lulus($id_sekolah){
+        $query = $this->db->query("SELECT * from sekolah_tujuan 
+        LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+        LEFT JOIN datasiswa ON sekolah_tujuan.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
+        LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+        WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.approve_formulir='Diterima'");
         return $query;
     }
 
@@ -138,7 +148,31 @@ class M_ppdb extends CI_Model{
 
     public function tampilpengguna($id)
     {
-        return $this->db->query("SELECT * FROM datasiswa WHERE id_pesertadidik='$id'");  
+        return $this->db->query("SELECT * FROM pengguna
+        LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id='$id' ");  
+    }
+
+    public function tampilpengguna_lulus($id)
+    {
+        return $this->db->query("SELECT * FROM pengguna
+        LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+        WHERE pengguna.id='$id' ");  
+    }
+
+    public function tampilpengguna_upload($id)
+    {
+        return $this->db->query("SELECT * FROM pengguna
+        LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
+        LEFT JOIN upload_berkas ON pengguna.id_pesertadidik = upload_berkas.id_pesertadidik
+        LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+        WHERE pengguna.id='$id' ");  
+    }
+
+    public function tampilupload($id)
+    {
+        return $this->db->query("SELECT * FROM upload_berkas WHERE id_pesertadidik='$id' ");  
     }
 
     public function tampilpengguna2($id)
@@ -261,14 +295,12 @@ class M_ppdb extends CI_Model{
         return $result->num_rows();
     }
    
-    public function updateformulir($where,$data)
-    {   $this->db->where($where);
-        $this->db->update('pengguna',$data); 
+    public function updateformulir($approve_formulir,$id)
+    {   $this->db->query("UPDATE pengguna SET approve_formulir='$approve_formulir' WHERE id = '$id'");
     }
 
-    public function updatelulus($where,$data)
-    {   $this->db->where($where);
-        $this->db->update('pengguna',$data); 
+    public function updatelulus($approve_lulus,$id)
+    {   $this->db->query("UPDATE pengguna SET approve_lulus='$approve_lulus' WHERE id = '$id'");
     }
 
     public function updatedaftarulanguser($where,$data)

@@ -25,11 +25,9 @@
           <thead class="text-center">
             <tr>
               <th scope="col">NO</th>
-              <th scope="col">NAMA LENGKAP</th>
               <th scope="col">NISN</th>
+              <th scope="col">NAMA LENGKAP</th>
               <th scope="col">SEKOLAH ASAL</th>
-              <th scope="col">ALAMAT</th>
-              <th scope="col">NO WA</th>
               <th scope="col">JENIS PENERIMAAN</th>
               <th scope="col">APPROVAL FORMULIR</th>
               <th scope="col" >AKSI</th>
@@ -40,12 +38,10 @@
 	        foreach ($formulir as $data) : ?>
 		<tr class="nomor text-center">
             <th scope="row"><?php echo $i ;?></th>
-            <td><?php echo $data->nama_lengkap;?></td>
             <td><?php echo $data->nisn;?></td>
-            <td><?php echo $data->sekolah_asal;?></td>
-            <td><?php echo $data->alamat;?></td>
-            <td><?php echo $data->no_wa;?></td>
-            <td><?php echo $data->jenis;?></td>
+            <td><?php echo $data->nama_siswa;?></td>
+            <td><?php echo $data->nama_sekolah;?></td>
+            <td><?php echo $data->nama;?></td>
     <?php
     $approval= $data->approve_formulir;
       if ($approval=="Antrian") {
@@ -58,9 +54,7 @@
       }    
     ?>
             <td><a class="font-weight-bold text-uppercase <?= $class;?> rounded-pill" href="#" role="button">&nbsp&nbsp<?php echo $data->approve_formulir?>&nbsp&nbsp</a></td>
-            <td><?php echo anchor('home/editapproval/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?> <?php echo anchor('home/cetak_kartu/'.$data->id,'<div class="btn btn-success btn-sm"><i class="fa fa-print"></i></div>')?></td>	            
-
-
+            <td><?php echo anchor('admin/editapproval/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	            
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach ;?>

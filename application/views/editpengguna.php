@@ -1,17 +1,22 @@
 <div class="content-wrapper">
-<div class="content-header">
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2 rounded" style="background:#007580">
-          <div class="col">
-          <br>
-            <h1 class="m-0 text-light text-bold">DATA DETAIL CALON PESERTA DIDIK</h1>
-            <footer class="blockquote-footer text-light"><b>Berdasarkan Isian Data Formulir</b></footer>
-            <hr>
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">APPROVAL FORMULIR PENDAFTARAN</h1>
           </div><!-- /.col -->
-          
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">PPDB</a></li>
+              <li class="breadcrumb-item active">Approval Formulir Pendaftaran</li>
+            </ol>
+          </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
+    <div class="content">
     <section class="content">
     <div class="container">
     <a href="#" class="btn rounded-pill text-left text-light"  style="width:100%;background:#325288;"><b>DATA DIRI</b></a><br><br>

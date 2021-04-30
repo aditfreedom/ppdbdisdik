@@ -1,17 +1,18 @@
 <div class="content-wrapper">
- <!-- Content Header (Page header) -->
- <div class="content-header">
+<div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">APPROVAL KELULUSAN</h1>
+        <div class="row mb-2 rounded" style="background:#007580">
+          <div class="col">
+          <br>
+            <h1 class="m-0 text-light text-bold">APPROVAL CALON PESERTA DIDIK</h1>
+            <footer class="blockquote-footer text-light"><b>Approve Data Formulir PPDB 2021/2022</b></footer>
+            <hr>
+            <a href="<?=base_url('admin/approve_formulir/'.$id_pesertadidik)?>" class="btn btn-light" style="width:20%;">1. Data Diri</a>&nbsp;&nbsp;<a href="<?=base_url('admin/vervalberkas/'.$id_pesertadidik)?>" style="width:20%;" class="btn btn-danger" >2. Verval Berkas</a>
+            &nbsp;<a href=""  style="width:20%;" class="btn btn-danger">3. Upload Berkas</a>&nbsp;&nbsp;<a href="" style="width:20%;" class="btn btn-danger">4. Finalisasi Pendaftaran</a>
+            <br><br>
+  
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">PPDB</a></li>
-              <li class="breadcrumb-item active">Approval Kelulusan</li>
-            </ol>
-          </div><!-- /.col -->
+          
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -29,13 +30,13 @@
               <th scope="col">NAMA LENGKAP</th>
               <th scope="col">SEKOLAH ASAL</th>
               <th scope="col">JENIS PENERIMAAN</th>
-              <th scope="col">STATUS KELULUSAN</th>
+              <th scope="col">APPROVAL FORMULIR</th>
               <th scope="col" >AKSI</th>
             </tr>
           </thead>
           <tbody>
           <?php $i = 1; 
-	        foreach ($lulus as $data) : ?>
+	        foreach ($verval as $data) : ?>
 		<tr class="nomor text-center">
             <th scope="row"><?php echo $i ;?></th>
             <td><?php echo $data->nisn;?></td>
@@ -43,18 +44,18 @@
             <td><?php echo $data->nama_sekolah;?></td>
             <td><?php echo $data->nama;?></td>
     <?php
-    $approval= $data->approve_lulus;
+    $approval= $data->approve_formulir;
       if ($approval=="Antrian") {
         $class="btn-warning";
-      }elseif($approval=="Lulus"){
+      }elseif($approval=="Diterima"){
         $class="btn-info";
       }
       else{
         $class="btn-danger";
       }    
     ?>
-            <td><a class="font-weight-bold text-uppercase <?= $class;?> rounded-pill" href="#" role="button">&nbsp&nbsp<?php echo $data->approve_lulus?>&nbsp&nbsp</a></td>
-            <td><?php echo anchor('admin/editlulus/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	            
+            <td><a class="font-weight-bold text-uppercase <?= $class;?> rounded-pill" href="#" role="button">&nbsp&nbsp<?php echo $data->approve_formulir?>&nbsp&nbsp</a></td>
+            <td><?php echo anchor('admin/editapproval/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	            
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach ;?>
