@@ -1,12 +1,14 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
-	function __construct(){
-        parent::__construct();
-        $datauser = $this->session->userdata('login'); 
-		if ($datauser!= "Berhasil") {
-            $this->session->sess_destroy();
+class Home extends CI_Controller
+{
+	function __construct()
+	{
+		parent::__construct();
+		$datauser = $this->session->userdata('login');
+		if ($datauser != "Berhasil") {
+			$this->session->sess_destroy();
 			redirect(base_url('dinas/login'));
 		}
 	}
@@ -55,11 +57,9 @@ class Home extends CI_Controller {
 		// $data['hitungformulirpindahan'] = $this->M_ppdb->hitungformulirpindahan();
 
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
+		$this->load->view('template/sidebar', $sess_data);
 		$this->load->view('dashboarddinas');
 		$this->load->view('template/footer');
-
-
 	}
 
 	// public function registrasi()
@@ -80,47 +80,167 @@ class Home extends CI_Controller {
 	// 	$this->load->view('dashboard');
 	// 	$this->load->view('template/footer');
 	// }
-	
+
+	public function zonasi()
+	{
+		$zonasi = $this->M_ppdb->getZonasi();
+		$kecamatan = $this->M_ppdb->getData('data_wilayah');
+		$sekolah = $this->M_ppdb->getData('data_smp');
+		$sess_data = $this->session->userdata();
+
+		$data = array(
+			'zonasi' 	=> $zonasi,
+			'kecamatan' => $kecamatan,
+			'sekolah'	=> $sekolah,
+			'js' 		=> 'zonasi'
+		);
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('zonasi', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function getDetailZonasi(){
+		$post = $this->input->post(NULL, TRUE);
+		$where['id_zonasi'] = $post['id_zonasi'];
+		$zonasi = $this->M_ppdb->getData('zonasi', $where);
+		$kecamatan = $this->M_ppdb->getData('data_wilayah');
+		$desa = $this->M_ppdb->getData('data_desa');
+
+		if (count($zonasi)) {
+			$result = array(
+				'status' => 'success',
+				'data' => $zonasi[0],
+				'kecamatan' => $kecamatan,
+				'desa' => $desa
+			);
+		}
+		else {
+			$result = array(
+				'status' => 'failed',
+				'msg' => 'Data Tidak Ditemukan'
+			);
+		}
+
+		echo json_encode($result);
+	}
+
+	public function tambahzonasi()
+	{
+		$post = $this->input->post(NULL, TRUE);
+
+		$data = array(
+			'id_desa' => $post['desa'],
+			'id_sekolah' => $post['id_sekolah'],
+		);
+
+		$this->M_ppdb->tambahData('zonasi', $data);
+		redirect(base_url('home/zonasi'));
+	}
+
+	public function editzonasi($id)
+	{
+		$post = $this->input->post(NULL, TRUE);
+
+		$data = array(
+			'id_desa' => $post['desa'],
+			'id_sekolah' => $post['id_sekolah'],
+		);
+
+		$this->M_ppdb->updateData('zonasi', $data, ['id_zonasi'=>$id]);
+		redirect(base_url('home/zonasi'));
+	}
+
+	public function hapuszonasi($id)
+	{
+		$where = array('id_zonasi' => $id);
+		$this->M_ppdb->hapusData('zonasi', $where);
+		redirect(base_url('home/zonasi'));
+	}
+
+	public function getDesaByWilayah()
+	{
+		$post = $this->input->post(NULL, TRUE);
+		$where['kode_wilayah'] = $post['kode_wilayah'];
+		$desa = $this->M_ppdb->getData('data_desa', $where);
+
+		if (count($desa)) {
+			$result = array(
+				'status' => 'success',
+				'data' => $desa
+			);
+		}
+		else {
+			$result = array(
+				'status' => 'failed',
+				'msg' => 'Data Tidak Ditemukan'
+			);
+		}
+
+		echo json_encode($result);
+	}
+
+	public function getSekolahByDesa()
+	{
+		$post = $this->input->post(NULL, TRUE);
+		$where['z.id_desa'] = $post['id_desa'];
+		$sekolah = $this->M_ppdb->getZonasi($where);
+
+		if (count($sekolah)) {
+			$result = array(
+				'status' => 'success',
+				'data' => $sekolah
+			);
+		}
+		else {
+			$result = array(
+				'status' => 'failed',
+				'msg' => 'Data Tidak Ditemukan'
+			);
+		}
+
+		echo json_encode($result);
+	}
+
 	public function kuota()
 	{
 		$data['kuota2'] = $this->M_ppdb->tampilsekolah_kuota()->result();
 		$data['kuota'] = $this->M_ppdb->tampil_data_kuota()->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('kuota',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('kuota', $data);
 		$this->load->view('template/footer');
 	}
 
-	public function tambahkuota(){
+	public function tambahkuota()
+	{
 		$id_sekolah           = $this->input->post('id_sekolah');
 		$total          	  = $this->input->post('total');
 
-
-	   
 		$data = array(
 			'id_sekolah' => $id_sekolah,
 			'total' => $total,
-			'sisa_zonasi' => 0.5*$total,
-			'sisa_afirmasi' => 0.15*$total,
-			'sisa_pindahan' => 0.05*$total,
-			'sisa_prestasi' => 0.3*$total,
+			'sisa_zonasi' => 0.5 * $total,
+			'sisa_afirmasi' => 0.15 * $total,
+			'sisa_pindahan' => 0.05 * $total,
+			'sisa_prestasi' => 0.3 * $total,
 			'total_in' => 0,
 
 		);
-	
-		$this->M_ppdb->tambahkuota($data,'kuota');
+
+		$this->M_ppdb->tambahkuota($data, 'kuota');
 		redirect(base_url('home/kuota'));
 	}
 
-	public function tambahpengguna_sekolah(){
+	public function tambahpengguna_sekolah()
+	{
 		$id_pesertadidik    = $this->input->post('id_pesertadidik');
 		$username           = $this->input->post('username');
 		$password           = $this->input->post('password');
 		$nama_sekolah       = $this->input->post('nama_sekolah');
 
-	
-		
 		$data = array(
 			'id_pesertadidik' => $id_pesertadidik,
 			'username' => $username,
@@ -129,74 +249,76 @@ class Home extends CI_Controller {
 			'approve_formulir' 	=> $nama_sekolah,
 			'approve_lulus' 	=> $nama_sekolah,
 			'approve_daftarulang' => $nama_sekolah,
-            'status' => 0
+			'status' => 0
 
 		);
 
-		$hitungusername= $this->M_ppdb->tampilakunsekolah($id_pesertadidik)->num_rows();
+		$hitungusername = $this->M_ppdb->tampilakunsekolah($id_pesertadidik)->num_rows();
 
-		if ($hitungusername >=1) {
-			$this->load->view('username_gagal');   
-		}else{          
-                $this->M_ppdb->tambahuser($data,'pengguna');
-                $this->load->view('akunsekolah_sukses');  
-  
+		if ($hitungusername >= 1) {
+			$this->load->view('username_gagal');
+		} else {
+			$this->M_ppdb->tambahuser($data, 'pengguna');
+			$this->load->view('akunsekolah_sukses');
 		}
-		
-
 	}
 
-	public function hapuskuota($id){
-		$id =    array ('id_kuota' => $id);
-		$this->M_ppdb->hapuskuota($id,'kuota');
+	public function hapuskuota($id)
+	{
+		$id =    array('id_kuota' => $id);
+		$this->M_ppdb->hapuskuota($id, 'kuota');
 		redirect(base_url('home/kuota'));
 	}
 
-	public function hapus_sekolah($id){
-		$id =    array ('id' => $id);
-		$this->M_ppdb->hapus_sekolah($id,'pengguna');
+	public function hapus_sekolah($id)
+	{
+		$id =    array('id' => $id);
+		$this->M_ppdb->hapus_sekolah($id, 'pengguna');
 		redirect(base_url('home/data_sekolah'));
 	}
 
-	public function editkuota($id){
+	public function editkuota($id)
+	{
 		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
-		$data['kuota'] = $this->M_ppdb->editkuota($id,'kuota')->result();
+		$id =    array('id' => $id);
+		$data['kuota'] = $this->M_ppdb->editkuota($id, 'kuota')->result();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('editkuota',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('editkuota', $data);
 		$this->load->view('template/footer');
 	}
 
-	public function edit_sekolah($id){
+	public function edit_sekolah($id)
+	{
 		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
-		$data['data_sekolah'] = $this->M_ppdb->edit_sekolah($id,'pengguna')->result();
+		$id =    array('id' => $id);
+		$data['data_sekolah'] = $this->M_ppdb->edit_sekolah($id, 'pengguna')->result();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('edit_sekolah',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('edit_sekolah', $data);
 		$this->load->view('template/footer');
 	}
 
-	public function updatekuota(){
+	public function updatekuota()
+	{
 		$id       = $this->input->post('id');
 		$jenis       = $this->input->post('jenis');
 		$kuota        = $this->input->post('kuota');
 		$keterangan        = $this->input->post('keterangan');
 
-	
+
 		$data = array(
 			'jenis' => $jenis,
 			'kuota' => $kuota,
 			'keterangan' => $keterangan
 
 		);
-	
+
 		$where = array(
 			'id' => $id
 		);
-	
-		$this->M_ppdb->updatekuota($where,$data,'kuota');
+
+		$this->M_ppdb->updatekuota($where, $data, 'kuota');
 		$this->load->view('berhasil_ubah');
 		$this->load->view('kuota');
 	}
@@ -206,8 +328,8 @@ class Home extends CI_Controller {
 		$data['formulir'] = $this->M_ppdb->tampil_approval()->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('approve_formulir',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('approve_formulir', $data);
 		$this->load->view('template/footer');
 	}
 
@@ -217,33 +339,34 @@ class Home extends CI_Controller {
 		$data['data_sekolah'] = $this->M_ppdb->tampilsekolah_admin()->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('data_sekolah',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('data_sekolah', $data);
 		$this->load->view('template/footer');
 	}
 
-	public function cetak_kartu($id){
+	public function cetak_kartu($id)
+	{
 		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
-		$data['cetak_kartu'] = $this->M_ppdb->tampilpengguna($id,'pengguna')->result();   
-		$data2 = $this->M_ppdb->tampilpengguna($id,'pengguna')->result();   
+		$id =    array('id' => $id);
+		$data['cetak_kartu'] = $this->M_ppdb->tampilpengguna($id, 'pengguna')->result();
+		$data2 = $this->M_ppdb->tampilpengguna($id, 'pengguna')->result();
 
-                $this->load->view('template/header');
-                $this->load->view('template/sidebar',$sess_data);
-                $this->load->view('cetak_kartu2',$data);
-                $this->load->view('template/footer');
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('cetak_kartu2', $data);
+		$this->load->view('template/footer');
+	}
 
-        }
-
-		public function update_sekolah(){
+	public function update_sekolah()
+	{
 		$id    = $this->input->post('id');
 		$id_pesertadidik    = $this->input->post('id_pesertadidik');
 		$username           = $this->input->post('username');
 		$password           = $this->input->post('password');
 		$approve_formulir       = $this->input->post('approve_formulir');
 
-	
-		
+
+
 		$data = array(
 			'id_pesertadidik' => $id_pesertadidik,
 			'username' => $username,
@@ -252,180 +375,184 @@ class Home extends CI_Controller {
 			'approve_formulir' 	=> $approve_formulir,
 			'approve_lulus' 	=> $approve_formulir,
 			'approve_daftarulang' => $approve_formulir,
-            'status' => 0
+			'status' => 0
 
 		);
-		
-			$where = array(
-				'id' => $id
-			);
-		
-			$this->M_ppdb->update_sekolah($where,$data,'pengguna');
-			$this->load->view('berhasil_ubah_sekolah');
-		}
 
-	public function editapproval($id){
-		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
-		$data['approval'] = $this->M_ppdb->tampilpengguna($id,'pengguna')->result();
-		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('editapproval',$data);
-		$this->load->view('template/footer');
-	}
-
-	public function updateapproval(){
-		$id                = $this->input->post('id');
-        $nama              = $this->input->post('nama');
-        $tptlahir              = $this->input->post('tptlahir');
-        $tgllahir              = $this->input->post('tgllahir');
-        $jenis             = $this->input->post('jenis');
-        $nisn              = $this->input->post('nisn');
-        $alamat            = $this->input->post('alamat');
-        $sekolah_asal      = $this->input->post('sekolah_asal');
-        $namaayah              = $this->input->post('namaayah');
-        $namaibu              = $this->input->post('namaibu');
-        $no_wa              = $this->input->post('no_wa');
-        $akte          = $this->input->post('akte');
-        $no_hp             = $this->input->post('no_hp');
-        $foto             = $this->input->post('foto');
-        $bukti_tf          = $this->input->post('bukti_tf');
-        $username          = $this->input->post('username');
-        $password          = $this->input->post('password');
-        $role              = $this->input->post('role');
-        $approve_formulir       = $this->input->post('approve_formulir');
-        $approve_lulus          = $this->input->post('approve_lulus');
-        $approve_daftarulang    = $this->input->post('approve_daftarulang');
-
-
-	
-		$data = array(
-			'nama_lengkap' => $nama,
-            'tptlahir' => $tptlahir,
-            'tgllahir' => $tgllahir,
-            'namaayah' => $namaayah,
-            'namaibu' => $namaibu,
-            'no_wa' => $no_wa,
-            'akte' => $akte,
-            'jenis' => $jenis,
-            'nisn' => $nisn,
-            'alamat' =>$alamat,
-            'sekolah_asal' =>$sekolah_asal,
-            'no_hp' =>$no_hp,
-            'foto' =>$foto,
-            'bukti_tf' =>$bukti_tf,
-            'username' =>$username,
-            'password' =>$password,
-            'role' =>$role,
-            'approve_formulir' =>$approve_formulir,
-            'approve_lulus' =>$approve_lulus,
-            'approve_daftarulang' =>$approve_daftarulang
-		);
-	
 		$where = array(
 			'id' => $id
 		);
-		$this->M_ppdb->updateformulir($where,$data,'pengguna');
+
+		$this->M_ppdb->update_sekolah($where, $data, 'pengguna');
+		$this->load->view('berhasil_ubah_sekolah');
+	}
+
+	public function editapproval($id)
+	{
+		$sess_data = $this->session->userdata();
+		$id =    array('id' => $id);
+		$data['approval'] = $this->M_ppdb->tampilpengguna($id, 'pengguna')->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('editapproval', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function updateapproval()
+	{
+		$id                = $this->input->post('id');
+		$nama              = $this->input->post('nama');
+		$tptlahir              = $this->input->post('tptlahir');
+		$tgllahir              = $this->input->post('tgllahir');
+		$jenis             = $this->input->post('jenis');
+		$nisn              = $this->input->post('nisn');
+		$alamat            = $this->input->post('alamat');
+		$sekolah_asal      = $this->input->post('sekolah_asal');
+		$namaayah              = $this->input->post('namaayah');
+		$namaibu              = $this->input->post('namaibu');
+		$no_wa              = $this->input->post('no_wa');
+		$akte          = $this->input->post('akte');
+		$no_hp             = $this->input->post('no_hp');
+		$foto             = $this->input->post('foto');
+		$bukti_tf          = $this->input->post('bukti_tf');
+		$username          = $this->input->post('username');
+		$password          = $this->input->post('password');
+		$role              = $this->input->post('role');
+		$approve_formulir       = $this->input->post('approve_formulir');
+		$approve_lulus          = $this->input->post('approve_lulus');
+		$approve_daftarulang    = $this->input->post('approve_daftarulang');
+
+
+
+		$data = array(
+			'nama_lengkap' => $nama,
+			'tptlahir' => $tptlahir,
+			'tgllahir' => $tgllahir,
+			'namaayah' => $namaayah,
+			'namaibu' => $namaibu,
+			'no_wa' => $no_wa,
+			'akte' => $akte,
+			'jenis' => $jenis,
+			'nisn' => $nisn,
+			'alamat' => $alamat,
+			'sekolah_asal' => $sekolah_asal,
+			'no_hp' => $no_hp,
+			'foto' => $foto,
+			'bukti_tf' => $bukti_tf,
+			'username' => $username,
+			'password' => $password,
+			'role' => $role,
+			'approve_formulir' => $approve_formulir,
+			'approve_lulus' => $approve_lulus,
+			'approve_daftarulang' => $approve_daftarulang
+		);
+
+		$where = array(
+			'id' => $id
+		);
+		$this->M_ppdb->updateformulir($where, $data, 'pengguna');
 		$this->load->view('berhasil_ubah_formulir');
-		$this->load->view('approve_formulir');	}
+		$this->load->view('approve_formulir');
+	}
 
-		
-		public function cetakformulir(){
-			// membaca data dari form
-			$jenis      	 = $this->input->post('jenis');
-			$nama            = $this->input->post('nama');
-			$nisn	         = $this->input->post('nisn');
-			$alamat	         = $this->input->post('alamat');
-			$sekolah_asal    = $this->input->post('sekolahasal');
-			$no_hp           = $this->input->post('no_hp');
-			
-			// memanggil dan membaca template dokumen yang telah kita buat
-			$document = file_get_contents("formulir_pendaftaran.rtf");
-			
-			// isi dokumen dinyatakan dalam bentuk string
-			$document = str_replace("#JENIS", $jenis, $document);
-			$document = str_replace("#NAMA", $nama, $document);
-			$document = str_replace("#NISN", $nisn, $document);
-			$document = str_replace("#ALAMAT", $alamat, $document);
-			$document = str_replace("#SEKOLAHASAL", $sekolah_asal, $document);
-			$document = str_replace("#NO_HP", $no_hp, $document);
-			
-			// header untuk membuka file output RTF dengan MS. Word
-			
-			header("Content-type: application/msword");
-			header("Content-disposition: inline; filename=formulir_pendaftaran.doc");
-			header("Content-length: ".strlen($document));
-			echo $document;
- 
 
-		}
+	public function cetakformulir()
+	{
+		// membaca data dari form
+		$jenis      	 = $this->input->post('jenis');
+		$nama            = $this->input->post('nama');
+		$nisn	         = $this->input->post('nisn');
+		$alamat	         = $this->input->post('alamat');
+		$sekolah_asal    = $this->input->post('sekolahasal');
+		$no_hp           = $this->input->post('no_hp');
 
-		public function approve_lulus()
+		// memanggil dan membaca template dokumen yang telah kita buat
+		$document = file_get_contents("formulir_pendaftaran.rtf");
+
+		// isi dokumen dinyatakan dalam bentuk string
+		$document = str_replace("#JENIS", $jenis, $document);
+		$document = str_replace("#NAMA", $nama, $document);
+		$document = str_replace("#NISN", $nisn, $document);
+		$document = str_replace("#ALAMAT", $alamat, $document);
+		$document = str_replace("#SEKOLAHASAL", $sekolah_asal, $document);
+		$document = str_replace("#NO_HP", $no_hp, $document);
+
+		// header untuk membuka file output RTF dengan MS. Word
+
+		header("Content-type: application/msword");
+		header("Content-disposition: inline; filename=formulir_pendaftaran.doc");
+		header("Content-length: " . strlen($document));
+		echo $document;
+	}
+
+	public function approve_lulus()
 	{
 		$data['lulus'] = $this->M_ppdb->tampil_lulus()->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('approve_lulus',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('approve_lulus', $data);
 		$this->load->view('template/footer');
 	}
 
-	public function editlulus($id){
+	public function editlulus($id)
+	{
 		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
-		$data['lulus'] = $this->M_ppdb->tampilpengguna($id,'pengguna')->result();
+		$id =    array('id' => $id);
+		$data['lulus'] = $this->M_ppdb->tampilpengguna($id, 'pengguna')->result();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('editlulus',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('editlulus', $data);
 		$this->load->view('template/footer');
 	}
 
-	public function updatelulus(){
+	public function updatelulus()
+	{
 		$id                = $this->input->post('id');
-        $nama              = $this->input->post('nama');
-        $tptlahir              = $this->input->post('tptlahir');
-        $tgllahir              = $this->input->post('tgllahir');
-        $jenis             = $this->input->post('jenis');
-        $nisn              = $this->input->post('nisn');
-        $alamat            = $this->input->post('alamat');
-        $sekolah_asal      = $this->input->post('sekolah_asal');
-        $namaayah              = $this->input->post('namaayah');
-        $namaibu              = $this->input->post('namaibu');
-        $no_wa              = $this->input->post('no_wa');
-        $akte          = $this->input->post('akte');
-        $no_hp             = $this->input->post('no_hp');
-        $foto             = $this->input->post('foto');
-        $bukti_tf          = $this->input->post('bukti_tf');
-        $username          = $this->input->post('username');
-        $password          = $this->input->post('password');
-        $role              = $this->input->post('role');
-        $approve_formulir       = $this->input->post('approve_formulir');
-        $approve_lulus          = $this->input->post('approve_lulus');
-        $approve_daftarulang    = $this->input->post('approve_daftarulang');
+		$nama              = $this->input->post('nama');
+		$tptlahir              = $this->input->post('tptlahir');
+		$tgllahir              = $this->input->post('tgllahir');
+		$jenis             = $this->input->post('jenis');
+		$nisn              = $this->input->post('nisn');
+		$alamat            = $this->input->post('alamat');
+		$sekolah_asal      = $this->input->post('sekolah_asal');
+		$namaayah              = $this->input->post('namaayah');
+		$namaibu              = $this->input->post('namaibu');
+		$no_wa              = $this->input->post('no_wa');
+		$akte          = $this->input->post('akte');
+		$no_hp             = $this->input->post('no_hp');
+		$foto             = $this->input->post('foto');
+		$bukti_tf          = $this->input->post('bukti_tf');
+		$username          = $this->input->post('username');
+		$password          = $this->input->post('password');
+		$role              = $this->input->post('role');
+		$approve_formulir       = $this->input->post('approve_formulir');
+		$approve_lulus          = $this->input->post('approve_lulus');
+		$approve_daftarulang    = $this->input->post('approve_daftarulang');
 
 
-	
+
 		$data = array(
 			'nama_lengkap' => $nama,
-            'tptlahir' => $tptlahir,
-            'tgllahir' => $tgllahir,
-            'namaayah' => $namaayah,
-            'namaibu' => $namaibu,
-            'no_wa' => $no_wa,
-            'akte' => $akte,
-            'jenis' => $jenis,
-            'nisn' => $nisn,
-            'alamat' =>$alamat,
-            'sekolah_asal' =>$sekolah_asal,
-            'no_hp' =>$no_hp,
-            'foto' =>$foto,
-            'bukti_tf' =>$bukti_tf,
-            'username' =>$username,
-            'password' =>$password,
-            'role' =>$role,
-            'approve_formulir' =>$approve_formulir,
-            'approve_lulus' =>$approve_lulus,
-            'approve_daftarulang' =>$approve_daftarulang
+			'tptlahir' => $tptlahir,
+			'tgllahir' => $tgllahir,
+			'namaayah' => $namaayah,
+			'namaibu' => $namaibu,
+			'no_wa' => $no_wa,
+			'akte' => $akte,
+			'jenis' => $jenis,
+			'nisn' => $nisn,
+			'alamat' => $alamat,
+			'sekolah_asal' => $sekolah_asal,
+			'no_hp' => $no_hp,
+			'foto' => $foto,
+			'bukti_tf' => $bukti_tf,
+			'username' => $username,
+			'password' => $password,
+			'role' => $role,
+			'approve_formulir' => $approve_formulir,
+			'approve_lulus' => $approve_lulus,
+			'approve_daftarulang' => $approve_daftarulang
 		);
 
 		$where = array(
@@ -434,60 +561,59 @@ class Home extends CI_Controller {
 
 		$data2 = array(
 			'id' => $id, 'tingkat' => "", 'nama_lengkap' => "", 'nama_panggilan' => "", 'nisn' => "",
-			'tpt_lahir' => "", 'tgl_lahir' => "",'agama' => "", 'suku' => "", 'jk' => "", 'goldar' => "",
+			'tpt_lahir' => "", 'tgl_lahir' => "", 'agama' => "", 'suku' => "", 'jk' => "", 'goldar' => "",
 			'anak_ke' => "", 'dari_saudara' => "", 'alamat' => "", 'jarak' => "", 'desa' => "", 'kecamatan' => "",
-			'kabupaten' => "",'provinsi' => "",'nama_ayah' => "",'tptlahir_ayah' => "",'tgllahir_ayah' => "",
-			'pendidikan_ayah' => "",'pekerjaan_ayah' => "", 'penghasilan_ayah' => "",'alamat_ayah' => "",
-			'desa_ayah' => "",'kecamatan_ayah' => "",'kabupaten_ayah' => "",'provinsi_ayah' => "",'hp_ayah' => "",
-			'nama_ibu' => "",'tptlahir_ibu' => "",'tgllahir_ibu' => "",
-			'pendidikan_ibu' => "",'pekerjaan_ibu' => "", 'penghasilan_ibu' => "",'alamat_ibu' => "",
-			'desa_ibu' => "",'kecamatan_ibu' => "",'kabupaten_ibu' => "",'provinsi_ibu' => "",'hp_ibu' => "",
-			'sekolah_asal' => "",'npsn' => "", 'alamat_sekolah' => "", 'kabupaten_sekolah' => "", 'provinsi_sekolah' => "",
-			'penyakit' => "",'olah_raga' => "", 'seni' => "",'tari' => "",'lukis' => "", 'drama' => "", 'sastra' => "",
-			'organisasi' => "",'prestasi' => "",'alasan' => "",'tentang_sekolah' => ""
-		); 
-	
+			'kabupaten' => "", 'provinsi' => "", 'nama_ayah' => "", 'tptlahir_ayah' => "", 'tgllahir_ayah' => "",
+			'pendidikan_ayah' => "", 'pekerjaan_ayah' => "", 'penghasilan_ayah' => "", 'alamat_ayah' => "",
+			'desa_ayah' => "", 'kecamatan_ayah' => "", 'kabupaten_ayah' => "", 'provinsi_ayah' => "", 'hp_ayah' => "",
+			'nama_ibu' => "", 'tptlahir_ibu' => "", 'tgllahir_ibu' => "",
+			'pendidikan_ibu' => "", 'pekerjaan_ibu' => "", 'penghasilan_ibu' => "", 'alamat_ibu' => "",
+			'desa_ibu' => "", 'kecamatan_ibu' => "", 'kabupaten_ibu' => "", 'provinsi_ibu' => "", 'hp_ibu' => "",
+			'sekolah_asal' => "", 'npsn' => "", 'alamat_sekolah' => "", 'kabupaten_sekolah' => "", 'provinsi_sekolah' => "",
+			'penyakit' => "", 'olah_raga' => "", 'seni' => "", 'tari' => "", 'lukis' => "", 'drama' => "", 'sastra' => "",
+			'organisasi' => "", 'prestasi' => "", 'alasan' => "", 'tentang_sekolah' => ""
+		);
 
 
-		if ($approve_lulus=="Lulus") {
-			$hitungid= $this->M_ppdb->hitungidlulus($id);
-	
-			if ($hitungid==0) {
-				$this->M_ppdb->tambahiddaftarulang($data2,'daftarulang');
-			}		
+
+		if ($approve_lulus == "Lulus") {
+			$hitungid = $this->M_ppdb->hitungidlulus($id);
+
+			if ($hitungid == 0) {
+				$this->M_ppdb->tambahiddaftarulang($data2, 'daftarulang');
+			}
 		}
-		
-		$this->M_ppdb->updatelulus($where,$data,'pengguna');
+
+		$this->M_ppdb->updatelulus($where, $data, 'pengguna');
 		$this->load->view('berhasil_ubah_lulus');
 		$this->load->view('approve_lulus');
-
-		
-	
 	}
-	
-		public function approve_daftarulang()
+
+	public function approve_daftarulang()
 	{
 		$data['daftarulang'] = $this->M_ppdb->tampil_daftarulang()->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('approve_daftarulang',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('approve_daftarulang', $data);
 		$this->load->view('template/footer');
 	}
 
-	public function editdaftarulang($id){
+	public function editdaftarulang($id)
+	{
 		$sess_data = $this->session->userdata();
-		$id =    array ('id' => $id);
-		$data['daftarulang'] = $this->M_ppdb->editdaftarulang($id,'daftarulang')->result();
-		$data2['approval_daftarulang'] = $this->M_ppdb->tampilpengguna($id,'pengguna')->result();
+		$id =    array('id' => $id);
+		$data['daftarulang'] = $this->M_ppdb->editdaftarulang($id, 'daftarulang')->result();
+		$data2['approval_daftarulang'] = $this->M_ppdb->tampilpengguna($id, 'pengguna')->result();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('editdaftarulang',$data);
-		$this->load->view('konfirm_daftarulang',$data2);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('editdaftarulang', $data);
+		$this->load->view('konfirm_daftarulang', $data2);
 		$this->load->view('template/footer');
 	}
 
-	public function updatedaftarulang(){
+	public function updatedaftarulang()
+	{
 		$id              = $this->input->post('id');
 		$nama            = $this->input->post('nama');
 		$jenis      	 = $this->input->post('jenis');
@@ -505,12 +631,12 @@ class Home extends CI_Controller {
 		$approve_daftarulang = $this->input->post('approve_daftarulang');
 
 
-	
+
 		$data = array(
 			'nama_lengkap' => $nama,
 			'jenis' => $jenis,
 			'nisn' => $nisn,
-			'alamat' =>$alamat,
+			'alamat' => $alamat,
 			'sekolah_asal' => $sekolah_asal,
 			'no_hp' => $no_hp,
 			'foto' => $foto,
@@ -522,36 +648,38 @@ class Home extends CI_Controller {
 			'approve_lulus' => $approve_lulus,
 			'approve_daftarulang' => $approve_daftarulang
 		);
-	
+
 		$where = array(
 			'id' => $id
 		);
-		$this->M_ppdb->updatedaftarulang($where,$data,'pengguna');
+		$this->M_ppdb->updatedaftarulang($where, $data, 'pengguna');
 		$this->load->view('berhasil_ubah_daftarulang');
-		$this->load->view('approve_daftarulang');	}
-	
-		public function datapengguna()
+		$this->load->view('approve_daftarulang');
+	}
+
+	public function datapengguna()
 	{
 		$data['pengguna'] = $this->M_ppdb->tampildatapengguna()->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('datapengguna',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('datapengguna', $data);
 		$this->load->view('template/footer');
 	}
 
 	public function editpengguna($id)
 	{
-		$id =    array ('id' => $id);
+		$id =    array('id' => $id);
 		$data['editpengguna'] = $this->M_ppdb->tampilpengguna($id)->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar',$sess_data);
-		$this->load->view('editpengguna',$data);
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('editpengguna', $data);
 		$this->load->view('template/footer');
 	}
 
-	public function updatedatapengguna(){
+	public function updatedatapengguna()
+	{
 		$id              = $this->input->post('id');
 		$nama            = $this->input->post('nama');
 		$jenis      	 = $this->input->post('jenis');
@@ -569,12 +697,12 @@ class Home extends CI_Controller {
 		$approve_daftarulang = $this->input->post('approve_daftarulang');
 
 
-	
+
 		$data = array(
 			'nama_lengkap' => $nama,
 			'jenis' => $jenis,
 			'nisn' => $nisn,
-			'alamat' =>$alamat,
+			'alamat' => $alamat,
 			'sekolah_asal' => $sekolah_asal,
 			'no_hp' => $no_hp,
 			'foto' => $foto,
@@ -586,18 +714,19 @@ class Home extends CI_Controller {
 			'approve_lulus' => $approve_lulus,
 			'approve_daftarulang' => $approve_daftarulang
 		);
-	
+
 		$where = array(
 			'id' => $id
 		);
-		$this->M_ppdb->updatedatapengguna($where,$data,'pengguna');
+		$this->M_ppdb->updatedatapengguna($where, $data, 'pengguna');
 		$this->load->view('berhasil_ubah_password');
-		$this->load->view('datapengguna');	}
+		$this->load->view('datapengguna');
+	}
 
 
-		public function logout(){
-			$this->session->sess_destroy();
-			redirect(base_url('dinas/login'));    
-		}
-
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url('dinas/login'));
+	}
 }

@@ -32,17 +32,14 @@
               </p>
             </a>
           </li>
-
-
-          <!-- <li class="nav-item ">
-            <a href="<?=base_url('home/kuota');?>" class="nav-link">
-              <i class="nav-icon fa fa-tasks"></i>
+          <li class="nav-item ">
+            <a href="<?=base_url('home/zonasi');?>" class="nav-link">
+              <i class="nav-icon fa fa-clipboard-check"></i>
               <p>
-                Kuota
+                Pengaturan Zonasi
               </p>
             </a>
-          </li> -->
-
+          </li>
           <li class="nav-item ">
             <a href="<?=base_url('home/kuota');?>" class="nav-link">
               <i class="nav-icon fa fa-clipboard-check"></i>

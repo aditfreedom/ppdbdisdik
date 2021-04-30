@@ -300,5 +300,45 @@ class M_ppdb extends CI_Model{
         where username='$username' AND password='$password'");
     }
 
+    function getData($table, $where=NULL){
+        if ($where !== NULL) {
+            $this->db->where($where);
+        }
+
+        $query = $this->db->get($table);
+        return $query->result_array();
+    }
+
+    function updateData($tbl, $data, $where){
+        $this->db->where($where);
+        return $this->db->update($tbl, $data);
+    }
+
+    function tambahData($table, $data){
+        $insert = $this->db->insert($table, $data);
+        return $insert;
+    }
+
+    function hapusData($table, $where){
+        $insert = $this->db->delete($table, $where);
+        return $insert;
+    }
+
+    function getZonasi($where=NULL){
+        if ($where !== NULL) {
+            $this->db->where($where);
+        }
+
+        $this->db->select('z.*, s.*, d.nama_desa as desa, w.nama_wilayah as kecamatan')
+                 ->from('zonasi z')
+                 ->join('data_smp s', 's.id_sekolah=z.id_sekolah')
+                 ->join('data_desa d', 'd.id_desa = z.id_desa')
+                 ->join('data_wilayah w', 'w.kode_wilayah = d.kode_wilayah');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+
+
 }
 ?>

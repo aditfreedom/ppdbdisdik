@@ -63,6 +63,7 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="<?=base_url();?>assets/js/<?=$js;?>.js"></script>
 
 
 
@@ -77,4 +78,18 @@ $(document).ready(function() {
         ]
     } );
 } );
+
+function getJSON(url, data={},) {
+	return JSON.parse($.ajax({
+		url: url,
+		type: 'post',
+		dataType:'json',
+		data: data,
+		global:false,
+		async:false,
+		success: function(msg){
+
+		}
+	}).responseText);
+}
 </script>
