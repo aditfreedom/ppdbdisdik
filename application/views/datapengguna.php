@@ -9,7 +9,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">PPDB</a></li>
-              <li class="breadcrumb-item active">Data Pengguna</li>
+              <li class="breadcrumb-item active">Data Siswa Pendaftar</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,10 +25,9 @@
           <thead class="text-center">
             <tr>
               <th scope="col">NO</th>
-              <th scope="col">NAMA LENGKAP</th>
               <th scope="col">NISN</th>
+              <th scope="col">NAMA LENGKAP</th>
               <th scope="col">SEKOLAH ASAL</th>
-              <th scope="col">JENIS PENERIMAAN</th>
               <th scope="col">AKSI</th>
             </tr>
           </thead>
@@ -37,12 +36,11 @@
 	        foreach ($pengguna as $data) : ?>
 		<tr class="nomor text-center">
             <th scope="row"><?php echo $i ;?></th>
-            <td><?php echo $data->nama_lengkap;?></td>
             <td><?php echo $data->nisn;?></td>
-            <td><?php echo $data->sekolah_asal;?></td>
-            <td><?php echo $data->jenis;?></td>
+            <td><?php echo $data->nama_siswa;?></td>
+            <td><?php echo $data->nama_sekolah;?></td>
    
-            <td><?php echo anchor('home/editpengguna/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
+            <td><?php echo anchor('home/editpengguna/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-search-plus"></i></div>')?></td>	
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach ;?>

@@ -669,8 +669,7 @@ class Home extends CI_Controller
 
 	public function editpengguna($id)
 	{
-		$id =    array('id' => $id);
-		$data['editpengguna'] = $this->M_ppdb->tampilpengguna($id)->result();
+		$data['editpengguna'] = $this->M_ppdb->tampil_data_pengguna($id)->result();
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar', $sess_data);

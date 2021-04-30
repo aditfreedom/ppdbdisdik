@@ -12,7 +12,9 @@ class M_ppdb extends CI_Model{
     }
 
      public function tampildatapengguna(){
-        return $this->db->query("SELECT * FROM pengguna WHERE NOT role='0' ");
+        return $this->db->query("SELECT * FROM pengguna
+        LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.role='2' ");
      }
 
      public function tampilakunsekolah($id){
@@ -41,6 +43,13 @@ class M_ppdb extends CI_Model{
         $result = $this->db->query("SELECT * FROM pengguna WHERE username='$username' AND password='$password'");
         return $result->num_rows();
      }
+
+     public function tampil_data_pengguna($id){
+        return $this->db->query("SELECT * FROM pengguna
+        LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id='$id' ");
+     }
+
 
      public function tampildatasiswa($username,$password){
         $result = $this->db->query("SELECT * FROM datasiswa WHERE nik='$username' AND nisn='$password'");
