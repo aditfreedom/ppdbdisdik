@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/sweetalert2/sweetalert2.min.css">
   <!-- Google Font: Source Sans Pro -->
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">

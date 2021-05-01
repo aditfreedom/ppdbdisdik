@@ -64,6 +64,7 @@
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="<?=base_url();?>assets/js/<?=$js;?>.js"></script>
+<script src="<?=base_url();?>asset/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
 
 

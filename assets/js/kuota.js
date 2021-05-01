@@ -38,8 +38,8 @@ $(document).ready(()=> {
         let total_sisa = zonasi + afirmasi + pindahan + prestasi + kuota_in;
 
         if (total !== total_sisa) {
-            console.log(total_sisa, total)
-            return alert('Pembagian kuota tidak sesuai dengan total kuota yang diterima!')
+            Swal.fire("Gagal!", "Pembagian kuota tidak sesuai dengan total kuota yang diterima!", "error");
+            return null;
         }
 
         $('form').submit();
