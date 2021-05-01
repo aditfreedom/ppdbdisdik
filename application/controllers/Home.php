@@ -206,7 +206,8 @@ class Home extends CI_Controller
 	public function kuota()
 	{
 		$data['kuota2'] = $this->M_ppdb->tampilsekolah_kuota()->result();
-		$data['kuota'] = $this->M_ppdb->tampil_data_kuota()->result();
+		$data['kuota'] 	= $this->M_ppdb->tampil_data_kuota();
+		$data['js']		= 'kuota';
 		$sess_data = $this->session->userdata();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar', $sess_data);
@@ -236,6 +237,28 @@ class Home extends CI_Controller
 
 		$this->M_ppdb->tambahkuota($data, 'kuota');
 		redirect(base_url('home/kuota'));
+	}
+
+	public function getDetailKuota()
+	{
+		$post = $this->input->post(NULL, TRUE);
+		$where['id_kuota'] = $post['id_kuota'];
+		$kuota = $this->M_ppdb->tampil_data_kuota($where);
+
+		if (count($kuota)) {
+			$result = array(
+				'status' => 'success',
+				'data' => $kuota
+			);
+		}
+		else {
+			$result = array(
+				'status' => 'failed',
+				'msg' => 'Data Tidak Ditemukan'
+			);
+		}
+
+		echo json_encode($result);
 	}
 
 	public function tambahpengguna_sekolah()
@@ -283,13 +306,26 @@ class Home extends CI_Controller
 
 	public function editkuota($id)
 	{
-		$sess_data = $this->session->userdata();
-		$id =    array('id' => $id);
-		$data['kuota'] = $this->M_ppdb->editkuota($id, 'kuota')->result();
-		$this->load->view('template/header');
-		$this->load->view('template/sidebar', $sess_data);
-		$this->load->view('editkuota', $data);
-		$this->load->view('template/footer');
+		$post = $this->input->post(NULL, TRUE);
+		$id_sekolah  = $post['id_sekolah'];
+		$total       = $post['total'];
+		$zonasi      = $post['zonasi'];
+		$afirmasi    = $post['afirmasi'];
+		$pindahan    = $post['pindahan'];
+		$prestasi    = $post['prestasi'];
+
+		$data = array(
+			'id_sekolah' => $id_sekolah,
+			'total' => $total,
+			'sisa_zonasi' => $zonasi,
+			'sisa_afirmasi' => $afirmasi,
+			'sisa_pindahan' => $pindahan,
+			'sisa_prestasi' => $prestasi,
+		);
+		$where['id_kuota']	= $id;
+
+		$this->M_ppdb->updatekuota($where, $data);
+		redirect(base_url('home/kuota'));
 	}
 
 	public function edit_sekolah($id)

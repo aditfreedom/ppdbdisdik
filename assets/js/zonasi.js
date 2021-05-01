@@ -19,7 +19,7 @@ $(document).ready(()=> {
         }
     });
 
-    $('#edit').on('click', function (evt){
+    $('.edit').on('click', function (evt){
         evt.preventDefault();
 
         let url = $('form').data('baseurl')+'getDetailZonasi';

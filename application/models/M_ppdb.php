@@ -2,8 +2,16 @@
 
 class M_ppdb extends CI_Model{
 
-    public function tampil_data_kuota(){
-        return $this->db->query("SELECT * FROM kuota_siswa LEFT JOIN data_smp ON kuota_siswa.id_sekolah = data_smp.id_sekolah");
+    public function tampil_data_kuota($where=NULL){
+        if ($where !== NULL) {
+            $this->db->where($where);
+        }
+
+        $this->db->select('ks.*, ds.*')
+                 ->from('kuota_siswa ks')
+                 ->join('data_smp ds', 'ds.id_sekolah = ks.id_sekolah');
+        $query = $this->db->get();
+        return $query->result_array();
      }
 
      public function tampilsekolah_kuota()
@@ -83,7 +91,7 @@ class M_ppdb extends CI_Model{
 
     public function updatekuota($where,$data)
     {   $this->db->where($where);
-        $this->db->update('kuota',$data); 
+        $this->db->update('kuota_siswa',$data); 
     }
 
     public function update_sekolah($where,$data)
@@ -378,8 +386,5 @@ class M_ppdb extends CI_Model{
         $query = $this->db->get();
         return $query->result_array();
     }
-
-
-
 }
 ?>

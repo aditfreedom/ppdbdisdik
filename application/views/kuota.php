@@ -40,14 +40,17 @@
         foreach ($kuota as $data) : ?>
           <tr class="nomor text-center">
             <th scope="row"><?php echo $i; ?></th>
-            <td><?php echo $data->nama_sekolah; ?></td>
-            <td><?php echo $data->total; ?></td>
-            <td><?php echo $data->sisa_zonasi; ?></td>
-            <td><?php echo $data->sisa_afirmasi; ?></td>
-            <td><?php echo $data->sisa_pindahan; ?></td>
-            <td><?php echo $data->sisa_prestasi; ?></td>
-            <td><?php echo anchor('home/editkuota/' . $data->id_kuota, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?>
-              <?php echo anchor('home/hapuskuota/' . $data->id_kuota, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?>
+            <td><?php echo $data['nama_sekolah']; ?></td>
+            <td><?php echo $data['total']; ?></td>
+            <td><?php echo $data['sisa_zonasi']; ?></td>
+            <td><?php echo $data['sisa_afirmasi']; ?></td>
+            <td><?php echo $data['sisa_pindahan']; ?></td>
+            <td><?php echo $data['sisa_prestasi']; ?></td>
+            <td>
+              <button class="btn btn-sm btn-primary edit" data-id="<?= $data['id_kuota']; ?>">
+                <i class="fa fa-edit"></i>
+              </button>
+              <?php echo anchor('home/hapuskuota/' . $data['id_kuota'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?>
             </td>
           </tr>
           <?php $i++; ?>
@@ -70,10 +73,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="<?php echo base_url() . 'home/tambahkuota'; ?>">
+        <form method="post" action="<?= base_url('home') . '/tambahkuota'; ?>" data-baseurl="<?= base_url('home'); ?>">
           <div class="form-group">
             <label for="">Nama Sekolah</label>
-            <select class="form-control selectpicker" data-size="3" name="id_sekolah" data-style="btn-info" data-live-search="true">
+            <select class="form-control selectpicker" data-size="3" name="id_sekolah" id="id_sekolah" data-style="btn-info" data-live-search="true">
               <?php foreach ($kuota2 as $data) : ?>
                 <option value="<?php echo $data->id_sekolah; ?>"><?php echo $data->nama_sekolah; ?></option>
               <?php endforeach; ?>
@@ -99,7 +102,8 @@
             <label for="">Kuota Prestasi</label>
             <input type="text" name="prestasi" id="prestasi" class="form-control" required>
           </div>
-          <button type="submit" class="btn btn-primary">Simpan</button>
+          <input type="hidden" name="kuota_in" id="kuota_in" value="0">
+          <button type="button" class="btn btn-primary" id="simpan">Simpan</button>
       </div>
       </form>
     </div>

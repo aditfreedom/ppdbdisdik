@@ -41,7 +41,7 @@
                         <td><?php echo $data['desa']; ?></td>
                         <td><?php echo $data['kecamatan']; ?></td>
                         <td>
-                            <button class="btn btn-sm btn-primary" id="edit" data-id="<?= $data['id_zonasi']; ?>">
+                            <button class="btn btn-sm btn-primary edit" data-id="<?= $data['id_zonasi']; ?>">
                                 <i class="fa fa-edit"></i>
                             </button>
                             <?php echo anchor('home/hapuszonasi/' . $data['id_zonasi'], '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?>
