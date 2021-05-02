@@ -44,19 +44,10 @@
           </li>
 
           <li class="nav-item ">
-            <a href="<?=base_url('user/isi_formulir/'.$id_pesertadidik);?>" class="nav-link">
+            <a href="<?=base_url('user/pengumumankelulusan/'.$id_pesertadidik);?>" class="nav-link">
               <i class="nav-icon fas fa-user-check"></i>
               <p>
                 Pengumuman Kelulusan
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item ">
-            <a href="<?=base_url('user/isi_formulir/'.$id_pesertadidik);?>" class="nav-link">
-              <i class="nav-icon fa fa fa-clipboard-check"></i>
-              <p>
-                Daftar Ulang
               </p>
             </a>
           </li>

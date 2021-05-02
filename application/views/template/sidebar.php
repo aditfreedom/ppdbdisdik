@@ -34,7 +34,7 @@
           </li>
           <li class="nav-item ">
             <a href="<?=base_url('home/zonasi');?>" class="nav-link">
-              <i class="nav-icon fa fa-clipboard-check"></i>
+              <i class="nav-icon fa fa-map-marked-alt"></i>
               <p>
                 Pengaturan Zonasi
               </p>

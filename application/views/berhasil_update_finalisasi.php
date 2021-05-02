@@ -13,11 +13,10 @@
 function jsFunction(){
     Swal.fire(
         'Berhasil!',
-        'Sukses Approve Status Daftar Ulang',
+        'Silahkan Cek Menu Pengumuman Kelulusan Secara Berkala',
         'success'
 ).then(function() {
-    window.location = "./approve_daftarulang";
-});
+    window.history.back();});
 }
 </script>
 

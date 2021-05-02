@@ -12,11 +12,11 @@
 <script type="text/javascript">
 function jsFunction(){
     Swal.fire(
-        'Berhasil!',
-        'Sukses Approve Status Daftar Ulang',
-        'success'
+        'Gagal!',
+        'File Gagal Di Upload',
+        'error'
 ).then(function() {
-    window.location = "./approve_daftarulang";
+    window.history.back();});
 });
 }
 </script>

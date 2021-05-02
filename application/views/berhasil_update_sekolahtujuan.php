@@ -13,11 +13,10 @@
 function jsFunction(){
     Swal.fire(
         'Berhasil!',
-        'Sukses Approve Status Daftar Ulang',
+        'Sukses Menyimpan Sekolah Tujuan',
         'success'
 ).then(function() {
-    window.location = "./approve_daftarulang";
-});
+    window.history.back();});
 }
 </script>
 

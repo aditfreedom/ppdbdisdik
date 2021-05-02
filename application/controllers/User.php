@@ -35,8 +35,8 @@ class User extends CI_Controller
     public function isi_formulir($id)
     {
         $sess_data = $this->session->userdata();
-        $data['isi_formulir'] = $this->M_ppdb->tampilpengguna($id, 'pengguna')->result();
-        $data['isi_formulir2'] = $this->M_ppdb->tampilpengguna2($id, 'pengguna')->result();
+        $data['isi_formulir'] = $this->M_ppdb->tampilpengguna($id)->result();
+        $data['isi_formulir2'] = $this->M_ppdb->tampilpengguna2($id)->result();
         $data['isi_formulir3'] = $this->M_ppdb->tampilpengguna3('pengguna')->result();
         $this->load->view('template/header');
         $this->load->view('template/sidebaruser', $sess_data);
@@ -47,14 +47,119 @@ class User extends CI_Controller
     public function sekolahtujuan($id)
     {
         $sess_data = $this->session->userdata();
+        $id_pesertadidik = $this->session->userdata('id_pesertadidik');
         $data['sekolahtujuan'] = $this->M_ppdb->tampilwilayah('data_wilayah')->result();
         $data['jenis_pendaftaran'] = $this->M_ppdb->getData('jenis_pendaftaran');
         $data['js'] = 'sekolahtujuan';
+        $data['tampil_admin'] = $this->M_ppdb->tampil_data_sekolahtujuan_admin($id_pesertadidik)->result();
+        $data['status'] = $this->M_ppdb->tampilpengguna($id)->result();
         $this->load->view('template/header');
         $this->load->view('template/sidebaruser', $sess_data);
         $this->load->view('sekolahtujuan', $data);
         $this->load->view('template/footer');
     }
+
+    public function upload_berkas($id)
+    {
+        $sess_data = $this->session->userdata();
+        $id_pesertadidik = $this->session->userdata('id_pesertadidik');
+        $data['tampil_admin'] = $this->M_ppdb->tampil_data_sekolahtujuan_admin($id_pesertadidik)->result();
+        $data['berkas'] = $this->M_ppdb->uploadberkas($id)->result();
+        $data['status'] = $this->M_ppdb->tampilpengguna($id)->result();
+        $this->load->view('template/header');
+        $this->load->view('template/sidebaruser', $sess_data);
+        $this->load->view('uploadberkas', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function pengumumankelulusan($id)
+    {
+        $sess_data = $this->session->userdata();
+        $id_pesertadidik = $this->session->userdata('id_pesertadidik');
+        $data['status'] = $this->M_ppdb->tampilpengguna($id_pesertadidik)->result();
+        $this->load->view('template/header');
+        $this->load->view('template/sidebaruser', $sess_data);
+        $this->load->view('pengumumankelulusan', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function finalisasi($id)
+    {
+        $sess_data = $this->session->userdata();
+        $id_pesertadidik = $this->session->userdata('id_pesertadidik');
+        $data['finalisasi'] = $this->M_ppdb->tampil_data_finalisasi($id_pesertadidik)->result();
+        $this->load->view('template/header');
+        $this->load->view('template/sidebaruser', $sess_data);
+        $this->load->view('finalisasi',$data);
+        $this->load->view('template/footer');
+    }
+
+      public function tambahuser(){
+		$nama_lengkap       = $this->input->post('nama_lengkap');
+		$sekolah_asal       = $this->input->post('sekolah_asal');
+		$jenis    		    = $this->input->post('jenis');
+		$foto       	    = $_FILES['foto'];
+		$username           = $this->input->post('username');
+		$password           = $this->input->post('password');
+		$status             = $this->input->post('status');
+	
+	
+	
+			$config['upload_path']          = 'asset/foto/';
+			$config['allowed_types']        = 'gif|jpg|jpeg|png|JPG|JPEG';
+			$config['max_size']             = 0;
+			$config['max_width']            = 0;
+			$config['max_height']           = 0;
+	
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			 
+			if (! $this->upload->do_upload('foto')) {
+				$this->load->view('errorupload');
+			}else{
+				$foto=$this->upload->data('file_name');
+			}
+	
+		
+		$data = array(
+			'nama_lengkap' => $nama_lengkap,
+			'sekolah_asal' => $sekolah_asal,
+			'nisn' => "0",
+			'alamat' => "",
+			'no_hp' => "",
+			'bukti_tf' => "",
+			'jenis' => $jenis,
+			'foto' => $foto,
+            'bukti_tf' => "",
+            'tptlahir' => "",
+            'tgllahir' => "",
+            'namaayah' => "",
+            'namaibu' => "",
+            'no_wa' => "",
+            'akte' => "",
+			'username' => $username,
+			'password' => $password,
+			'role' => "1",
+			'approve_formulir' 	=> "Antrian",
+			'approve_lulus' 	=> "Antrian",
+			'approve_daftarulang' => "Antrian",
+
+
+
+		);
+
+		$hitungusername= $this->M_ppdb->tampildatapengguna1($username);
+
+		if ($hitungusername >=1) {
+			$this->load->view('username_gagal');    
+		}else{
+			$this->M_ppdb->tambahuser($data,'pengguna');
+			$this->load->view('status');    
+			// redirect(base_url('home/registrasi'));
+		}
+		
+
+	}
 
     public function updateformulir()
     {
@@ -125,6 +230,234 @@ class User extends CI_Controller
         $this->M_ppdb->updateformulirsiswa($where, $data, 'datasiswa');
         $this->load->view('berhasil_update_formulir');
     }
+
+    public function updateberkas(){
+        $id_pesertadidik         = $this->session->userdata('id_pesertadidik');
+		$jenis_pendaftaran       = $this->input->post('jenis_pendaftaran');
+        $up_zonasi1              = $_FILES['up_zonasi1']['name'];
+        $up_zonasi1_lama         = $this->input->post('up_zonasi1_lama');
+        $up_zonasi2              = $_FILES['up_zonasi2']['name'];
+        $up_zonasi2_lama         = $this->input->post('up_zonasi2_lama');
+        $up_afirmasi1            = $this->input->post('up_afirmasi1');
+        $up_afirmasi1_lama         = $this->input->post('up_afirmasi1_lama');
+        $up_afirmasi2            = $this->input->post('up_afirmasi2');
+        $up_afirmasi2_lama         = $this->input->post('up_afirmasi2_lama');
+        $up_pindahan1            = $this->input->post('up_pindahan1');
+        $up_pindahan1_lama         = $this->input->post('up_pindahan1_lama');
+        $up_pindahan2            = $this->input->post('up_pindahan2');
+        $up_pindahan2_lama         = $this->input->post('up_pindahan2_lama');
+        $up_prestasi1            = $this->input->post('up_prestasi1');
+        $up_prestasi1_lama         = $this->input->post('up_prestasi1_lama');
+        $up_prestasi2            = $this->input->post('up_prestasi2');
+        $up_prestasi2_lama         = $this->input->post('up_prestasi2_lama');
+
+	
+        $config['upload_path']          = 'asset/file/';
+        $config['allowed_types']        = 'pdf|PDF';
+        $config['max_size']             = 0;
+        $config['max_width']            = 0;
+        $config['max_height']           = 0;
+    
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+         
+        //zonasi1
+        if (! $this->upload->do_upload('up_zonasi1')) {
+            // $error = array('error' => $this->upload->display_errors());
+            $this->load->view('error_upload_berkas2');
+        }else{
+            $up_zonasi1=$this->upload->data('file_name');
+        }
+    
+        if ($up_zonasi1 == null) {
+            $up_zonasi1 = $up_zonasi1_lama;
+        }	
+
+        //zonasi2
+        if (! $this->upload->do_upload('up_zonasi2')) {
+            // $error = array('error' => $this->upload->display_errors());
+            $this->load->view('error_upload_berkas2');
+        }else{
+            $up_zonasi2=$this->upload->data('file_name');
+        }
+    
+        if ($up_zonasi2 == null) {
+            $up_zonasi2 = $up_zonasi2_lama;
+        }	
+
+
+
+        //afirmasi1
+        if (! $this->upload->do_upload('up_afirmasi1')) {
+            // $error = array('error' => $this->upload->display_errors());
+            $this->load->view('error_upload_berkas2');
+        }else{
+            $up_afirmasi1=$this->upload->data('file_name');
+        }
+    
+        if ($up_afirmasi1 == null) {
+            $up_afirmasi1 = $up_afirmasi1_lama;
+        }	
+
+
+        //afirmasi2
+        if (! $this->upload->do_upload('up_afirmasi2')) {
+            // $error = array('error' => $this->upload->display_errors());
+            $this->load->view('error_upload_berkas2');
+        }else{
+            $up_afirmasi2=$this->upload->data('file_name');
+        }
+    
+        if ($up_afirmasi2 == null) {
+            $up_afirmasi2 = $up_afirmasi2_lama;
+        }	
+
+        //pindahan1
+        if (! $this->upload->do_upload('up_pindahan1')) {
+            // $error = array('error' => $this->upload->display_errors());
+            $this->load->view('error_upload_berkas2');
+        }else{
+            $up_pindahan1=$this->upload->data('file_name');
+        }
+    
+        if ($up_pindahan1 == null) {
+            $up_pindahan1 = $up_pindahan1_lama;
+        }	
+
+
+        //pindahan2
+        if (! $this->upload->do_upload('up_pindahan2')) {
+            // $error = array('error' => $this->upload->display_errors());
+            $this->load->view('error_upload_berkas2');
+        }else{
+            $up_pindahan2=$this->upload->data('file_name');
+        }
+    
+        if ($up_pindahan2 == null) {
+            $up_pindahan2 = $up_pindahan2_lama;
+        }	
+
+
+        //prestasi1
+        if (! $this->upload->do_upload('up_prestasi1')) {
+            // $error = array('error' => $this->upload->display_errors());
+            $this->load->view('error_upload_berkas2');
+        }else{
+            $up_prestasi1=$this->upload->data('file_name');
+        }
+    
+        if ($up_prestasi1 == null) {
+            $up_prestasi1 = $up_prestasi1_lama;
+        }	
+
+        //prestasi2
+        if (! $this->upload->do_upload('up_prestasi2')) {
+            // $error = array('error' => $this->upload->display_errors());
+            $this->load->view('error_upload_berkas2');
+        }else{
+            $up_prestasi2=$this->upload->data('file_name');
+        }
+    
+        if ($up_prestasi2 == null) {
+            $up_prestasi2 = $up_prestasi2_lama;
+        }	
+        
+		
+		$data = array(
+			'up_zonasi1' => $up_zonasi1,
+            'up_zonasi2' => $up_zonasi2,
+            'up_afirmasi1' => $up_afirmasi1,
+            'up_afirmasi2' => $up_afirmasi2,
+            'up_pindahan1' => $up_pindahan1,
+            'up_pindahan2' => $up_pindahan2,
+            'up_prestasi1' => $up_prestasi1,
+            'up_prestasi2' => $up_prestasi2
+		);
+
+        $data2 = array(
+			'id_pesertadidik' => $id_pesertadidik,
+			'up_zonasi1' => $up_zonasi1,
+            'up_zonasi2' => $up_zonasi2,
+            'up_afirmasi1' => $up_afirmasi1,
+            'up_afirmasi2' => $up_afirmasi2,
+            'up_pindahan1' => $up_pindahan1,
+            'up_pindahan2' => $up_pindahan2,
+            'up_prestasi1' => $up_prestasi1,
+            'up_prestasi2' => $up_prestasi2
+		);
+
+        $where = array(
+            'id_pesertadidik' => $id_pesertadidik
+        );
+
+        $hitungdata= $this->M_ppdb->tampil_data_berkas($id_pesertadidik);
+
+		if ($hitungdata ==1) {
+            $this->M_ppdb->updateberkas($where, $data, 'upload_berkas');
+            $this->load->view('berhasil_update_berkas');
+		}else{
+            $this->M_ppdb->tambahberkas($data2);
+            $this->load->view('berhasil_update_berkas');
+		}
+
+	}
+
+    public function updatesekolahtujuan()
+    {
+        $sess_data = $this->session->userdata();
+
+        $id_pesertadidik = $this->session->userdata('id_pesertadidik');
+        $jenis_pendaftaran      = $this->input->post('jenis_pendaftaran');
+        $kode_wilayah           = $this->input->post('kode_wilayah');
+        $id_desa                = $this->input->post('id_desa');
+        $id_sekolah             = $this->input->post('sekolah_tujuan');
+
+
+
+        $data = array(
+            'jenis_pendaftaran' => $jenis_pendaftaran,
+            'kode_wilayah' => $kode_wilayah,
+            'id_desa' => $id_desa,
+            'id_sekolah' => $id_sekolah
+        );
+
+        
+        $data2 = array(
+            'id_pesertadidik' => $id_pesertadidik,
+            'jenis_pendaftaran' => $jenis_pendaftaran,
+            'kode_wilayah' => $kode_wilayah,
+            'id_desa' => $id_desa,
+            'id_sekolah' => $id_sekolah
+        );
+
+        $where = array(
+            'id_pesertadidik' => $id_pesertadidik
+        );
+
+        $hitungdata= $this->M_ppdb->tampil_data_sekolahtujuan($id_pesertadidik);
+
+		if ($hitungdata ==1) {
+            $this->M_ppdb->updatesekolahtujuan($where, $data, 'sekolah_tujuan');
+            $this->load->view('berhasil_update_sekolahtujuan');
+		}else{
+           
+            $this->M_ppdb->tambahsekolahtujuan($data2);
+            $this->load->view('berhasil_update_sekolahtujuan');
+  
+		}
+
+    }
+
+    public function updatefinalisasi()
+    {
+        $id_pesertadidik        = $this->session->userdata('id_pesertadidik');
+        $status                 = $this->input->post('status');
+
+		$this->M_ppdb->updatefinalisasi($status,$id_pesertadidik,'pengguna');
+        $this->load->view('berhasil_update_finalisasi');
+		}
+
+    
 
 
     public function kirimfoto()
