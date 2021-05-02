@@ -2,7 +2,7 @@ $(document).ready(() => {
 	$("#kode_wilayah").on("change", function (evt) {
 		let url = $(this).data("url");
 		let kode_wilayah = this.value;
-		let getDesa = getJSON(url, { kode_wilayah });
+		let getDesa = getJSON(url, {kode_wilayah});
 
 		if (getDesa.status == "success") {
 			let { data } = getDesa;
