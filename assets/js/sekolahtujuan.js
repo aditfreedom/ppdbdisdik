@@ -2,7 +2,7 @@ $(document).ready(() => {
 	$("#kode_wilayah").on("change", function (evt) {
 		let url = $(this).data("url");
 		let kode_wilayah = this.value;
-		let getDesa = getJSON(url, {kode_wilayah});
+		let getDesa = getJSON(url, { kode_wilayah });
 
 		if (getDesa.status == "success") {
 			let { data } = getDesa;
@@ -19,13 +19,12 @@ $(document).ready(() => {
 	});
 
 	$("#id_desa").on("change", function (evt) {
-		let jenis_pendaftaran = $('#jenis_pendaftaran').val();
-		let url =  $(this).data("url");
+		let jenis_pendaftaran = $("#jenis_pendaftaran").val();
+		let url = $(this).data("url");
 		if (jenis_pendaftaran == 4) {
-			url = $(this).data("url2")
-		}
-		else if(jenis_pendaftaran == 5){
-			url = $(this).data("url3")
+			url = $(this).data("url2");
+		} else if (jenis_pendaftaran == 5) {
+			url = $(this).data("url3");
 		}
 
 		let id_desa = this.value;
@@ -78,6 +77,9 @@ $(document).ready(() => {
 			} else {
 				$("#btn").attr("disabled", false);
 			}
+
+			let alert = `<h4 class=".text-secondary">Sisa Kuota : ${kuota} siswa</h3>`;
+			$("#sisa_kuota").empty().append(alert);
 		}
 	});
 

@@ -102,7 +102,12 @@ class M_ppdb extends CI_Model{
 
     public function tambahsekolahtujuan($data)
     {
-        $this->db->insert('sekolah_tujuan',$data);
+        return $this->db->insert('sekolah_tujuan',$data);
+    }
+
+    public function kurangikuota($id_sekolah, $query){
+        $query = " UPDATE kuota_siswa SET $query WHERE id_sekolah='$id_sekolah'";
+        return $this->db->query($query);
     }
 
     public function tambahberkas($data)
@@ -132,7 +137,8 @@ class M_ppdb extends CI_Model{
 
     public function updatekuota($where,$data)
     {   $this->db->where($where);
-        $this->db->update('kuota_siswa',$data); 
+        $this->db->set($data);
+        $this->db->update('kuota_siswa'); 
     }
 
     public function update_sekolah($where,$data)

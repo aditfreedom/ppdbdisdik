@@ -440,8 +440,28 @@ class User extends CI_Controller
             $this->M_ppdb->updatesekolahtujuan($where, $data, 'sekolah_tujuan');
             $this->load->view('berhasil_update_sekolahtujuan');
 		}else{
-           
-            $this->M_ppdb->tambahsekolahtujuan($data2);
+            $insert = $this->M_ppdb->tambahsekolahtujuan($data2);
+            if ($insert) {
+                switch ($jenis_pendaftaran) {
+                    case '1':
+                        $data = "sisa_zonasi=sisa_zonasi-1, total_in=total_in+1";
+                        break;
+                    case '2':
+                        $data = "sisa_afirmasi=sisa_afirmasi-1, total_in=total_in+1";
+                        break;
+                    case '3':
+                        $data = "sisa_pindahan=sisa_pindahan-1, total_in=total_in+1";
+                        break;
+                    case '4':
+                        $data = "sisa_prestasi=sisa_prestasi-1, total_in=total_in+1";
+                        break;
+                    default:
+                        break;
+                }
+                $this->M_ppdb->kurangikuota($id_sekolah, $data);
+
+                echo $this->db->last_query();
+            }
             $this->load->view('berhasil_update_sekolahtujuan');
   
 		}
@@ -963,6 +983,7 @@ class User extends CI_Controller
 		$post = $this->input->post(NULL, TRUE);
 		$where['id_sekolah'] = $post['id_sekolah'];
 		$desa = $this->M_ppdb->getData('kuota_siswa', $where);
+
 
 		if (count($desa)) {
 			$result = array(
