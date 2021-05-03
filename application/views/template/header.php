@@ -53,6 +53,7 @@ $(document).ready( function () {
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
+    
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
@@ -61,6 +62,7 @@ $(document).ready( function () {
    
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+    <p class="text-sm font-weight-bold font-italic">Sesuai dengan Permendikbud RI No. 1 tahun 2021 Tentang Penerimaan Peserta Didik Baru</p>
       </li>
     </ul>
   </nav>

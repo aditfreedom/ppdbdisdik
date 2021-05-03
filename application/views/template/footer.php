@@ -1,6 +1,6 @@
 <footer class="main-footer no-print">
     <strong>Copyright &copy; 2021 <a href="#">Disdikbud Kab. Bireuen</a>.</strong>
-    All rights reserved.
+    All rights reserved
   </footer>
 
   <!-- Control Sidebar -->

@@ -88,7 +88,7 @@
 
         <div class="form-group">
         <label for=""><b>NISN :</b></label>
-        <input <?=$disabled;?> type="text" name="nisn" value="<?php echo $data->nisn;?>" class="form-control"placeholder="NISN" maxlength="10" required>
+        <input readonly <?=$disabled;?> type="text" name="nisn" value="<?php echo $data->nisn;?>" class="form-control"placeholder="NISN" maxlength="10" required>
         </div>  
 
         <div class="form-group">

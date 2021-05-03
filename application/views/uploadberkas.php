@@ -121,7 +121,7 @@
             </div>
 
             <div class="form-group" <?=$pindahan;?>>
-              <label for=""><b>UPLOAD SURAT PINDAH DINAS ORANG TUA DAN KK (DIGABUNG DALAM 1 PDF) :</b></label>
+              <label for=""><b>UPLOAD SURAT PINDAH DINAS ORANG TUA DAN KK/SURAT KETERANGAN DOMISILI (DIGABUNG DALAM 1 PDF) :</b></label>
               <?php foreach ($berkas as $data) : ?>
               <input hidden class="form-control" type="text" name="up_pindahan1_lama" value="<?=$data->up_pindahan1;?>">
               <?php endforeach; ?>

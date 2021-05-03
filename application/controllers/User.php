@@ -28,7 +28,6 @@ class User extends CI_Controller
         $sess_data = $this->session->userdata();
         $this->load->view('template/header');
         $this->load->view('template/sidebaruser', $sess_data);
-        var_dump($sess_data);
         $this->load->view('homeuser');
         $this->load->view('template/footer');
     }

@@ -58,7 +58,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="<?=base_url()?>hal/login">PENDAFTARAN NON NISN</a></li>
+          <!-- <li><a href="<?=base_url()?>hal/login">PENDAFTARAN NON NISN</a></li> -->
         </ul>
       </nav><!-- .nav-menu -->
 

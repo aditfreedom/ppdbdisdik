@@ -56,7 +56,8 @@
         </div>
 
         <div class="alert alert-success alert-dismissible fade show" role="alert" <?=$lulus;?>>
-          <strong>Selamat! Anda Lulus Seleksi PPDB 2021/2022, Harap Bawa Berkas Berikut Ke Sekolah Tujuan :</strong>
+          <strong>Selamat anda dinyatakan lulus!
+	             <br>Silahkan melakukan pendaftaran ulang ke sekolah tujuan dengan membawa :</strong>
           <ul>
           <li>Foto Copy KK</li>
           <li>Foto Copy KTP Orang Tua</li>
@@ -64,7 +65,7 @@
           <li>Foto Copy Kartu NISN</li>
           <li>Print Out Formulir Pendaftaran (Klik Untuk Download)</li>
           </ul>
-          <b>Disatukan Di Dalam MAP Biru</b>
+          <b>Zonasi : Map Biru | Afirmasi : Kuning | Pindahan Orang Tua : Merah | Prestasi : Hijau</b>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
