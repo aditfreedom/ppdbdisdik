@@ -71,7 +71,7 @@
 
             <div class="form-group">
               <label for=""><b>DESA :</b></label>
-              <select <?=$disabled;?> class="form-control selectpicker" data-size="5" name="id_desa" id="id_desa" data-live-search="true" data-url="<?= base_url('user/getSekolahByDesa'); ?>" required>
+              <select <?=$disabled;?> class="form-control selectpicker" data-size="5" name="id_desa" id="id_desa" data-live-search="true" data-url="<?= base_url('user/getSekolahByDesa'); ?>" data-url2="<?= base_url('user/getAllSekolah'); ?>" data-url3="<?= base_url('user/getSekolahSwasta'); ?>" required>
                 <option value="">-- Pilih Desa --</option>
               </select>
             </div>

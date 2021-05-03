@@ -19,7 +19,15 @@ $(document).ready(() => {
 	});
 
 	$("#id_desa").on("change", function (evt) {
-		let url = $(this).data("url");
+		let jenis_pendaftaran = $('#jenis_pendaftaran').val();
+		let url =  $(this).data("url");
+		if (jenis_pendaftaran == 4) {
+			url = $(this).data("url2")
+		}
+		else if(jenis_pendaftaran == 5){
+			url = $(this).data("url3")
+		}
+
 		let id_desa = this.value;
 		let getDesa = getJSON(url, { id_desa });
 

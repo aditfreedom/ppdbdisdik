@@ -916,6 +916,48 @@ class User extends CI_Controller
 		echo json_encode($result);
 	}
 
+    public function getAllSekolah()
+	{
+		$where['status_sekolah'] = 1; // ambil sekolah negeri
+		$sekolah = $this->M_ppdb->getData('data_smp', $where);
+
+		if (count($sekolah)) {
+			$result = array(
+				'status' => 'success',
+				'data' => $sekolah
+			);
+		}
+		else {
+			$result = array(
+				'status' => 'failed',
+				'msg' => 'Data Tidak Ditemukan'
+			);
+		}
+
+		echo json_encode($result);
+	}
+
+    public function getSekolahSwasta()
+	{
+		$where['status_sekolah'] = 2; // ambil sekolah negeri
+		$sekolah = $this->M_ppdb->getData('data_smp', $where);
+
+		if (count($sekolah)) {
+			$result = array(
+				'status' => 'success',
+				'data' => $sekolah
+			);
+		}
+		else {
+			$result = array(
+				'status' => 'failed',
+				'msg' => 'Data Tidak Ditemukan'
+			);
+		}
+
+		echo json_encode($result);
+	}
+
     public function getKuotaZonasi()
 	{
 		$post = $this->input->post(NULL, TRUE);
