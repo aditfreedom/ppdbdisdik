@@ -39,7 +39,6 @@
               <button class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold rounded-pill" type="submit"><b>Login</b></button>
               <hr class="my-4">
               <?php echo form_close();?>
-              <a href="#" class="btn btn-lg btn-danger btn-block text-uppercase rounded-pill"><b>Lupa Password</b></a>
             </div>
         </div>
       </div>

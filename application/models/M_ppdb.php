@@ -181,7 +181,7 @@ class M_ppdb extends CI_Model{
                                     LEFT JOIN datasiswa ON sekolah_tujuan.id_pesertadidik = datasiswa.id_pesertadidik
                                     LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
                                     LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
-                                    WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2'");
+                                    WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.status='1'");
         return $query;
     }
 
@@ -196,7 +196,7 @@ class M_ppdb extends CI_Model{
         LEFT JOIN datasiswa ON sekolah_tujuan.id_pesertadidik = datasiswa.id_pesertadidik
         LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
         LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
-        WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.approve_formulir='Diterima'");
+        WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.approve_formulir='Diterima' AND pengguna.status='1'");
         return $query;
     }
 
@@ -206,7 +206,22 @@ class M_ppdb extends CI_Model{
         LEFT JOIN datasiswa ON sekolah_tujuan.id_pesertadidik = datasiswa.id_pesertadidik
         LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
         LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
-        WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.approve_lulus='Lulus'");
+        WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.approve_lulus='Lulus' AND pengguna.status='1'");
+        return $query;
+    }
+
+    public function tampil_finalisasi($id_sekolah){
+        $query = $this->db->query("SELECT * from sekolah_tujuan 
+        LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+        LEFT JOIN datasiswa ON sekolah_tujuan.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
+        LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+        WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.status='1'");
+        return $query;
+    }
+
+    public function edit_finalisasi($id){
+        $query = $this->db->query("SELECT * from pengguna WHERE id='$id'");
         return $query;
     }
 
@@ -246,6 +261,11 @@ class M_ppdb extends CI_Model{
         return $this->db->query("SELECT * FROM upload_berkas WHERE id_pesertadidik='$id' ");  
     }
 
+    public function tampilgantipassword($id)
+    {
+        return $this->db->query("SELECT * FROM pengguna WHERE pengguna.id_pesertadidik='$id' ");  
+    }
+
     public function tampilpengguna($id)
     {
         return $this->db->query("SELECT * FROM pengguna
@@ -282,6 +302,72 @@ class M_ppdb extends CI_Model{
         WHERE kuota_siswa.id_sekolah='$datauser'");
         return $query;
     }
+
+    public function tampilzonasi($id){
+        $result = $this->db->query("SELECT * FROM pengguna
+                                    LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.jenis_pendaftaran='1' AND sekolah_tujuan.id_sekolah='$id' AND pengguna.status='1'");
+        return $result->num_rows();
+    }
+
+    public function tampilafirmasi($id){
+        $result = $this->db->query("SELECT * FROM pengguna
+                                    LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.jenis_pendaftaran='2' AND sekolah_tujuan.id_sekolah='$id' AND pengguna.status='1'");
+        return $result->num_rows();
+    }
+
+    public function tampilpindahan($id){
+        $result = $this->db->query("SELECT * FROM pengguna
+                                    LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.jenis_pendaftaran='3' AND sekolah_tujuan.id_sekolah='$id' AND pengguna.status='1'");
+        return $result->num_rows();
+    }
+
+    public function tampilprestasi($id){
+        $result = $this->db->query("SELECT * FROM pengguna
+                                    LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.jenis_pendaftaran='4' AND sekolah_tujuan.id_sekolah='$id' AND pengguna.status='1'");
+        return $result->num_rows();
+    }
+
+    public function tampilformulirapprove($id){
+        $result = $this->db->query("SELECT * FROM pengguna
+                                    LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.id_sekolah='$id' AND pengguna.approve_formulir='Diterima' AND pengguna.status='1'");
+        return $result->num_rows();
+    }
+
+    public function tampilsiswalulus($id){
+        $result = $this->db->query("SELECT * FROM pengguna
+                                    LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.id_sekolah='$id' AND pengguna.approve_lulus='Lulus' AND pengguna.status='1'");
+        return $result->num_rows();
+    }
+
+    public function tampilsiswadaftarulang($id){
+        $result = $this->db->query("SELECT * FROM pengguna
+                                    LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.id_sekolah='$id' AND pengguna.approve_daftarulang='Diterima' AND pengguna.status='1'");
+        return $result->num_rows();
+    }
+
+    public function tampilpendaftar($id){
+        $result = $this->db->query("SELECT * FROM pengguna
+                                    LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                    LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                    WHERE sekolah_tujuan.id_sekolah='$id' AND pengguna.status='1'");
+        return $result->num_rows();
+    }
+
+
 
     public function tampilpensmp(){
         $query = $this->db->query("SELECT kuota FROM kuota WHERE jenis='Afirmasi' ");
@@ -375,6 +461,14 @@ class M_ppdb extends CI_Model{
    
     public function updateformulir($approve_formulir,$id)
     {   $this->db->query("UPDATE pengguna SET approve_formulir='$approve_formulir' WHERE id = '$id'");
+    }
+
+    public function updatefinalisasi_admin($status,$id)
+    {   $this->db->query("UPDATE pengguna SET status='$status' WHERE id = '$id'");
+    }
+
+    public function updatepassword($username,$password,$id)
+    {   $this->db->query("UPDATE pengguna SET username='$username',s password='$password' WHERE id_pesertadidik = '$id'");
     }
 
     public function updatefinalisasi($status,$id_pesertadidik)

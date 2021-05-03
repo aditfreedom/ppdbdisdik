@@ -43,14 +43,10 @@
   <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-        <i class="icofont-envelope"></i> <a>ppdb.disdikbud@gmail.com</a>
+      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="35px"><a class="mb-0" style="font-size:15px;"><b>&nbsp; DINAS PENDIDIKAN DAN KEBUDAYAAN KAB. BIREUEN</b></a></img>
       </div>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        
       </div>
     </div>
   </div>
@@ -59,7 +55,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="40px"><h2 class="logo mr-auto"><a href="#">&nbsp;DISDIKBUD<br>&nbsp;KAB. BIREUEN<span></span></a></h2></img>
+      <h2 class="logo mr-auto"><a href="#">&nbsp;PPDB DARING<br>&nbsp;KAB. BIREUEN<span></span></a></h2>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 

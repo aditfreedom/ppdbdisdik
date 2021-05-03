@@ -59,11 +59,30 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item ">
             <a href="<?=base_url('admin/approve_daftarulang');?>" class="nav-link">
               <i class="nav-icon fa fa-user-check"></i>
               <p>
                 Approve Daftar Ulang
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a href="<?=base_url('admin/status_finalisasi');?>" class="nav-link">
+              <i class="nav-icon fa fa-calendar-check"></i>
+              <p>
+                Ubah Status Finalisasi
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a href="<?=base_url('admin/ganti_password/'.$id_pesertadidik);?>" class="nav-link">
+              <i class="nav-icon fa fa-key"></i>
+              <p>
+                Ganti Password
               </p>
             </a>
           </li>

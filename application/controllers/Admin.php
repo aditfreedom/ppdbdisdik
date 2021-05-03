@@ -32,25 +32,17 @@ class Admin extends CI_Controller {
 		$sess_data = $this->session->userdata();
 		$datauser = $this->session->userdata('id_pesertadidik'); 
 		$data['kuota'] = $this->M_ppdb->tampilkuota($datauser)->result();
-		// $data['pindsmp'] = $this->M_ppdb->tampilpindsmp()->result();
-		// $data['pindsma'] = $this->M_ppdb->tampilpindsma()->result();
-		// $data['hitungsdformulir'] = $this->M_ppdb->hitungsdformulir();
-		// $data['hitungsmpformulir'] = $this->M_ppdb->hitungsmpformulir();
-		// $data['hitungsmaformulir'] = $this->M_ppdb->hitungsmaformulir();
+		$data['zonasi'] = $this->M_ppdb->tampilzonasi($datauser);
+		$data['afirmasi'] = $this->M_ppdb->tampilafirmasi($datauser);
+		$data['pindahan'] = $this->M_ppdb->tampilpindahan($datauser);
+		$data['prestasi'] = $this->M_ppdb->tampilprestasi($datauser);
+		$data['formulirapprove'] = $this->M_ppdb->tampilformulirapprove($datauser);
+		$data['siswalulus'] = $this->M_ppdb->tampilsiswalulus($datauser);
+		$data['siswadaftarulang'] = $this->M_ppdb->tampilsiswadaftarulang($datauser);
+		$data['pendaftar'] = $this->M_ppdb->tampilpendaftar($datauser);
 
-		// $data['hitungpindsdformulir'] = $this->M_ppdb->hitungpindsdformulir();
-		// $data['hitungpindsmpformulir'] = $this->M_ppdb->hitungpindsmpformulir();
-		// $data['hitungpindsmaformulir'] = $this->M_ppdb->hitungpindsmaformulir();
 
-		// $data['hitungpdlulus'] = $this->M_ppdb->hitungpdlulus();
-		// $data['hitungpdtidaklulus'] = $this->M_ppdb->hitungpdtidaklulus();
 
-		// $data['hitungpddaftarulang'] = $this->M_ppdb->hitungpddaftarulang();
-		// $data['hitungpdtidakdaftarulang'] = $this->M_ppdb->hitungpdtidakdaftarulang();
-
-		// $data['hitunguser'] = $this->M_ppdb->hitunguser();
-		// $data['hitungformulir'] = $this->M_ppdb->hitungformulir();
-		// $data['hitungformulirpindahan'] = $this->M_ppdb->hitungformulirpindahan();
 
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
@@ -181,7 +173,22 @@ class Admin extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	
+	public function updatefinalisasi(){
+		$id                	= $this->input->post('id');
+        $status   			= $this->input->post('status');
+
+		$this->M_ppdb->updatefinalisasi_admin($status,$id,'pengguna');
+		$this->load->view('berhasil_ubah_status');
+	}
+
+	public function updatepassword(){
+		$id_pesertadidik        = $this->input->post('id_pesertadidik');
+        $username   			= $this->input->post('username');
+		$password   			= $this->input->post('password');
+
+		$this->M_ppdb->updatepassword($username,$password,$id_pesertadidik);
+		$this->load->view('berhasil_ubah_user');
+	}
 
 	public function updateapproval(){
 		$id                	= $this->input->post('id');
@@ -262,6 +269,17 @@ class Admin extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function status_finalisasi()
+	{
+		$sess_data = $this->session->userdata();
+		$id_sekolah = $this->session->userdata('id_pesertadidik');
+		$data['finalisasi'] = $this->M_ppdb->tampil_finalisasi($id_sekolah)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
+		$this->load->view('status_finalisasi',$data);
+		$this->load->view('template/footer');
+	}
+
 	public function editdaftarulang($id){
 		$sess_data = $this->session->userdata();
 		$data['daftarulang'] = $this->M_ppdb->tampilpengguna_daftarulang($id)->result();
@@ -298,6 +316,26 @@ class Admin extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('editpengguna',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function ganti_password($id)
+	{
+		$data['ganti_password'] = $this->M_ppdb->tampilgantipassword($id)->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
+		$this->load->view('ganti_password',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function editfinalisasi($id)
+	{
+		$sess_data = $this->session->userdata();
+		$data['editfinalisasi'] = $this->M_ppdb->edit_finalisasi($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
+		$this->load->view('editfinalisasi',$data);
 		$this->load->view('template/footer');
 	}
 

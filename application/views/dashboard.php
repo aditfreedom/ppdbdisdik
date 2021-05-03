@@ -90,6 +90,127 @@
             </div>
           </div>
 
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $zonasi;?></h3>
+
+
+                <p>Pendaftar Zonasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $afirmasi;?></h3>
+
+
+                <p>Pendaftar Afirmasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $pindahan;?></h3>
+
+
+                <p>Pendaftar Pindahan</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $prestasi;?></h3>
+
+
+                <p>Pendaftar Prestasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-dark">
+              <div class="inner">
+                <h3><?php echo $formulirapprove;?></h3>
+
+
+                <p>Formulir Di Approve</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-dark">
+              <div class="inner">
+                <h3><?php echo $siswalulus;?></h3>
+
+
+                <p>Siswa Yang Lulus</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-dark">
+              <div class="inner">
+                <h3><?php echo $siswadaftarulang;?></h3>
+
+
+                <p>Siswa Yang Daftar Ulang</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-dark">
+              <div class="inner">
+                <h3><?php echo $pendaftar;?></h3>
+
+
+                <p>Total Pendaftar</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+
           
 
 
