@@ -34,8 +34,8 @@ class Hal extends CI_Controller {
         if($this->form_validation->run() != FALSE){
             
  
-             $ceklogin = $this->M_ppdb->cek_login($username,$password)->num_rows();
-             $cekloginid = $this->M_ppdb->cek_login($username,$password)->result();
+             $ceklogin = $this->M_ppdb->cek_login_user($username,$password)->num_rows();
+             $cekloginid = $this->M_ppdb->cek_login_user($username,$password)->result();
              if ($ceklogin == 1) {
                  foreach ($cekloginid as $cek) {
                      $id = $cek->id_pesertadidik;
