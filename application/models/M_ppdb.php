@@ -582,5 +582,17 @@ class M_ppdb extends CI_Model{
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    function getDataSiswa($where=NULL){
+        if ($where !== NULL) {
+            $this->db->where($where);
+        }
+
+        $this->db->select('siswa.*, sd.nama_sekolah as sekolah_asal')
+                 ->from('datasiswa siswa')
+                 ->join('data_sd sd', 'sd.id_sekolah=siswa.id_sekolah');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
 ?>
