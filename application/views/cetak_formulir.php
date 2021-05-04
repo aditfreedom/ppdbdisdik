@@ -69,7 +69,7 @@
             position: absolute;
             top: 0;
             left: 50px;
-            height: 100px;
+            height: 70px;
         }
 
         h3 {
@@ -88,7 +88,7 @@
 
 <body onafterprint="goBack()">
     <div class="kop">
-        <img src="./favicon.png" alt="" srcset="" class="kop-logo">
+        <img src="<?=base_url();?>assets/img/favicon.png" alt="" srcset="" class="kop-logo">
         <h3>PANITIA PENDAFTARAN PESERTA DIDIK BARU</h3>
         <h2>DINAS PENDIDIKAN DAN KEBUDAYAAN</h2>
         <h1>BIDANG PEMBINAAN SEKOLAH DASAR</h1>
