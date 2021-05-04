@@ -20,9 +20,9 @@ $(document).ready(() => {
 
 	$("#id_desa").on("change", function (evt) {
 		let jenis_pendaftaran = $("#jenis_pendaftaran").val();
-		let url = $(this).data("url");
-		if (jenis_pendaftaran == 4) {
-			url = $(this).data("url2");
+		let url = $(this).data("url2");
+		if (jenis_pendaftaran == 1) {
+			url = $(this).data("url");
 		} else if (jenis_pendaftaran == 5) {
 			url = $(this).data("url3");
 		}

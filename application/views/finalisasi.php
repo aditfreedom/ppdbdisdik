@@ -33,7 +33,7 @@
             <h5 class="text-uppercase"><b>Harap Membawa Berkas Ke Sekolah Tujuan : </b></h5>
               <ul>
               <li>Fotocopy Berkas Yang Telah Di Upload Pada Menu <b>Upload Berkas</b></li>
-              <li>Print Out Formulir Pendaftaran <a href="" class="btn btn-success rounded-pill">Download Disini</a></li>
+              <li>Print Out Formulir Pendaftaran <a href="<?=base_url('user/cetak_formulir');?>" class="btn btn-success rounded-pill">Download Disini</a></li>
               </ul>
             </div>
 

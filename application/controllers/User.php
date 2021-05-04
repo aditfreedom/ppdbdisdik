@@ -1002,6 +1002,13 @@ class User extends CI_Controller
 		echo json_encode($result);
 	}
 
+    function cetak_formulir(){
+        $sess_data = $this->session->userdata();
+        $where['id_pesertadidik'] = $sess_data['id_pesertadidik'];
+        $data_siswa = $this->M_ppdb->getData('kuota_siswa', $where);
+
+    }
+
     public function logout()
     {
         $this->session->sess_destroy();
