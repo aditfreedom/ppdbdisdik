@@ -96,7 +96,7 @@
         <h3>BIREUEN</h3>
     </div>
     <h3 class="text-center">FORMULIR PENDAFTARAN PESERTA DIDIK BARU</h3>
-    <h3 class="text-center">TAHUN PELAJARAN 2020/2021</h3>
+    <h3 class="text-center">TAHUN PELAJARAN 2021/2022</h3>
     <table style="width: 100%; margin-bottom: 10px" class="table-data">
         <thead>
             <tr>
@@ -105,17 +105,17 @@
         </thead>
         <tbody>
             <tr>
-                <td style="width: 48%;">No. Pendaftaran</td>
+                <td style="width: 48%;">No. Pendaftaran (Diisi Oleh Petugas Sekolah)</td>
                 <td style="width: 10px;">:</td>
                 <td style="width: 50%;"></td>
             </tr>
             <tr>
-                <td style="padding-bottom: 10px;">Tgl. Pendaftaran</td>
+                <td style="padding-bottom: 10px;">Tgl. Pendaftaran (Diisi Oleh Petugas Sekolah)</td>
                 <td>:</td>
                 <td></td>
             </tr>
             <tr>
-                <td>Asal Sekolah (PAUD)</td>
+                <td>Asal Sekolah (SD)</td>
                 <td>:</td>
                 <td><?=$siswa['sekolah_asal'];?></td>
             </tr>
@@ -127,62 +127,42 @@
             <tr>
                 <td>Nama Pesera Didik</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$siswa['nama_siswa'];?></td>
             </tr>
             <tr>
                 <td>Tempat Lahir</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$siswa['tempat_lahir'];?></td>
             </tr>
             <tr>
                 <td>Tanggal Lahir</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$siswa['tanggal_lahir'];?></td>
             </tr>
             <tr>
                 <td>Jenis Kelamin</td>
                 <td>:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Agama</td>
-                <td>:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Anak Ke</td>
-                <td>:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Email Aktif</td>
-                <td>:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Nomor Handphone</td>
-                <td>:</td>
-                <td></td>
+                <td><?=$siswa['jk'];?></td>
             </tr>
             <tr>
                 <td>Nomor Induk Kependudukan (NIK)</td>
                 <td>:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Nomor Katu Keluarga (KK)</td>
-                <td>:</td>
-                <td></td>
+                <td><?=$siswa['nik'];?></td>
             </tr>
             <tr>
                 <td>Alamat (Nama Desa/Kelurahan)</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$siswa['alamat_jalan'];?>, <?=$siswa['desa_kelurahan'];?></td>
             </tr>
             <tr>
-                <td>Penerima Program Indonesia Pintar (PIP)</td>
+                <td>Nomor Program Indonesia Pintar (PIP)</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$siswa['no_kip'];?></td>
+            </tr>
+            <tr>
+                <td>Nomor Program Program Keluarga Harapan (PKH)</td>
+                <td>:</td>
+                <td><?=$siswa['no_pkh'];?></td>
             </tr>
         </tbody>
     </table>
@@ -197,22 +177,22 @@
             <tr>
                 <td  style="width: 48%;">Nama Ayah Kandung</td>
                 <td style="width: 10px;">:</td>
-                <td style="width: 50%;"></td>
+                <td style="width: 50%;"><?=$siswa['nama_ayah'];?></td>
             </tr>
             <tr>
                 <td>Pekerjaan Ayah</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$siswa['pekerjaan_ayah'];?></td>
             </tr>
             <tr>
                 <td>Nama Ibu Kandung</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$siswa['nama_ibu_kandung'];?></td>
             </tr>
             <tr>
                 <td>Pekerjaan Ibu</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$siswa['pekerjaan_ibu_kandung'];?></td>
             </tr>
             <tr>
                 <td>Nama Wali Siswa</td>
@@ -225,40 +205,32 @@
     <table style="width: 100%">
         <thead>
             <tr>
-                <th colspan="3" align="left"><strong>DATA ORANG TUA WALI</strong></th>
+                <th colspan="3" align="left"><strong>DATA SEKOLAH TUJUAN</strong></th>
             </tr>
         </thead>
         <tbody>
+        <?php foreach ($siswa2 as $data) : ?>
             <tr>
                 <td style="width: 48%;">Jalur Pendaftaran</td>
                 <td style="width: 10px;">:</td>
-                <td style="width: 50%;"></td>
+                <td style="width: 50%;"><?=$data->nama;?></td>
             </tr>
             <tr>
                 <td>Kecamatan</td>
                 <td>:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Sekolah Tujuan</td>
-                <td>:</td>
-                <td></td>
+                <td><?=$data->nama_wilayah;?></td>
             </tr>
             <tr>
                 <td>Nama Desa/Kelurahan</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$data->nama_desa;?></td>
             </tr>
             <tr>
-                <td>Upload Kartu Keluarga</td>
+                <td>Sekolah Tujuan</td>
                 <td>:</td>
-                <td></td>
+                <td><?=$data->nama_sekolah;?></td>
             </tr>
-            <tr>
-                <td>No. Pendaftaran</td>
-                <td>:</td>
-                <td>No. Pendaftaran</td>
-            </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 
@@ -296,39 +268,68 @@
         padding-top: 5px;
       ">
         <table class="ceklis" style="width: 28%">
-            <tr>
+        <tr>
                 <td>1</td>
-                <td>Akta Kelahiran</td>
+                <td>Kartu Keluarga (Zonasi)</td>
                 <td>&emsp;&emsp;&emsp;</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Kartu Keluarga</td>
+                <td>Kartu NISN (Zonasi)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>KIP/PKH (Afirmasi)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Kartu Keluarga (Afirmasi)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kartu NISN (Afirmasi)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Surat Keterangan Pindah Dinas (Pindahan)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+ 
+        </table>
+        <table class="ceklis" style="width: 28%">
+        <tr>
+                <td>7</td>
+                <td>Kartu Keluarga (Pindahan)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Kartu NISN (Pindahan)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Surat Keterangan Berprestasi (Prestasi)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Kartu Keluarga (Prestasi)</td>
+                <td>&emsp;&emsp;&emsp;</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Kartu NISN (Prestasi)</td>
                 <td>&emsp;&emsp;&emsp;</td>
             </tr>
         </table>
         <table class="ceklis" style="width: 28%">
             <tr>
-                <td>1</td>
-                <td>Akta Kelahiran</td>
-                <td>&emsp;&emsp;&emsp;</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Kartu Keluarga</td>
-                <td>&emsp;&emsp;&emsp;</td>
-            </tr>
-        </table>
-        <table class="ceklis" style="width: 28%">
-            <tr>
-                <td>1</td>
-                <td>Akta Kelahiran</td>
-                <td>&emsp;&emsp;&emsp;</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Kartu Keluarga</td>
-                <td>&emsp;&emsp;&emsp;</td>
+           
             </tr>
         </table>
     </div>
@@ -342,7 +343,7 @@
             <table>
                 <tr>
                     <td><strong>Jalur Zonasi</strong></td>
-                    <td><strong>: Merah</strong></td>
+                    <td><strong>: Biru</strong></td>
                 </tr>
                 <tr>
                     <td><strong>Jalur Afirmasi</strong></td>
@@ -350,12 +351,16 @@
                 </tr>
                 <tr>
                     <td><strong>Jalur Pindahan Orang Tua &emsp;</strong></td>
+                    <td><strong>: Merah</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Jalur Prestasi &emsp;</strong></td>
                     <td><strong>: Hijau</strong></td>
                 </tr>
             </table>
         </li>
         <br>
-        <li>Formulir di Print Out Sebanyak 2 Lembar</li>
+        <li>Formulir di Print Out Sebanyak 1 Lembar</li>
         <li>Diserahkan Kepada Panitia PPDB di Sekolah Tujuan</li>
     </ul>
 

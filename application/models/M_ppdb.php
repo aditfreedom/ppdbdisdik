@@ -591,8 +591,20 @@ class M_ppdb extends CI_Model{
         $this->db->select('siswa.*, sd.nama_sekolah as sekolah_asal')
                  ->from('datasiswa siswa')
                  ->join('data_sd sd', 'sd.id_sekolah=siswa.id_sekolah');
+                 
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+    function getDataSiswa2($where){
+
+       return $this->db->query("SELECT * FROM sekolah_tujuan 
+                                LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                LEFT JOIN data_wilayah ON sekolah_tujuan.kode_wilayah = data_wilayah.kode_wilayah
+                                LEFT JOIN data_desa ON sekolah_tujuan.id_desa = data_desa.id_desa
+                                LEFT JOIN data_smp ON sekolah_tujuan.id_sekolah = data_smp.id_sekolah
+
+                                WHERE id_pesertadidik ='$where'");
     }
 }
 ?>

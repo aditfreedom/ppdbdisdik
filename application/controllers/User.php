@@ -1005,9 +1005,15 @@ class User extends CI_Controller
     function cetak_formulir(){
         $sess_data = $this->session->userdata();
         $where['id_pesertadidik'] = $sess_data['id_pesertadidik'];
+        $where2 = $this->session->userdata('id_pesertadidik');
         $data_siswa = $this->M_ppdb->getDataSiswa($where);
 
+
         $data['siswa'] = $data_siswa[0];
+        $data['siswa2'] = $this->M_ppdb->getDataSiswa2($where2)->result();
+
+
+
         $this->load->view('cetak_formulir', $data);
 
     }

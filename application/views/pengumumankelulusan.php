@@ -66,7 +66,8 @@
           <li>Print Out Formulir Pendaftaran (Klik Untuk Download)</li>
           <li>Semua Berkas Dimasukkan Ke Dalam :</li>
           </ul>
-          <b><a href="#" class="btn btn-primary text-decoration-none rounded-pill"><b>Zonasi :  Map Biru</b></a> <a href="#" class="btn btn-warning text-dark text-decoration-none rounded-pill"><b>Afirmasi :  Map Kuning</b></a> 
+          <b><a href="#" class="btn btn-primary text-decoration-none rounded-pill"><b>Zonasi :  Map Biru</b></a> 
+          <a href="#" class="btn btn-warning text-dark text-decoration-none rounded-pill"><b>Afirmasi :  Map Kuning</b></a> 
           <a href="#" class="btn btn-danger text-decoration-none rounded-pill"><b>Pindahan :  Map Merah</b></a> 
           <a href="#" class="btn btn-success text-decoration-none rounded-pill"><b>Prestasi :  Map Hijau</b></a></b>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
