@@ -32,8 +32,8 @@ class Home extends CI_Controller
 	{
 		$this->load->model('M_ppdb');
 		$sess_data = $this->session->userdata();
-		// $data['pensd'] = $this->M_ppdb->tampilpensd()->result();
-		// $data['pensmp'] = $this->M_ppdb->tampilpensmp()->result();
+		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
+
 		// $data['pensma'] = $this->M_ppdb->tampilpensma()->result();
 		// $data['pindsd'] = $this->M_ppdb->tampilpindsd()->result();
 		// $data['pindsmp'] = $this->M_ppdb->tampilpindsmp()->result();
@@ -58,7 +58,7 @@ class Home extends CI_Controller
 
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar', $sess_data);
-		$this->load->view('dashboarddinas');
+		$this->load->view('dashboarddinas',$data);
 		$this->load->view('template/footer');
 	}
 

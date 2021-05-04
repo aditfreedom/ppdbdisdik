@@ -19,6 +19,26 @@ class M_ppdb extends CI_Model{
         return $this->db->query("SELECT * FROM data_smp");  
     }
 
+    public function tampilsekolah()
+    {
+        return $this->db->query("SELECT * FROM data_smp 
+                                LEFT JOIN kuota_siswa ON data_smp.id_sekolah = kuota_siswa.id_sekolah ORDER BY data_smp.id_sekolah ASC");  
+    }
+
+    public function tampilapproval()
+    {
+        return $this->db->query("SELECT * FROM data_smp 
+                                LEFT JOIN kuota_siswa ON data_smp.id_sekolah = kuota_siswa.id_sekolah ORDER BY data_smp.id_sekolah ASC");  
+    }
+
+    public function jumlah_approve()
+    {
+        return $this->db->query("select * from pengguna 
+        left join sekolah_tujuan on pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+        where approve_formulir='Diterima'
+                                ");  
+    }
+
      public function tampildatapengguna(){
         return $this->db->query("SELECT * FROM pengguna
         LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik

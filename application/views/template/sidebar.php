@@ -28,7 +28,7 @@
             <a href="<?=base_url('home');?>" class="nav-link">
               <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
-                Home
+                Progress Data
               </p>
             </a>
           </li>

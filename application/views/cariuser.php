@@ -107,7 +107,7 @@
 
         <div class="form-group">
         <label for=""><b>NISN :</b></label>
-        <input type="text" name="nisn" class="form-control" maxlength="10" value="<?php echo $data->nisn;?>" required>
+        <input readonly type="text" name="nisn" class="form-control" maxlength="10" value="<?php echo $data->nisn;?>" required>
         </div>  
         <div class="form-group" hidden>
         <label for=""><b>id</b></label>
