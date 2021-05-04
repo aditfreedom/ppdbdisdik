@@ -23,27 +23,54 @@
               $afirmasi="hidden";
               $pindahan="hidden";
               $prestasi="hidden";
+              $hidden="";
+              $box="hidden";
             }
             if ($data->jenis_pendaftaran == 2) {
               $zonasi="hidden";
               $afirmasi="";
               $pindahan="hidden";
               $prestasi="hidden";
+              $hidden="";
+              $box="hidden";
+
             }
             if ($data->jenis_pendaftaran == 3) {
               $zonasi="hidden";
               $afirmasi="hidden";
               $pindahan="";
               $prestasi="hidden";
+              $hidden="";
+              $box="hidden";
+
             }
             if ($data->jenis_pendaftaran == 4) {
               $zonasi="hidden";
               $afirmasi="hidden";
               $pindahan="hidden";
               $prestasi="";
+              $hidden="";
+              $box="hidden";
+
             }
             ?>
       <?php endforeach; ?>
+
+
+
+      
+      <?php
+        if ($status2 == 0) {
+              $zonasi="hidden";
+              $afirmasi="hidden";
+              $pindahan="hidden";
+              $prestasi="hidden";
+              $hidden="hidden";
+              $box="";            
+            }
+      ?>      
+
+
 
       <?php foreach ($status as $data) : ?>
       <?php
@@ -55,7 +82,15 @@
       ?>
       <?php endforeach; ?>
 
-            <div class="container alert alert-primary alert-dismissible fade show" role="alert">
+
+      <div class="alert alert-warning alert-dismissible fade show" <?=$box;?> role="alert">
+        <strong>Mohon Untuk Mengisi Sekolah Tujuan Terlebih Dahulu</strong> Terima Kasih.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+            <div class="container alert alert-primary alert-dismissible fade show" <?=$hidden;?> role="alert">
             <?php foreach ($berkas as $data) : ?>
               <p class="mb-1"><b>FILE YANG TELAH DIUPLOAD :</b>
                     <ul class="mb-0" <?=$zonasi;?>>
@@ -80,7 +115,7 @@
             </button>
             </div>
           <?php endforeach; ?>
-      <a href="#" class="btn rounded-pill text-left text-light" style="width:100%;background:#325288;"><b>MOHON UPLOAD BERKAS YANG DIBUTUHKAN</b></a><br><br>      
+      <a href="#" class="btn rounded-pill text-left text-light" style="width:100%;background:#325288;" <?=$hidden;?> ><b>MOHON UPLOAD BERKAS YANG DIBUTUHKAN</b></a><br><br>      
 
       <?php echo form_open_multipart('user/updateberkas');?>
           <div class="form-group" hidden>
@@ -148,7 +183,7 @@
               <input <?=$disabled;?> class="form-control" type="file" name="up_prestasi2" accept="application/pdf">
             </div>
             <br>
-            <button <?=$disabled;?> type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">UPLOAD FILE</button><br><br>
+            <button <?=$hidden;?> <?=$disabled;?> type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">UPLOAD FILE</button><br><br>
       </form>
 
 

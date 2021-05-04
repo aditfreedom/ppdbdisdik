@@ -66,6 +66,7 @@ class User extends CI_Controller
         $data['tampil_admin'] = $this->M_ppdb->tampil_data_sekolahtujuan_admin($id_pesertadidik)->result();
         $data['berkas'] = $this->M_ppdb->uploadberkas($id)->result();
         $data['status'] = $this->M_ppdb->tampilpengguna($id)->result();
+        $data['status2'] = $this->M_ppdb->tampil_data_sekolahtujuan_admin($id_pesertadidik)->num_rows();
         $this->load->view('template/header');
         $this->load->view('template/sidebaruser', $sess_data);
         $this->load->view('uploadberkas', $data);
