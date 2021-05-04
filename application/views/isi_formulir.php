@@ -1,7 +1,7 @@
 <div class="content-wrapper">
 <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2 rounded" style="background:#007580">
+        <div class="row mb-2 rounded" style="background:#5B5EA6">
           <div class="col">
           <br>
             <h1 class="m-0 text-light text-bold">PENGISIAN FORMULIR</h1>
@@ -29,7 +29,7 @@
       ?>
 
 
-    <div class="row">
+    <div class="row shadow p-3 mb-0 bg-white rounded">
     <div class="col">
     <div class="container">
         <div class="form-group">
@@ -100,8 +100,8 @@
 
 
   </div><br><br>
-  <a href="#" class="btn rounded-pill text-left text-light"  style="width:100%;background:#325288;"><b>DATA TEMPAT TINGGAL</b></a><br><br>
-  <div class="row">
+  <a href="#" class="btn rounded-pill text-left text-light "  style="width:100%;background:#325288;"><b>DATA TEMPAT TINGGAL</b></a><br><br>
+  <div class="row shadow p-3 mb-0 bg-white rounded">
     <div class="col">
     <div class="container">
         <div class="form-group">
@@ -143,7 +143,7 @@
 
         </div><br><br>
   <a href="#" class="btn rounded-pill text-left text-light"  style="width:100%;background:#325288;"><b>DATA ORANG TUA</b></a><br><br>
-  <div class="row">
+  <div class="row shadow p-3 mb-0 bg-white rounded">
     <div class="col">
     <div class="container">
         <div class="form-group">
@@ -197,7 +197,7 @@
 
         </div><br><br>
   <a href="#" class="btn rounded-pill text-left text-light"  style="width:100%;background:#325288;"><b>DATA WALI</b></a><br><br>
-  <div class="row">
+  <div class="row shadow p-3 mb-0 bg-white rounded">
     <div class="col">
     <div class="container">
         <div class="form-group">
@@ -226,7 +226,7 @@
 
         </div><br><br>
   <a href="#" class="btn rounded-pill text-left text-light"  style="width:100%;background:#325288;"><b>DATA LAINNYA</b></a><br><br>
-  <div class="row">
+  <div class="row shadow p-3 mb-0 bg-white rounded">
     <div class="col">
     <div class="container">
         <div class="form-group">

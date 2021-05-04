@@ -1,7 +1,7 @@
 <div class="content-wrapper">
 <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2 rounded" style="background:#007580">
+        <div class="row mb-2 rounded" style="background:#5B5EA6">
           <div class="col">
           <br>
             <h1 class="m-0 text-light text-bold">APPROVAL KELULUSAN</h1>

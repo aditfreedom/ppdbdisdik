@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2 rounded" style="background:#007580">
+      <div class="row mb-2 rounded" style="background:#5B5EA6">
         <div class="col">
           <br>
           <h1 class="m-0 text-light text-bold">PENGISIAN FORMULIR</h1>
@@ -29,12 +29,26 @@
       <form action="<?=base_url('user/updatefinalisasi')?>" method="post">
       <div class="container">
             <div class="form-group">
-              <h3><b>PROSES FINALISASI</b></h3>
-              <h4>Pada tahap ini anda hanya perlu mengklik centang pada checkbox pastikan semua kebenaran data karena data akan terkunci dan tidak bisa di edit kembali.</h4><br>
-              <input type="checkbox" id="status" name="status" value="1" required <?=$checked?>> <label for="status" class="font-weight-normal"> Dengan ini saya menyatakan bahwa semua informasi yang dimasukkan adalah benar.</p></label>
+            <div class="container shadow p-3 mb-3 bg-white rounded">
+            <h5 class="text-uppercase"><b>Harap Membawa Berkas Ke Sekolah Tujuan : </b></h5>
+              <ul>
+              <li>Fotocopy Berkas Yang Telah Di Upload Pada Menu <b>Upload Berkas</b></li>
+              <li>Print Out Formulir Pendaftaran <a href="" class="btn btn-success rounded-pill">Download Disini</a></li>
+              </ul>
+            </div>
+
+            <div class="container shadow p-3 mb-3 bg-white rounded">
+            <h3><b>PROSES FINALISASI</b></h3>
+            <ul>
+            <li>Pada tahap ini anda hanya perlu mengklik centang pada checkbox dibawah</li>
+            <li>Pastikan semua kebenaran data karena data akan terkunci dan tidak bisa diedit kembali</li>
+            <li>Apabila sudah terlanjur finalisasi dan ingin mengedit data kembali, harap hubungi <b>sekolah terkait</b> untuk membuka kunci finalisasi</li>
+            </ul>
+            <br>
+              <input type="checkbox" id="status" name="status" value="1" required <?=$checked?>> <label for="status" class="font-weight-normal"> <b>Dengan ini saya menyatakan bahwa semua informasi yang dimasukkan adalah benar.</b></p></label>
+            </div>
             </div>
       </div>
-            <br>
             <button type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">FINALISASI PENDAFTARAN</button><br><br>
       </form>
 

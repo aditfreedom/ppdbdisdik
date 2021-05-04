@@ -1,10 +1,10 @@
 <div class="content-wrapper">
 <div class="content-header">
       <div class="container-fluid">
-      <div class="row mb-2 rounded" style="background:#007580">
+      <div class="row mb-2 rounded" style="background:#5B5EA6">
           <div class="col">
           <br>
-            <h1 class="m-0 text-light text-bold">APPROVAL FORMULIR DAN KELULUSAN</h1>
+            <h1 class="m-0 text-light text-bold">PENGUMUMAN KELULUSAN</h1>
             <footer class="blockquote-footer text-light"><b>Approval Formulir dan Pengumuman Kelulusan</b></footer>
             <hr>
           </div><!-- /.col -->
@@ -45,9 +45,9 @@
         </div>
 
         <div class="alert alert-danger alert-dismissible fade show" role="alert" <?=$tidaklulus;?>>
-          <strong>Maaf! Anda Tidak Lulus Seleksi PPDB 2021/2022, Harap Untuk Memilih Sekolah Lain Di Menu <br>
+          <strong>Maaf! Anda Tidak Lulus Seleksi PPDB 2021/2022, Harap Untuk Memilih Sekolah Lain Di Menu :<br>
           <ul>
-          <li> Isi Formulir > Poin 3. Sekolah Tujuan</li>
+          <li> Isi Formulir -> Poin 3. Sekolah Tujuan</li>
           </ul>
            </strong>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -55,17 +55,20 @@
           </button>
         </div>
 
-        <div class="alert alert-success alert-dismissible fade show" role="alert" <?=$lulus;?>>
-          <strong>Selamat anda dinyatakan lulus!
-	             <br>Silahkan melakukan pendaftaran ulang ke sekolah tujuan dengan membawa :</strong>
+        <div class="alert alert-info alert-dismissible fade show" role="alert" <?=$lulus;?>>
+          <strong><h2 class="text-bold mb-0">Selamat Anda Dinyatakan Lulus!</h2>
+	             Silahkan Melakukan Pendaftaran Ulang Ke Sekolah Tujuan Dengan Membawa :</strong>
           <ul>
           <li>Foto Copy KK</li>
           <li>Foto Copy KTP Orang Tua</li>
           <li>Foto Copy Akte Kelahiran</li>
           <li>Foto Copy Kartu NISN</li>
           <li>Print Out Formulir Pendaftaran (Klik Untuk Download)</li>
+          <li>Semua Berkas Dimasukkan Ke Dalam :</li>
           </ul>
-          <b>Zonasi : Map Biru | Afirmasi : Kuning | Pindahan Orang Tua : Merah | Prestasi : Hijau</b>
+          <b><a href="#" class="btn btn-primary text-decoration-none rounded-pill"><b>Zonasi :  Map Biru</b></a> <a href="#" class="btn btn-warning text-dark text-decoration-none rounded-pill"><b>Afirmasi :  Map Kuning</b></a> 
+          <a href="#" class="btn btn-danger text-decoration-none rounded-pill"><b>Pindahan :  Map Merah</b></a> 
+          <a href="#" class="btn btn-success text-decoration-none rounded-pill"><b>Prestasi :  Map Hijau</b></a></b>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
