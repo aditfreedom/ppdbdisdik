@@ -33,32 +33,50 @@ class Home extends CI_Controller
 		$this->load->model('M_ppdb');
 		$sess_data = $this->session->userdata();
 		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
-
-		// $data['pensma'] = $this->M_ppdb->tampilpensma()->result();
-		// $data['pindsd'] = $this->M_ppdb->tampilpindsd()->result();
-		// $data['pindsmp'] = $this->M_ppdb->tampilpindsmp()->result();
-		// $data['pindsma'] = $this->M_ppdb->tampilpindsma()->result();
-		// $data['hitungsdformulir'] = $this->M_ppdb->hitungsdformulir();
-		// $data['hitungsmpformulir'] = $this->M_ppdb->hitungsmpformulir();
-		// $data['hitungsmaformulir'] = $this->M_ppdb->hitungsmaformulir();
-
-		// $data['hitungpindsdformulir'] = $this->M_ppdb->hitungpindsdformulir();
-		// $data['hitungpindsmpformulir'] = $this->M_ppdb->hitungpindsmpformulir();
-		// $data['hitungpindsmaformulir'] = $this->M_ppdb->hitungpindsmaformulir();
-
-		// $data['hitungpdlulus'] = $this->M_ppdb->hitungpdlulus();
-		// $data['hitungpdtidaklulus'] = $this->M_ppdb->hitungpdtidaklulus();
-
-		// $data['hitungpddaftarulang'] = $this->M_ppdb->hitungpddaftarulang();
-		// $data['hitungpdtidakdaftarulang'] = $this->M_ppdb->hitungpdtidakdaftarulang();
-
-		// $data['hitunguser'] = $this->M_ppdb->hitunguser();
-		// $data['hitungformulir'] = $this->M_ppdb->hitungformulir();
-		// $data['hitungformulirpindahan'] = $this->M_ppdb->hitungformulirpindahan();
+		$data['zonasi'] = $this->M_ppdb->tampilzonasi2()->result();
+		$data['afirmasi'] = $this->M_ppdb->tampilafirmasi2()->result();
+		$data['pindahan'] = $this->M_ppdb->tampilpindahan2()->result();
+		$data['prestasi'] = $this->M_ppdb->tampilprestasi2()->result();
+		$data['pendaftarzonasi'] = $this->M_ppdb->tampilpendaftarzonasi()->num_rows();
+		$data['pendaftarafirmasi'] = $this->M_ppdb->tampilpendaftarafirmasi()->num_rows();
+		$data['pendaftarpindahan'] = $this->M_ppdb->tampilpendaftarpindahan()->num_rows();
+		$data['pendaftarprestasi'] = $this->M_ppdb->tampilpendaftarprestasi()->num_rows();
+		$data['pendaftarumum'] = $this->M_ppdb->tampilpendaftarumum()->num_rows();
+		
 
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar', $sess_data);
 		$this->load->view('dashboarddinas',$data);
+		$this->load->view('template/footer');
+	}
+
+
+
+	public function progress_data()
+	{
+		$this->load->model('M_ppdb');
+		$sess_data = $this->session->userdata();
+		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
+		$data['kecamatan'] = $this->M_ppdb->tampilwilayah()->result();
+
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('progress_data',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function tampil_sekolah_wilayah($id)
+	{
+		$this->load->model('M_ppdb');
+		$sess_data = $this->session->userdata();
+		$data['tampil_sekolah_wilayah'] = $this->M_ppdb->tampil_sekolah_wilayah($id)->result();
+		$data['tampil_sekolah_wilayah2'] = $this->M_ppdb->tampil_sekolah_wilayah2($id)->result();
+
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('tampil_sekolah_wilayah',$data);
 		$this->load->view('template/footer');
 	}
 

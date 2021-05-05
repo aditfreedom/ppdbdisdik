@@ -1,14 +1,15 @@
-
-  <div class="content-wrapper">
+<div class="content-wrapper">
  <!-- Content Header (Page header) -->
  <div class="content-header">
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-          <h1>PROGRESS DATA</h1>
+            <h1 class="m-0 text-dark">DASHBOARD</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">PPDB BIREUEN</a></li>
+              <li class="breadcrumb-item active">Beranda</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -18,47 +19,176 @@
     <div class="container">
     <section class="content">
       <div class="container-fluid">
-        <br>      
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php  
+              $data3=0;
+	             foreach ($zonasi as $data) : ?>
+               <?php $data2 = $data->sisa_zonasi;
+                      $data3+= $data2 ;
+               ?>
+               <?php endforeach ;?>
+                <h3><?php echo $data3;?></h3>
+                <p>Zonasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
 
-        <table class="table table-hover" id="example">
-          <thead class="text-center">
-            <tr>
-              <th scope="col">NO</th>
-              <th scope="col">NPSN</th>
-              <th scope="col">NAMA SEKOLAH</th>
-              <th scope="col">TOTAL KUOTA</th>
-              <th scope="col">TOTAL PENDAFTAR</th>
-              <th scope="col">SISA PENDAFTAR ZONASI</th>
-              <th scope="col">SISA PENDAFTAR AFIRMASI</th>
-              <th scope="col">SISA PENDAFTAR PINDAHAN</th>
-              <th scope="col">SISA PENDAFTAR PRESTASI</th>
-            </tr>
-          </thead>
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php  
+              $data3=0;
+	             foreach ($afirmasi as $data) : ?>
+               <?php $data2 = $data->sisa_afirmasi;
+                      $data3+= $data2 ;
+               ?>
+               <?php endforeach ;?>
+                <h3><?php echo $data3;?></h3>
+                <p>Afirmasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php  
+              $data3=0;
+	             foreach ($pindahan as $data) : ?>
+               <?php $data2 = $data->sisa_pindahan;
+                      $data3+= $data2 ;
+               ?>
+               <?php endforeach ;?>
+                <h3><?php echo $data3;?></h3>
 
 
-            <tbody>
-          <?php $i = 1; 
-          foreach ($tampilsekolah as $data) :
-	        ?>
-		      <tr class="nomor text-center">
-            <th scope="row"><?php echo $i ;?></th>
-            <td><?=$data->npsn;?></td>
-            <td><?=$data->nama_sekolah;?></td>
-            <td><?=$data->total;?></td>
-            <td><?=$data->total_in;?></td>
-            <td><?=$data->sisa_zonasi;?></td>
-            <td><?=$data->sisa_afirmasi;?></td>
-            <td><?=$data->sisa_pindahan;?></td>
-            <td><?=$data->sisa_prestasi;?></td>
-		      </tr>
-          <?php $i++;?>
-          <?php endforeach; ?>
-          </tbody>
-          </table>
+                <p>Pindahan Orang Tua</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+                    <!-- ./col -->
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php  
+              $data3=0;
+	             foreach ($prestasi as $data) : ?>
+               <?php $data2 = $data->sisa_prestasi;
+                      $data3+= $data2 ;
+               ?>
+               <?php endforeach ;?>
+                <h3><?php echo $data3;?></h3>
+                <p>Prestasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              
+                <h3><?php echo $pendaftarzonasi;?></h3>
+                <p>Pendaftar Zonasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              <h3><?php echo $pendaftarafirmasi;?></h3>
 
 
+                <p>Pendaftar Afirmasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
 
-        </div>        
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              <h3><?php echo $pendaftarpindahan;?></h3>
+
+
+                <p>Pendaftar Pindahan</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              <h3><?php echo $pendaftarprestasi;?></h3>
+
+
+                <p>Pendaftar Prestasi</p>
+              </div>
+              <div class="icon">
+                  <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              <h3><?php echo $pendaftarumum;?></h3>
+
+
+                <p>Pendaftar Umum</p>
+              </div>
+              <div class="icon">
+                  <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+          
+
+
+        </div>
+          
+          <!-- ./col -->
+        </div>
+        
+        
     </section>
     
     </div>
@@ -68,6 +198,4 @@
 
 
 </div>
-
-
 

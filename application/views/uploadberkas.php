@@ -94,27 +94,24 @@
             <?php foreach ($berkas as $data) : ?>
               <p class="mb-1"><b>FILE YANG TELAH DIUPLOAD :</b>
                     <ul class="mb-0" <?=$zonasi;?>>
-                        <li>File 1 : <a href="<?= base_url('asset/file/'.$data->up_zonasi1) ?>"> <b><?=$data->up_zonasi1;?></b></a></li>
-                        <li>File 2 : <a href="<?= base_url('asset/file/'.$data->up_zonasi1) ?>"> <b><?=$data->up_zonasi2;?></b></a></li>
+                        <li>File : <a href="<?= base_url('asset/file/'.$data->up_zonasi1) ?>"> <b><?=$data->up_zonasi1;?></b></a></li>
                     </ul>
                     <ul class="mb-0" <?=$afirmasi;?>>
-                        <li>File 1 : <a href="<?= base_url('asset/file/'.$data->up_afirmasi1) ?>"> <b><?=$data->up_afirmasi1;?></b></a></li>
-                        <li>File 2 : <a href="<?= base_url('asset/file/'.$data->up_afirmasi1) ?>"> <b><?=$data->up_afirmasi2;?></b></a></li>
+                        <li>File : <a href="<?= base_url('asset/file/'.$data->up_afirmasi1) ?>"> <b><?=$data->up_afirmasi1;?></b></a></li>
                     </ul>
                     <ul class="mb-0" <?=$pindahan;?>>
-                        <li>File 1 : <a href="<?= base_url('asset/file/'.$data->up_pindahan1) ?>"> <b><?=$data->up_pindahan1;?></b></a></li>
-                        <li>File 2 : <a href="<?= base_url('asset/file/'.$data->up_pindahan1) ?>"> <b><?=$data->up_pindahan2;?></b></a></li>
+                        <li>File : <a href="<?= base_url('asset/file/'.$data->up_pindahan1) ?>"> <b><?=$data->up_pindahan1;?></b></a></li>
                     </ul>
                     <ul class="mb-0" <?=$prestasi;?>>
-                        <li>File 1 : <a href="<?= base_url('asset/file/'.$data->up_prestasi1) ?>"> <b><?=$data->up_prestasi1;?></b></a></li>
-                        <li>File 2 : <a href="<?= base_url('asset/file/'.$data->up_prestasi1) ?>"> <b><?=$data->up_prestasi2;?></b></a></li>
+                        <li>File : <a href="<?= base_url('asset/file/'.$data->up_prestasi1) ?>"> <b><?=$data->up_prestasi1;?></b></a></li>
                     </ul>
               </p>
+              <?php endforeach; ?>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
             </div>
-          <?php endforeach; ?>
+    
       <a href="#" class="btn rounded-pill text-left text-light" style="width:100%;background:#325288;" <?=$hidden;?> ><b>MOHON UPLOAD BERKAS YANG DIBUTUHKAN</b></a><br><br>      
 
       <?php echo form_open_multipart('user/updateberkas');?>
@@ -131,11 +128,11 @@
               <?php endforeach; ?>
               <input <?=$disabled;?> class="form-control" type="file" name="up_zonasi1" accept="application/pdf" >
               <br>
-              <label for=""><b>UPLOAD KARTU NISN (PDF) :</b></label>
+              <label hidden for=""><b>UPLOAD KARTU NISN (PDF) :</b></label>
               <?php foreach ($berkas as $data) : ?>
               <input hidden class="form-control" type="text" name="up_zonasi2_lama" value="<?=$data->up_zonasi2;?>">
               <?php endforeach; ?>
-              <input <?=$disabled;?> class="form-control" type="file" name="up_zonasi2" accept="application/pdf">
+              <input hidden <?=$disabled;?> class="form-control" type="file" name="up_zonasi2" accept="application/pdf">
 
 
 
@@ -148,11 +145,11 @@
               <?php endforeach; ?>
               <input <?=$disabled;?> class="form-control" type="file" name="up_afirmasi1" accept="application/pdf">
               <br>
-              <label for=""><b>UPLOAD KARTU NISN (PDF) :</b></label>
+              <label hidden for=""><b>UPLOAD KARTU NISN (PDF) :</b></label>
               <?php foreach ($berkas as $data) : ?>
               <input hidden class="form-control" type="text" name="up_afirmasi2_lama" value="<?=$data->up_afirmasi2;?>">
               <?php endforeach; ?>
-              <input <?=$disabled;?> class="form-control" type="file" name="up_afirmasi2" accept="application/pdf">
+              <input hidden <?=$disabled;?> class="form-control" type="file" name="up_afirmasi2" accept="application/pdf">
             </div>
 
             <div class="form-group" <?=$pindahan;?>>
@@ -162,11 +159,11 @@
               <?php endforeach; ?>
               <input <?=$disabled;?> class="form-control" type="file" name="up_pindahan1" accept="application/pdf">
               <br>
-              <label for=""><b>UPLOAD KARTU NISN (PDF) :</b></label>
+              <label hidden for=""><b>UPLOAD KARTU NISN (PDF) :</b></label>
               <?php foreach ($berkas as $data) : ?>
               <input hidden class="form-control" type="text" name="up_pindahan2_lama" value="<?=$data->up_pindahan2;?>">
               <?php endforeach; ?>
-              <input <?=$disabled;?> class="form-control" type="file" name="up_pindahan2" accept="application/pdf">
+              <input hidden <?=$disabled;?> class="form-control" type="file" name="up_pindahan2" accept="application/pdf">
             </div>
 
             <div class="form-group" <?=$prestasi;?>>
@@ -176,13 +173,12 @@
               <?php endforeach; ?>
               <input <?=$disabled;?> class="form-control" type="file" name="up_prestasi1" accept="application/pdf">
               <br>
-              <label for=""><b>UPLOAD KARTU NISN (PDF) :</b></label>
+              <label hidden for=""><b>UPLOAD KARTU NISN (PDF) :</b></label>
               <?php foreach ($berkas as $data) : ?>
               <input hidden class="form-control" type="text" name="up_prestasi2_lama" value="<?=$data->up_prestasi2;?>">
               <?php endforeach; ?>
-              <input <?=$disabled;?> class="form-control" type="file" name="up_prestasi2" accept="application/pdf">
+              <input hidden <?=$disabled;?> class="form-control" type="file" name="up_prestasi2" accept="application/pdf">
             </div>
-            <br>
             <button <?=$hidden;?> <?=$disabled;?> type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">UPLOAD FILE</button><br><br>
       </form>
 

@@ -17,10 +17,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <h1 class="text-center">SELAMAT DATANG DI APLIKASI PPDB DARING</h1>
-        <h1 class="text-center">TINGKAT SD - SMP KAB.BIREUEN</h1>
-        <h1 class="text-center">TP. 2021/2022</h1>
-        <img src="<?=base_url()?>assets/img/favicon.png" width="250px" srcset="" class="img-fluid mx-auto d-block" alt="Responsive image">
+        <img src="<?=base_url()?>assets/img/dashboard.jpg" style="width:100%;height:70%;" srcset="" class="img-fluid mx-auto d-block" alt="Responsive image">
         <br>
         <a class="btn btn-primary" href="<?=base_url('user/isi_formulir/'.$id_pesertadidik)?>" style="width:100%;" role="button"><b>MENDAFTAR</b></a>     
 

@@ -21,17 +21,18 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2 text-sm">
-        <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">      
+      <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">      
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item ">
             <a href="<?=base_url('home');?>" class="nav-link">
               <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
-                Progress Data
+                Dashboard
               </p>
             </a>
           </li>
+
           <li class="nav-item ">
             <a href="<?=base_url('home/zonasi');?>" class="nav-link">
               <i class="nav-icon fa fa-map-marked-alt"></i>
@@ -48,6 +49,19 @@
               </p>
             </a>
           </li>
+
+          <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">      
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item ">
+            <a href="<?=base_url('home/progress_data');?>" class="nav-link">
+              <i class="nav-icon fa fa-tasks"></i>
+              <p>
+                Progress Data
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item ">
             <a href="<?=base_url('home/data_sekolah');?>" class="nav-link">
               <i class="nav-icon fa fa-building"></i>

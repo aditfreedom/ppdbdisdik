@@ -329,6 +329,8 @@ class M_ppdb extends CI_Model{
         return $query;
     }
 
+    
+
     public function tampilzonasi($id){
         $result = $this->db->query("SELECT * FROM pengguna
                                     LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik
@@ -336,6 +338,104 @@ class M_ppdb extends CI_Model{
                                     WHERE sekolah_tujuan.jenis_pendaftaran='1' AND sekolah_tujuan.id_sekolah='$id' AND pengguna.status='1'");
         return $result->num_rows();
     }
+
+
+    public function tampilzonasi2(){
+        return $this->db->query("SELECT sisa_zonasi FROM kuota_siswa;");
+        
+    }
+
+    public function tampilafirmasi2(){
+        return $this->db->query("SELECT sisa_afirmasi FROM kuota_siswa;");
+        
+    }
+
+    public function tampilpindahan2(){
+        return $this->db->query("SELECT sisa_pindahan FROM kuota_siswa;");
+        
+    }
+
+    public function tampilprestasi2(){
+        return $this->db->query("SELECT sisa_prestasi FROM kuota_siswa;");
+        
+    }
+
+
+    public function tampilpendaftarzonasi(){
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan 
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='1' AND pengguna.status='1'");
+        
+    }   
+    
+    public function tampilpendaftarafirmasi(){
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan 
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='2' AND pengguna.status='1';");
+        
+    }   
+
+
+    public function tampilwilayah1(){
+        return $this->db->query("SELECT * FROM data_wilayah;");
+        
+    }   
+
+
+    public function tampil_sekolah_wilayah($id){
+        return $this->db->query("SELECT * FROM data_smp 
+                                LEFT JOIN kuota_siswa ON data_smp.id_sekolah = kuota_siswa.id_sekolah
+                                WHERE data_smp.kode_wilayah = '$id';");
+        
+    }   
+
+    public function tampil_sekolah_wilayah2($id){
+        return $this->db->query("SELECT s.nama_sekolah, s.npsn, ks.total,
+		(select count(sk.id_pesertadidik) from sekolah_tujuan sk  JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=1) as zonasi,
+        (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=2) as afirmasi,
+        (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=3) as pindahan,
+        (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=4) as prestasi
+ FROM `sekolah_tujuan` st 
+ RIGHT JOIN data_smp s on s.id_sekolah=st.id_sekolah
+ JOIN kuota_siswa ks on ks.id_sekolah=s.id_sekolah  AND s.kode_wilayah='$id' GROUP by s.id_sekolah");
+
+
+        
+    }   
+
+    public function hitung_zonasi_tabel(){
+        return $this->db->query("SELECT * FROM pengguna
+                                LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+                                LEFT JOIN sekolah_tujuan ON datasiswa.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+                                LEFT JOIN data_smp ON sekolah_tujuan.id_sekolah = data_smp.id_sekolah
+                                WHERE sekolah_tujuan.jenis_pendaftaran = '1' AND pengguna.role='2' 
+                                AND pengguna.status='1'");
+                                                                    
+    }   
+
+
+    public function tampilpendaftarpindahan(){
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan 
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='3' AND pengguna.status='1'");
+        
+    }
+    
+    public function tampilpendaftarprestasi(){
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='4' AND pengguna.status='1'");
+        
+    }   
+
+    public function tampilpendaftarumum(){
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan WHERE jenis_pendaftaran='5';");
+        
+    }   
 
     public function tampilafirmasi($id){
         $result = $this->db->query("SELECT * FROM pengguna

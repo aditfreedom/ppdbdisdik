@@ -79,8 +79,8 @@
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <img class="mx-auto d-block" src="assets/img/favicon.png" width="100px" style="margin-bottom:10px;">
       <h1 class="text-center">PENERIMAAN PESERTA DIDIK BARU <span>DARING</span>
-      <br>TINGKAT SD - SMP</h1>
-      <h2 class="text-center">KABUPATEN BIREUEN TA. 2021/2022</h2>
+      <br>TINGKAT SMP</h1>
+      <h2 class="text-center">KABUPATEN BIREUEN TP. 2021/2022</h2>
       <p align="center">
         <a href="<?=base_url()?>hal/registrasi" id="demo2" class="btn-get-started scrollto text-center">Daftar Akun Sekarang</a> 
         <a href="<?=base_url()?>hal/login" class="btn-get-started scrollto text-center">Login</a>        

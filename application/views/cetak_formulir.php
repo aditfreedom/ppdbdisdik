@@ -89,11 +89,13 @@
 <body onafterprint="goBack()">
     <div class="kop">
         <img src="<?=base_url();?>assets/img/favicon.png" alt="" srcset="" class="kop-logo">
-        <h3>PANITIA PENDAFTARAN PESERTA DIDIK BARU</h3>
+        <h3>PENDAFTARAN PESERTA DIDIK BARU</h3>
         <h2>DINAS PENDIDIKAN DAN KEBUDAYAAN</h2>
-        <h1>BIDANG PEMBINAAN SEKOLAH DASAR</h1>
-        <small>Jalan Banta Ahmad Komplek SKB - SPNF Telp. (0644) 21229 Fax (0644) 34210 Email: <a>disdik.bireuen@gmail.com</a> Kode Pos 24211</small>
-        <h3>BIREUEN</h3>
+        <?php foreach ($siswa2 as $data) : ?>
+        <h1 class="uppercase"><?=$data->nama_sekolah;?></h1>
+        <?php endforeach; ?>
+        <!-- <small>Jalan Banta Ahmad Komplek SKB - SPNF Telp. (0644) 21229 Fax (0644) 34210 Email: <a>disdik.bireuen@gmail.com</a> Kode Pos 24211</small> -->
+        <h3>KABUPATEN BIREUEN</h3>
     </div>
     <h3 class="text-center">FORMULIR PENDAFTARAN PESERTA DIDIK BARU</h3>
     <h3 class="text-center">TAHUN PELAJARAN 2021/2022</h3>
@@ -275,26 +277,16 @@
             </tr>
             <tr>
                 <td>2</td>
-                <td>Kartu NISN (Zonasi)</td>
-                <td>&emsp;&emsp;&emsp;</td>
-            </tr>
-            <tr>
-                <td>3</td>
                 <td>KIP/PKH (Afirmasi)</td>
                 <td>&emsp;&emsp;&emsp;</td>
             </tr>
             <tr>
-                <td>4</td>
+                <td>3</td>
                 <td>Kartu Keluarga (Afirmasi)</td>
                 <td>&emsp;&emsp;&emsp;</td>
             </tr>
             <tr>
-                <td>5</td>
-                <td>Kartu NISN (Afirmasi)</td>
-                <td>&emsp;&emsp;&emsp;</td>
-            </tr>
-            <tr>
-                <td>6</td>
+                <td>4</td>
                 <td>Surat Keterangan Pindah Dinas (Pindahan)</td>
                 <td>&emsp;&emsp;&emsp;</td>
             </tr>
@@ -302,28 +294,18 @@
         </table>
         <table class="ceklis" style="width: 28%">
         <tr>
-                <td>7</td>
+                <td>5</td>
                 <td>Kartu Keluarga (Pindahan)</td>
                 <td>&emsp;&emsp;&emsp;</td>
             </tr>
             <tr>
-                <td>8</td>
-                <td>Kartu NISN (Pindahan)</td>
-                <td>&emsp;&emsp;&emsp;</td>
-            </tr>
-            <tr>
-                <td>9</td>
+                <td>6</td>
                 <td>Surat Keterangan Berprestasi (Prestasi)</td>
                 <td>&emsp;&emsp;&emsp;</td>
             </tr>
             <tr>
-                <td>10</td>
+                <td>7</td>
                 <td>Kartu Keluarga (Prestasi)</td>
-                <td>&emsp;&emsp;&emsp;</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>Kartu NISN (Prestasi)</td>
                 <td>&emsp;&emsp;&emsp;</td>
             </tr>
         </table>

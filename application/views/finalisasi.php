@@ -42,7 +42,6 @@
             <ul>
             <li>Pada tahap ini anda hanya perlu mengklik centang pada checkbox dibawah</li>
             <li>Pastikan semua kebenaran data karena data akan terkunci dan tidak bisa diedit kembali</li>
-            <li>Apabila sudah terlanjur finalisasi dan ingin mengedit data kembali, harap hubungi <b>sekolah terkait</b> untuk membuka kunci finalisasi</li>
             </ul>
             <br>
               <input type="checkbox" id="status" name="status" value="1" required <?=$checked?>> <label for="status" class="font-weight-normal"> <b>Dengan ini saya menyatakan bahwa semua informasi yang dimasukkan adalah benar.</b></p></label>
