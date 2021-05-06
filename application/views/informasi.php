@@ -120,7 +120,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4 class="title"><a href="">Zonasi</a></h4>
-              <p class="description">Penerimaan peserta didik baru dengan pembagian berdasarkan alamat sesuai data kependudukan</p>
+              <p class="description">Penerimaan Peserta Didik Baru Berdasarkan Zonasi Yang Telah Ditetapkan oleh Disdikbud. Kab. Bireuen</p>
             </div>
           </div>
 
@@ -129,7 +129,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
               <div class="icon"><i class="bx bx-file"></i></div>
               <h4 class="title"><a href="">Afirmasi</a></h4>
-              <p class="description">Penerimaan peserta didik baru dengan melampirkan keterangan kurang mampu dengan sistem zonasi</p>
+              <p class="description">Penerimaan Peserta Didik Baru Berdasarkan Bantuan Pemerintah Pusat Berupa PKH dan PIP</p>
             </div>
           </div>
 
@@ -137,7 +137,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
               <h4 class="title"><a href="">Pindah Orang Tua</a></h4>
-              <p class="description">Penerimaan peserta didik baru dengan metode pindah tempat dinas orang tua</p>
+              <p class="description">Penerimaan Peserta Didik Baru Berdasarkan Surat Mutasi Dinas Orang Tua</p>
             </div>
           </div>
 
@@ -145,7 +145,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-world"></i></div>
               <h4 class="title"><a href="">Prestasi</a></h4>
-              <p class="description">Penerimaan peserta didik baru jalur prestasi</p>
+              <p class="description">Penerimaan Peserta Didik Baru Berdasarkan Prestasi Peserta Didik Bidang Akademik & Non Akademik</p>
             </div>
           </div>
 
