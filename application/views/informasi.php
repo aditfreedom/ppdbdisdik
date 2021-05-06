@@ -40,26 +40,26 @@
 <body >
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+  <!-- <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="35px"><a class="mb-0" style="font-size:15px;"><b>&nbsp; DINAS PENDIDIKAN DAN KEBUDAYAAN KAB. BIREUEN</b></a></img>
+      <b>&nbsp; DINAS PENDIDIKAN DAN KEBUDAYAAN KAB. BIREUEN</b></a>
       </div>
       <div class="social-links">
         
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h2 class="logo mr-auto"><a href="#">&nbsp;PPDB DARING<br>&nbsp;KAB. BIREUEN<span></span></a></h2>
+      <h2 class="logo mr-auto" style="font-size:18px;"><a href="#">&nbsp;PPDB DARING<br>&nbsp;KAB. BIREUEN<span></span></a></h2>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
-      <nav class="nav-menu d-none d-lg-block">
+      <nav class="nav-menu d-none d-lg-block mb-0">
         <ul>
           <li class="active"><a href="#" >Beranda</a></li>
           <li><a href="#about">Waktu Pendaftaran</a></li>
@@ -79,8 +79,8 @@
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <img class="mx-auto d-block" src="assets/img/favicon.png" width="100px" style="margin-bottom:10px;">
       <h1 class="text-center">PENERIMAAN PESERTA DIDIK BARU <span>DARING</span>
-      <br>TINGKAT SMP</h1>
-      <h2 class="text-center">KABUPATEN BIREUEN TP. 2021/2022</h2>
+      <br>TINGKAT SD - SMP</h1>
+      <h2 class="text-center">KABUPATEN BIREUEN TA. 2021/2022</h2>
       <p align="center">
         <a href="<?=base_url()?>hal/registrasi" id="demo2" class="btn-get-started scrollto text-center">Daftar Akun Sekarang</a> 
         <a href="<?=base_url()?>hal/login" class="btn-get-started scrollto text-center">Login</a>        
@@ -88,7 +88,8 @@
       
       </div>
     </div>
-  </section><!-- End Hero -->
+  </section>
+  <!-- End Hero -->
 
   <main id="main">
     <!-- ======= Featured Services Section ======= -->
@@ -120,7 +121,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4 class="title"><a href="">Zonasi</a></h4>
-              <p class="description">Penerimaan Peserta Didik Baru Berdasarkan Zonasi Yang Telah Ditetapkan oleh Disdikbud. Kab. Bireuen</p>
+              <p class="description">Penerimaan peserta didik baru dengan pembagian berdasarkan alamat sesuai data kependudukan</p>
             </div>
           </div>
 
@@ -129,7 +130,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
               <div class="icon"><i class="bx bx-file"></i></div>
               <h4 class="title"><a href="">Afirmasi</a></h4>
-              <p class="description">Penerimaan Peserta Didik Baru Berdasarkan Bantuan Pemerintah Pusat Berupa PKH dan PIP</p>
+              <p class="description">Penerimaan peserta didik baru dengan melampirkan keterangan kurang mampu dengan sistem zonasi</p>
             </div>
           </div>
 
@@ -137,7 +138,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
               <h4 class="title"><a href="">Pindah Orang Tua</a></h4>
-              <p class="description">Penerimaan Peserta Didik Baru Berdasarkan Surat Mutasi Dinas Orang Tua</p>
+              <p class="description">Penerimaan peserta didik baru dengan metode pindah tempat dinas orang tua</p>
             </div>
           </div>
 
@@ -145,7 +146,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-world"></i></div>
               <h4 class="title"><a href="">Prestasi</a></h4>
-              <p class="description">Penerimaan Peserta Didik Baru Berdasarkan Prestasi Peserta Didik Bidang Akademik & Non Akademik</p>
+              <p class="description">Penerimaan peserta didik baru jalur prestasi</p>
             </div>
           </div>
 
