@@ -398,7 +398,9 @@ class M_ppdb extends CI_Model{
         (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
  where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=3) as pindahan,
         (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
- where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=4) as prestasi
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=4) as prestasi,
+        (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=5) as umum
  FROM `sekolah_tujuan` st 
  RIGHT JOIN data_smp s on s.id_sekolah=st.id_sekolah
  JOIN kuota_siswa ks on ks.id_sekolah=s.id_sekolah  AND s.kode_wilayah='$id' GROUP by s.id_sekolah");

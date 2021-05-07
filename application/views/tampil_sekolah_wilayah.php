@@ -34,7 +34,7 @@
               <th scope="col">AFIRMASI</th>
               <th scope="col">PINDAHAN</th>
               <th scope="col">PRESTASI</th>
-
+              <th scope="col">UMUM</th>
             </tr>
           </thead>
 
@@ -52,6 +52,7 @@
             <td><?=$data->afirmasi;?></td>
             <td><?=$data->pindahan;?></td>
             <td><?=$data->prestasi;?></td>
+            <td><?=$data->umum;?></td>
             <?php $i++;?>
             <?php endforeach; ?>
 

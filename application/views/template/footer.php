@@ -76,6 +76,7 @@ $(document).ready(function() {
             {extend:'excel',title: ' ',className: 'btn btn-primary'}, 
             {extend:'pdf',title: ' ',className: 'btn btn-primary'}, 
             {extend:'print',title: ' ',className: 'btn btn-primary'}, 
+            {extend:'csv',title: ' ',className: 'btn btn-primary'}
         ]
     } );
 } );

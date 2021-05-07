@@ -65,7 +65,7 @@
           <li><a href="#about">Waktu Pendaftaran</a></li>
           <li><a href="#jalur">Jalur Penerimaan</a></li>
           <li><a href="#portfolio">Jadwal Seleksi</a></li>
-          <li><a href="#team">Kontak</a></li>
+          <li><a href="#team">Alur Pendaftaran</a></li>
           <li><a href="<?=base_url('dinas/login')?>">Login Admin</a></li>
 
         </ul>
@@ -137,8 +137,8 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4 class="title"><a href="">Pindah Orang Tua</a></h4>
-              <p class="description">Penerimaan peserta didik baru dengan metode pindah tempat dinas orang tua</p>
+              <h4 class="title"><a href="">Pindah Orang Tua/Wali</a></h4>
+              <p class="description">Penerimaan peserta didik baru berdasarkan surat mutasi orang tua/wali dari instansi terkait</p>
             </div>
           </div>
 
@@ -181,19 +181,13 @@
               </tbody>
               <tbody class="text-center">
               <td scope="row">2</td>
-              <td>05 - 06 Juli 2021</td>
-              <td>Tes Calon Peserta Didik Baru</td>
-              <td>Sekolah Yang Telah Didaftarkan</td>  
-              </tbody>
-              <tbody class="text-center">
-              <td scope="row">3</td>
-              <td>08 Juli 2021</td>
+              <td>-</td>
               <td>Pengumuman</td>
               <td>Website/Sekolah Masing-Masing Yang Telah Didaftarkan</td>
               </tbody>
               <tbody class="text-center">
-                <td scope="row">4</td>
-                <td>09 Juli 2021</td>
+                <td scope="row">3</td>
+                <td>-</td>
                 <td>Pendaftaran Ulang</td>
                 <td>Website/Sekolah Masing-Masing Yang Telah Didaftarkan</td>
                 </tbody>
@@ -209,65 +203,11 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Kontak</h2>
-          <h3>Kontak Helpdesk <span>Team</span></h3>
+          <h2>Alur</h2>
+          <h3>Alur <span>Pendaftaran</span></h3>
         </div>
+        <img src="<?=base_url('assets/img/hero1-bg.jpg')?>" width="1150px">
 
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="member-img">
-                <img src="<?=base_url()?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Admin 2</h4>
-                <span>HD Manager</span>
-                <span>085252505525</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="member-img">
-                <img src="<?=base_url()?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Admin 3</h4>
-                <span>HD Manager</span>
-                <span>085252505525</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="member-img">
-                <img src="<?=base_url()?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Admin 4</h4>
-                <span>HD Manager</span>
-                <span>085252505525</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <div class="member-img">
-                <img src="<?=base_url()?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Admin 1</h4>
-                <span>HD Manager</span>
-                <span>085252505525</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
 
       </div>
     </section><!-- End Team Section -->

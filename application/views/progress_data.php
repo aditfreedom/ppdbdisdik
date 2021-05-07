@@ -5,7 +5,8 @@
  <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-          <h1>PROGRESS DATA</h1>
+          <h1 class="text-bold">PROGRESS DATA</h1>
+          <h4>Rekap Menu Per kecamatan Yang Ada Di Dalam Kecamatan Masing-Masing</h4>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
