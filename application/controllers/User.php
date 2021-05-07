@@ -442,27 +442,6 @@ class User extends CI_Controller
             $this->load->view('berhasil_update_sekolahtujuan');
 		}else{
             $insert = $this->M_ppdb->tambahsekolahtujuan($data2);
-            if ($insert) {
-                switch ($jenis_pendaftaran) {
-                    case '1':
-                        $data = "sisa_zonasi=sisa_zonasi-1, total_in=total_in+1";
-                        break;
-                    case '2':
-                        $data = "sisa_afirmasi=sisa_afirmasi-1, total_in=total_in+1";
-                        break;
-                    case '3':
-                        $data = "sisa_pindahan=sisa_pindahan-1, total_in=total_in+1";
-                        break;
-                    case '4':
-                        $data = "sisa_prestasi=sisa_prestasi-1, total_in=total_in+1";
-                        break;
-                    default:
-                        break;
-                }
-                $this->M_ppdb->kurangikuota($id_sekolah, $data);
-
-                echo $this->db->last_query();
-            }
             $this->load->view('berhasil_update_sekolahtujuan');
   
 		}
@@ -473,6 +452,28 @@ class User extends CI_Controller
     {
         $id_pesertadidik        = $this->session->userdata('id_pesertadidik');
         $status                 = $this->input->post('status');
+        $dataPendaftaran        = $this->M_ppdb->getData('sekolah_tujuan', ['id_pesertadidik'=>$id_pesertadidik])[0];
+
+        switch ($dataPendaftaran['jenis_pendaftaran']) {
+            case '1':
+                $data = "sisa_zonasi=sisa_zonasi-1, total_in=total_in+1";
+                break;
+            case '2':
+                $data = "sisa_afirmasi=sisa_afirmasi-1, total_in=total_in+1";
+                break;
+            case '3':
+                $data = "sisa_pindahan=sisa_pindahan-1, total_in=total_in+1";
+                break;
+            case '4':
+                $data = "sisa_prestasi=sisa_prestasi-1, total_in=total_in+1";
+                break;
+            case '4':
+                $data = "sisa_prestasi=sisa_umum-1, total_in=total_in+1";
+                break;
+            default:
+                break;
+        }
+        $this->M_ppdb->kurangikuota($dataPendaftaran['id_sekolah'], $data);
 
 		$this->M_ppdb->updatefinalisasi($status,$id_pesertadidik,'pengguna');
         $this->load->view('berhasil_update_finalisasi');
