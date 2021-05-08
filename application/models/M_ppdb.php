@@ -64,7 +64,23 @@ class M_ppdb extends CI_Model{
      }
 
      public function tampilwilayah(){
-        return $this->db->query("SELECT * FROM data_wilayah ");
+        return $this->db->query("SELECT dw.kode_wilayah,dw.nama_wilayah, ks.total,
+		(select count(sk.id_pesertadidik) from sekolah_tujuan sk  JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=1) as zonasi,
+        (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=2) as afirmasi,
+        (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=3) as pindahan,
+        (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=4) as prestasi,
+        (select count(sk.id_pesertadidik) from sekolah_tujuan sk JOIN pengguna p on p.id_pesertadidik = sk.id_pesertadidik
+ where p.status=1 and id_sekolah =  st.id_sekolah and jenis_pendaftaran=5) as umum
+ FROM `sekolah_tujuan` st  RIGHT JOIN data_smp s on s.id_sekolah=st.id_sekolah
+ JOIN kuota_siswa ks on ks.id_sekolah=s.id_sekolah
+ JOIN data_wilayah dw on dw.kode_wilayah=s.kode_wilayah
+ GROUP by s.kode_wilayah");
+
+        // return $this->db->query("SELECT * FROM data_wilayah ");
      }
 
      public function tampildatapengguna1($username,$password){
@@ -84,10 +100,34 @@ class M_ppdb extends CI_Model{
         return $result->num_rows();
      }
 
+     
+
      public function tampil_data_berkas($id_pesertadidik){
         $result = $this->db->query("SELECT * FROM upload_berkas WHERE id_pesertadidik='$id_pesertadidik'");
         return $result->num_rows();
      }
+
+     public function nomor_formulir($id_sekolah,$where2){
+        return $this->db->query("SELECT * FROM sekolah_tujuan 
+                                    LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                    WHERE pengguna.status='1' AND id_sekolah='$id_sekolah' AND NOT sekolah_tujuan.id_pesertadidik ='$where2'");
+     }
+
+     public function data_balikan(){
+         return $this->db->query("SELECT datasiswa.id_pesertadidik as dsid, data_sd.npsn as dsdnpsn, data_sd.nama_sekolah as dsdnm,
+         datasiswa.nik as dsnik,datasiswa.nisn as dsnisn,datasiswa.nama_siswa as dsnm, datasiswa.tempat_lahir as dstpt,
+          datasiswa.tanggal_lahir as dstgl, datasiswa.jk as dsjk, datasiswa.nama_ibu_kandung as dsibu,
+         sekolah_tujuan.id_sekolah as stid, data_smp.npsn as dsmpnpsn, data_smp.nama_sekolah as dsmpnm
+             FROM datasiswa
+             LEFT JOIN pengguna ON datasiswa.id_pesertadidik = pengguna.id_pesertadidik
+             LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
+             LEFT JOIN sekolah_tujuan ON datasiswa.id_pesertadidik = sekolah_tujuan.id_pesertadidik
+             LEFT JOIN data_smp ON sekolah_tujuan.id_sekolah = data_smp.id_sekolah
+             WHERE pengguna.status = '1'");
+     }
+
+
+
 
      public function tampil_data_finalisasi($id_pesertadidik){
       return $this->db->query("SELECT * FROM pengguna WHERE id_pesertadidik='$id_pesertadidik'");
@@ -101,6 +141,11 @@ class M_ppdb extends CI_Model{
                                 LEFT JOIN data_desa ON sekolah_tujuan.id_desa = data_desa.id_desa
                                 LEFT JOIN data_smp ON sekolah_tujuan.id_sekolah = data_smp.id_sekolah
                                 WHERE id_pesertadidik='$id_pesertadidik'");
+     }
+
+
+     public function tampil_data_uploadberkas_admin($id_pesertadidik){
+        return $this->db->query("SELECT * FROM upload_berkas WHERE id_pesertadidik='$id_pesertadidik'");
      }
 
 
@@ -360,6 +405,11 @@ class M_ppdb extends CI_Model{
         
     }
 
+    public function tampilumum2(){
+        return $this->db->query("SELECT sisa_umum FROM kuota_siswa;");
+        
+    }
+
 
     public function tampilpendaftarzonasi(){
         return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan 
@@ -404,9 +454,7 @@ class M_ppdb extends CI_Model{
  FROM `sekolah_tujuan` st 
  RIGHT JOIN data_smp s on s.id_sekolah=st.id_sekolah
  JOIN kuota_siswa ks on ks.id_sekolah=s.id_sekolah  AND s.kode_wilayah='$id' GROUP by s.id_sekolah");
-
-
-        
+       
     }   
 
     public function hitung_zonasi_tabel(){

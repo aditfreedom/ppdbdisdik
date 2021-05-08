@@ -53,7 +53,17 @@
               $box="hidden";
 
             }
+            if ($data->jenis_pendaftaran == 5) {
+              $zonasi="";
+              $afirmasi="hidden";
+              $pindahan="hidden";
+              $prestasi="hidden";
+              $hidden="";
+              $box="hidden";
+
+            }
             ?>
+            
       <?php endforeach; ?>
 
 

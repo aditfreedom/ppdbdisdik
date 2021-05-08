@@ -22,10 +22,15 @@
         <br>      
 
         <table class="table table-hover" id="example">
-          <thead class="text-center">
+          <thead class="text-left">
             <tr>
               <th scope="col" style="width:10%;">NO</th>
               <th scope="col">KECAMATAN</th>
+              <th scope="col">ZONASI</th>
+              <th scope="col">AFIRMASI</th>
+              <th scope="col">PINDAHAN</th>
+              <th scope="col">PRESTASI</th>
+              <th scope="col">UMUM</th>
             </tr>
           </thead>
 
@@ -34,10 +39,15 @@
           <?php $i = 1; 
           foreach ($kecamatan as $data) :
 	        ?>
-		      <tr class="nomor text-center">
+		      <tr class="nomor text-left">
             <td scope="row"><?php echo $i ;?></td>
             <td><a href="<?php echo base_url('home/tampil_sekolah_wilayah/').$data->kode_wilayah; ?>"><?=$data->nama_wilayah;?></a></td>
-		      </tr>
+            <td><?=$data->zonasi;?></td>
+            <td><?=$data->afirmasi;?></td>
+            <td><?=$data->pindahan;?></td>
+            <td><?=$data->prestasi;?></td>
+            <td><?=$data->umum;?></td>
+          </tr>
           <?php $i++;?>
           <?php endforeach; ?>
           </tbody>

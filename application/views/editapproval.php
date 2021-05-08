@@ -274,24 +274,34 @@
       $pindahan="hidden";
       $prestasi="";
     }
+    if ($data->jenis_pendaftaran == 5) {
+      $zonasi="";
+      $afirmasi="hidden";
+      $pindahan="hidden";
+      $prestasi="hidden";
+    }
     ?>
 
     <div class="form-group" <?=$zonasi;?>>
         <label for=""><b>FILE ZONASI :</b></label>
         <table>
           <tr>
-          <td><input disabled type="text" name="nama_wali" value="<?php echo $data->up_zonasi1;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
+          <td><input disabled type="text" name="data_pdf" value="<?php echo $data->up_zonasi1;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
           <td><a class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_zonasi1;?>">DOWNLOAD</a></td>
-
           </tr>
           <tr>
-          <td><input disabled type="text" name="nama_wali" value="<?php echo $data->up_zonasi2;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
-          <td><a class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_zonasi2;?>">DOWNLOAD</a></td>
+          <td><input hidden disabled type="text" name="nama_wali" value="<?php echo $data->up_zonasi2;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
+          <td><a hidden class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_zonasi2;?>">DOWNLOAD</a></td>
           </tr>
           <tr>
           <td></td>
           </tr>
         </table>
+        <tr>
+        <object data="<?=base_url()?>/asset/file/<?=$data->up_zonasi1?>" width="1050" height="600" type="application/pdf">
+          <embed src="<?=base_url()?>/asset/file/<?=$data->up_zonasi1?>" type="application/pdf" /> 
+        </object>
+        </tr>
         </div>  
         
         <div class="form-group" <?=$afirmasi;?>>
@@ -302,12 +312,17 @@
           <td><a class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_afirmasi1;?>">DOWNLOAD</a></td>
           </tr>
           <tr>
-          <td><input disabled type="text" name="nama_wali" value="<?php echo $data->up_afirmasi2;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
-          <td><a class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_afirmasi2;?>">DOWNLOAD</a></td>
+          <td><input hidden disabled type="text" name="nama_wali" value="<?php echo $data->up_afirmasi2;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
+          <td><a hidden class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_afirmasi2;?>">DOWNLOAD</a></td>
           </tr>
           <tr>
           <td></td>
           </tr>
+          <tr>
+        <object data="<?=base_url()?>/asset/file/<?=$data->up_afirmasi1?>" width="1050" height="600" type="application/pdf">
+          <embed src="<?=base_url()?>/asset/file/<?=$data->up_afirmasi1?>" type="application/pdf" /> 
+        </object>
+        </tr>
         </table>
         </div>  
 
@@ -319,12 +334,17 @@
           <td><a class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_pindahan1;?>">DOWNLOAD</a></td>
           </tr>
           <tr>
-          <td><input disabled type="text" name="nama_wali" value="<?php echo $data->up_pindahan2;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
-          <td><a class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_pindahan2;?>">DOWNLOAD</a></td>
+          <td><input hidden disabled type="text" name="nama_wali" value="<?php echo $data->up_pindahan2;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
+          <td><a hidden class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_pindahan2;?>">DOWNLOAD</a></td>
           </tr>
           <tr>
           <td></td>
           </tr>
+          <tr>
+        <object data="<?=base_url()?>/asset/file/<?=$data->up_pindahan1?>" width="1050" height="600" type="application/pdf">
+          <embed src="<?=base_url()?>/asset/file/<?=$data->up_pindahan1?>" type="application/pdf" /> 
+        </object>
+        </tr>
         </table>
         </div>  
 
@@ -336,12 +356,17 @@
           <td><a class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_prestasi1;?>">DOWNLOAD</a></td>
           </tr>
           <tr>
-          <td><input disabled type="text" name="nama_wali" value="<?php echo $data->up_prestasi2;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
-          <td><a class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_prestasi2;?>">DOWNLOAD</a></td>
+          <td><input hidden disabled type="text" name="nama_wali" value="<?php echo $data->up_prestasi2;?>" placeholder="File Tidak Ada" class="form-control" maxlength="190" required></td>
+          <td><a hidden class="btn btn-success" target="_blank" href="<?=base_url('asset/file/').$data->up_prestasi2;?>">DOWNLOAD</a></td>
           </tr>
           <tr>
           <td></td>
           </tr>
+          <tr>
+        <object data="<?=base_url()?>/asset/file/<?=$data->up_prestasi1?>" width="1050" height="600" type="application/pdf">
+          <embed src="<?=base_url()?>/asset/file/<?=$data->up_prestasi1?>" type="application/pdf" /> 
+        </object>
+        </tr>
         </table>
         </div>  
         

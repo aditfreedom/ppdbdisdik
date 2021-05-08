@@ -27,12 +27,12 @@
 
             <?php echo form_open('dinas/login_aksi');?>
               <div class="form-label-group">
-                <input  name="username" id="inputEmail" class="form-control" placeholder="USERNAME" required autofocus>
+                <input  name="username" id="inputEmail" class="form-control" required autofocus>
                 <label for="inputEmail">USERNAME</label>
               </div>
 
               <div class="form-label-group">
-                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="PASSWORD" required>
+                <input name="password" type="password" id="inputPassword" class="form-control" required>
                 <label for="inputPassword">PASSWORD</label>
               </div>
 
@@ -40,8 +40,7 @@
               <input type="checkbox" onclick="myFunction()" id="show"> Tampil Password
               </div>
 
-              <button class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold rounded-pill" type="submit"><b>Login</b></button>
-              <hr class="my-4">
+              <button class="btn btn-lg btn-block text-uppercase text-light font-weight-bold rounded-pill" type="submit" style="background-color:#FF0064;"><b>Login</b></button>
               <?php echo form_close();?>
             </div>
         </div>

@@ -17,9 +17,9 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <img src="<?=base_url()?>assets/img/dashboard.jpg" style="width:100%;height:70%;" srcset="" class="img-fluid mx-auto d-block" alt="Responsive image">
+        <img src="<?=base_url()?>assets/img/dashboard.jpg" style="width:100%;height:50%;" srcset="" class="img-fluid mx-auto d-block" alt="Responsive image">
         <br>
-        <a class="btn btn-primary" href="<?=base_url('user/isi_formulir/'.$id_pesertadidik)?>" style="width:100%;" role="button"><b>MENDAFTAR</b></a>     
+        <a class="btn rounded-pill text-light" href="<?=base_url('user/isi_formulir/'.$id_pesertadidik)?>" style="width:100%;background-color:#FF0064;" role="button"><b>MENDAFTAR</b></a>     
 
 
 

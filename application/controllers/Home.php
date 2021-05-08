@@ -37,6 +37,7 @@ class Home extends CI_Controller
 		$data['afirmasi'] = $this->M_ppdb->tampilafirmasi2()->result();
 		$data['pindahan'] = $this->M_ppdb->tampilpindahan2()->result();
 		$data['prestasi'] = $this->M_ppdb->tampilprestasi2()->result();
+		$data['umum'] = $this->M_ppdb->tampilumum2()->result();
 		$data['pendaftarzonasi'] = $this->M_ppdb->tampilpendaftarzonasi()->num_rows();
 		$data['pendaftarafirmasi'] = $this->M_ppdb->tampilpendaftarafirmasi()->num_rows();
 		$data['pendaftarpindahan'] = $this->M_ppdb->tampilpendaftarpindahan()->num_rows();
@@ -65,6 +66,20 @@ class Home extends CI_Controller
 		$this->load->view('progress_data',$data);
 		$this->load->view('template/footer');
 	}
+
+
+	public function data_balikan()
+	{
+		$this->load->model('M_ppdb');
+		$sess_data = $this->session->userdata();
+		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
+		$data['kecamatan'] = $this->M_ppdb->data_balikan()->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('data_balikan',$data);
+		$this->load->view('template/footer');
+	}
+
 
 	public function tampil_sekolah_wilayah($id)
 	{

@@ -24,10 +24,29 @@
                     }
                     ?>
               <?php endforeach?>
-      <a href="#" class="btn rounded-pill text-left text-light" style="width:100%;background:#325288;"><b>FINALISASI PENDAFTARAN</b></a><br><br>      
+
+              <?php
+        if ($status2 == 0) {
+              $hidden="hidden";
+              $box="";            
+            }
+        if ($status2 == 1) {
+              $hidden="";
+              $box="hidden";            
+            }
+      ?>      
+
+<div class="alert alert-warning alert-dismissible fade show" <?=$box;?> role="alert">
+        <strong>Mohon Untuk Mengupload Berkas Terlebih Dahulu</strong> Terima Kasih.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <a <?=$hidden?> href="#" class="btn rounded-pill text-left text-light" style="width:100%;background:#325288;"><b>FINALISASI PENDAFTARAN</b></a><br><br>      
 
       <form action="<?=base_url('user/updatefinalisasi')?>" method="post">
-      <div class="container">
+      <div <?=$hidden?> class="container">
             <div class="form-group">
             <div class="container shadow p-3 mb-3 bg-white rounded">
             <h5 class="text-uppercase"><b>Harap Membawa Berkas Ke Sekolah Tujuan : </b></h5>

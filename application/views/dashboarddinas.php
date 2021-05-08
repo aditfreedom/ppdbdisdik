@@ -105,6 +105,27 @@
             </div>
           </div>
 
+                       <!-- ./col -->
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php  
+              $data3=0;
+	             foreach ($umum as $data) : ?>
+               <?php $data2 = $data->sisa_umum;
+                      $data3+= $data2 ;
+               ?>
+               <?php endforeach ;?>
+                <h3><?=$data3;?></h3>
+                <p>Umum</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
           <div class="col-lg-3 col-3">
             <!-- small box -->
             <div class="small-box bg-info">

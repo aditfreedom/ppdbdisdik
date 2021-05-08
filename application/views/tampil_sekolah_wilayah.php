@@ -24,7 +24,7 @@
         <br>      
 
         <table class="table table-hover" id="example">
-          <thead class="text-center">
+          <thead class="text-left">
             <tr>
               <th scope="col" style="width:10%;">NO</th>
               <th scope="col">NAMA SEKOLAH</th>
@@ -43,7 +43,7 @@
           <?php $i = 1; 
           foreach ($tampil_sekolah_wilayah2 as $data) :
 	        ?>
-		      <tr class="nomor text-center">
+		      <tr class="nomor text-left">
             <td scope="row"><?php echo $i ;?></td>
             <td><?=$data->nama_sekolah;?></td>
             <td><?=$data->npsn;?></td>
