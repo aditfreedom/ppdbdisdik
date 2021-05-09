@@ -32,6 +32,7 @@
           <th scope="col">AFIRMASI</th>
           <th scope="col">PINDAHAN ORANG TUA</th>
           <th scope="col">PRESTASI</th>
+          <th scope="col">UMUM</th>
           <th scope="col">AKSI</th>
         </tr>
       </thead>
@@ -46,6 +47,7 @@
             <td><?php echo $data['sisa_afirmasi']; ?></td>
             <td><?php echo $data['sisa_pindahan']; ?></td>
             <td><?php echo $data['sisa_prestasi']; ?></td>
+            <td><?php echo $data['sisa_umum']; ?></td>
             <td>
               <button class="btn btn-sm btn-primary edit" data-id="<?= $data['id_kuota']; ?>">
                 <i class="fa fa-edit"></i>
@@ -78,7 +80,7 @@
             <label for="">Nama Sekolah</label>
             <select class="form-control selectpicker" data-size="3" name="id_sekolah" id="id_sekolah" data-style="btn-info" data-live-search="true">
               <?php foreach ($kuota2 as $data) : ?>
-                <option value="<?php echo $data->id_sekolah; ?>"><?php echo $data->nama_sekolah; ?></option>
+                <option value="<?php echo $data->id_sekolah; ?>" data-type="<?=$data->status_sekolah;?>"><?php echo $data->nama_sekolah; ?></option>
               <?php endforeach; ?>
             </select>
           </div>
@@ -88,19 +90,23 @@
           </div>
           <div class="form-group">
             <label for="">Kuota Zonasi</label>
-            <input type="text" name="zonasi" id="zonasi" class="form-control" required>
+            <input type="text" name="zonasi" id="zonasi" class="form-control negeri" required>
           </div>
           <div class="form-group">
             <label for="">Kuota Afirmasi</label>
-            <input type="text" name="afirmasi" id="afirmasi" class="form-control" required>
+            <input type="text" name="afirmasi" id="afirmasi" class="form-control negeri" required>
           </div>
           <div class="form-group">
             <label for="">Kuota Pindahan Orang tua</label>
-            <input type="text" name="pindahan" id="pindahan" class="form-control" required>
+            <input type="text" name="pindahan" id="pindahan" class="form-control negeri" required>
           </div>
           <div class="form-group">
             <label for="">Kuota Prestasi</label>
-            <input type="text" name="prestasi" id="prestasi" class="form-control" required>
+            <input type="text" name="prestasi" id="prestasi" class="form-control negeri" required>
+          </div>
+          <div class="form-group swasta" style="display: none;">
+            <label for="">Kuota Umum</label>
+            <input type="text" name="umum" id="umum" value="0" class="form-control" required>
           </div>
           <input type="hidden" name="kuota_in" id="kuota_in" value="0">
           <button type="button" class="btn btn-primary" id="simpan">Simpan</button>

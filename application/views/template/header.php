@@ -34,17 +34,6 @@
 
   
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-
-  <script type="text/javascript">
-$(document).ready( function () {
-    $('#example').DataTable();
-} );
-</script>
-
 </head>
 <body class="hold-transition sidebar-mini layout-fixed" >
 <div class="wrapper">

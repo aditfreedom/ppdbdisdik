@@ -257,6 +257,7 @@ class Home extends CI_Controller
 		$afirmasi    = $post['afirmasi'];
 		$pindahan    = $post['pindahan'];
 		$prestasi    = $post['prestasi'];
+		$umum    	 = $post['umum'];
 
 		$data = array(
 			'id_sekolah' => $id_sekolah,
@@ -265,6 +266,7 @@ class Home extends CI_Controller
 			'sisa_afirmasi' => $afirmasi,
 			'sisa_pindahan' => $pindahan,
 			'sisa_prestasi' => $prestasi,
+			'sisa_umum' => $umum,
 			'total_in' => 0,
 		);
 
@@ -346,6 +348,7 @@ class Home extends CI_Controller
 		$afirmasi    = $post['afirmasi'];
 		$pindahan    = $post['pindahan'];
 		$prestasi    = $post['prestasi'];
+		$umum		 = $post['umum'];
 
 		$data = array(
 			'id_sekolah' => $id_sekolah,
@@ -354,6 +357,7 @@ class Home extends CI_Controller
 			'sisa_afirmasi' => $afirmasi,
 			'sisa_pindahan' => $pindahan,
 			'sisa_prestasi' => $prestasi,
+			'sisa_umum' => $umum,
 		);
 		$where['id_kuota']	= $id;
 
