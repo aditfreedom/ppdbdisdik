@@ -115,6 +115,15 @@ class Admin extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+
+	public function preview($id){
+		header("Content-type: application/pdf");
+		readfile("asset/file");
+		// $data['file']=$id;
+		// $this->load->view('preview',$data);
+
+	}
+
 	public function updatekuota(){
 		$id       = $this->input->post('id');
 		$jenis       = $this->input->post('jenis');

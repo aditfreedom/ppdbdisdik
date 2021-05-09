@@ -35,9 +35,11 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  
 </head>
 
-<body >
+<body style="background-color:#f1f6fe;">
 
   <!-- ======= Top Bar ======= -->
   <!-- <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
@@ -65,7 +67,7 @@
           <li><a href="#about">Waktu Pendaftaran</a></li>
           <li><a href="#jalur">Jalur Penerimaan</a></li>
           <li><a href="#portfolio">Jadwal Seleksi</a></li>
-          <li><a href="#team">Kontak</a></li>
+          <li><a href="#team">Alur Pendaftaran</a></li>
           <li><a href="<?=base_url('dinas/login')?>">Login Admin</a></li>
 
         </ul>
@@ -79,8 +81,8 @@
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <img class="mx-auto d-block" src="assets/img/favicon.png" width="100px" style="margin-bottom:10px;">
       <h1 class="text-center">PENERIMAAN PESERTA DIDIK BARU <span>DARING</span>
-      <br>TINGKAT SD - SMP</h1>
-      <h2 class="text-center">KABUPATEN BIREUEN TA. 2021/2022</h2>
+      <br>TINGKAT <span>SMP</SPAN></h1>
+      <h2 class="text-center text-bold">KABUPATEN BIREUEN TP. 2021/2022</h2>
       <p align="center">
         <a href="<?=base_url()?>hal/registrasi" id="demo2" class="btn-get-started scrollto text-center">Daftar Akun Sekarang</a> 
         <a href="<?=base_url()?>hal/login" class="btn-get-started scrollto text-center">Login</a>        
@@ -96,18 +98,17 @@
     <section id="featured-services" class="featured-services">
 
      <!-- ======= About Section ======= -->
-     <section id="about" class="about section-bg">
+     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Pendaftaran</h2>
           <h3>Waktu <span>Pendaftaran</span></h3><br>
           <h1 style="margin-bottom:0px;">20 Mei - 03 Juli 2021</h1>
-          <h3 id="demo" class="text-danger" style="margin-top:0px;font-size:25px;"></h3>
+          <h3 id="demo" style="margin-top:0px;font-size:30px;color:#FF0064;"></h3>
         </div>
         </div>
     </section>
-
 
     <section id="jalur" class="about section-bg">
       <div class="section-title">
@@ -121,7 +122,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4 class="title"><a href="">Zonasi</a></h4>
-              <p class="description">Penerimaan peserta didik baru dengan pembagian berdasarkan alamat sesuai data kependudukan</p>
+              <p class="description text-justify">Penerimaan Peserta Didik Baru Berdasarkan Zonasi Yang Telah Ditetapkan oleh Disdikbud. Kab. Bireuen</p>
             </div>
           </div>
 
@@ -130,15 +131,15 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
               <div class="icon"><i class="bx bx-file"></i></div>
               <h4 class="title"><a href="">Afirmasi</a></h4>
-              <p class="description">Penerimaan peserta didik baru dengan melampirkan keterangan kurang mampu dengan sistem zonasi</p>
+              <p class="description text-justify  ">Penerimaan Peserta Didik Baru Berdasarkan Bantuan Pemerintah Pusat Berupa PKH atau PIP</p>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4 class="title"><a href="">Pindah Orang Tua</a></h4>
-              <p class="description">Penerimaan peserta didik baru dengan metode pindah tempat dinas orang tua</p>
+              <h4 class="title"><a href="">Pindah Orang Tua/Wali</a></h4>
+              <p class="description text-justify">Penerimaan Peserta Didik Baru Berdasarkan  Surat Mutasi Orang Tua/Wali Dari Instansi Terkait</p>
             </div>
           </div>
 
@@ -146,7 +147,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-world"></i></div>
               <h4 class="title"><a href="">Prestasi</a></h4>
-              <p class="description">Penerimaan peserta didik baru jalur prestasi</p>
+              <p class="description text-justify">Penerimaan Peserta Didik Baru Berdasarkan Prestasi Peserta Didik Bidang Akademik & Non Akademik</p>
             </div>
           </div>
 
@@ -176,26 +177,20 @@
             <tbody class="text-center">
               <td scope="row">1</td>
               <td>20 Mei - 03 Juli 2021</td>
-              <td>Pendaftaran dan Penerimaan PPDB Daring 2021/2022</td>
+              <td>Pendaftaran dan Penerimaan</td>
               <td>Daring Melalui Web</td>
               </tbody>
               <tbody class="text-center">
               <td scope="row">2</td>
-              <td>05 - 06 Juli 2021</td>
-              <td>Tes Calon Peserta Didik Baru</td>
-              <td>Sekolah Yang Telah Didaftarkan</td>  
-              </tbody>
-              <tbody class="text-center">
-              <td scope="row">3</td>
-              <td>08 Juli 2021</td>
+              <td>?</td>
               <td>Pengumuman</td>
-              <td>Website/Sekolah Masing-Masing Yang Telah Didaftarkan</td>
+              <td>Akung Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
               </tbody>
               <tbody class="text-center">
-                <td scope="row">4</td>
-                <td>09 Juli 2021</td>
+                <td scope="row">3</td>
+                <td>?</td>
                 <td>Pendaftaran Ulang</td>
-                <td>Website/Sekolah Masing-Masing Yang Telah Didaftarkan</td>
+                <td>Akun Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
                 </tbody>
               </tbody>
               </table>
@@ -209,65 +204,11 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Kontak</h2>
-          <h3>Kontak Helpdesk <span>Team</span></h3>
+          <h2>Alur</h2>
+          <h3>Alur <span>Pendaftaran</span></h3>
         </div>
+        <img src="<?=base_url('assets/img/hero1-bg.jpg')?>" width="1150px">
 
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="member-img">
-                <img src="<?=base_url()?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Admin 2</h4>
-                <span>HD Manager</span>
-                <span>085252505525</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="member-img">
-                <img src="<?=base_url()?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Admin 3</h4>
-                <span>HD Manager</span>
-                <span>085252505525</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="member-img">
-                <img src="<?=base_url()?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Admin 4</h4>
-                <span>HD Manager</span>
-                <span>085252505525</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <div class="member-img">
-                <img src="<?=base_url()?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Admin 1</h4>
-                <span>HD Manager</span>
-                <span>085252505525</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
 
       </div>
     </section><!-- End Team Section -->
@@ -311,6 +252,7 @@
   <script src="<?=base_url()?>assets/vendor/venobox/venobox.min.js"></script>
   <script src="<?=base_url()?>assets/vendor/aos/aos.js"></script>
 
+  
   <!-- Template Main JS File -->
   <script src="<?=base_url()?>assets/js/main.js"></script>
 </body>

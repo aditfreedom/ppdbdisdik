@@ -63,6 +63,15 @@
           </li>
 
           <li class="nav-item ">
+            <a href="<?=base_url('home/data_balikan');?>" class="nav-link">
+              <i class="nav-icon fa fa-exchange-alt"></i>
+              <p>
+                Data Balikan
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
             <a href="<?=base_url('home/data_sekolah');?>" class="nav-link">
               <i class="nav-icon fa fa-building"></i>
               <p>

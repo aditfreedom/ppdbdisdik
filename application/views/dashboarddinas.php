@@ -32,7 +32,7 @@
                       $data3+= $data2 ;
                ?>
                <?php endforeach ;?>
-                <h3><?php echo $data3;?></h3>
+                <h3>3099</h3>
                 <p>Zonasi</p>
               </div>
               <div class="icon">
@@ -53,7 +53,7 @@
                       $data3+= $data2 ;
                ?>
                <?php endforeach ;?>
-                <h3><?php echo $data3;?></h3>
+                <h3>929</h3>
                 <p>Afirmasi</p>
               </div>
               <div class="icon">
@@ -73,7 +73,7 @@
                       $data3+= $data2 ;
                ?>
                <?php endforeach ;?>
-                <h3><?php echo $data3;?></h3>
+                <h3>317</h3>
 
 
                 <p>Pindahan Orang Tua</p>
@@ -96,8 +96,29 @@
                       $data3+= $data2 ;
                ?>
                <?php endforeach ;?>
-                <h3><?php echo $data3;?></h3>
+                <h3>1863</h3>
                 <p>Prestasi</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-user-graduate"></i>
+              </div>
+            </div>
+          </div>
+
+                       <!-- ./col -->
+        <div class="col-lg-3 col-3">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+              <?php  
+              $data3=0;
+	             foreach ($umum as $data) : ?>
+               <?php $data2 = $data->sisa_umum;
+                      $data3+= $data2 ;
+               ?>
+               <?php endforeach ;?>
+                <h3><?=$data3;?></h3>
+                <p>Umum</p>
               </div>
               <div class="icon">
                 <i class="fa fa-user-graduate"></i>

@@ -22,7 +22,7 @@
     <i class="fa fa-plus"></i> Tambah Data</button><br><br></p> -->
 
     <table class="table table-hover" id="example">
-          <thead class="text-center">
+          <thead class="text-left">
             <tr>
               <th scope="col">NO</th>
               <th scope="col">NISN</th>
@@ -34,7 +34,7 @@
           <tbody>
           <?php $i = 1; 
 	        foreach ($pengguna as $data) : ?>
-		<tr class="nomor text-center">
+		<tr class="nomor text-left">
             <th scope="row"><?php echo $i ;?></th>
             <td><?php echo $data->nisn;?></td>
             <td><?php echo $data->nama_siswa;?></td>

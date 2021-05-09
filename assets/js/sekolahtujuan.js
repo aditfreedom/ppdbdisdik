@@ -67,6 +67,9 @@ $(document).ready(() => {
 				case "4":
 					kuota = data[0].sisa_prestasi;
 					break;
+				case "5":
+					kuota = data[0].sisa_umum;
+					break;
 				default:
 					break;
 			}
@@ -107,6 +110,9 @@ $(document).ready(() => {
 						break;
 					case "4":
 						kuota = data[0].sisa_prestasi;
+						break;
+					case "5":
+						kuota = data[0].sisa_umum;
 						break;
 					default:
 						break;

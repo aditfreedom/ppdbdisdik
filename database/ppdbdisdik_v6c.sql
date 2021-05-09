@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2021 at 10:26 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.6
+-- Waktu pembuatan: 08 Bulan Mei 2021 pada 10.06
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bentuk_pendidikan`
+-- Struktur dari tabel `bentuk_pendidikan`
 --
 
 CREATE TABLE `bentuk_pendidikan` (
@@ -34,7 +33,7 @@ CREATE TABLE `bentuk_pendidikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `bentuk_pendidikan`
+-- Dumping data untuk tabel `bentuk_pendidikan`
 --
 
 INSERT INTO `bentuk_pendidikan` (`id_bentuk_pendidikan`, `nama_bentuk`) VALUES
@@ -96,7 +95,7 @@ INSERT INTO `bentuk_pendidikan` (`id_bentuk_pendidikan`, `nama_bentuk`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `daftarulang`
+-- Struktur dari tabel `daftarulang`
 --
 
 CREATE TABLE `daftarulang` (
@@ -163,7 +162,7 @@ CREATE TABLE `daftarulang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `daftarulang`
+-- Dumping data untuk tabel `daftarulang`
 --
 
 INSERT INTO `daftarulang` (`id_daftarulang`, `id`, `tingkat`, `nama_lengkap`, `nama_panggilan`, `nisn`, `tpt_lahir`, `tgl_lahir`, `agama`, `suku`, `jk`, `goldar`, `anak_ke`, `dari_saudara`, `alamat`, `jarak`, `desa`, `kecamatan`, `kabupaten`, `provinsi`, `nama_ayah`, `tptlahir_ayah`, `tgllahir_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `alamat_ayah`, `desa_ayah`, `kecamatan_ayah`, `kabupaten_ayah`, `provinsi_ayah`, `hp_ayah`, `nama_ibu`, `tptlahir_ibu`, `tgllahir_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `alamat_ibu`, `desa_ibu`, `kecamatan_ibu`, `kabupaten_ibu`, `provinsi_ibu`, `hp_ibu`, `sekolah_asal`, `npsn`, `alamat_sekolah`, `kabupaten_sekolah`, `provinsi_sekolah`, `penyakit`, `olah_raga`, `seni`, `tari`, `lukis`, `drama`, `sastra`, `organisasi`, `prestasi`, `alasan`, `tentang_sekolah`) VALUES
@@ -172,7 +171,7 @@ INSERT INTO `daftarulang` (`id_daftarulang`, `id`, `tingkat`, `nama_lengkap`, `n
 -- --------------------------------------------------------
 
 --
--- Table structure for table `datasiswa`
+-- Struktur dari tabel `datasiswa`
 --
 
 CREATE TABLE `datasiswa` (
@@ -207,7 +206,7 @@ CREATE TABLE `datasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `datasiswa`
+-- Dumping data untuk tabel `datasiswa`
 --
 
 INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_siswa`, `tempat_lahir`, `tanggal_lahir`, `jk`, `nik`, `nisn`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `nama_dusun`, `nama_ibu_kandung`, `pekerjaan_ibu_kandung`, `penghasilan_ibu_kandung`, `nama_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nama_wali`, `pekerjaan_wali`, `penghasilan_wali`, `kebutuhan_khusus`, `no_kip`, `no_pkh`, `lintang`, `bujur`) VALUES
@@ -8668,7 +8667,37 @@ INSERT INTO `datasiswa` (`id_pesertadidik`, `id_sekolah`, `kode_wilayah`, `nama_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_desa`
+-- Struktur dari tabel `data_balikan`
+--
+
+CREATE TABLE `data_balikan` (
+  `id_pd` varchar(255) NOT NULL,
+  `npsn_sd` varchar(15) NOT NULL,
+  `nama_sd` varchar(255) NOT NULL,
+  `nik` varchar(16) NOT NULL,
+  `nisn` varchar(12) NOT NULL,
+  `nama_siswa` varchar(255) NOT NULL,
+  `tpt_lahir` varchar(255) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `jk` varchar(5) NOT NULL,
+  `ibu_kandung` varchar(255) NOT NULL,
+  `smp_id` varchar(255) NOT NULL,
+  `npsn_smp` varchar(12) NOT NULL,
+  `nama_smp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `data_balikan`
+--
+
+INSERT INTO `data_balikan` (`id_pd`, `npsn_sd`, `nama_sd`, `nik`, `nisn`, `nama_siswa`, `tpt_lahir`, `tgl_lahir`, `jk`, `ibu_kandung`, `smp_id`, `npsn_smp`, `nama_smp`) VALUES
+('001409E6-483B-11E5-86EB-57DE874865AC', '10106891', 'SD NEGERI 3 GANDAPURA', '1.11108E+15', '96000836', 'Tri Mulia', 'Bireuen', '2009-09-10', 'P', 'Maryani', 'C0782C91-2EF5-E011-9655-A5E59AD8C88A', '10107026', 'SMP NEGERI 1 BIREUEN'),
+('0020C8B4-5B4D-11E5-8450-6B80ED4B76BC', '10106853', 'SD NEGERI 18 JULI', '1.10315E+15', '94409976', 'RAHMAH', 'SEUNEUBOK BENTENG', '2009-02-08', 'P', 'JUWARIAH', 'A7B0BF48-646C-4AE4-BFD6-1616A2CC9935', '69991916', 'SMP IT MUHAMMADIYAH');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_desa`
 --
 
 CREATE TABLE `data_desa` (
@@ -8678,7 +8707,7 @@ CREATE TABLE `data_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_desa`
+-- Dumping data untuk tabel `data_desa`
 --
 
 INSERT INTO `data_desa` (`id_desa`, `kode_wilayah`, `nama_desa`) VALUES
@@ -9327,7 +9356,7 @@ INSERT INTO `data_desa` (`id_desa`, `kode_wilayah`, `nama_desa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_sd`
+-- Struktur dari tabel `data_sd`
 --
 
 CREATE TABLE `data_sd` (
@@ -9346,7 +9375,7 @@ CREATE TABLE `data_sd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_sd`
+-- Dumping data untuk tabel `data_sd`
 --
 
 INSERT INTO `data_sd` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `bentuk_pendidikan`, `status_sekolah`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `lintang`, `bujur`) VALUES
@@ -9643,7 +9672,7 @@ INSERT INTO `data_sd` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `be
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_smp`
+-- Struktur dari tabel `data_smp`
 --
 
 CREATE TABLE `data_smp` (
@@ -9662,7 +9691,7 @@ CREATE TABLE `data_smp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_smp`
+-- Dumping data untuk tabel `data_smp`
 --
 
 INSERT INTO `data_smp` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `bentuk_pendidikan`, `status_sekolah`, `alamat_jalan`, `desa_kelurahan`, `rt`, `rw`, `lintang`, `bujur`) VALUES
@@ -9763,7 +9792,7 @@ INSERT INTO `data_smp` (`id_sekolah`, `npsn`, `nama_sekolah`, `kode_wilayah`, `b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_wilayah`
+-- Struktur dari tabel `data_wilayah`
 --
 
 CREATE TABLE `data_wilayah` (
@@ -9773,7 +9802,7 @@ CREATE TABLE `data_wilayah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_wilayah`
+-- Dumping data untuk tabel `data_wilayah`
 --
 
 INSERT INTO `data_wilayah` (`kode_wilayah`, `nama_wilayah`, `id_level`) VALUES
@@ -9799,7 +9828,7 @@ INSERT INTO `data_wilayah` (`kode_wilayah`, `nama_wilayah`, `id_level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_pendaftaran`
+-- Struktur dari tabel `jenis_pendaftaran`
 --
 
 CREATE TABLE `jenis_pendaftaran` (
@@ -9810,7 +9839,7 @@ CREATE TABLE `jenis_pendaftaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jenis_pendaftaran`
+-- Dumping data untuk tabel `jenis_pendaftaran`
 --
 
 INSERT INTO `jenis_pendaftaran` (`id_jenis`, `nama`, `pembagian_kuota`, `keterangan`) VALUES
@@ -9823,7 +9852,7 @@ INSERT INTO `jenis_pendaftaran` (`id_jenis`, `nama`, `pembagian_kuota`, `keteran
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kuota_siswa`
+-- Struktur dari tabel `kuota_siswa`
 --
 
 CREATE TABLE `kuota_siswa` (
@@ -9839,11 +9868,11 @@ CREATE TABLE `kuota_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kuota_siswa`
+-- Dumping data untuk tabel `kuota_siswa`
 --
 
 INSERT INTO `kuota_siswa` (`id_kuota`, `id_sekolah`, `total`, `sisa_zonasi`, `sisa_afirmasi`, `sisa_pindahan`, `sisa_prestasi`, `sisa_umum`, `total_in`) VALUES
-(5, 'C0782C91-2EF5-E011-9655-A5E59AD8C88A', 256, 127, 38, 13, 77, 0, 1),
+(5, 'C0782C91-2EF5-E011-9655-A5E59AD8C88A', 256, 126, 38, 13, 77, 0, 2),
 (6, 'A0802B91-2EF5-E011-B3C3-67DE99D82294', 128, 64, 19, 7, 38, 0, 0),
 (7, '20FD2B91-2EF5-E011-BCEF-151B25AA1B6F', 128, 64, 19, 7, 38, 0, 0),
 (8, 'B0FB2A91-2EF5-E011-BAED-4F2071F65C70', 128, 64, 19, 7, 38, 0, 0),
@@ -9902,12 +9931,44 @@ INSERT INTO `kuota_siswa` (`id_kuota`, `id_sekolah`, `total`, `sisa_zonasi`, `si
 (61, 'E0C362C8-9CFA-E111-B300-912D287FB433', 32, 15, 5, 2, 10, 0, 0),
 (62, '40B55501-9DFA-E111-8B59-B56145FA2B11', 128, 64, 19, 7, 38, 0, 0),
 (63, '407F2A91-2EF5-E011-83E6-B5B5D66C8C12', 96, 48, 14, 5, 29, 0, 0),
-(64, '9090BB29-9DFA-E111-81AA-7FCE23CBBD86', 64, 32, 10, 3, 19, 0, 0);
+(64, '9090BB29-9DFA-E111-81AA-7FCE23CBBD86', 64, 32, 10, 3, 19, 0, 0),
+(65, '20773D91-2EF5-E011-AC7E-816F697D88B7', 56, 0, 0, 0, 0, 56, 0),
+(66, '2CE5BD62-66DA-4656-BE43-8B0E4DB30A7F', 56, 0, 0, 0, 0, 56, 0),
+(67, '353E500C-0003-4ED8-A7D0-0EED3C8B6C1F', 56, 0, 0, 0, 0, 56, 0),
+(68, '40683D91-2EF5-E011-A28A-37DBF38DD06A', 56, 0, 0, 0, 0, 56, 0),
+(69, '4381D7C4-C4F2-44C4-9CFF-C1E509519F15', 56, 0, 0, 0, 0, 56, 0),
+(70, '450BD4D8-C0B8-48D4-BEA8-1E8E8CF4C7D4', 56, 0, 0, 0, 0, 56, 0),
+(71, '4DD9579B-48CE-4DE1-886E-FE97B403CE87', 56, 0, 0, 0, 0, 56, 0),
+(72, '53EAB475-B74E-4539-BC7A-8B2A05B61713', 56, 0, 0, 0, 0, 56, 0),
+(73, '5A568DBC-57EF-4061-9262-422CFC0FADB0', 56, 0, 0, 0, 0, 56, 0),
+(74, '77A63C1E-1493-4041-9A6F-BF2BDE569CA5', 56, 0, 0, 0, 0, 56, 0),
+(75, '7C517D9E-09E7-4983-97C2-65A0F6AA4B7A', 56, 0, 0, 0, 0, 56, 0),
+(76, '8DCD7518-94B5-40A8-819C-10705F3D1CCD', 56, 0, 0, 0, 0, 56, 0),
+(77, '90C69512-9EFA-E111-A685-1386D79225C2', 56, 0, 0, 0, 0, 56, 0),
+(78, '92417B6F-3BB1-424D-A071-A2FBF7423524', 56, 0, 0, 0, 0, 56, 0),
+(79, '98520DD0-3810-4635-A4AE-8F4067961682', 56, 0, 0, 0, 0, 56, 0),
+(80, 'A0498A66-9EFA-E111-80C3-434F12966C1E', 56, 0, 0, 0, 0, 56, 0),
+(81, 'A7B0BF48-646C-4AE4-BFD6-1616A2CC9935', 56, 0, 0, 0, 0, 56, 0),
+(82, 'B04BAEFA-9DFA-E111-B1C3-3D5BD481EE46', 56, 0, 0, 0, 0, 56, 0),
+(83, 'B0588E9E-9DFA-E111-9F55-A5D4D7C1490C', 56, 0, 0, 0, 0, 56, 0),
+(84, 'B45D3849-3C36-455A-9F43-B661A55C7D05', 56, 0, 0, 0, 0, 56, 0),
+(85, 'C0696BC2-9DFA-E111-AA59-67A01CF535D8', 56, 0, 0, 0, 0, 56, 0),
+(86, 'C409D350-0F26-4E4E-946C-5BDAA1D11298', 56, 0, 0, 0, 0, 56, 0),
+(87, 'D90C347C-D6F2-40C5-A5D8-5317784BA067', 56, 0, 0, 0, 0, 56, 0),
+(88, 'D9917090-7256-4994-B2B8-5C8F9FE035E1', 56, 0, 0, 0, 0, 56, 0),
+(89, 'DF571A20-FAE8-48C6-A232-D817D5C8BB5C', 56, 0, 0, 0, 0, 56, 0),
+(90, 'E047692C-7213-E211-90F2-6D6880BF1A6E', 56, 0, 0, 0, 0, 56, 0),
+(91, 'E04C3D91-2EF5-E011-8A15-DFBE7F61CE20', 56, 0, 0, 0, 0, 56, 0),
+(92, 'E0BEC433-1C04-43BD-A002-4A7958B14120', 56, 0, 0, 0, 0, 56, 0),
+(93, 'F02916E0-9DFA-E111-B886-ABCB3A08C99A', 56, 0, 0, 0, 0, 56, 0),
+(94, 'F3F27D28-796F-4842-A06F-AB6E38A2BF02', 56, 0, 0, 0, 0, 56, 0),
+(95, 'FB3480AE-395B-4488-8620-B4F54E3B5313', 56, 0, 0, 0, 0, 56, 0),
+(96, 'FDB748A2-F986-418D-BD10-59979E5D8A2F', 56, 0, 0, 0, 0, 56, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -9923,7 +9984,7 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data untuk tabel `pengguna`
 --
 
 INSERT INTO `pengguna` (`id`, `id_pesertadidik`, `username`, `password`, `role`, `approve_formulir`, `approve_lulus`, `approve_daftarulang`, `status`) VALUES
@@ -10021,12 +10082,13 @@ INSERT INTO `pengguna` (`id`, `id_pesertadidik`, `username`, `password`, `role`,
 (150, 'F3F27D28-796F-4842-A06F-AB6E38A2BF02', '69990846', '69990846', '1', 'SMPS NASYRUL ULUM AL-AZIZIYAH', 'SMPS NASYRUL ULUM AL-AZIZIYAH', 'SMPS NASYRUL ULUM AL-AZIZIYAH', '0'),
 (151, 'FB3480AE-395B-4488-8620-B4F54E3B5313', '69943624', '69943624', '1', 'SMP ISLAM SWASTA IHDAL ULUM AL', 'SMP ISLAM SWASTA IHDAL ULUM AL', 'SMP ISLAM SWASTA IHDAL ULUM AL', '0'),
 (152, 'FDB748A2-F986-418D-BD10-59979E5D8A2F', '69932141', '69932141', '1', 'SMP SWASTA AL-HIDAYAH', 'SMP SWASTA AL-HIDAYAH', 'SMP SWASTA AL-HIDAYAH', '0'),
-(187, '001409E6-483B-11E5-86EB-57DE874865AC', '1111075009090001', '0096000836', '2', 'Diterima', 'Antrian', 'Antrian', '1');
+(187, '001409E6-483B-11E5-86EB-57DE874865AC', '1111075009090001', '0096000836', '2', 'Diterima', 'Antrian', 'Antrian', '1'),
+(189, '0020C8B4-5B4D-11E5-8450-6B80ED4B76BC', '1103154802090001', '0094409976', '2', 'Diterima', 'Antrian', 'Antrian', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sekolah_tujuan`
+-- Struktur dari tabel `sekolah_tujuan`
 --
 
 CREATE TABLE `sekolah_tujuan` (
@@ -10039,16 +10101,17 @@ CREATE TABLE `sekolah_tujuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sekolah_tujuan`
+-- Dumping data untuk tabel `sekolah_tujuan`
 --
 
 INSERT INTO `sekolah_tujuan` (`id_zonasi`, `id_pesertadidik`, `jenis_pendaftaran`, `kode_wilayah`, `id_desa`, `id_sekolah`) VALUES
-(10, '001409E6-483B-11E5-86EB-57DE874865AC', 1, '061213', '255', 'C0782C91-2EF5-E011-9655-A5E59AD8C88A');
+(10, '001409E6-483B-11E5-86EB-57DE874865AC', 1, '061213', '255', 'C0782C91-2EF5-E011-9655-A5E59AD8C88A'),
+(13, '0020C8B4-5B4D-11E5-8450-6B80ED4B76BC', 1, '061213', '255', 'C0782C91-2EF5-E011-9655-A5E59AD8C88A');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_sekolah`
+-- Struktur dari tabel `status_sekolah`
 --
 
 CREATE TABLE `status_sekolah` (
@@ -10057,7 +10120,7 @@ CREATE TABLE `status_sekolah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `status_sekolah`
+-- Dumping data untuk tabel `status_sekolah`
 --
 
 INSERT INTO `status_sekolah` (`id_status`, `nama_status`) VALUES
@@ -10067,7 +10130,7 @@ INSERT INTO `status_sekolah` (`id_status`, `nama_status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `upload_berkas`
+-- Struktur dari tabel `upload_berkas`
 --
 
 CREATE TABLE `upload_berkas` (
@@ -10084,17 +10147,17 @@ CREATE TABLE `upload_berkas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `upload_berkas`
+-- Dumping data untuk tabel `upload_berkas`
 --
 
 INSERT INTO `upload_berkas` (`id_upload`, `id_pesertadidik`, `up_zonasi1`, `up_zonasi2`, `up_afirmasi1`, `up_afirmasi2`, `up_pindahan1`, `up_pindahan2`, `up_prestasi1`, `up_prestasi2`) VALUES
-(1, '001409E6-483B-11E5-86EB-57DE874865AC', '222.PDF', '123.PDF', '', '', '', '', '', ''),
-(3, '081362059403', 'zonasi1.pdf', 'zonasi2.pdf', 'afirmasi1.pdf', 'afirmasi2.pdf', 'pindahan1.pdf', 'pindahan2.pdf', 'prestasi1.pdf', 'prestasi2.pdf');
+(3, '001409E6-483B-11E5-86EB-57DE874865AC', 'zonasi1.pdf', 'zonasi2.pdf', 'afirmasi1.pdf', 'afirmasi2.pdf', 'pindahan1.pdf', 'pindahan2.pdf', 'prestasi1.pdf', 'prestasi2.pdf'),
+(4, '0020C8B4-5B4D-11E5-8450-6B80ED4B76BC', 'trick-import-member-pada-slims-7-cendana.pdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `zonasi`
+-- Struktur dari tabel `zonasi`
 --
 
 CREATE TABLE `zonasi` (
@@ -10104,7 +10167,7 @@ CREATE TABLE `zonasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `zonasi`
+-- Dumping data untuk tabel `zonasi`
 --
 
 INSERT INTO `zonasi` (`id_zonasi`, `id_desa`, `id_sekolah`) VALUES
@@ -10998,137 +11061,143 @@ INSERT INTO `zonasi` (`id_zonasi`, `id_desa`, `id_sekolah`) VALUES
 --
 
 --
--- Indexes for table `bentuk_pendidikan`
+-- Indeks untuk tabel `bentuk_pendidikan`
 --
 ALTER TABLE `bentuk_pendidikan`
   ADD PRIMARY KEY (`id_bentuk_pendidikan`);
 
 --
--- Indexes for table `daftarulang`
+-- Indeks untuk tabel `daftarulang`
 --
 ALTER TABLE `daftarulang`
   ADD PRIMARY KEY (`id_daftarulang`);
 
 --
--- Indexes for table `datasiswa`
+-- Indeks untuk tabel `datasiswa`
 --
 ALTER TABLE `datasiswa`
   ADD PRIMARY KEY (`id_pesertadidik`);
 
 --
--- Indexes for table `data_desa`
+-- Indeks untuk tabel `data_balikan`
+--
+ALTER TABLE `data_balikan`
+  ADD PRIMARY KEY (`id_pd`);
+
+--
+-- Indeks untuk tabel `data_desa`
 --
 ALTER TABLE `data_desa`
   ADD PRIMARY KEY (`id_desa`);
 
 --
--- Indexes for table `data_sd`
+-- Indeks untuk tabel `data_sd`
 --
 ALTER TABLE `data_sd`
   ADD PRIMARY KEY (`id_sekolah`);
 
 --
--- Indexes for table `data_smp`
+-- Indeks untuk tabel `data_smp`
 --
 ALTER TABLE `data_smp`
   ADD PRIMARY KEY (`id_sekolah`);
 
 --
--- Indexes for table `data_wilayah`
+-- Indeks untuk tabel `data_wilayah`
 --
 ALTER TABLE `data_wilayah`
   ADD PRIMARY KEY (`kode_wilayah`);
 
 --
--- Indexes for table `jenis_pendaftaran`
+-- Indeks untuk tabel `jenis_pendaftaran`
 --
 ALTER TABLE `jenis_pendaftaran`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indexes for table `kuota_siswa`
+-- Indeks untuk tabel `kuota_siswa`
 --
 ALTER TABLE `kuota_siswa`
   ADD PRIMARY KEY (`id_kuota`);
 
 --
--- Indexes for table `pengguna`
+-- Indeks untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sekolah_tujuan`
+-- Indeks untuk tabel `sekolah_tujuan`
 --
 ALTER TABLE `sekolah_tujuan`
   ADD PRIMARY KEY (`id_zonasi`);
 
 --
--- Indexes for table `status_sekolah`
+-- Indeks untuk tabel `status_sekolah`
 --
 ALTER TABLE `status_sekolah`
   ADD PRIMARY KEY (`id_status`);
 
 --
--- Indexes for table `upload_berkas`
+-- Indeks untuk tabel `upload_berkas`
 --
 ALTER TABLE `upload_berkas`
   ADD PRIMARY KEY (`id_upload`);
 
 --
--- Indexes for table `zonasi`
+-- Indeks untuk tabel `zonasi`
 --
 ALTER TABLE `zonasi`
   ADD PRIMARY KEY (`id_zonasi`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `daftarulang`
+-- AUTO_INCREMENT untuk tabel `daftarulang`
 --
 ALTER TABLE `daftarulang`
   MODIFY `id_daftarulang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `data_desa`
+-- AUTO_INCREMENT untuk tabel `data_desa`
 --
 ALTER TABLE `data_desa`
   MODIFY `id_desa` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=758;
 
 --
--- AUTO_INCREMENT for table `jenis_pendaftaran`
+-- AUTO_INCREMENT untuk tabel `jenis_pendaftaran`
 --
 ALTER TABLE `jenis_pendaftaran`
   MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `kuota_siswa`
+-- AUTO_INCREMENT untuk tabel `kuota_siswa`
 --
 ALTER TABLE `kuota_siswa`
-  MODIFY `id_kuota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_kuota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
--- AUTO_INCREMENT for table `pengguna`
+-- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
--- AUTO_INCREMENT for table `sekolah_tujuan`
+-- AUTO_INCREMENT untuk tabel `sekolah_tujuan`
 --
 ALTER TABLE `sekolah_tujuan`
-  MODIFY `id_zonasi` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_zonasi` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `upload_berkas`
+-- AUTO_INCREMENT untuk tabel `upload_berkas`
 --
 ALTER TABLE `upload_berkas`
-  MODIFY `id_upload` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_upload` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `zonasi`
+-- AUTO_INCREMENT untuk tabel `zonasi`
 --
 ALTER TABLE `zonasi`
   MODIFY `id_zonasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=958;

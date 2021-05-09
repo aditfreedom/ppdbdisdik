@@ -15,6 +15,9 @@ $(document).ready(()=> {
             $('#afirmasi').val(data[0].sisa_afirmasi);
             $('#pindahan').val(data[0].sisa_pindahan);
             $('#prestasi').val(data[0].sisa_prestasi);
+            $('#umum').val(data[0].sisa_umum);
+
+
             
             $('#id_sekolah').val(data[0].id_sekolah);
             $('#id_sekolah').selectpicker('refresh');

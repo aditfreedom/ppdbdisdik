@@ -1,26 +1,28 @@
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>PROGRESS DATA</h1>
-        </div><!-- /.col -->
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-          </ol>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </div>
-  <!-- /.content-header -->
-  <div class="container">
+
+  <div class="content-wrapper">
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+ <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          <h1 class="text-bold">PROGRESS DATA</h1>
+          <h4>Rekap Menu Per kecamatan Yang Ada Di Dalam Kecamatan Masing-Masing</h4>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="container">
     <section class="content">
       <div class="container-fluid">
         <br>
 
         <table class="table table-hover" id="example">
-          <thead class="text-center">
+          <thead class="text-left">
             <tr>
               <th scope="col" style="width:10%;">NO</th>
               <th scope="col">KECAMATAN</th>

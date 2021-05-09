@@ -62,7 +62,7 @@ $(document).ready( function () {
    
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-    <p class="text-sm font-weight-bold font-italic">Sesuai dengan Permendikbud RI No. 1 tahun 2021 Tentang Penerimaan Peserta Didik Baru</p>
+    <p class="text-sm font-weight-bold font-italic">Permendikbud RI No. 1 Tahun 2021 Tentang Penerimaan Peserta Didik Baru</p>
       </li>
     </ul>
   </nav>

@@ -89,14 +89,21 @@
 <body onafterprint="goBack()">
     <div class="kop">
         <img src="<?=base_url();?>assets/img/favicon.png" alt="" srcset="" class="kop-logo">
-        <h3>PENDAFTARAN PESERTA DIDIK BARU</h3>
-        <h2>DINAS PENDIDIKAN DAN KEBUDAYAAN</h2>
+        <h2>PENERIMAAN PESERTA DIDIK BARU</h2>
+        <h1>DINAS PENDIDIKAN DAN KEBUDAYAAN</h1>
         <?php foreach ($siswa2 as $data) : ?>
-        <h1 class="uppercase"><?=$data->nama_sekolah;?></h1>
+        <p>Jl. Banta Ahmad Komplek SKB -SPNF Telp (0644) 21229 fax. (0644) 324210<br>Email:disdik_bireuen@gmail.com Kode Pos 24211</p>
         <?php endforeach; ?>
         <!-- <small>Jalan Banta Ahmad Komplek SKB - SPNF Telp. (0644) 21229 Fax (0644) 34210 Email: <a>disdik.bireuen@gmail.com</a> Kode Pos 24211</small> -->
-        <h3>KABUPATEN BIREUEN</h3>
+        <h3>B I R E U E N</h3>
     </div>
+
+    <!-- validasi nomor pendaftaran -->
+    <?php
+    $nomor = $siswa3 + 1;
+    ?>
+
+    <?php date_default_timezone_set("Asia/Bangkok");?>
     <h3 class="text-center">FORMULIR PENDAFTARAN PESERTA DIDIK BARU</h3>
     <h3 class="text-center">TAHUN PELAJARAN 2021/2022</h3>
     <table style="width: 100%; margin-bottom: 10px" class="table-data">
@@ -107,14 +114,14 @@
         </thead>
         <tbody>
             <tr>
-                <td style="width: 48%;">No. Pendaftaran (Diisi Oleh Petugas Sekolah)</td>
+                <td style="width: 48%;">No. Pendaftaran</td>
                 <td style="width: 10px;">:</td>
-                <td style="width: 50%;"></td>
+                <td style="width: 50%;"><?=$nomor?>/PPDB/2021</td>
             </tr>
             <tr>
-                <td style="padding-bottom: 10px;">Tgl. Pendaftaran (Diisi Oleh Petugas Sekolah)</td>
+                <td style="padding-bottom: 10px;">Tgl. Pendaftaran</td>
                 <td>:</td>
-                <td></td>
+                <td><?=date("d-m-Y")?></td>
             </tr>
             <tr>
                 <td>Asal Sekolah (SD)</td>

@@ -89,6 +89,7 @@ class User extends CI_Controller
         $sess_data = $this->session->userdata();
         $id_pesertadidik = $this->session->userdata('id_pesertadidik');
         $data['finalisasi'] = $this->M_ppdb->tampil_data_finalisasi($id_pesertadidik)->result();
+        $data['status2'] = $this->M_ppdb->tampil_data_uploadberkas_admin($id_pesertadidik)->num_rows();
         $this->load->view('template/header');
         $this->load->view('template/sidebaruser', $sess_data);
         $this->load->view('finalisasi',$data);
@@ -467,8 +468,8 @@ class User extends CI_Controller
             case '4':
                 $data = "sisa_prestasi=sisa_prestasi-1, total_in=total_in+1";
                 break;
-            case '4':
-                $data = "sisa_prestasi=sisa_umum-1, total_in=total_in+1";
+            case '5':
+                $data = "sisa_umum=sisa_umum-1, total_in=total_in+1";
                 break;
             default:
                 break;
@@ -1014,7 +1015,12 @@ class User extends CI_Controller
         $data['siswa2'] = $this->M_ppdb->getDataSiswa2($where2)->result();
 
 
+        foreach ($data['siswa2'] as $data1){
+            $data6=$data1->id_sekolah;
+        }
 
+
+        $data['siswa3'] = $this->M_ppdb->nomor_formulir($data6,$where2)->num_rows();
         $this->load->view('cetak_formulir', $data);
 
     }
