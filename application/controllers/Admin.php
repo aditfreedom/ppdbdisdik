@@ -124,6 +124,17 @@ class Admin extends CI_Controller {
 
 	}
 
+	public function zonasi($id)
+	{
+		$sess_data = $this->session->userdata();
+		$id_pesertadidik = $this->session->userdata('id_pesertadidik');
+		$data['zonasi'] = $this->M_ppdb->zonasiadmin($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar_admin_sekolah', $sess_data);
+		$this->load->view('zonasiadmin', $data);
+		$this->load->view('template/footer');
+	}
+
 	public function updatekuota(){
 		$id       = $this->input->post('id');
 		$jenis       = $this->input->post('jenis');

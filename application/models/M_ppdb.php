@@ -792,6 +792,16 @@ class M_ppdb extends CI_Model
         return $query->result_array();
     }
 
+
+    function zonasiadmin($id)
+    {
+       return $this->db->query("SELECT * FROM zonasi 
+                                LEFT JOIN data_desa ON zonasi.id_desa = data_desa.id_desa
+                                LEFT JOIN data_wilayah ON data_desa.kode_wilayah = data_wilayah.kode_wilayah
+                                LEFT JOIN data_smp ON zonasi.id_sekolah = data_smp.id_sekolah
+                                WHERE zonasi.id_sekolah='$id'");
+    }
+
     function getDataSiswa($where = NULL)
     {
         if ($where !== NULL) {

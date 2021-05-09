@@ -26,7 +26,6 @@
             <tr>
               <th scope="col" style="width:10%;">NO</th>
               <th scope="col">KECAMATAN</th>
-              <th scope="col">TOTAL  PENERIMAAN</th>
               <th scope="col">ZONASI</th>
               <th scope="col">AFIRMASI</th>
               <th scope="col">PINDAHAN ORANG TUA</th>
@@ -43,7 +42,6 @@
               <tr class="nomor text-center">
                 <td scope="row"><?php echo $i; ?></td>
                 <td><a href="<?php echo base_url('home/tampil_sekolah_wilayah/') . $data['kode_wilayah']; ?>"><?= $data['nama_wilayah']; ?></a></td>
-                <td><?=$data['total_penerimaan'];?></td>
                 <td><?=$data['zonasi'];?></td>
                 <td><?=$data['afirmasi'];?></td>
                 <td><?=$data['pindahan'];?></td>

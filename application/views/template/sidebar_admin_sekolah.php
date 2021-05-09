@@ -33,6 +33,15 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a href="<?=base_url('admin/zonasi/'.$id_pesertadidik);?>" class="nav-link">
+              <i class="nav-icon fa fa-map-marked-alt"></i>
+              <p>
+                Zonasi
+              </p>
+            </a>
+          </li>
+
 
           <!-- <li class="nav-item ">
             <a href="<?=base_url('admin/kuota');?>" class="nav-link">

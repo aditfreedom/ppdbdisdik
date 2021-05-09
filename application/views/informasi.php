@@ -64,10 +64,11 @@
       <nav class="nav-menu d-none d-lg-block mb-0">
         <ul>
           <li class="active"><a href="#" >Beranda</a></li>
+          <li><a href="#tentang">Informasi</a></li>
           <li><a href="#about">Waktu Pendaftaran</a></li>
           <li><a href="#jalur">Jalur Penerimaan</a></li>
           <li><a href="#portfolio">Jadwal Seleksi</a></li>
-          <li><a href="#team">Alur Pendaftaran</a></li>
+          <li><a href="#team">Alur</a></li>
           <li><a href="<?=base_url('dinas/login')?>">Login Admin</a></li>
 
         </ul>
@@ -97,10 +98,22 @@
     <!-- ======= Featured Services Section ======= -->
     <section id="featured-services" class="featured-services">
 
+    <section id="tentang" class="about mb-0">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Informasi</h2>
+          <h3>Informasi <span>Pendaftaran</span></h3>
+          <hr style="width:300px;">
+        </div>
+        </div>
+        <img src="<?=base_url()?>assets/img/hero-bg.jpg" width="1366" alt="">
+    </section>
+
+
      <!-- ======= About Section ======= -->
      <section id="about" class="about">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Pendaftaran</h2>
           <h3>Waktu <span>Pendaftaran</span></h3><br>
@@ -184,7 +197,7 @@
               <td scope="row">2</td>
               <td>?</td>
               <td>Pengumuman</td>
-              <td>Akung Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
+              <td>Akun Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
               </tbody>
               <tbody class="text-center">
                 <td scope="row">3</td>
@@ -207,8 +220,9 @@
           <h2>Alur</h2>
           <h3>Alur <span>Pendaftaran</span></h3>
         </div>
-        <img src="<?=base_url('assets/img/hero1-bg.jpg')?>" width="1150px">
-
+        <img src="<?=base_url('assets/img/alur.jpeg')?>" width="1150px"><br><br>
+        <h3>Download Alur Pendaftaran Disini:</h3>
+        <a href="<?=base_url('PPDB.pdf')?>" class="btn btn-success rounded-pill">Klik Disini</a> 
 
       </div>
     </section><!-- End Team Section -->

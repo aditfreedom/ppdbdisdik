@@ -67,7 +67,7 @@
             </div>
             </div>
       </div>
-            <button type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">FINALISASI PENDAFTARAN</button><br><br>
+            <button <?=$hidden;?> type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">FINALISASI PENDAFTARAN</button><br><br>
       </form>
 
 
