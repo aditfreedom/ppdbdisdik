@@ -57,7 +57,7 @@ class Home extends CI_Controller
 		$this->load->model('M_ppdb');
 		$sess_data = $this->session->userdata();
 		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
-		$data['kecamatan'] = $this->M_ppdb->tampilwilayah()->result();
+		$data['kecamatan'] = $this->M_ppdb->tampilkuotawilayah();
 
 
 		$this->load->view('template/header');
