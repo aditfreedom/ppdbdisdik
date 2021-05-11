@@ -64,7 +64,7 @@
       <nav class="nav-menu d-none d-lg-block mb-0">
         <ul>
           <li class="active"><a href="#" >Beranda</a></li>
-          <li><a href="#tentang">Informasi</a></li>
+          <!-- <li><a href="#tentang">Informasi</a></li> -->
           <li><a href="#about">Waktu Pendaftaran</a></li>
           <li><a href="#jalur">Jalur Penerimaan</a></li>
           <li><a href="#portfolio">Jadwal Seleksi</a></li>
@@ -98,7 +98,7 @@
     <!-- ======= Featured Services Section ======= -->
     <section id="featured-services" class="featured-services">
 
-    <section id="tentang" class="about mb-0">
+    <!-- <section id="tentang" class="about mb-0">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -108,7 +108,7 @@
         </div>
         </div>
         <img src="<?=base_url()?>assets/img/hero-bg.jpg" width="1366" alt="">
-    </section>
+    </section> -->
 
 
      <!-- ======= About Section ======= -->

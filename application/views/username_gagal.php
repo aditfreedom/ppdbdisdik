@@ -16,7 +16,7 @@ function jsFunction(){
         'Akun sudah terdaftar',
         'error'
 ).then(function() {
-    window.location = "./data_sekolah";
+    window.location = "./registrasi";
 });
 }
 </script>
