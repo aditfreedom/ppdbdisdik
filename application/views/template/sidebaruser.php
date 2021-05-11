@@ -44,6 +44,15 @@
           </li>
 
           <li class="nav-item ">
+            <a href="<?=base_url('user/statusformulir/'.$id_pesertadidik);?>" class="nav-link">
+              <i class="nav-icon fa fa-info-circle"></i>
+              <p>
+                Status Formulir
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
             <a href="<?=base_url('user/pengumumankelulusan/'.$id_pesertadidik);?>" class="nav-link">
               <i class="nav-icon fas fa-user-check"></i>
               <p>

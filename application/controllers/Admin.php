@@ -187,19 +187,20 @@ class Admin extends CI_Controller {
 	public function editapproval($id){
 		$sess_data = $this->session->userdata();
 		$data['approval'] = $this->M_ppdb->tampilpengguna_upload($id)->result();
+		
+		foreach ($data['approval'] as $data1){
+				$data3 = $data1->id_pesertadidik;
+		}
+		
+		$id_pesertadidik=$data3;
+		$data['approval2'] = $this->M_ppdb->tampilketerangan($id_pesertadidik)->result();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('editapproval',$data);
 		$this->load->view('template/footer');
 	}
 
-	public function updatefinalisasi(){
-		$id                	= $this->input->post('id');
-        $status   			= $this->input->post('status');
-
-		$this->M_ppdb->updatefinalisasi_admin($status,$id,'pengguna');
-		$this->load->view('berhasil_ubah_status');
-	}
+	
 
 	public function updatepassword(){
 		$id_pesertadidik        = $this->input->post('id_pesertadidik');
@@ -213,9 +214,27 @@ class Admin extends CI_Controller {
 	public function updateapproval(){
 		$id                	= $this->input->post('id');
         $approve_formulir   = $this->input->post('approve_formulir');
+		$id_pesertadidik    = $this->input->post('id_pesertadidik');
+        $keterangan		    = $this->input->post('keterangan');
+		
+		$data = array(
+			'id_pesertadidik' => $id_pesertadidik,
+            'keterangan' => $keterangan
+        );
 
-		$this->M_ppdb->updateformulir($approve_formulir,$id,'pengguna');
-		$this->load->view('berhasil_ubah_formulir');
+		$hitungdata= $this->M_ppdb->tampil_keterangan($id_pesertadidik);
+
+		if ($hitungdata ==1) {
+            $this->M_ppdb->updateketerangan($id_pesertadidik, $keterangan);
+			$this->M_ppdb->updateformulir($approve_formulir,$id,'pengguna');
+			$this->load->view('berhasil_ubah_formulir');
+		}else{
+            $this->M_ppdb->tambahketerangan($data);
+			$this->M_ppdb->updateformulir($approve_formulir,$id,'pengguna');
+			$this->load->view('berhasil_ubah_formulir');  
+		}
+
+
 	}
 
 		
@@ -357,6 +376,43 @@ class Admin extends CI_Controller {
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('editfinalisasi',$data);
 		$this->load->view('template/footer');
+	}
+
+	public function updatefinalisasi(){
+		$id                	= $this->input->post('id');
+		$id_pesertadidik   	= $this->input->post('id_pesertadidik');
+        $status   			= $this->input->post('status');
+
+		
+		$data['tampil_finalisasi'] = $this->M_ppdb->tampil_data_sekolahtujuan_finalisasi($id_pesertadidik)->result();
+
+		foreach ($data['tampil_finalisasi'] as $datakunci){
+			$id_sekolah = $datakunci ->id_sekolah;
+			if ($datakunci->jenis_pendaftaran==1) {
+				$kurang = "sisa_zonasi";
+			}
+			if ($datakunci->jenis_pendaftaran==2) {
+				$kurang = "sisa_afirmasi";
+			}
+			if ($datakunci->jenis_pendaftaran==3) {
+				$kurang = "sisa_pindahan";
+			}
+			if ($datakunci->jenis_pendaftaran==4) {
+				$kurang = "sisa_prestasi";
+			}
+			if ($datakunci->jenis_pendaftaran==5) {
+				$kurang = "sisa_umum";
+			}
+		}
+
+		$kurang1=$kurang;
+		$id_sekolah1=$id_sekolah;
+
+		if ($status == 0) {
+			$this->M_ppdb->kurang_kuota($kurang1,$id_sekolah1);
+		}
+		$this->M_ppdb->updatefinalisasi_admin($status,$id,'pengguna');
+		$this->load->view('berhasil_ubah_status');
 	}
 
 	public function updatedatapengguna(){

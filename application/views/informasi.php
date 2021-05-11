@@ -66,9 +66,10 @@
           <li class="active"><a href="#" >Beranda</a></li>
           <!-- <li><a href="#tentang">Informasi</a></li> -->
           <li><a href="#about">Waktu Pendaftaran</a></li>
-          <li><a href="#jalur">Jalur Penerimaan</a></li>
+          <li><a href="#jalur">Jenis</a></li>
           <li><a href="#portfolio">Jadwal Seleksi</a></li>
           <li><a href="#team">Alur</a></li>
+          <li><a href="<?=base_url('hal/progress_data')?>">Progres Data</a></li>
           <li><a href="<?=base_url('dinas/login')?>">Login Admin</a></li>
 
         </ul>
@@ -189,19 +190,19 @@
             </thead>
             <tbody class="text-center">
               <td scope="row">1</td>
-              <td>20 Mei - 03 Juli 2021</td>
+              <td>20 Mei - 26 Juni 2021</td>
               <td>Pendaftaran dan Penerimaan</td>
               <td>Daring Melalui Web</td>
               </tbody>
               <tbody class="text-center">
               <td scope="row">2</td>
-              <td>?</td>
+              <td>3 Juli 2021</td>
               <td>Pengumuman</td>
               <td>Akun Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
               </tbody>
               <tbody class="text-center">
                 <td scope="row">3</td>
-                <td>?</td>
+                <td>5 Juli 2021</td>
                 <td>Pendaftaran Ulang</td>
                 <td>Akun Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
                 </tbody>
@@ -274,7 +275,7 @@
 
 <script>
   // Set the date we're counting down to
-  var countDownDate = new Date("Jul 03, 2021 23:59:00").getTime();
+  var countDownDate = new Date("May 20, 2021 23:59:00").getTime();
   
   // Update the count down every 1 second
   var x = setInterval(function() {

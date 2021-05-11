@@ -238,12 +238,12 @@
     <div class="col">
     <div class="container">
         <div class="form-group">
-        <label for=""><b>NO KIP : </b></label>
+        <label for=""><b>NO KIP/KIS : </b></label>
         <input   <?=$disabled;?> type="text" name="no_kip" value="<?php echo $data->no_kip;?>"  class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50">
         </div>  
 
         <div class="form-group">
-        <label for=""><b>NO PKH :</b></label>
+        <label for=""><b>NO PKH/KKS :</b></label>
         <input <?=$disabled;?> type="text" name="no_pkh" value="<?php echo $data->no_pkh;?>" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50">
         </div>  
 

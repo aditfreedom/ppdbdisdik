@@ -219,5 +219,71 @@ class Hal extends CI_Controller {
 
 	}
 
+	
+    public function tambahsekolah(){
+		$this->load->view('tambahsekolah');
+		
+
+	}
+
+	public function insertsekolah(){
+		$id_sekolah        		= $this->input->post('id_sekolah');
+		$npsn		            = $this->input->post('npsn');
+		$nama_sekolah           = $this->input->post('nama_sekolah');
+        $kode_wilayah           = $this->input->post('kode_wilayah');
+		$bentuk_pendidikan      = $this->input->post('bentuk_pendidikan');
+		$status_sekolah         = $this->input->post('status_sekolah');
+		$alamat_jalan           = $this->input->post('alamat_jalan');
+		$desa_kelurahan         = $this->input->post('desa_kelurahan');
+		$rt                     = "0";
+		$rw                     = "0";
+		$lintang                = "0";
+		$bujur                  = "0";
+		
+        $data = array(
+			'id_sekolah' => $id_sekolah,
+            'npsn' => $npsn,
+			'nama_sekolah' => $nama_sekolah,
+			'kode_wilayah' => $kode_wilayah,
+			'bentuk_pendidikan' => $bentuk_pendidikan,
+			'status_sekolah' => $status_sekolah,
+			'alamat_jalan' => $alamat_jalan,
+			'desa_kelurahan' => $desa_kelurahan,
+			'rt' => $rt,
+			'rw' => $rw,
+			'lintang' => $lintang,
+			'bujur' => $bujur
+		);
+
+		$hitungnpsn= $this->M_ppdb->tampilsekolahnpsn($npsn);
+
+		if ($hitungnpsn >= 1) {
+			$this->load->view('sekolah_ada'); 
+		}else{
+			$this->M_ppdb->updatesd($data,'data_sd');
+			$this->load->view('sekolah_sukses'); 
+		}
+	}
+
+
+	public function progress_data()
+	{
+
+		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
+		$data['kecamatan'] = $this->M_ppdb->tampilkuotawilayah();
+
+		$this->load->view('progress_hal',$data);
+	}
+
+
+
+	public function tampil_sekolah_wilayah($id)
+	{
+		$data['tampil_sekolah_wilayah'] = $this->M_ppdb->tampil_sekolah_wilayah($id)->result();
+		$data['tampil_sekolah_wilayah2'] = $this->M_ppdb->tampil_sekolah_wilayah2($id)->result();
+
+
+		$this->load->view('tampil_sekolah_wilayah_hal',$data);
+	}
 
 }

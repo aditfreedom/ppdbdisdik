@@ -392,7 +392,28 @@
         <label for=""><b>ID :</b></label>
         <input type="text" name="id" value="<?php echo $data->id;?>" class="form-control" required>
         </div> 
+
+        <div class="form-group" hidden >
+        <label for=""><b>ID PESERTADIDIK :</b></label>
+        <input type="text" name="id_pesertadidik" value="<?php echo $data->id_pesertadidik;?>" class="form-control" required>
+        </div>         
         <?php endforeach ;?>
+
+
+        <?php
+          $keterangan="";
+        ?>
+
+        <?php foreach ($approval2 as $data) {
+            $keterangan=$data->keterangan;
+        }
+        ?>
+
+
+        <div class="form-group">
+        <label for="">Alasan (Bila Ditolak)</label>
+        <input type="text" name="keterangan" value="<?php echo $keterangan;?>" maxlength="150" placeholder="Bila Diterima Kosongkan Saja" class="form-control">
+        </div>
 
       <button type="submit" class="btn btn-primary form-control"><i class="fa fa-save"></i> <b>APPROVE</b></button>         
 

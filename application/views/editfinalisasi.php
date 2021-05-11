@@ -43,6 +43,10 @@
           </select>
       </div>
       <div class="form-group" hidden>
+        <label for=""><b>ID PD :</b></label>
+        <input type="text" name="id_pesertadidik" value="<?php echo $data->id_pesertadidik;?>" class="form-control" required>
+      </div> 
+      <div class="form-group" hidden>
         <label for=""><b>ID :</b></label>
         <input type="text" name="id" value="<?php echo $data->id;?>" class="form-control" required>
       </div> 

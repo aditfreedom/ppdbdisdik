@@ -171,9 +171,25 @@ class M_ppdb extends CI_Model
         return $result->num_rows();
     }
 
+    public function tampilsekolahnpsn($npsn)
+    {
+        $result = $this->db->query("SELECT * FROM data_sd WHERE npsn='$npsn'");
+        return $result->num_rows();
+    }
+
     public function tambahkuota($data)
     {
         $this->db->insert('kuota_siswa', $data);
+    }
+
+    public function updatesd($data)
+    {
+        $this->db->insert('data_sd', $data);
+    }
+
+    public function tambahketerangan($data)
+    {
+        $this->db->insert('keterangan', $data);
     }
 
     public function tambahsekolahtujuan($data)
@@ -315,11 +331,30 @@ class M_ppdb extends CI_Model
         return $query;
     }
 
+
+    public function tampil_data_sekolahtujuan_finalisasi($id_pesertadidik)
+    {
+        return $this->db->query("SELECT * FROM sekolah_tujuan 
+                                LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+                                LEFT JOIN data_wilayah ON sekolah_tujuan.kode_wilayah = data_wilayah.kode_wilayah
+                                LEFT JOIN data_desa ON sekolah_tujuan.id_desa = data_desa.id_desa
+                                LEFT JOIN data_smp ON sekolah_tujuan.id_sekolah = data_smp.id_sekolah
+                                WHERE id_pesertadidik='$id_pesertadidik'");
+    }
+
+
     public function edit_finalisasi($id)
     {
         $query = $this->db->query("SELECT * from pengguna WHERE id='$id'");
         return $query;
     }
+
+    public function kurang_kuota($kurang, $id_sekolah)
+    {
+        $this->db->query("UPDATE kuota_siswa SET $kurang=($kurang+1), total_in=(total_in-1) WHERE id_sekolah = '$id_sekolah'");
+    }
+
+    
 
     public function tampilapprovalformulir($id)
     {
@@ -370,6 +405,13 @@ class M_ppdb extends CI_Model
         LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id_pesertadidik='$id' ");
     }
 
+    public function tampil_keterangan($id_pesertadidik)
+    {
+        $result= $this->db->query("SELECT * FROM keterangan WHERE id_pesertadidik='$id_pesertadidik'");
+        return $result->num_rows();
+
+    }
+
     public function tampilpengguna2($id)
     {
         return $this->db->query("SELECT * FROM datasiswa LEFT JOIN data_sd ON
@@ -385,6 +427,11 @@ class M_ppdb extends CI_Model
     public function tampiliddaftarulang($id)
     {
         return $this->db->get_where('daftarulang', $id);
+    }
+
+    public function tampilketerangan($id)
+    {
+        return $this->db->query("SELECT * FROM keterangan WHERE id_pesertadidik='$id'");
     }
 
     public function hitungidlulus($where)
@@ -684,6 +731,11 @@ class M_ppdb extends CI_Model
         $this->db->query("UPDATE pengguna SET approve_formulir='$approve_formulir' WHERE id = '$id'");
     }
 
+    public function updateketerangan($id_pesertadidik, $keterangan)
+    {
+        $this->db->query("UPDATE keterangan SET keterangan='$keterangan' WHERE id_pesertadidik = '$id_pesertadidik'");
+    }
+
     public function updatefinalisasi_admin($status, $id)
     {
         $this->db->query("UPDATE pengguna SET status='$status' WHERE id = '$id'");
@@ -696,7 +748,7 @@ class M_ppdb extends CI_Model
 
     public function updatefinalisasi($status, $id_pesertadidik)
     {
-        $this->db->query("UPDATE pengguna SET status='$status' WHERE id_pesertadidik = '$id_pesertadidik'");
+        $this->db->query("UPDATE pengguna SET approve_formulir='Antrian',approve_lulus='Antrian',approve_daftarulang='Antrian',status='$status' WHERE id_pesertadidik = '$id_pesertadidik'");
     }
 
     public function updatelulus($approve_lulus, $id)

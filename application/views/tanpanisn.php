@@ -82,21 +82,22 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>NAMA CALON PESERTA DIDIK : </b></label>
-        <input type="text" name="nama_siswa" class="form-control" maxlength="50" placeholder="Nama Lengkap" required>
+        <input style="text-transform:uppercase" type="text" name="nama_siswa" class="form-control" maxlength="50" placeholder="Nama Lengkap" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>ASAL SEKOLAH :</b></label>
-        <select class="form-control selectpicker" data-size="5" name="id_sekolah" data-style="btn-primary" data-live-search="true">
+        <select class="form-control selectpicker mb-1" data-size="5" name="id_sekolah" data-style="btn-primary" data-live-search="true">
         <?php foreach ($joinsekolah as $data) : ?>
         <option value="<?php echo $data->id_sekolah;?>"><?php echo $data->nama_sekolah;?></option>
         <?php endforeach ;?>
         </select>
+        <p>Sekolah Anda Tidak Terdaftar?<a class="text-danger font-weight-bold" href="<?=base_url('hal/tambahsekolah')?>"> Klik Disini Untuk Menambah</a></p>
         </div>  
 
         <div class="form-group">
         <label for=""><b>TEMPAT LAHIR :</b></label>
-        <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" maxlength="50" required>
         </div>  
 
         <div class="form-group">
@@ -136,17 +137,17 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>ALAMAT JALAN : </b></label>
-        <input type="text" name="alamat_jalan" class="form-control" placeholder="Nama Jalan" maxlength="190" required>
+        <input style="text-transform:uppercase" type="text" name="alamat_jalan" class="form-control" placeholder="Nama Jalan" maxlength="190" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>DESA KELURAHAN :</b></label>
-        <input type="text" name="desa_kelurahan" class="form-control" placeholder="Nama Desa" maxlength="200" required>
+        <input style="text-transform:uppercase" type="text" name="desa_kelurahan" class="form-control" placeholder="Nama Desa" maxlength="200" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>DUSUN :</b></label>
-        <input type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun" maxlength="200" required>
+        <input style="text-transform:uppercase" type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun" maxlength="200" required>
         </div>  
         </div>    
         </div>
@@ -163,9 +164,9 @@
         <input type="number" name="rw" class="form-control" placeholder="Rw" maxlength="5" required>
         </div>  
 
-        <div class="form-group">
-        <label for=""><b>NO HP/WA/TELP</b></label>
-        <input type="text" name="id_pesertadidik" class="form-control" placeholder="Salah Satu Saja" maxlength="14" required>
+        <div class="form-group" hidden>
+        <label for=""><b>ID PD</b></label>
+        <input type="text" name="id_pesertadidik" value="<?= hash('md5', rand(10,10000000000000000));?>-002" class="form-control" placeholder="Salah Satu Saja" maxlength="14" required>
         </div>  
         </div>    
         </div>
@@ -178,12 +179,12 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>NAMA IBU KANDUNG : </b></label>
-        <input type="text" name="nama_ibu_kandung" class="form-control" placeholder="Nama Ibu Kandung" maxlength="190" required>
+        <input style="text-transform:uppercase" type="text" name="nama_ibu_kandung" class="form-control" placeholder="Nama Ibu Kandung" maxlength="190" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>PEKERJAAN IBU KANDUNG :</b></label>
-        <input type="text" name="pekerjaan_ibu_kandung" class="form-control" placeholder="Pekerjaan Ibu Kandung" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" name="pekerjaan_ibu_kandung" class="form-control" placeholder="Pekerjaan Ibu Kandung" maxlength="50" required>
         </div>  
         <div class="form-group">
         <label for=""><b>PENGHASILAN IBU KANDUNG :</b></label>
@@ -202,12 +203,12 @@
         <div class="container">
         <div class="form-group">
         <label for=""><b>NAMA AYAH : </b></label>
-        <input type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah" maxlength="190" required>
+        <input style="text-transform:uppercase" type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah" maxlength="190" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>PEKERJAAN AYAH :</b></label>
-        <input type="text" name="pekerjaan_ayah" class="form-control" placeholder="Pekerjaan Ayah" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" name="pekerjaan_ayah" class="form-control" placeholder="Pekerjaan Ayah" maxlength="50" required>
         </div>  
         <div class="form-group">
         <label for=""><b>PENGHASILAN AYAH :</b></label>
@@ -230,12 +231,12 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>NAMA WALI : </b></label>
-        <input type="text" name="nama_wali" placeholder="Nama Wali" class="form-control" maxlength="190" required>
+        <input style="text-transform:uppercase" type="text" name="nama_wali" placeholder="Nama Wali" class="form-control" maxlength="190" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>PEKERJAAN WALI :</b></label>
-        <input type="text" name="pekerjaan_wali" placeholder="Pekerjaan Wali" class="form-control" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" name="pekerjaan_wali" placeholder="Pekerjaan Wali" class="form-control" maxlength="50" required>
         </div>  
         <div class="form-group">
         <label for=""><b>PENGHASILAN WALI :</b></label>
@@ -258,12 +259,12 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>NO KIP : </b></label>
-        <input type="text" name="no_kip" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" name="no_kip" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50" required>
         </div>  
 
         <div class="form-group">
         <label for=""><b>NO PKH :</b></label>
-        <input type="text" name="no_pkh" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" name="no_pkh" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50" required>
         </div>  
        
         <button type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">BUAT AKUN</button><br><br>

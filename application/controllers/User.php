@@ -84,6 +84,18 @@ class User extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    public function statusformulir($id)
+    {
+        $sess_data = $this->session->userdata();
+        $id_pesertadidik = $this->session->userdata('id_pesertadidik');
+        $data['status'] = $this->M_ppdb->tampilpengguna($id_pesertadidik)->result();
+        $data['approval2'] = $this->M_ppdb->tampilketerangan($id_pesertadidik)->result();
+        $this->load->view('template/header');
+        $this->load->view('template/sidebaruser', $sess_data);
+        $this->load->view('statusformulir', $data);
+        $this->load->view('template/footer');
+    }
+
     public function finalisasi($id)
     {
         $sess_data = $this->session->userdata();
