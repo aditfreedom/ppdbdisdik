@@ -411,7 +411,7 @@
 
 
         <div class="form-group">
-        <label for="">Alasan (Bila Ditolak)</label>
+        <label for="">Alasan Penolakan/Tidak Lulus/Ditolak Daftar Ulang</label>
         <input type="text" name="keterangan" value="<?php echo $keterangan;?>" maxlength="150" placeholder="Bila Diterima Kosongkan Saja" class="form-control">
         </div>
 

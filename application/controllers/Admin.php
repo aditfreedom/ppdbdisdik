@@ -211,31 +211,7 @@ class Admin extends CI_Controller {
 		$this->load->view('berhasil_ubah_user');
 	}
 
-	public function updateapproval(){
-		$id                	= $this->input->post('id');
-        $approve_formulir   = $this->input->post('approve_formulir');
-		$id_pesertadidik    = $this->input->post('id_pesertadidik');
-        $keterangan		    = $this->input->post('keterangan');
-		
-		$data = array(
-			'id_pesertadidik' => $id_pesertadidik,
-            'keterangan' => $keterangan
-        );
 
-		$hitungdata= $this->M_ppdb->tampil_keterangan($id_pesertadidik);
-
-		if ($hitungdata ==1) {
-            $this->M_ppdb->updateketerangan($id_pesertadidik, $keterangan);
-			$this->M_ppdb->updateformulir($approve_formulir,$id,'pengguna');
-			$this->load->view('berhasil_ubah_formulir');
-		}else{
-            $this->M_ppdb->tambahketerangan($data);
-			$this->M_ppdb->updateformulir($approve_formulir,$id,'pengguna');
-			$this->load->view('berhasil_ubah_formulir');  
-		}
-
-
-	}
 
 		
 		public function cetakformulir(){
@@ -282,20 +258,48 @@ class Admin extends CI_Controller {
 	public function editlulus($id){
 		$sess_data = $this->session->userdata();
 		$data['lulus'] = $this->M_ppdb->tampilpengguna_lulus($id)->result();
+		
+		foreach ($data['lulus'] as $data1){
+			$data3 = $data1->id_pesertadidik;
+		}
+		$id_pesertadidik=$data3;
+
+
+		$data['approval2'] = $this->M_ppdb->tampilketerangan($id_pesertadidik)->result();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('editlulus',$data);
 		$this->load->view('template/footer');
 	}
 
-	public function updatelulus(){
-		$id                	= $this->input->post('id');
-        $approve_lulus   	= $this->input->post('approve_lulus');
 
-		$this->M_ppdb->updatelulus($approve_lulus,$id,'pengguna');
-		$this->load->view('berhasil_ubah_lulus');	
-	
+	public function updateapproval(){
+		$id                	= $this->input->post('id');
+        $approve_formulir   = $this->input->post('approve_formulir');
+		$id_pesertadidik    = $this->input->post('id_pesertadidik');
+        $keterangan		    = $this->input->post('keterangan');
+		
+		$data = array(
+			'id_pesertadidik' => $id_pesertadidik,
+            'keterangan' => $keterangan
+        );
+
+		$hitungdata= $this->M_ppdb->tampil_keterangan($id_pesertadidik);
+
+		if ($hitungdata ==1) {
+            $this->M_ppdb->updateketerangan($id_pesertadidik, $keterangan);
+			$this->M_ppdb->updateformulir($approve_formulir,$id,'pengguna');
+			$this->load->view('berhasil_ubah_formulir');
+		}else{
+            $this->M_ppdb->tambahketerangan($data);
+			$this->M_ppdb->updateformulir($approve_formulir,$id,'pengguna');
+			$this->load->view('berhasil_ubah_formulir');  
+		}
+
+
 	}
+
+
 	
 		public function approve_daftarulang()
 	{
@@ -322,6 +326,12 @@ class Admin extends CI_Controller {
 	public function editdaftarulang($id){
 		$sess_data = $this->session->userdata();
 		$data['daftarulang'] = $this->M_ppdb->tampilpengguna_daftarulang($id)->result();
+		foreach ($data['daftarulang'] as $data1){
+			$data3 = $data1->id_pesertadidik;
+		}
+	
+		$id_pesertadidik=$data3;
+		$data['approval2'] = $this->M_ppdb->tampilketerangan($id_pesertadidik)->result();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
 		$this->load->view('editdaftarulang',$data);
@@ -331,10 +341,49 @@ class Admin extends CI_Controller {
 	public function updatedaftarulang(){
 		$id                		= $this->input->post('id');
         $approve_daftarulang   	= $this->input->post('approve_daftarulang');
+		$id_pesertadidik    = $this->input->post('id_pesertadidik');
+        $keterangan		    = $this->input->post('keterangan');
 
-		$this->M_ppdb->updatedaftarulang($approve_daftarulang,$id,'pengguna');
-		$this->load->view('berhasil_ubah_daftarulang');	
-	
+		$data = array(
+			'id_pesertadidik' => $id_pesertadidik,
+            'keterangan' => $keterangan
+        );
+
+		$hitungdata= $this->M_ppdb->tampil_keterangan($id_pesertadidik);
+
+		if ($hitungdata ==1) {
+            $this->M_ppdb->updateketerangan($id_pesertadidik, $keterangan);
+			$this->M_ppdb->updatedaftarulang($approve_daftarulang,$id,'pengguna');
+			$this->load->view('berhasil_ubah_daftarulang');	
+		}else{
+            $this->M_ppdb->tambahketerangan($data);
+			$this->M_ppdb->updatedaftarulang($approve_daftarulang,$id,'pengguna');
+			$this->load->view('berhasil_ubah_daftarulang');	
+		}
+	}
+
+	public function updatelulus(){
+		$id                	= $this->input->post('id');
+        $approve_lulus   	= $this->input->post('approve_lulus');
+		$id_pesertadidik    = $this->input->post('id_pesertadidik');
+        $keterangan		    = $this->input->post('keterangan');
+
+		$data = array(
+			'id_pesertadidik' => $id_pesertadidik,
+            'keterangan' => $keterangan
+        );
+
+		$hitungdata= $this->M_ppdb->tampil_keterangan($id_pesertadidik);
+
+		if ($hitungdata ==1) {
+            $this->M_ppdb->updateketerangan($id_pesertadidik, $keterangan);
+			$this->M_ppdb->updatelulus($approve_lulus,$id,'pengguna');
+			$this->load->view('berhasil_ubah_lulus');	
+		}else{
+            $this->M_ppdb->tambahketerangan($data);
+			$this->M_ppdb->updatelulus($approve_lulus,$id,'pengguna');
+			$this->load->view('berhasil_ubah_lulus');	
+		}
 	}
 	
 		public function datapengguna()
