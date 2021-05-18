@@ -36,6 +36,14 @@
       ?>
 	  <?php endforeach ;?> 
 
+    <?php 
+    $keterangan="";
+    
+    foreach ($approval2 as $data) {
+      $keterangan = $data->keterangan;
+    }
+    ?>
+
 
         <div class="alert alert-warning alert-dismissible fade show" role="alert" <?=$antrian;?>>
           <strong>Saat Ini Belum Ada Pengumuman Kelulusan, Harap Cek Secara Berkala</strong>
@@ -45,11 +53,12 @@
         </div>
 
         <div class="alert alert-danger alert-dismissible fade show" role="alert" <?=$tidaklulus;?>>
-          <strong>Maaf! Anda Tidak Lulus Seleksi PPDB 2021/2022, Harap Untuk Memilih Sekolah Lain Di Menu :<br>
+          <strong>Maaf! Anda Tidak Lulus Seleksi PPDB 2021/2022 Dengan Alasan :<br>
           <ul>
-          <li> Isi Formulir -> Poin 3. Sekolah Tujuan</li>
+          <li><?=$keterangan;?></li></strong>
+          <br>
           </ul>
-           </strong>
+          Harap Untuk Memilih Sekolah Lain Di Menu : Isi Formulir -> Poin 3. Sekolah Tujuan
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

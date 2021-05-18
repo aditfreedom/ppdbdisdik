@@ -31,10 +31,28 @@
             <label for=""><b>ID :</b></label>
             <input type="text" name="id" value="<?php echo $data->id;?>" class="form-control" required>
             </div> 
+            <div class="form-group" hidden >
+        <label for=""><b>ID PESERTADIDIK :</b></label>
+        <input type="text" name="id_pesertadidik" value="<?php echo $data->id_pesertadidik;?>" class="form-control" required>
+        </div>     
         <?php endforeach ;?>
 
 
-       
+        <?php
+          $keterangan="";
+        ?>
+
+        <?php foreach ($approval2 as $data) {
+            $keterangan=$data->keterangan;
+        }
+        ?>
+
+
+        <div class="form-group">
+        <label for="">Alasan Penolakan/Tidak Lulus/Ditolak Daftar Ulang</label>
+        <input type="text" name="keterangan" value="<?php echo $keterangan;?>" maxlength="150" placeholder="Bila Diterima Kosongkan Saja" class="form-control">
+        </div>
+
         <button type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;"> SIMPAN DATA</button><br><br>
         </form>
 

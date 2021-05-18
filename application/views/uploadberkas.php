@@ -189,6 +189,7 @@
               <?php endforeach; ?>
               <input hidden <?=$disabled;?> class="form-control" type="file" name="up_prestasi2" accept="application/pdf">
             </div>
+            <h4 class="text-danger">* Maksimal Ukuran File 500 Kb</h4>
             <button <?=$hidden;?> <?=$disabled;?> type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">UPLOAD FILE</button><br><br>
       </form>
 
