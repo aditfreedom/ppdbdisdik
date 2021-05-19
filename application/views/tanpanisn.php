@@ -87,7 +87,7 @@
 
         <div class="form-group">
         <label for=""><b>ASAL SEKOLAH :</b></label>
-        <select class="form-control selectpicker mb-1" data-size="5" name="id_sekolah" data-style="btn-primary" data-live-search="true">
+        <select id="select" class="form-control text-uppercase selectpicker mb-1" style="select, select option:checked: uppercase;" data-size="5" name="id_sekolah" data-style="btn-primary" data-live-search="true">
         <?php foreach ($joinsekolah as $data) : ?>
         <option value="<?php echo $data->id_sekolah;?>"><?php echo $data->nama_sekolah;?></option>
         <?php endforeach ;?>
@@ -288,4 +288,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
   </body>
+  <script>
+   [].slice.call( document.querySelectorAll('select') ).forEach(ucfirst);
+
+document.getElementById('title').addEventListener('change', fn, false);
+document.getElementById('day').addEventListener('change', fn, false);
+
+function ucfirst(el) {
+    el.innerHTML = el.innerHTML.charAt(0).toUpperCase() + el.innerHTML.slice(1).toUpperCase();
+}
+
+function fn() {
+    var options  = this.getElementsByTagName('select');
+    var selected = options[this.selectedIndex];
+
+    [].slice.call(options).forEach(ucfirst);
+    selected.value = selected.innerHTML = selected.innerHTML.toUpperCase();
+}
+  </script>
 </html>

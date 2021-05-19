@@ -118,7 +118,7 @@
         <div class="section-title">
           <h2>Pendaftaran</h2>
           <h3>Waktu <span>Pendaftaran</span></h3><br>
-          <h1 style="margin-bottom:0px;">20 Mei - 03 Juli 2021</h1>
+          <h1 style="margin-bottom:0px;">20 Mei - 26 Juni 2021</h1>
           <h3 id="demo" style="margin-top:0px;font-size:30px;color:#FF0064;"></h3>
         </div>
         </div>

@@ -47,14 +47,14 @@
 		      <tr class="nomor text-left">
             <td><?=$data->dsid;?></td>
             <td><?=$data->dsdnpsn;?></td>
-            <td><?=$data->dsdnm;?></td>
+            <td class="text-uppercase"><?=$data->dsdnm;?></td>
             <td><?=$data->dsnik;?></td>
             <td><?=$data->dsnisn;?></td>
-            <td><?=$data->dsnm;?></td>
-            <td><?=$data->dstpt;?></td>
+            <td class="text-uppercase"><?=$data->dsnm;?></td>
+            <td class="text-uppercase"><?=$data->dstpt;?></td>
             <td><?=$data->dstgl;?></td>
             <td><?=$data->dsjk;?></td>
-            <td><?=$data->dsibu;?></td>
+            <td class="text-uppercase"><?=$data->dsibu;?></td>
             <td><?=$data->stid;?></td>
             <td><?=$data->dsmpnpsn;?></td>
             <td><?=$data->dsmpnm;?></td>
