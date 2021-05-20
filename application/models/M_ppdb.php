@@ -199,7 +199,7 @@ class M_ppdb extends CI_Model
 
     public function kurangikuota($id_sekolah, $query)
     {
-        $query = " UPDATE kuota_siswa SET $query WHERE id_sekolah='$id_sekolah' and status='1'";
+        $query = " UPDATE kuota_siswa SET $query WHERE id_sekolah='$id_sekolah'";
         return $this->db->query($query);
     }
 
