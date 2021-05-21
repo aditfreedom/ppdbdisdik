@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
+ <!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T1N9THKWZS"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T1N9THKWZS');
+</script>
+
+
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -275,7 +287,7 @@
 
 <script>
   // Set the date we're counting down to
-  var countDownDate = new Date("May 20, 2021 23:59:00").getTime();
+  var countDownDate = new Date("Jun 26, 2021 23:59:00").getTime();
   
   // Update the count down every 1 second
   var x = setInterval(function() {
@@ -305,6 +317,7 @@
     }
   }, 1000);
   </script>
+  
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 

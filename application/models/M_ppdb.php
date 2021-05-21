@@ -579,8 +579,8 @@ class M_ppdb extends CI_Model
                                     WHERE sekolah_tujuan.jenis_pendaftaran='4' AND sekolah_tujuan.id_sekolah='$id' AND pengguna.status='1'");
         return $result->num_rows();
     }
-
-    public function tampilumum($id)
+    
+     public function tampilumum($id)
     {
         $result = $this->db->query("SELECT * FROM pengguna
                                     LEFT JOIN sekolah_tujuan ON pengguna.id_pesertadidik = sekolah_tujuan.id_pesertadidik

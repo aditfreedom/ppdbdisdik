@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html>
+     <!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T1N9THKWZS"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T1N9THKWZS');
+</script>
+
 <head>
 <link href="<?=base_url()?>assets/img/favicon.png" rel="icon">
   <meta charset="utf-8">

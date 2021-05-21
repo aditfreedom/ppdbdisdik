@@ -18,9 +18,12 @@
   <?php foreach ($finalisasi as $data) : ?>
                   <?php
                     if ($data->status == "1") {
-                      $checked="checked";
+                      $checked="checked";                               
+                      $disabled="disabled";
+
                     }else {
                       $checked="";
+                      $disabled="";
                     }
                     ?>
               <?php endforeach?>
@@ -74,7 +77,7 @@
             </div>
             </div>
       </div>
-            <button <?=$hidden;?> type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">FINALISASI PENDAFTARAN</button><br><br>
+            <button <?=$hidden;?> <?=$disabled;?> type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">FINALISASI PENDAFTARAN</button><br><br>
       </form>
 
 
