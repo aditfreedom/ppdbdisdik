@@ -757,7 +757,7 @@ class M_ppdb extends CI_Model
 
     public function updatefinalisasi($status, $id_pesertadidik)
     {
-        $this->db->query("UPDATE pengguna SET approve_formulir='Antrian',approve_lulus='Antrian',approve_daftarulang='Antrian',status='$status' WHERE id_pesertadidik = '$id_pesertadidik'");
+        return $this->db->query("UPDATE pengguna SET approve_formulir='Antrian',approve_lulus='Antrian',approve_daftarulang='Antrian',status='$status' WHERE id_pesertadidik = '$id_pesertadidik'");
     }
 
     public function updatelulus($approve_lulus, $id)
