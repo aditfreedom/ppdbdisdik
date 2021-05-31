@@ -145,7 +145,7 @@ class M_ppdb extends CI_Model
 
     public function tampil_data_sekolahtujuan_admin($id_pesertadidik)
     {
-        return $this->db->query("SELECT * FROM sekolah_tujuan 
+        return $this->db->query("SELECT sekolah_tujuan.*, jenis_pendaftaran.nama, data_wilayah.nama_wilayah, data_desa.nama_desa, data_smp.nama_sekolah FROM sekolah_tujuan 
                                 LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
                                 LEFT JOIN data_wilayah ON sekolah_tujuan.kode_wilayah = data_wilayah.kode_wilayah
                                 LEFT JOIN data_desa ON sekolah_tujuan.id_desa = data_desa.id_desa
@@ -400,9 +400,20 @@ class M_ppdb extends CI_Model
 
     public function tampilpengguna($id)
     {
-        return $this->db->query("SELECT * FROM pengguna
+        return $this->db->query("SELECT pengguna.status FROM pengguna
         LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
         LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id_pesertadidik='$id' ");
+    }
+    
+     public function tampilpengguna_siswa($id)
+    {
+        return $this->db->query("SELECT data_sd.nama_sekolah,pengguna.status,datasiswa.id_pesertadidik,datasiswa.id_sekolah,datasiswa.kode_wilayah,datasiswa.nama_siswa,datasiswa.tempat_lahir,datasiswa.tanggal_lahir,datasiswa.jk,
+datasiswa.nik,datasiswa.nisn,datasiswa.alamat_jalan,datasiswa.desa_kelurahan,datasiswa.rt ,datasiswa.rw,
+datasiswa.nama_dusun,datasiswa.nama_ibu_kandung,datasiswa.pekerjaan_ibu_kandung,datasiswa.penghasilan_ibu_kandung,datasiswa.nama_ayah,pekerjaan_ayah,
+datasiswa.penghasilan_ayah,datasiswa.nama_wali,datasiswa.pekerjaan_wali,datasiswa.penghasilan_wali,datasiswa.kebutuhan_khusus,datasiswa.no_kip,datasiswa.no_pkh,datasiswa.lintang,datasiswa.bujur
+ FROM pengguna
+LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id_pesertadidik='$id' ");
     }
 
     public function tampil_keterangan($id_pesertadidik)
