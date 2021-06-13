@@ -77,7 +77,7 @@ class User extends CI_Controller
     {
         $sess_data = $this->session->userdata();
         $id_pesertadidik = $this->session->userdata('id_pesertadidik');
-        $data['status'] = $this->M_ppdb->tampilpengguna($id_pesertadidik)->result();
+        $data['status'] = $this->M_ppdb->tampilpengguna222($id_pesertadidik)->result();
         $data['approval2'] = $this->M_ppdb->tampilketerangan($id_pesertadidik)->result();
         $this->load->view('template/header');
         $this->load->view('template/sidebaruser', $sess_data);
@@ -89,7 +89,7 @@ class User extends CI_Controller
     {
         $sess_data = $this->session->userdata();
         $id_pesertadidik = $this->session->userdata('id_pesertadidik');
-        $data['status'] = $this->M_ppdb->tampilpengguna($id_pesertadidik)->result();
+        $data['status'] = $this->M_ppdb->tampilpengguna222($id_pesertadidik)->result();
         $data['approval2'] = $this->M_ppdb->tampilketerangan($id_pesertadidik)->result();
         $this->load->view('template/header');
         $this->load->view('template/sidebaruser', $sess_data);

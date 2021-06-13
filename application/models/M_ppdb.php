@@ -400,7 +400,14 @@ class M_ppdb extends CI_Model
 
     public function tampilpengguna($id)
     {
-        return $this->db->query("SELECT pengguna.status FROM pengguna
+        return $this->db->query("SELECT * FROM pengguna
+        LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id_pesertadidik='$id' ");
+    }
+    
+    public function tampilpengguna222($id)
+    {
+        return $this->db->query("SELECT * FROM pengguna
         LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
         LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id_pesertadidik='$id' ");
     }

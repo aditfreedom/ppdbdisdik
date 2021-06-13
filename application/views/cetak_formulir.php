@@ -188,6 +188,11 @@
                 <td style="width: 10px;">:</td>
                 <td style="width: 50%;text-transform: uppercase;><?=$siswa['nama_ayah'];?></td>
             </tr>
+                <tr>
+                <td>Pekerjaan Ayah</td>
+                <td>:</td>
+                <td style="text-transform: uppercase;"><?=$siswa['nama_ayah'];?></td>
+            </tr>
             <tr>
                 <td>Pekerjaan Ayah</td>
                 <td>:</td>
