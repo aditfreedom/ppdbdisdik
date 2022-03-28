@@ -54,7 +54,7 @@
       }    
     ?>
             <td><a class="font-weight-bold text-uppercase <?= $class;?> rounded-pill" href="#" role="button">&nbsp&nbsp<?php echo $data->approve_lulus?>&nbsp&nbsp</a></td>
-            <td><?php echo anchor('admin/editlulus/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	            
+            <td ><?php echo anchor('admin/editlulus/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	            
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach ;?>

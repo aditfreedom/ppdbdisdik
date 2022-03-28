@@ -98,7 +98,7 @@
       <br>TINGKAT <span>SMP</SPAN></h1>
       <h2 class="text-center text-bold">KABUPATEN BIREUEN TP. 2021/2022</h2>
       <p align="center">
-        <a href="<?=base_url()?>hal/registrasi" id="demo2" class="btn-get-started scrollto text-center">Daftar Akun Sekarang</a> 
+        <a href="<?=base_url()?>hal/registrasi" id="demo222" class="btn-get-started scrollto text-center">Daftar Akun Sekarang</a> 
         <a href="<?=base_url()?>hal/login" class="btn-get-started scrollto text-center">Login</a>        
       </p>
       

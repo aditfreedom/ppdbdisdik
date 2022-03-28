@@ -273,6 +273,19 @@ class User extends CI_Controller
         $config['max_size']             = 0;
         $config['max_width']            = 0;
         $config['max_height']           = 0;
+
+        $array = explode('.', $_FILES['up_zonasi1']['name']);
+        $array2 = explode('.', $_FILES['up_afirmasi1']['name']);
+        $array3 = explode('.', $_FILES['up_pindahan1']['name']);
+        $array4 = explode('.', $_FILES['up_prestasi1']['name']);
+        $extension = end($array);
+        $extension2 = end($array2);
+        $extension3 = end($array3);
+        $extension4 = end($array4);
+
+
+
+
     
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
@@ -288,6 +301,11 @@ class User extends CI_Controller
         if ($up_zonasi1 == null) {
             $up_zonasi1 = $up_zonasi1_lama;
         }	
+
+    
+       
+
+        
 
         //zonasi2
         if (! $this->upload->do_upload('up_zonasi2')) {
@@ -408,13 +426,22 @@ class User extends CI_Controller
 
         $hitungdata= $this->M_ppdb->tampil_data_berkas($id_pesertadidik);
 
-		if ($hitungdata ==1) {
-            $this->M_ppdb->updateberkas($where, $data, 'upload_berkas');
-            $this->load->view('berhasil_update_berkas');
-		}else{
-            $this->M_ppdb->tambahberkas($data2);
-            $this->load->view('berhasil_update_berkas');
-		}
+        
+    
+
+        if ($extension == "pdf" || $extension2 == "pdf" || $extension3 == "pdf" || $extension4 == "pdf" || $extension == "PDF" || $extension2 == "PDF" || $extension3 == "PDF" || $extension4 == "PDF") {
+            if ($hitungdata ==1) {
+                $this->M_ppdb->updateberkas($where, $data, 'upload_berkas');
+                $this->load->view('berhasil_update_berkas');
+            }else{
+                $this->M_ppdb->tambahberkas($data2);
+                $this->load->view('berhasil_update_berkas');
+            }
+        }else {
+            $this->load->view('gagal_upload_berkas');
+        }
+
+		
 
 	}
 

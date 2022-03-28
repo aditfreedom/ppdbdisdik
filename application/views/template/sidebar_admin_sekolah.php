@@ -78,7 +78,7 @@
             </a>
           </li>
 
-          <li class="nav-item ">
+          <li hidden class="nav-item ">
             <a href="<?=base_url('admin/status_finalisasi');?>" class="nav-link">
               <i class="nav-icon fa fa-calendar-check"></i>
               <p>
@@ -87,7 +87,7 @@
             </a>
           </li>
 
-          <li class="nav-item ">
+          <li hidden class="nav-item ">
             <a href="<?=base_url('admin/ganti_password/'.$id_pesertadidik);?>" class="nav-link">
               <i class="nav-icon fa fa-key"></i>
               <p>
