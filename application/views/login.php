@@ -22,7 +22,7 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <img src="<?=base_url()?>assets/img/favicon.png" class="mx-auto d-block" width="100px">
-            <h6 class="text-center" style="margin-top:5px;"><b>PPDB DARING<br>DISDIKBUD KAB. BIREUEN<br>TA.2021/2022</b></h6><br>
+            <h6 class="text-center" style="margin-top:5px;"><b>PPDB DARING<br>DISDIKBUD KAB. BIREUEN<br>TA.2022/2023</b></h6><br>
             <h5 class="text-center"><b>LOGIN SISWA</b></h5>
 
             <?php echo form_open('hal/login_aksi');?>
@@ -40,6 +40,8 @@
               </div>
 
               <button class="btn btn-lg text-light btn-block text-uppercase font-weight-bold rounded-pill" type="submit" style="background-color:#FF0064;"><b>Login</b></button>
+              <br><a href="<?=base_url()?>" class="text-decoration-none font-weight-bold d-flex justify-content-center">KEMBALI KE HALAMAN UTAMA</a>
+  
               <?php echo form_close();?>
             </div>
         </div>

@@ -8,10 +8,10 @@ class Dinas extends CI_Controller {
         parent::__construct();
 		$datauser = $this->session->userdata('login'); 
 		$role=$this->session->userdata('role');
-		if (($datauser == "Berhasil") && ($role == "1") ) {
+		if (($datauser == "Berhasil") && ($role == "1")) {
 			redirect(base_url('admin'));
 		}
-		if (($datauser == "Berhasil") && ($role == "0") ) {
+		if (($datauser == "Berhasil") && ($role == "0" || $role == "3")) {
 			redirect(base_url('home'));
 		}
 		if($role=="0"){
@@ -65,7 +65,7 @@ class Dinas extends CI_Controller {
                 //  redirect(base_url('home'));
 
 
-                 if ($sess_data["role"] == "0"){
+                 if ($sess_data["role"] == "0" || $sess_data["role"] == "3"){
                     $this->session->set_userdata($sess_data); 
                      redirect(base_url('home')); 
                  }

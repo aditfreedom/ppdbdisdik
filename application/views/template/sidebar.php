@@ -50,6 +50,15 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a href="<?=base_url('home/kuota_manual');?>" class="nav-link">
+              <i class="nav-icon fa fa-edit"></i>
+              <p>
+                Atur Kuota Manual
+              </p>
+            </a>
+          </li>
+
           <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">      
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -84,6 +93,15 @@
               <i class="nav-icon fa fa-user-check"></i>
               <p>
                 Data Siswa Pendaftar
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a href="<?=base_url('home/maintenance');?>" class="nav-link">
+              <i class="nav-icon fa fa-cog"></i>
+              <p>
+                Pengaturan Maintenance
               </p>
             </a>
           </li>

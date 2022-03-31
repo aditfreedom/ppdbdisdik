@@ -28,11 +28,11 @@
           <th scope="col">NO</th>
           <th scope="col">NAMA SEKOLAH</th>
           <th scope="col">TOTAL</th>
-          <th scope="col">ZONASI</th>
-          <th scope="col">AFIRMASI</th>
-          <th scope="col">PINDAHAN ORANG TUA</th>
-          <th scope="col">PRESTASI</th>
-          <th scope="col">UMUM</th>
+          <th scope="col">SISA ZONASI</th>
+          <th scope="col">SISA AFIRMASI</th>
+          <th scope="col">SISA PINDAHAN ORANG TUA</th>
+          <th scope="col">SISA PRESTASI</th>
+          <th scope="col">SISA UMUM</th>
           <th hidden scope="col">AKSI</th>
         </tr>
       </thead>

@@ -96,7 +96,7 @@
       <img class="mx-auto d-block" src="assets/img/favicon.png" width="100px" style="margin-bottom:10px;">
       <h1 class="text-center">PENERIMAAN PESERTA DIDIK BARU <span>DARING</span>
       <br>TINGKAT <span>SMP</SPAN></h1>
-      <h2 class="text-center text-bold">KABUPATEN BIREUEN TP. 2021/2022</h2>
+      <h2 class="text-center text-bold">KABUPATEN BIREUEN TP. 2022/2023</h2>
       <p align="center">
         <a href="<?=base_url()?>hal/registrasi" id="demo222" class="btn-get-started scrollto text-center">Daftar Akun Sekarang</a> 
         <a href="<?=base_url()?>hal/login" class="btn-get-started scrollto text-center">Login</a>        
@@ -130,7 +130,7 @@
         <div class="section-title">
           <h2>Pendaftaran</h2>
           <h3>Waktu <span>Pendaftaran</span></h3><br>
-          <h1 style="margin-bottom:0px;">20 Mei - 26 Juni 2021</h1>
+          <h1 style="margin-bottom:0px;">20 April - 26 Juni 2022</h1>
           <h3 id="demo" style="margin-top:0px;font-size:30px;color:#FF0064;"></h3>
         </div>
         </div>
@@ -202,19 +202,19 @@
             </thead>
             <tbody class="text-center">
               <td scope="row">1</td>
-              <td>20 Mei - 26 Juni 2021</td>
+              <td>20 April - 26 Juni 2022</td>
               <td>Pendaftaran dan Penerimaan</td>
               <td>Daring Melalui Web</td>
               </tbody>
               <tbody class="text-center">
               <td scope="row">2</td>
-              <td>3 Juli 2021</td>
+              <td>3 Juli 2022</td>
               <td>Pengumuman</td>
               <td>Akun Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
               </tbody>
               <tbody class="text-center">
                 <td scope="row">3</td>
-                <td>5 Juli 2021</td>
+                <td>5 Juli 2022</td>
                 <td>Pendaftaran Ulang</td>
                 <td>Akun Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
                 </tbody>
