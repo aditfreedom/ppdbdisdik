@@ -15,7 +15,7 @@
     <title>PPDB ONLINE BIREUEN</title>
   </head>
   <div class="limiter">
-  <body style="background-image: url(<?php echo base_url('assets/img/testimonials-bg.jpg');?>);background-size: cover;}">
+  <body style="background-image: url(<?php echo base_url('assets/img/testimonials-bg2.jpeg');?>);background-size: cover;}">
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -23,7 +23,7 @@
           <div class="card-body">
             <img src="<?=base_url()?>assets/img/favicon.png" class="mx-auto d-block" width="100px">
             <h6 class="text-center" style="margin-top:5px;"><b>PPDB DARING<br>DISDIKBUD KAB. BIREUEN<br>TA.2022/2023</b></h6><br>
-            <h5 class="text-center"><b>LOGIN ADMIN DINAS/SEKOLAH</b></h5>
+            <h5 class="text-center"><b>AREA <b class="text-danger">ADMIN DINAS/SEKOLAH</b></b></h5>
 
             <?php echo form_open('dinas/login_aksi');?>
               <div class="form-label-group">
@@ -40,7 +40,7 @@
               <input type="checkbox" onclick="myFunction()" id="show"> Tampil Password
               </div>
 
-              <button class="btn btn-lg btn-block text-uppercase text-light font-weight-bold rounded-pill" type="submit" style="background-color:#FF0064;"><b>Login</b></button>
+              <button class="btn btn-lg btn-block text-uppercase text-light font-weight-bold rounded-pill" type="submit" style="background-color:#17A589;"><b>Login</b></button>
               <br><a href="<?=base_url()?>" class="text-decoration-none font-weight-bold d-flex justify-content-center">KEMBALI KE HALAMAN UTAMA</a>
               <?php echo form_close();?>
             </div>

@@ -62,7 +62,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="<?= base_url('user/logout')?>" class="nav-link text-light" style="background-color:#FF0064;">
+            <a href="<?= base_url('user/logout')?>" class="nav-link text-light" style="background-color:#17A589;">
               <i class="nav-icon fa fa-sign-out-alt"></i>
               <p >
                 Logout

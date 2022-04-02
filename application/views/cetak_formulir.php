@@ -116,7 +116,7 @@
             <tr>
                 <td style="width: 48%;">No. Pendaftaran</td>
                 <td style="width: 10px;">:</td>
-                <td style="width: 50%;"><?=$nomor?>/PPDB/2021</td>
+                <td style="width: 50%;"></td>
             </tr>
             <tr>
                 <td style="padding-bottom: 10px;">Tgl. Pendaftaran</td>

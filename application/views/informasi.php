@@ -96,7 +96,7 @@
       <img class="mx-auto d-block" src="assets/img/favicon.png" width="100px" style="margin-bottom:10px;">
       <h1 class="text-center">PENERIMAAN PESERTA DIDIK BARU <span>DARING</span>
       <br>TINGKAT <span>SMP</SPAN></h1>
-      <h2 class="text-center text-bold">KABUPATEN BIREUEN TP. 2022/2023</h2>
+      <h2 class="text-center text-bold">KABUPATEN BIREUEN <b style="color:#17A589;">TP. 2022/2023</b></h2>
       <p align="center">
         <a href="<?=base_url()?>hal/registrasi" id="demo222" class="btn-get-started scrollto text-center">Daftar Akun Sekarang</a> 
         <a href="<?=base_url()?>hal/login" class="btn-get-started scrollto text-center">Login</a>        
@@ -234,8 +234,8 @@
           <h3>Alur <span>Pendaftaran</span></h3>
         </div>
         <img src="<?=base_url('assets/img/alur.jpeg')?>" width="1150px"><br><br>
-        <h3>Download Alur Pendaftaran Disini:</h3>
-        <a href="<?=base_url('PPDB.pdf')?>" class="btn btn-success rounded-pill">Klik Disini</a> 
+        <h3>VIDEO TATA CARA PNDAFTARAN : </h3>
+        <!-- <a href="<?=base_url('PPDB.pdf')?>" class="btn btn-success rounded-pill">Klik Disini</a>  -->
 
       </div>
     </section><!-- End Team Section -->

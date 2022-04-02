@@ -29,7 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
-    <title>Registrasi Pengguna</title>
+    <title>CARI DATA SISWA DILUAR KABUPATEN</title>
   </head>
   <body  >
   <!-- ======= Top Bar ======= -->
@@ -67,23 +67,25 @@
   
     <div class="container text-center">
     <br>
-<h3 class="text-dark" style="margin-top:10px;">REGISTRASI DATA AKUN PENGGUNA</h3>
+<h3 class="text-dark" style="margin-top:10px;">CARI DATA SISWA DILUAR KABUPATEN</h3>
 <hr>
 </div>
 <br>
     <div class="container">
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>ISI DATA UNTUK PEMBUATAN AKUN</b></a><br><br>
-    <form action="<?=base_url('hal/cariuser')?>" method="get">
-    <div class="form-group">
-        <label for=""><b>NISN/NIK</b></label>
-        <input type="text" name="nisn" class="form-control" placeholder="Isi NISN atau NIK" maxlength="16" required>
-        </div>       
+    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>ISI DATA NISN DAN NPSN UNTUK PEMBUATAN AKUN</b></a><br><br>
+    <form action="<?=base_url('hal/getdataapi')?>" method="get">
+        <div class="form-group">
+        <label for=""><b>NISN</b></label>
+        <input type="text" name="nisn" class="form-control" placeholder="NISN Siswa Sekolah Asal" maxlength="16" required>
+        </div>  
+        
+        <div class="form-group">
+        <label for=""><b>NPSN</b></label>
+        <input type="text" name="npsn" class="form-control" placeholder="NPSN Sekolah Asal" maxlength="16" required>
+        </div>
         <button type="submit" class="btn font-weight-bold btn-block text-light" style="margin-bottom:14px;background-color:#17A589;">CARI DATA</button>
         </form>
-        <p class="text-dark font-weight-bold text-center">ATAU</p>
-        <a href="<?=base_url('hal/getsiswaapi');?>" class="btn btn btn-warning btn-block text-uppercase font-weight-bold">PENDAFTARAN UNTUK SISWA DARI LUAR KABUPATEN BIREUEN</a>
-
-      </div>
+        </div>
 
 
 <br>

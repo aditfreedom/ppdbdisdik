@@ -497,7 +497,8 @@ class User extends CI_Controller
         $dataPendaftaran        = $this->M_ppdb->getData('sekolah_tujuan', ['id_pesertadidik' => $id_pesertadidik])[0];
         $dataPengguna           = $this->M_ppdb->getData('pengguna', ['id_pesertadidik' => $id_pesertadidik])[0];
         $dataKuota              = $this->M_ppdb->getData('kuota_siswa', ['id_sekolah' => $dataPendaftaran['id_sekolah']])[0];
-        $sisa_kuota           = 0;
+        $sisa_kuota             = 0;
+
 
         if ($status == '1' && $dataPengguna['status']== '0') {
             switch ($dataPendaftaran['jenis_pendaftaran']) {
@@ -533,6 +534,8 @@ class User extends CI_Controller
                 echo json_encode($response);
                 return null;
             }
+
+
             
             $this->M_ppdb->kurangikuota($dataPendaftaran['id_sekolah'], $data);
         }

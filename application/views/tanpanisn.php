@@ -69,43 +69,43 @@
   
     <div class="container text-center">
     <br>
-<h2 class="text-dark" style="margin-top:10px;">REGISTRASI AKUN PENGGUNA NON NISN</h2>
+<h2 class="text-dark" style="margin-top:10px;">REGISTRASI AKUN PENGGUNA SISWA SEKOLAH <br> DILUAR KABUPATEN BIREUEN</h2>
 <hr>
 </div>
 <br>
 
     <div class="container">
+    <?php foreach ($datajson as $data) : ?> 
     <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>DATA DIRI</b></a><br><br>
     <form action="<?=base_url('hal/tambahnonisn')?>" method="post">
     <div class="row">
     <div class="col">
     <div class="container">
+        <div class="form-group" >
+        <label for=""><b>PESERTA DIDIK ID</b></label>
+        <input type="text" name="id_pesertadidik" value="<?=$data->peserta_didik_id;?>" class="form-control" placeholder="PD ID" maxlength="14" readonly>
+        </div>  
+
+
         <div class="form-group">
         <label for=""><b>NAMA CALON PESERTA DIDIK : </b></label>
-        <input style="text-transform:uppercase" type="text" name="nama_siswa" class="form-control" maxlength="50" placeholder="Nama Lengkap" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->nama;?>" name="nama_siswa" class="form-control" maxlength="50" placeholder="Nama Lengkap" readonly>
         </div>  
 
         <div class="form-group">
-        <label for=""><b>ASAL SEKOLAH :</b></label>
-        <select id="select" class="form-control text-uppercase selectpicker mb-1" style="select, select option:checked: uppercase;" data-size="5" name="id_sekolah" data-style="btn-primary" data-live-search="true">
-        <?php foreach ($joinsekolah as $data) : ?>
-        <option value="<?php echo $data->id_sekolah;?>"><?php echo $data->nama_sekolah;?></option>
-        <?php endforeach ;?>
-        </select>
-        <p>Sekolah Anda Tidak Terdaftar?<a class="text-danger font-weight-bold" href="<?=base_url('hal/tambahsekolah')?>"> Klik Disini Untuk Menambah</a></p>
+        <label for=""><b>SEKOLAH ID :</b></label>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->sekolah_id;?>" name="id_sekolah" class="form-control" placeholder="Tempat Lahir" maxlength="50" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>TEMPAT LAHIR :</b></label>
-        <input style="text-transform:uppercase" type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->tempat_lahir;?>" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" maxlength="50" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>JENIS KELAMIN :</b></label>
-        <select class="form-control" name="jk">
-        <option value="L">Laki-Laki</option>
-        <option value="P">Perempuan</option>
-        </select>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->jenis_kelamin;?>" name="jk" class="form-control" placeholder="Tempat Lahir" maxlength="50" readonly>
+
         </div>  
         </div>    
         </div>
@@ -114,17 +114,17 @@
         <div class="container">
         <div class="form-group">
         <label for=""><b>NIK :</b></label>
-        <input type="text" name="nik" class="form-control" placeholder="NIK" maxlength="16" required>
+        <input type="text" name="nik" class="form-control" value="<?=$data->nik;?>" placeholder="NIK" maxlength="16" readonly>
         </div>  
 
         <div class="form-group">
-        <label for=""><b>NISN(ATAU LAIN YANG AKAN DIJADIKAN PASSWORD) :</b></label>
-        <input type="text" name="nisn" class="form-control"placeholder="NISN" maxlength="10" required>
+        <label for=""><b>NISN :</b></label>
+        <input type="text" name="nisn" class="form-control" value="<?=$data->nisn;?>" placeholder="NISN" maxlength="10" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>TANGGAL LAHIR :</b></label>
-        <input type="date" name="tanggal_lahir" class="form-control" required>
+        <input type="text" name="tanggal_lahir" class="form-control" value="<?=$data->tanggal_lahir;?>" placeholder="NISN" maxlength="10" readonly>
         </div>  
         </div>    
         </div>
@@ -137,17 +137,17 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>ALAMAT JALAN : </b></label>
-        <input style="text-transform:uppercase" type="text" name="alamat_jalan" class="form-control" placeholder="Nama Jalan" maxlength="190" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->alamat_jalan;?>" name="alamat_jalan" class="form-control" placeholder="Nama Jalan" maxlength="190" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>DESA KELURAHAN :</b></label>
-        <input style="text-transform:uppercase" type="text" name="desa_kelurahan" class="form-control" placeholder="Nama Desa" maxlength="200" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->desa_kelurahan;?>" name="desa_kelurahan" class="form-control" placeholder="Nama Desa" maxlength="200" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>DUSUN :</b></label>
-        <input style="text-transform:uppercase" type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun" maxlength="200" required>
+        <input style="text-transform:uppercase" value="<?=$data->nama_dusun;?>" type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun" maxlength="200" readonly>
         </div>  
         </div>    
         </div>
@@ -156,18 +156,15 @@
         <div class="container">
         <div class="form-group">
         <label for=""><b>RT :</b></label>
-        <input type="number" name="rt" class="form-control" placeholder="Rt" maxlength="5" required>
+        <input type="number" name="rt" value="<?=$data->rt;?>" class="form-control" placeholder="Rt" maxlength="5" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>RW :</b></label>
-        <input type="number" name="rw" class="form-control" placeholder="Rw" maxlength="5" required>
+        <input type="number" name="rw" value="<?=$data->rw;?>" class="form-control" placeholder="Rw" maxlength="5" readonly>
         </div>  
 
-        <div class="form-group" hidden>
-        <label for=""><b>ID PD</b></label>
-        <input type="text" name="id_pesertadidik" value="<?= hash('md5', rand(10,10000000000000000));?>-002" class="form-control" placeholder="Salah Satu Saja" maxlength="14" required>
-        </div>  
+
         </div>    
         </div>
 
@@ -179,22 +176,16 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>NAMA IBU KANDUNG : </b></label>
-        <input style="text-transform:uppercase" type="text" name="nama_ibu_kandung" class="form-control" placeholder="Nama Ibu Kandung" maxlength="190" required>
+        <input style="text-transform:uppercase" value="<?=$data->nama_ibu_kandung;?>" type="text" name="nama_ibu_kandung" class="form-control" placeholder="Nama Ibu Kandung" maxlength="190" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>PEKERJAAN IBU KANDUNG :</b></label>
-        <input style="text-transform:uppercase" type="text" name="pekerjaan_ibu_kandung" class="form-control" placeholder="Pekerjaan Ibu Kandung" maxlength="50" required>
+        <input style="text-transform:uppercase" value="<?=$data->pekerjaan_ibu_kandung;?>" type="text" name="pekerjaan_ibu_kandung" class="form-control" placeholder="Pekerjaan Ibu Kandung" maxlength="50" readonly>
         </div>  
         <div class="form-group">
         <label for=""><b>PENGHASILAN IBU KANDUNG :</b></label>
-        <select class="form-control" name="penghasilan_ibu_kandung">
-        <option value="Tidak Berpenghasilan">Tidak Berpenghasilan</option>
-        <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
-        <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
-        <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>     
-        <option value="Rp. 2,000,000 - Rp. 4,999,999">Rp. 2,000,000 - Rp. 4,999,999</option>     
-        </select>        
+        <input style="text-transform:uppercase" value="<?=$data->penghasilan_ibu_kandung;?>" type="text" name="penghasilan_ibu_kandung" class="form-control" placeholder="Pekerjaan Ibu Kandung" maxlength="50" readonly>
         </div>  
         </div>    
         </div>
@@ -203,22 +194,16 @@
         <div class="container">
         <div class="form-group">
         <label for=""><b>NAMA AYAH : </b></label>
-        <input style="text-transform:uppercase" type="text" name="nama_ayah" class="form-control" placeholder="Nama Ayah" maxlength="190" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->nama_ayah;?>" name="nama_ayah" class="form-control" placeholder="Nama Ayah" maxlength="190" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>PEKERJAAN AYAH :</b></label>
-        <input style="text-transform:uppercase" type="text" name="pekerjaan_ayah" class="form-control" placeholder="Pekerjaan Ayah" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->pekerjaan_ayah;?>" name="pekerjaan_ayah" class="form-control" placeholder="Pekerjaan Ayah" maxlength="50" readonly>
         </div>  
         <div class="form-group">
         <label for=""><b>PENGHASILAN AYAH :</b></label>
-        <select class="form-control" name="penghasilan_ayah">
-        <option value="Tidak Berpenghasilan">Tidak Berpenghasilan</option>
-        <option value="Kurang dari Rp. 500,000">Kurang dari Rp. 500,000</option>
-        <option value="Rp. 500,000 - Rp. 999,999">Rp. 500,000 - Rp. 999,999</option>
-        <option value="Rp. 1,000,000 - Rp. 1,999,999">Rp. 1,000,000 - Rp. 1,999,999</option>     
-        <option value="Rp. 2,000,000 - Rp. 4,999,999">Rp. 2,000,000 - Rp. 4,999,999</option>     
-        </select>        
+        <input style="text-transform:uppercase" value="<?=$data->penghasilan_ayah;?>" type="text" name="penghasilan_ayah" class="form-control" placeholder="Penghasilan Ayah" maxlength="50" readonly>  
         </div>  
         </div>    
         </div>
@@ -231,22 +216,17 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>NAMA WALI : </b></label>
-        <input style="text-transform:uppercase" type="text" name="nama_wali" placeholder="Nama Wali" class="form-control" maxlength="190" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->nama_wali;?>" name="nama_wali" placeholder="Nama Wali" class="form-control" maxlength="190" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>PEKERJAAN WALI :</b></label>
-        <input style="text-transform:uppercase" type="text" name="pekerjaan_wali" placeholder="Pekerjaan Wali" class="form-control" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->pekerjaan_wali;?>" name="pekerjaan_wali" placeholder="Pekerjaan Wali" class="form-control" maxlength="50" readonly>
         </div>  
         <div class="form-group">
         <label for=""><b>PENGHASILAN WALI :</b></label>
-        <select class="form-control" name="penghasilan_wali">
-        <option value="">Tidak Berpenghasilan</option>
-        <option value="">Kurang dari Rp. 500,000</option>
-        <option value="">Rp. 500,000 - Rp. 999,999</option>
-        <option value="">Rp. 1,000,000 - Rp. 1,999,999</option>     
-        <option value="">Rp. 2,000,000 - Rp. 4,999,999</option>     
-        </select>        
+        <input style="text-transform:uppercase" value="<?=$data->penghasilan_wali;?>" type="text" name="penghasilan_wali" class="form-control" placeholder="Penghasilan Wali" maxlength="50" readonly>  
+
         </div>  
         </div>    
         </div>
@@ -259,15 +239,18 @@
     <div class="container">
         <div class="form-group">
         <label for=""><b>NO KIP : </b></label>
-        <input style="text-transform:uppercase" type="text" name="no_kip" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->no_kip;?>" name="no_kip" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50" readonly>
         </div>  
 
         <div class="form-group">
         <label for=""><b>NO PKH :</b></label>
-        <input style="text-transform:uppercase" type="text" name="no_pkh" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50" required>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->no_pkh;?>" name="no_pkh" class="form-control" placeholder="Beri Angka 0 Bila Tidak Ada" maxlength="50" readonly>
         </div>  
+
        
         <button type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">BUAT AKUN</button><br><br>
+        <?php endforeach ;?>
+
         </form>
 
     </div>

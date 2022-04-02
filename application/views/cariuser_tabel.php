@@ -29,7 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
-    <title>Registrasi Pengguna</title>
+    <title>Progres Data</title>
   </head>
   <body  >
   <!-- ======= Top Bar ======= -->
@@ -52,38 +52,53 @@
   <header id="header" >
     <div class="container d-flex align-items-center">
 
-      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="40px"><h2 class="logo mr-auto"><a href="<?=base_url();?>">&nbsp;DISDIKBUD<br>&nbsp;KAB. BIREUEN<span></span></a></h2></img>
+      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="40px"><h2 class="logo mr-auto"><a href="<?=base_url()?>">&nbsp;DISDIKBUD<br>&nbsp;KAB. BIREUEN<span></span></a></h2></img>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li><a href="<?=base_url()?>hal/login">LOGIN</a></li>
-        </ul>
+        
       </nav><!-- .nav-menu -->
 
     </div>
   </header><!-- End Header -->
   
-    <div class="container text-center">
-    <br>
-<h3 class="text-dark" style="margin-top:10px;">REGISTRASI DATA AKUN PENGGUNA</h3>
-<hr>
-</div>
-<br>
-    <div class="container">
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>ISI DATA UNTUK PEMBUATAN AKUN</b></a><br><br>
-    <form action="<?=base_url('hal/cariuser')?>" method="get">
-    <div class="form-group">
-        <label for=""><b>NISN/NIK</b></label>
-        <input type="text" name="nisn" class="form-control" placeholder="Isi NISN atau NIK" maxlength="16" required>
-        </div>       
-        <button type="submit" class="btn font-weight-bold btn-block text-light" style="margin-bottom:14px;background-color:#17A589;">CARI DATA</button>
-        </form>
-        <p class="text-dark font-weight-bold text-center">ATAU</p>
-        <a href="<?=base_url('hal/getsiswaapi');?>" class="btn btn btn-warning btn-block text-uppercase font-weight-bold">PENDAFTARAN UNTUK SISWA DARI LUAR KABUPATEN BIREUEN</a>
-
+  
+      <div class="container text-center">
+          <br>
+          <h3>DATA SISWA DITEMUKAN</h3>
+          <br>
       </div>
+    <div class="container">
+    <table class="table table-hover" id="example">
+          <thead class="text-center">
+            <tr>
+              <th scope="col" style="width:10%;">NO</th>
+              <th scope="col">NAMA</th>
+              <th scope="col">NISN</th>
+              <th scope="col">NIK</th>
+              <th scope="col">ASAL SEKOLAH</th>
+              <th scope="col">AKSI</th>
+            </tr>
+          </thead>
+
+
+          <tbody>
+            <?php $i = 1;
+            foreach ($cariuser as $data) :
+            ?>
+              <tr class="nomor text-center">
+                <td scope="row"><?php echo $i; ?></td>
+                <td><?=$data->nama_siswa;?></td>
+                <td><?=$data->nisn;?></td>
+                <td><?=$data->nik;?></td>
+                <td><?=$data->nama_sekolah;?></td>
+                <td><a href="<?=base_url('hal/cariuser_final?nisn='.$data->nisn)?>" class="btn btn-success font-weight-bold">BUAT AKUN</a></td>
+              </tr>
+              <?php $i++; ?>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
 
 
 <br>

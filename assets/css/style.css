@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: #FF0064;
+  background-color: #17A589;
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -256,7 +256,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #FF0064;
+  color: #17A589;
 }
 
 .nav-menu .drop-down ul {
@@ -485,7 +485,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero h1 span {
-  color: #FF0064;
+  color: #17A589;
 }
 
 #hero h2 {
@@ -505,7 +505,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 30px;
   transition: 0.5s;
   color: #fff;
-  background: #FF0064;
+  background: #17A589;
 }
 
 #hero .btn-get-started:hover {
@@ -579,7 +579,7 @@ section {
 }
 
 .section-bg {
-  background-color: #DDF0FF;
+  
 }
 
 .section-title {
@@ -607,7 +607,7 @@ section {
 }
 
 .section-title h3 span {
-  color: #FF0064;
+  color: #17A589;
 }
 
 .section-title p {
