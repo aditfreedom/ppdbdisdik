@@ -233,42 +233,74 @@ class Hal extends CI_Controller {
 
 
     public function cariuser(){
-		$nisn       = $this->input->get('nisn');
-        $data['cariuser'] = $this->M_ppdb->tampilsiswa($nisn,'datasiswa')->result();
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
 
-        if ($data['cariuser']==null) {
-            $this->load->view('data_tidak_ditemukan');    
-        }else {
-            $this->load->view('cariuser_tabel',$data);
-        }
-
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+			$nisn       = $this->input->get('nisn');
+			$data['cariuser'] = $this->M_ppdb->tampilsiswa($nisn,'datasiswa')->result();
+	
+			if ($data['cariuser']==null) {
+				$this->load->view('data_tidak_ditemukan');    
+			}else {
+				$this->load->view('cariuser_tabel',$data);
+			}
+		}
 	}
 
 	public function cariuser_final(){
-		$nisn       = $this->input->get('nisn');
-        $data['cariuser'] = $this->M_ppdb->tampilsiswa($nisn,'datasiswa')->result();
 
-        if ($data['cariuser']==null) {
-            $this->load->view('data_tidak_ditemukan');    
-        }else {
-            $this->load->view('cariuser',$data);
-        }
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
 
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+		
+			$nisn       = $this->input->get('nisn');
+			$data['cariuser'] = $this->M_ppdb->tampilsiswa($nisn,'datasiswa')->result();
+	
+			if ($data['cariuser']==null) {
+				$this->load->view('data_tidak_ditemukan');    
+			}else {
+				$this->load->view('cariuser',$data);
+			}
+	
+		}
 	}
 
+		
+
 	public function getdataapi(){
-		$nisn       = $this->input->get('nisn');
-		$npsn       = $this->input->get('npsn');
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
 
-		$source = "https://pelayanan.data.kemdikbud.go.id/vci/index.php/CPelayananData/getSiswa?kode_wilayah=061200&token=DA7739A2-2CA0-4080-8C29-BE809824A3DC&nisn={$nisn}&npsn={$npsn}";
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+		
+			$nisn       = $this->input->get('nisn');
+			$npsn       = $this->input->get('npsn');
+	
+			$source = "https://pelayanan.data.kemdikbud.go.id/vci/index.php/CPelayananData/getSiswa?kode_wilayah=061200&token=DA7739A2-2CA0-4080-8C29-BE809824A3DC&nisn={$nisn}&npsn={$npsn}";
+	
+			$data = file_get_contents($source);
+			$datajson = json_decode($data);
+	
+			$dataarray['datajson']=$datajson;
+	
+			// var_dump($dataarray);
+			$this->load->view('tanpanisn',$dataarray);
+	
+		
+	}
 
-		$data = file_get_contents($source);
-		$datajson = json_decode($data);
 
-		$dataarray['datajson']=$datajson;
-
-		// var_dump($dataarray);
-		$this->load->view('tanpanisn',$dataarray);
 
 
 		
@@ -284,19 +316,26 @@ class Hal extends CI_Controller {
 	}
 
 	public function getdataapi_sekolah(){
-		$nisn       = $this->input->get('nisn');
-		$npsn       = $this->input->get('npsn');
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
 
-		$source = "https://pelayanan.data.kemdikbud.go.id/vci/index.php/CPelayananData/getSiswa?kode_wilayah=061200&token=DA7739A2-2CA0-4080-8C29-BE809824A3DC&nisn={$nisn}&npsn={$npsn}";
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+				$nisn       = $this->input->get('nisn');
+				$npsn       = $this->input->get('npsn');
 
-		$data = file_get_contents($source);
-		$datajson = json_decode($data);
+				$source = "https://pelayanan.data.kemdikbud.go.id/vci/index.php/CPelayananData/getSiswa?kode_wilayah=061200&token=DA7739A2-2CA0-4080-8C29-BE809824A3DC&nisn={$nisn}&npsn={$npsn}";
 
-		$dataarray['datajson']=$datajson;
+				$data = file_get_contents($source);
+				$datajson = json_decode($data);
 
-		// var_dump($dataarray);
-		$this->load->view('inputsekolahapi',$dataarray);
+				$dataarray['datajson']=$datajson;
 
+				// var_dump($dataarray);
+				$this->load->view('inputsekolahapi',$dataarray);
+		}
 
 		
 		
