@@ -18,7 +18,8 @@ class Dinas extends CI_Controller {
 			redirect(base_url('home'));
 		}
 		if ($role=="1"){
-			redirect(base_url('admin'));
+		
+				redirect(base_url('admin'));
 		}
     }
 
@@ -71,8 +72,15 @@ class Dinas extends CI_Controller {
                  }
 
                  else if ($sess_data["role"] == "1"){
-                    $this->session->set_userdata($sess_data); 
-                    redirect(base_url('admin')); 
+					$data2 = $this->M_ppdb->cek_maintenance()->result();
+					$status = $data2[0]->status;
+					if ($status==1) {
+					 $this->load->view('maintenance_page');
+					 $this->session->sess_destroy();
+					}else{
+						$this->session->set_userdata($sess_data); 
+						redirect(base_url('admin')); 		
+					}                  
                  }
                  else{
                     $this->load->view('gagallogin');

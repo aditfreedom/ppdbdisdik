@@ -6,14 +6,12 @@ class Informasi extends CI_Controller {
     public function index()
 	{
 		$data['kuota'] = $this->M_ppdb->tampil_data_kuota();
-		$maintenance = $this->M_ppdb->cek_maintenance();
-		
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
 
-		print_r($maintenance);
-
-		if ($status == 1) {
-			$this->session->sess_destroy();
-			$this->load->view('maintenance_page');
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
 		}else{
 			$this->load->view('informasi',$data);
 		}

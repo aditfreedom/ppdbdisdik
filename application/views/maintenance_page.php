@@ -11,7 +11,7 @@
     <title>MAINTENANCE</title>
   </head>
   <body>
-      <img src="<?=base_url('assets/img/kopi.gif')?>" alt="" class="mx-auto d-block" width="400px">
+    <img src="<?=base_url('assets/img/kopi.gif')?>" alt="" class="mx-auto d-block" width="400px">
     <h1 class="text-center">SERVER SEDANG MAINTENANCE</h1>
     <h1 class="text-center">HARAP MENCOBA DI LAIN WAKTU</h1>
 

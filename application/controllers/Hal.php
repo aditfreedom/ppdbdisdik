@@ -20,7 +20,16 @@ class Hal extends CI_Controller {
     public function login()
 	{
 		$this->load->model('M_ppdb');
-		$this->load->view('login');	
+
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
+
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+			$this->load->view('login');	
+		}
 	}
 
 
@@ -79,12 +88,28 @@ class Hal extends CI_Controller {
 
      public function registrasi()
 	{
-		$this->load->view('registrasi');
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
+
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+			$this->load->view('registrasi');
+		}
 	}
 
 	public function getsiswaapi()
 	{
-		$this->load->view('getsiswaapi');
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
+
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+			$this->load->view('getsiswaapi');
+		}
 	}
 
     public function tambahuser(){
@@ -286,20 +311,46 @@ class Hal extends CI_Controller {
 	}
 
 	public function addsekolahapi(){
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
+
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
             $this->load->view('addsekolahapi');
+		}
 
 	}
 
 
     public function tanpanisn(){
         $data['joinsekolah'] = $this->M_ppdb->joinsekolah()->result();
-        $this->load->view('tanpanisn',$data);
+
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
+
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+			$this->load->view('tanpanisn',$data);
+		}
+
 
 	}
 
 	
     public function tambahsekolah(){
-		$this->load->view('tambahsekolah');
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
+
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+			$this->load->view('tambahsekolah');
+		}
 		
 
 	}
@@ -330,10 +381,20 @@ class Hal extends CI_Controller {
 	public function progress_data()
 	{
 
+
 		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
 		$data['kecamatan'] = $this->M_ppdb->tampilkuotawilayah();
 
-		$this->load->view('progress_hal',$data);
+		$data2 = $this->M_ppdb->cek_maintenance()->result();
+
+		$status = $data2[0]->status;
+		if ($status==1) {
+		 $this->load->view('maintenance_page');
+		 $this->session->sess_destroy();
+		}else{
+			$this->load->view('progress_hal',$data);
+		}
+
 	}
 
 
