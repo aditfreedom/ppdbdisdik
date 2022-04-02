@@ -16,7 +16,7 @@ function jsFunction(){
         'Sekolah Sudah Terdaftar',
         'success'
 ).then(function() {
-    window.location = "./tambahsekolah";
+    window.location = "./addsekolahapi";
 });
 }
 </script>

@@ -258,6 +258,38 @@ class Hal extends CI_Controller {
 
 	}
 
+	public function getdataapi_sekolah(){
+		$nisn       = $this->input->get('nisn');
+		$npsn       = $this->input->get('npsn');
+
+		$source = "https://pelayanan.data.kemdikbud.go.id/vci/index.php/CPelayananData/getSiswa?kode_wilayah=061200&token=DA7739A2-2CA0-4080-8C29-BE809824A3DC&nisn={$nisn}&npsn={$npsn}";
+
+		$data = file_get_contents($source);
+		$datajson = json_decode($data);
+
+		$dataarray['datajson']=$datajson;
+
+		// var_dump($dataarray);
+		$this->load->view('inputsekolahapi',$dataarray);
+
+
+		
+		
+
+        // $data['cariuser'] = $this->M_ppdb->tampilsiswa($nisn,'datasiswa')->result();
+        // if ($data['cariuser']==null) {
+        //     $this->load->view('data_tidak_ditemukan');    
+        // }else {
+        //     $this->load->view('cariuser',$data);
+        // }
+
+	}
+
+	public function addsekolahapi(){
+            $this->load->view('addsekolahapi');
+
+	}
+
 
     public function tanpanisn(){
         $data['joinsekolah'] = $this->M_ppdb->joinsekolah()->result();
@@ -276,29 +308,12 @@ class Hal extends CI_Controller {
 		$id_sekolah        		= $this->input->post('id_sekolah');
 		$npsn		            = $this->input->post('npsn');
 		$nama_sekolah           = $this->input->post('nama_sekolah');
-        $kode_wilayah           = $this->input->post('kode_wilayah');
-		$bentuk_pendidikan      = $this->input->post('bentuk_pendidikan');
-		$status_sekolah         = $this->input->post('status_sekolah');
-		$alamat_jalan           = $this->input->post('alamat_jalan');
-		$desa_kelurahan         = $this->input->post('desa_kelurahan');
-		$rt                     = "0";
-		$rw                     = "0";
-		$lintang                = "0";
-		$bujur                  = "0";
+       
 		
         $data = array(
 			'id_sekolah' => $id_sekolah,
             'npsn' => $npsn,
-			'nama_sekolah' => $nama_sekolah,
-			'kode_wilayah' => $kode_wilayah,
-			'bentuk_pendidikan' => $bentuk_pendidikan,
-			'status_sekolah' => $status_sekolah,
-			'alamat_jalan' => $alamat_jalan,
-			'desa_kelurahan' => $desa_kelurahan,
-			'rt' => $rt,
-			'rw' => $rw,
-			'lintang' => $lintang,
-			'bujur' => $bujur
+			'nama_sekolah' => $nama_sekolah
 		);
 
 		$hitungnpsn= $this->M_ppdb->tampilsekolahnpsn($npsn);

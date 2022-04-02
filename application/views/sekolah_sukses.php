@@ -16,7 +16,7 @@ function jsFunction(){
         'Silahkan daftar tanpa NISN kembali',
         'success'
 ).then(function() {
-    window.location = "./tanpanisn";
+    window.location = "./registrasi";
 });
 }
 </script>

@@ -29,7 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
-    <title>CARI DATA SISWA DILUAR KABUPATEN</title>
+    <title>CARI DATA BY SISWA</title>
   </head>
   <body  >
   <!-- ======= Top Bar ======= -->
@@ -67,13 +67,13 @@
   
     <div class="container text-center">
     <br>
-<h3 class="text-dark" style="margin-top:10px;">CARI DATA SISWA DILUAR KABUPATEN</h3>
+<h3 class="text-dark" style="margin-top:10px;">CARI DATA BY NISN DAN NPSN</h3>
 <hr>
 </div>
 <br>
     <div class="container">
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>ISI DATA NISN DAN NPSN UNTUK PEMBUATAN AKUN</b></a><br><br>
-    <form action="<?=base_url('hal/getdataapi')?>" method="get">
+    <a href="#" class="btn btn-danger text-left" style="width:100%"><b>PERHATIAN :</b><br>Form ini digunakan hanya untuk menambahkan sekolah asal siswa diluar kabupaten Bireuen <br>Apabila sudah di input sekali, maka sekolah yang sama tidak perlu ditambahkan lagi<br>Data diisi dengan menggunakan NPSN dan NISN siswa dari sekolah asal</a><br><br>
+    <form action="<?=base_url('hal/getdataapi_sekolah')?>" method="get">
         <div class="form-group">
         <label for=""><b>NISN</b></label>
         <input type="text" name="nisn" class="form-control" placeholder="NISN Siswa Sekolah Asal" maxlength="16" required>
@@ -82,11 +82,9 @@
         <div class="form-group">
         <label for=""><b>NPSN</b></label>
         <input type="text" name="npsn" class="form-control" placeholder="NPSN Sekolah Asal" maxlength="16" required>
-        <label for="">Cari NPSN <a href="https://referensi.data.kemdikbud.go.id/index11.php" target="_blank" class="font-weight-bold">Disini</a></label>
+        <label for="">Cari NPSN <a href="https://referensi.data.kemdikbud.go.id/index11.php" target="_blank " class="font-weight-bold">Disini</a></label>
         </div>
         <button type="submit" class="btn font-weight-bold btn-block text-light" style="margin-bottom:14px;background-color:#17A589;">CARI DATA</button>
-        <p class="text-dark font-weight-bold text-center">ATAU</p>
-        <a href="<?=base_url('hal/addsekolahapi');?>" class="btn btn btn-warning btn-block text-uppercase font-weight-bold">TAMBAH SEKOLAH UNTUK LUAR KABUPATEN</a>
 
         </form>
         </div>

@@ -43,6 +43,9 @@ class Home extends CI_Controller
 		$data['pendaftarpindahan'] = $this->M_ppdb->tampilpendaftarpindahan()->num_rows();
 		$data['pendaftarprestasi'] = $this->M_ppdb->tampilpendaftarprestasi()->num_rows();
 		$data['pendaftarumum'] = $this->M_ppdb->tampilpendaftarumum()->num_rows();
+
+		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
+		$data['kecamatan'] = $this->M_ppdb->tampilkuotawilayah();
 		
 
 		$this->load->view('template/header');
@@ -325,6 +328,21 @@ class Home extends CI_Controller
 		}
 	}
 
+	public function maintenance()
+	{
+		$this->load->model('M_ppdb');
+		$sess_data = $this->session->userdata();
+		$data['tampilsetting'] = $this->M_ppdb->tampilsetting()->result();
+
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('maintenance',$data);
+		$this->load->view('template/footer');
+	}
+
+	
+
 	public function hapuskuota($id)
 	{
 		$id =    array('id_kuota' => $id);
@@ -339,30 +357,15 @@ class Home extends CI_Controller
 		redirect(base_url('home/data_sekolah'));
 	}
 
-	public function editkuota($id)
+	public function editsetting($id)
 	{
-		$post = $this->input->post(NULL, TRUE);
-		$id_sekolah  = $post['id_sekolah'];
-		$total       = $post['total'];
-		$zonasi      = $post['zonasi'];
-		$afirmasi    = $post['afirmasi'];
-		$pindahan    = $post['pindahan'];
-		$prestasi    = $post['prestasi'];
-		$umum		 = $post['umum'];
+		$sess_data = $this->session->userdata();
+		$data['data_setting'] = $this->M_ppdb->cari_setting($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('edit_setting', $data);
+		$this->load->view('template/footer');
 
-		$data = array(
-			'id_sekolah' => $id_sekolah,
-			'total' => $total,
-			'sisa_zonasi' => $zonasi,
-			'sisa_afirmasi' => $afirmasi,
-			'sisa_pindahan' => $pindahan,
-			'sisa_prestasi' => $prestasi,
-			'sisa_umum' => $umum,
-		);
-		$where['id_kuota']	= $id;
-
-		$this->M_ppdb->updatekuota($where, $data);
-		redirect(base_url('home/kuota'));
 	}
 
 	public function edit_sekolah($id)
@@ -398,6 +401,26 @@ class Home extends CI_Controller
 		$this->M_ppdb->updatekuota($where, $data, 'kuota');
 		$this->load->view('berhasil_ubah');
 		$this->load->view('kuota');
+	}
+	
+	public function updatesetting()
+	{
+		$id_setting       	= $this->input->post('id_setting');
+		$tipe_setting       = $this->input->post('tipe_setting');
+		$status       		= $this->input->post('status');
+
+
+		$data = array(
+			'tipe_setting' => $tipe_setting,
+			'status' => $status
+		);
+
+		$where = array(
+			'id_setting' => $id_setting
+		);
+
+		$this->M_ppdb->updatesetting($where, $data, 'setting');
+		redirect('home/maintenance');
 	}
 
 	public function approve_formulir()

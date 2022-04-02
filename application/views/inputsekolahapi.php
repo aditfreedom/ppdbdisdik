@@ -10,12 +10,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-<!-- Favicons -->
-<link href="<?=base_url()?>assets/img/favicon.png" rel="icon">
-  <link href="<?=base_url()?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="<?=base_url()?>assets/img/favicon.png" rel="icon">
+    <link href="<?=base_url()?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
 
   <!-- Vendor CSS Files -->
   <link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +32,7 @@
 
   <!-- Template Main CSS File -->
   <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
-    <title>CARI DATA SISWA DILUAR KABUPATEN</title>
+    <title>Registrasi Sekolah</title>
   </head>
   <body  >
   <!-- ======= Top Bar ======= -->
@@ -49,16 +52,15 @@
   </div>
 
   <!-- ======= Header ======= -->
-  <header id="header" >
+  <header id="header">
     <div class="container d-flex align-items-center">
 
-      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="40px"><h2 class="logo mr-auto"><a href="<?=base_url();?>">&nbsp;DISDIKBUD<br>&nbsp;KAB. BIREUEN<span></span></a></h2></img>
+      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="40px"><h2 class="logo mr-auto"><a href="#">&nbsp;DISDIKBUD<br>&nbsp;KAB. BIREUEN<span></span></a></h2></img>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="<?=base_url()?>hal/login">LOGIN</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -67,32 +69,41 @@
   
     <div class="container text-center">
     <br>
-<h3 class="text-dark" style="margin-top:10px;">CARI DATA SISWA DILUAR KABUPATEN</h3>
+<h2 class="text-dark" style="margin-top:10px;">INPUT DATA SEKOLAH <br> DILUAR KABUPATEN BIREUEN</h2>
 <hr>
 </div>
 <br>
+
     <div class="container">
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>ISI DATA NISN DAN NPSN UNTUK PEMBUATAN AKUN</b></a><br><br>
-    <form action="<?=base_url('hal/getdataapi')?>" method="get">
+    <?php foreach ($datajson as $data) : ?> 
+    <form action="<?=base_url('hal/insertsekolah')?>" method="post">
+    <div class="container">
         <div class="form-group">
-        <label for=""><b>NISN</b></label>
-        <input type="text" name="nisn" class="form-control" placeholder="NISN Siswa Sekolah Asal" maxlength="16" required>
+        <label for=""><b>SEKOLAH ID :</b></label>
+        <input style="text-transform:uppercase" type="text" value="<?=$data->sekolah_id;?>" name="id_sekolah" class="form-control" placeholder="Tempat Lahir" maxlength="50" readonly required>
         </div>  
-        
+
         <div class="form-group">
-        <label for=""><b>NPSN</b></label>
-        <input type="text" name="npsn" class="form-control" placeholder="NPSN Sekolah Asal" maxlength="16" required>
-        <label for="">Cari NPSN <a href="https://referensi.data.kemdikbud.go.id/index11.php" target="_blank" class="font-weight-bold">Disini</a></label>
+        <label for=""><b> NPSN :</b></label>
+        <input style="text-transform:uppercase" type="text" value="<?=$this->input->get('npsn');?>" name="npsn" class="form-control" placeholder="NPSN SEKOLAH ASAL" maxlength="50" readonly required>
+        </div>  
+
+        <div class="form-group">
+        <label for=""><b>NAMA SEKOLAH ASAL (Menggunakan Huruf Kapital) :</b></label>
+        <input  type="text" name="nama_sekolah" class="form-control" placeholder="NAMA SEKOLAH ASAL" maxlength="50" required>
+
+        </div>  
+        <button type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;">TAMBAH SEKOLAH</button><br><br>
+
+        </div>    
+
         </div>
-        <button type="submit" class="btn font-weight-bold btn-block text-light" style="margin-bottom:14px;background-color:#17A589;">CARI DATA</button>
-        <p class="text-dark font-weight-bold text-center">ATAU</p>
-        <a href="<?=base_url('hal/addsekolahapi');?>" class="btn btn btn-warning btn-block text-uppercase font-weight-bold">TAMBAH SEKOLAH UNTUK LUAR KABUPATEN</a>
+    
+         
+        <?php endforeach ;?>
 
         </form>
-        </div>
 
-
-<br>
     </div>
 
 
@@ -111,4 +122,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
   </body>
+  <script>
+   [].slice.call( document.querySelectorAll('select') ).forEach(ucfirst);
+
+document.getElementById('title').addEventListener('change', fn, false);
+document.getElementById('day').addEventListener('change', fn, false);
+
+function ucfirst(el) {
+    el.innerHTML = el.innerHTML.charAt(0).toUpperCase() + el.innerHTML.slice(1).toUpperCase();
+}
+
+function fn() {
+    var options  = this.getElementsByTagName('select');
+    var selected = options[this.selectedIndex];
+
+    [].slice.call(options).forEach(ucfirst);
+    selected.value = selected.innerHTML = selected.innerHTML.toUpperCase();
+}
+  </script>
 </html>

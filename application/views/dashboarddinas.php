@@ -21,110 +21,6 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-        <div class="col-lg-3 col-3">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php  
-              $data3=0;
-	             foreach ($zonasi as $data) : ?>
-               <?php $data2 = $data->sisa_zonasi;
-                      $data3+= $data2 ;
-               ?>
-               <?php endforeach ;?>
-                <h3>3711</h3>
-                <p>Zonasi</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user-graduate"></i>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
-
-        <div class="col-lg-3 col-3">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php  
-              $data3=0;
-	             foreach ($afirmasi as $data) : ?>
-               <?php $data2 = $data->sisa_afirmasi;
-                      $data3+= $data2 ;
-               ?>
-               <?php endforeach ;?>
-                <h3>965</h3>
-                <p>Afirmasi</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user-graduate"></i>
-              </div>
-            </div>
-          </div>
-          <!-- ./col -->
-        <div class="col-lg-3 col-3">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php  
-              $data3=0;
-	             foreach ($pindahan as $data) : ?>
-               <?php $data2 = $data->sisa_pindahan;
-                      $data3+= $data2 ;
-               ?>
-               <?php endforeach ;?>
-                <h3>290</h3>
-
-
-                <p>Pindahan Orang Tua</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user-graduate"></i>
-              </div>
-            </div>
-          </div>
-
-                    <!-- ./col -->
-        <div class="col-lg-3 col-3">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php  
-              $data3=0;
-	             foreach ($prestasi as $data) : ?>
-               <?php $data2 = $data->sisa_prestasi;
-                      $data3+= $data2 ;
-               ?>
-               <?php endforeach ;?>
-                <h3>1539</h3>
-                <p>Prestasi</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user-graduate"></i>
-              </div>
-            </div>
-          </div>
-
-                       <!-- ./col -->
-        <div class="col-lg-3 col-3">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-              <?php  
-              $data3=0;
-	             foreach ($umum as $data) : ?>
-               <?php $data2 = $data->sisa_umum;
-                      $data3+= $data2 ;
-               ?>
-               <?php endforeach ;?>
-                <h3>3441</h3>
-                <p>Umum</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user-graduate"></i>
-              </div>
-            </div>
-          </div>
 
           <div class="col-lg-3 col-3">
             <!-- small box -->
@@ -202,6 +98,7 @@
           </div>
 
           
+          
 
 
         </div>
@@ -209,7 +106,39 @@
           <!-- ./col -->
         </div>
         
-        
+        <hr>
+        <h1 class="text-bold">REKAPITULASI PROGRESS DATA</h1>
+        <table class="table table-hover" id="example">
+          <thead class="text-center">
+            <tr>
+              <th scope="col" style="width:10%;">NO</th>
+              <th scope="col">KECAMATAN</th>
+              <th scope="col">ZONASI</th>
+              <th scope="col">AFIRMASI</th>
+              <th scope="col">PINDAHAN ORANG TUA</th>
+              <th scope="col">PRESTASI</th>
+              <th scope="col">UMUM</th>
+            </tr>
+          </thead>
+
+
+          <tbody>
+            <?php $i = 1;
+            foreach ($kecamatan as $data) :
+            ?>
+              <tr class="nomor text-center">
+                <td scope="row"><?php echo $i; ?></td>
+                <td><a href="<?php echo base_url('home/tampil_sekolah_wilayah/') . $data['kode_wilayah']; ?>"><?= $data['nama_wilayah']; ?></a></td>
+                <td><?=$data['zonasi'];?></td>
+                <td><?=$data['afirmasi'];?></td>
+                <td><?=$data['pindahan'];?></td>
+                <td><?=$data['prestasi'];?></td>
+                <td><?=$data['umum'];?></td>
+              </tr>
+              <?php $i++; ?>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
     </section>
     
     </div>

@@ -22,7 +22,7 @@
         <br>
 
         <table class="table table-hover" id="example">
-          <thead class="text-left">
+          <thead class="text-center">
             <tr>
               <th scope="col" style="width:10%;">NO</th>
               <th scope="col">KECAMATAN</th>

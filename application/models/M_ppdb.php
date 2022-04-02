@@ -33,6 +33,12 @@ class M_ppdb extends CI_Model
                                 LEFT JOIN kuota_siswa ON data_smp.id_sekolah = kuota_siswa.id_sekolah ORDER BY data_smp.id_sekolah ASC");
     }
 
+    public function tampilsetting()
+    {
+        return $this->db->query("SELECT * FROM setting ");
+    }
+
+
     public function jumlah_approve()
     {
         return $this->db->query("select * from pengguna 
@@ -104,6 +110,12 @@ class M_ppdb extends CI_Model
         LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id='$id' ");
     }
 
+    public function cek_maintenance()
+    {
+        return $this->db->query("SELECT * FROM setting
+        WHERE tipe_setting='Maintenance'");
+    }
+
     public function tampil_data_sekolahtujuan($id_pesertadidik)
     {
         $result = $this->db->query("SELECT * FROM sekolah_tujuan WHERE id_pesertadidik='$id_pesertadidik'");
@@ -163,7 +175,9 @@ class M_ppdb extends CI_Model
         return $this->db->query("SELECT * FROM upload_berkas WHERE id_pesertadidik='$id_pesertadidik'");
     }
 
-
+    public function cari_setting($id){
+        return $this->db->query("SELECT * FROM setting WHERE id_setting='$id'");
+    }
 
     public function tampildatasiswa($username, $password)
     {
@@ -186,6 +200,8 @@ class M_ppdb extends CI_Model
     {
         $this->db->insert('data_sd', $data);
     }
+
+   
 
     public function tambahketerangan($data)
     {
@@ -233,6 +249,14 @@ class M_ppdb extends CI_Model
         $this->db->where($where);
         $this->db->set($data);
         $this->db->update('kuota_siswa');
+    }
+
+    
+    public function updatesetting($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update('setting');
     }
 
     public function update_sekolah($where, $data)
