@@ -87,7 +87,7 @@
             </a>
           </li>
 
-          <li hidden class="nav-item ">
+          <li  class="nav-item ">
             <a href="<?=base_url('admin/ganti_password/'.$id_pesertadidik);?>" class="nav-link">
               <i class="nav-icon fa fa-key"></i>
               <p>

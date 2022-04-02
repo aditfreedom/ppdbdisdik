@@ -491,6 +491,21 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
         return $query;
     }
 
+    public function tampilkuotamanual()
+    {
+        $query = $this->db->query("SELECT * FROM kuota_siswa
+        LEFT JOIN jenis_pendaftaran ON kuota_siswa.id_kuota = jenis_pendaftaran.id_jenis
+        LEFT JOIN data_smp ON kuota_siswa.id_sekolah = data_smp.id_sekolah");
+        return $query;
+    }
+
+    public function cari_id_kuota($id)
+    {
+        $query = $this->db->query("SELECT * FROM kuota_siswa
+        WHERE id_kuota='$id'");
+        return $query;
+    }
+
 
 
     public function tampilzonasi($id)
@@ -811,6 +826,12 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
     {
         $this->db->where($where);
         $this->db->update('daftarulang', $data);
+    }
+
+    public function updatekuotamanual($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->update('kuota_siswa', $data);
     }
 
     public function updatedaftarulang($approve_daftarulang, $id)

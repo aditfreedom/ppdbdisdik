@@ -251,6 +251,16 @@ class Home extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
+	public function kuota_manual()
+	{
+		$data['kuota_manual'] 	= $this->M_ppdb->tampilkuotamanual()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('kuota_manual', $data);
+		$this->load->view('template/footer');
+	}
+
 	public function tambahkuota()
 	{
 		$post = $this->input->post(NULL, TRUE);
@@ -368,6 +378,17 @@ class Home extends CI_Controller
 
 	}
 
+	public function editkuotamanual($id)
+	{
+		$sess_data = $this->session->userdata();
+		$data['kuotamanual'] = $this->M_ppdb->cari_id_kuota($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('editkuotamanual', $data);
+		$this->load->view('template/footer');
+
+	}
+
 	public function edit_sekolah($id)
 	{
 		$sess_data = $this->session->userdata();
@@ -401,6 +422,40 @@ class Home extends CI_Controller
 		$this->M_ppdb->updatekuota($where, $data, 'kuota');
 		$this->load->view('berhasil_ubah');
 		$this->load->view('kuota');
+	}
+
+	public function updatekuotamanual()
+	{
+		$id_kuota       = $this->input->post('id_kuota');
+		$id_sekolah       = $this->input->post('id_sekolah');
+		$total        = $this->input->post('total');
+		$sisa_zonasi        = $this->input->post('sisa_zonasi');
+		$sisa_afirmasi        = $this->input->post('sisa_afirmasi');
+		$sisa_pindahan        = $this->input->post('sisa_pindahan');
+		$sisa_prestasi        = $this->input->post('sisa_prestasi');
+		$sisa_umum        = $this->input->post('sisa_umum');
+		$total_in        = $this->input->post('total_in');
+
+
+		$data = array(
+			'id_sekolah' => $id_sekolah,
+			'total' => $total,
+			'sisa_zonasi' => $sisa_zonasi,
+			'sisa_afirmasi' => $sisa_afirmasi,
+			'sisa_pindahan' => $sisa_pindahan,
+			'sisa_prestasi' => $sisa_prestasi,
+			'sisa_umum' => $sisa_umum,
+			'total_in' => $total_in
+
+		);
+
+		$where = array(
+			'id_kuota' => $id_kuota
+		);
+
+		$this->M_ppdb->updatekuotamanual($where, $data, 'kuota');
+		$this->load->view('berhasil_ubah_kuotamanual');
+		$this->load->view('kuota_manual');
 	}
 	
 	public function updatesetting()
