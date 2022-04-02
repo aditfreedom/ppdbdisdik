@@ -449,8 +449,9 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("../img/hero-bg.jpeg") top left;
-  background-size: 1366px 500px;
+  background: url("../img/hero-bg11.jpg") bottom left;
+  background-size: 1366px 570px ;
+  background-repeat: repeat;
   position:relative;
 }
 
@@ -477,9 +478,9 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h1 {
   margin: 0;
-  font-size: 48px;
+  font-size: 33px;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 40px;
   color: #222222;
   font-family: "Poppins", sans-serif;
 }

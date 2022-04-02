@@ -93,12 +93,12 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <img class="mx-auto d-block" src="assets/img/favicon.png" width="100px" style="margin-bottom:10px;">
-      <h1 class="text-center">PENERIMAAN PESERTA DIDIK BARU <span>DARING</span>
+      <img class="float-right" src="assets/img/favicon.png" width="100px" style="margin-bottom:10px;">
+      <br><br><br><br><br><h1 class="text-right">PENERIMAAN PESERTA DIDIK BARU <span>DARING</span>
       <br>TINGKAT <span>SMP</SPAN></h1>
-      <h2 class="text-center text-bold">KABUPATEN BIREUEN <b style="color:#17A589;">TP. 2022/2023</b></h2>
-      <p align="center">
-        <a href="<?=base_url()?>hal/registrasi" id="demo222" class="btn-get-started scrollto text-center">Daftar Akun Sekarang</a> 
+      <h2 class="text-right text-bold">KABUPATEN BIREUEN <b style="color:#17A589;">TP. 2022/2023</b></h2>
+      <p align="right">
+        <a href="<?=base_url()?>hal/registrasi" id="demo222" class="btn-get-started scrollto text-center">Daftar Akun</a> 
         <a href="<?=base_url()?>hal/login" class="btn-get-started scrollto text-center">Login</a>        
       </p>
       
@@ -128,7 +128,7 @@
      <section id="about" class="about">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Pendaftaran</h2>
+          <h2>Waktu Pendaftaran</h2>
           <h3>Waktu <span>Pendaftaran</span></h3><br>
           <h1 style="margin-bottom:0px;">20 April - 26 Juni 2022</h1>
           <h3 id="demo" style="margin-top:0px;font-size:30px;color:#FF0064;"></h3>
@@ -138,7 +138,7 @@
 
     <section id="jalur" class="about section-bg">
       <div class="section-title">
-        <h2>Jalur</h2>
+        <h2>Jalur Penerimaan</h2>
         <h3>Jalur <span>Penerimaan</span></h3>
       </div>
       <div class="container" data-aos="fade-up">
@@ -176,6 +176,8 @@
               <p class="description text-justify">Penerimaan Peserta Didik Baru Berdasarkan Prestasi Peserta Didik Bidang Akademik & Non Akademik</p>
             </div>
           </div>
+
+          <img src="<?=base_url('assets/img/zonasi.png')?>" class="mx-auto d-block">
 
         </div>
 
@@ -287,7 +289,7 @@
 
 <script>
   // Set the date we're counting down to
-  var countDownDate = new Date("Jun 26, 2021 23:59:00").getTime();
+  var countDownDate = new Date("Apr 6, 2022 23:59:00").getTime();
   
   // Update the count down every 1 second
   var x = setInterval(function() {
