@@ -26,7 +26,7 @@
     <?php foreach ($ganti_password as $data) : ?>
         <div class="form-group">
         <label for=""><b>USERNAME : </b></label>
-        <input type="text" name="username" value="<?php echo $data->username;?>" class="form-control" maxlength="50" placeholder="Nama Lengkap" required>
+        <input type="text" name="username" value="<?php echo $data->username;?>" class="form-control" maxlength="50" placeholder="Nama Lengkap" required readonly>
         </div>  
 
         <div class="form-group">

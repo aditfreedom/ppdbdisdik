@@ -28,7 +28,7 @@
               <th scope="col">NISN</th>
               <th scope="col">NAMA LENGKAP</th>
               <th scope="col">SEKOLAH ASAL</th>
-              <th hidden scope="col">AKSI</th>
+              <th scope="col">AKSI</th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +40,7 @@
             <td><?php echo $data->nama_siswa;?></td>
             <td><?php echo $data->nama_sekolah;?></td>
    
-            <td hidden><?php echo anchor('admin/editfinalisasi/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-unlock"></i></div>')?></td>	
+            <td><?php echo anchor('admin/editfinalisasi/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-unlock"></i></div>')?></td>	
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach ;?>
