@@ -88,9 +88,51 @@
     </div>
   </header><!-- End Header -->
 
+
+  <!-- <section id="hero" class="d-flex align-items-center"> -->
+  <div id="carouselExampleIndicators" class="carousel slide"  data-ride="carousel">
+  <div class="carousel-caption d-md-block" style="margin-bottom:110px;" >
+            <div class="container" data-aos="zoom-out" data-aos-delay="100">
+                      <img class="float-right" src="assets/img/favicon.png" width="100px" >
+                        <br><br><br><br><br><h1 class="text-right">PENERIMAAN PESERTA DIDIK BARU <span style="font-weight:bold;color:#17A589;">DARING</span>
+                        <br>TINGKAT <span>SMP</SPAN></h1>
+                        <h2 class="text-right text-bold">KABUPATEN BIREUEN <b style="font-weight:bold; color:#17A589;">TP. 2022/2023</b></h2>
+                        <p align="right">
+                          <a href="<?=base_url()?>hal/registrasi" id="demo222" class="btn btn-get-started rounded-pill scrollto text-center">Daftar Akun</a> 
+                          <a href="<?=base_url()?>hal/login" class="btn rounded-pill btn-get-started scrollto text-center">Login</a>        
+                        </p>
+          </div>
+      </div>
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active" >
+      <img class="d-block w-100" src="<?=base_url('/assets/img/hero-bg11.jpg')?>" alt="First slide" style="height: 100vh;">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="<?=base_url('/assets/img/hero-bg11.jpg')?>" alt="Second slide" style="height: 100vh;">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="<?=base_url('/assets/img/hero-bg11.jpg')?>" alt="Third slide" style="height: 100vh;">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- </section> -->
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  <!-- <section id="hero" class="d-flex align-items-center">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
+    
       <img class="float-right" src="assets/img/favicon.png" width="100px" style="margin-bottom:10px;">
       <br><br><br><br><br><h1 class="text-right">PENERIMAAN PESERTA DIDIK BARU <span>DARING</span>
       <br>TINGKAT <span>SMP</SPAN></h1>
@@ -102,7 +144,7 @@
       
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- End Hero -->
 
   <main id="main">
@@ -128,7 +170,7 @@
         <div class="section-title">
           <h2>Waktu Pendaftaran</h2>
           <h3>Waktu <span>Pendaftaran</span></h3><br>
-          <h1 style="margin-bottom:0px;">20 April - 26 Juni 2022</h1>
+          <h1 style="margin-bottom:0px;">06 April - 06 Mei 2022</h1>
           <h3 id="demo" style="margin-top:0px;font-size:30px;color:#FF0064;"></h3>
         </div>
         </div>
@@ -202,19 +244,19 @@
             </thead>
             <tbody class="text-center">
               <td scope="row">1</td>
-              <td>20 April - 26 Juni 2022</td>
+              <td>06 April - 06 Mei 2022</td>
               <td>Pendaftaran dan Penerimaan</td>
               <td>Daring Melalui Web</td>
               </tbody>
               <tbody class="text-center">
               <td scope="row">2</td>
-              <td>3 Juli 2022</td>
+              <td>12 Mei 2022</td>
               <td>Pengumuman</td>
               <td>Akun Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
               </tbody>
               <tbody class="text-center">
                 <td scope="row">3</td>
-                <td>5 Juli 2022</td>
+                <td>17 - 23 Mei 2022</td>
                 <td>Pendaftaran Ulang</td>
                 <td>Akun Pengguna atau Sekolah Masing-Masing Yang Telah Didaftarkan</td>
                 </tbody>

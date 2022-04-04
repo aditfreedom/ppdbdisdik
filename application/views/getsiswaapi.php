@@ -82,11 +82,12 @@
         <div class="form-group">
         <label for=""><b>NPSN</b></label>
         <input type="text" name="npsn" class="form-control" placeholder="NPSN Sekolah Asal" maxlength="16" required>
-        <label for="">Cari NPSN <a href="https://referensi.data.kemdikbud.go.id/index11.php" target="_blank " class="font-weight-bold">Disini</a></label>
+        <label for="">NPSN Kemdikbud <a href="https://referensi.data.kemdikbud.go.id/index11.php" target="_blank " class="font-weight-bold">Cari Disini</a></label>
+        <label for=""> | NPSN Kemenag <a href="http://emispendis.kemenag.go.id/dashboard/?content=pencarian" target="_blank " class="font-weight-bold">Cari Disini</a></label>
         </div>
         <button type="submit" class="btn font-weight-bold btn-block text-light" style="margin-bottom:14px;background-color:#17A589;">CARI DATA</button>
         <p class="text-dark font-weight-bold text-center">ATAU</p>
-        <a href="<?=base_url('hal/addsekolahapi');?>" class="btn btn btn-warning btn-block text-uppercase font-weight-bold">TAMBAH SEKOLAH UNTUK LUAR KABUPATEN</a>
+        <a href="<?=base_url('hal/addsekolahapi');?>" class="btn btn btn-danger btn-block text-uppercase font-weight-bold">TAMBAH SEKOLAH UNTUK LUAR KABUPATEN</a>
 
         </form>
         </div>

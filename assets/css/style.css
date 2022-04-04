@@ -13,6 +13,20 @@ body {
   color: #444444;
 }
 
+
+.carousel-item img{
+  margin-top: 50px;
+}
+
+.carousel h1 {
+  margin: 0;
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 40px;
+  color: #222222;
+  font-family: "Poppins", sans-serif;
+}
+
 a {
   color: #106eea;
 }
@@ -455,6 +469,8 @@ h1, h2, h3, h4, h5, h6 {
   position:relative;
 }
 
+ 
+
 #hero:before {
   content: "";
   background: rgba(235, 219, 219, 0.5);
@@ -463,6 +479,12 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
+}
+
+
+.carousel .container {
+  position: relative;
+  padding-top: 50px;
 }
 
 #hero .container {
@@ -489,11 +511,31 @@ h1, h2, h3, h4, h5, h6 {
   color: #17A589;
 }
 
+.carousel h2 {
+  color: #202020;
+  margin: 5px 0 30px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
 #hero h2 {
   color: #202020;
   margin: 5px 0 30px 0;
   font-size: 24px;
   font-weight: bold;
+}
+
+.carousel .btn-get-started {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 1px;
+  padding: 10px 28px;
+  border-radius: 30px;
+  transition: 0.5s;
+  color: #fff;
+  background: #17A589;
 }
 
 #hero .btn-get-started {
@@ -565,11 +607,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media (max-height: 500px) {
-  #hero {
-    height: 120vh;
-  }
-}
+
+
+
 
 /*--------------------------------------------------------------
 # Sections General
