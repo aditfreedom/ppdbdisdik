@@ -117,6 +117,9 @@ class Home extends CI_Controller
 	// 	$this->load->view('template/footer');
 	// }
 
+
+
+
 	public function zonasi()
 	{
 		$zonasi = $this->M_ppdb->getZonasi();
@@ -195,6 +198,7 @@ class Home extends CI_Controller
 		redirect(base_url('home/zonasi'));
 	}
 
+
 	public function getDesaByWilayah()
 	{
 		$post = $this->input->post(NULL, TRUE);
@@ -250,6 +254,72 @@ class Home extends CI_Controller
 		$this->load->view('kuota', $data);
 		$this->load->view('template/footer');
 	}
+
+	public function data_desa()
+	{
+		$data['data_desa'] 	= $this->M_ppdb->tampilalldesa()->result();
+		$data['kecamatan'] = $this->M_ppdb->tampil_wilayah()->result();
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('data_desa', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function tambah_desa()
+	{
+		$kode_wilayah       = $this->input->post('kode_wilayah');
+		$nama_desa       		= $this->input->post('nama_desa');
+
+
+		$data = array(
+			'kode_wilayah' => $kode_wilayah,
+			'nama_desa' => $nama_desa
+		);
+
+
+		$this->M_ppdb->tambah_desa($data, 'data_desa');
+		redirect('home/data_desa');
+	}
+
+	public function edit_desa($id)
+	{
+		$sess_data = $this->session->userdata();
+		$data['edit_desa'] = $this->M_ppdb->cari_desa($id)->result();
+		$data['kecamatan'] = $this->M_ppdb->tampil_wilayah($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('edit_desa', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function update_desa()
+	{
+		$id_desa       	= $this->input->post('id_desa');
+		$kode_wilayah       = $this->input->post('kode_wilayah');
+		$nama_desa       		= $this->input->post('nama_desa');
+
+
+		$data = array(
+			'kode_wilayah' => $kode_wilayah,
+			'nama_desa' => $nama_desa
+		);
+
+		$where = array(
+			'id_desa' => $id_desa
+		);
+
+		$this->M_ppdb->update_desa($where, $data, 'data_desa');
+		redirect('home/data_desa');
+	}
+
+	public function hapus_desa($id)
+	{
+		$where = array('id_desa' => $id);
+		$this->M_ppdb->hapus_desa('data_desa', $where);
+		redirect(base_url('home/data_desa'));
+	}
+
 
 	public function kuota_manual()
 	{

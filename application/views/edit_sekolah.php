@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
         <label for="">Username</label>
-        <input  type="text" name="username" class="form-control" maxlegth="100" value="<?php echo $data->username;?>">
+        <input  type="text" name="username" class="form-control" maxlegth="100" value="<?php echo $data->username;?>" readonly>
         </div>
         <div class="form-group">
         <label for="">Password</label>

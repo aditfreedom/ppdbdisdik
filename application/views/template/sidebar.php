@@ -34,6 +34,15 @@
           </li>
 
           <li class="nav-item ">
+            <a href="<?=base_url('home/data_desa');?>" class="nav-link">
+              <i class="nav-icon fa fa-road"></i>
+              <p>
+                Data Desa
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
             <a href="<?=base_url('home/zonasi');?>" class="nav-link">
               <i class="nav-icon fa fa-map-marked-alt"></i>
               <p>

@@ -259,6 +259,13 @@ class M_ppdb extends CI_Model
         $this->db->update('setting');
     }
 
+    public function update_desa($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update('data_desa');
+    }
+
     public function update_sekolah($where, $data)
     {
         $this->db->where($where);
@@ -490,6 +497,28 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
         WHERE kuota_siswa.id_sekolah='$datauser'");
         return $query;
     }
+
+    public function tampilalldesa()
+    {
+        $query = $this->db->query("SELECT * FROM data_desa
+                                   LEFT JOIN data_wilayah ON data_desa.kode_wilayah =  data_wilayah.kode_wilayah");
+        return $query;
+    }
+
+    public function cari_desa($id)
+    {
+        $query = $this->db->query("SELECT * FROM data_desa
+                                   LEFT JOIN data_wilayah ON data_desa.kode_wilayah =  data_wilayah.kode_wilayah
+                                   WHERE data_desa.id_desa='$id'");
+        return $query;
+    }
+
+    public function tampil_wilayah()
+    {
+        $query = $this->db->query("SELECT * FROM data_wilayah");
+        return $query;
+    }
+
 
     public function tampilkuotamanual()
     {
@@ -895,7 +924,18 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
         return $insert;
     }
 
+    public function tambah_desa($data)
+    {
+        $this->db->insert('data_desa', $data);
+    }
+
     function hapusData($table, $where)
+    {
+        $insert = $this->db->delete($table, $where);
+        return $insert;
+    }
+
+    function hapus_desa($table, $where)
     {
         $insert = $this->db->delete($table, $where);
         return $insert;
