@@ -53,7 +53,7 @@
    
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-    <p class="text-sm font-weight-bold font-italic">Permendikbud RI No. 1 Tahun 2021 Tentang Penerimaan Peserta Didik Baru</p>
+    <p class="text-sm font-weight-bold font-italic">Sekjen Kemendikbudristerk No : 6998/H5/HK.01.04/2022 Mengacu Pada Permendikbud RI No. 1 Tahun 2021 Tentang Penerimaan Peserta Didik Baru</p>
       </li>
     </ul>
   </nav>

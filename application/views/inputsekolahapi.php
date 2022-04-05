@@ -55,7 +55,7 @@
   <header id="header">
     <div class="container d-flex align-items-center">
 
-      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="40px"><h2 class="logo mr-auto"><a href="#">&nbsp;DISDIKBUD<br>&nbsp;KAB. BIREUEN<span></span></a></h2></img>
+      <img src="<?=base_url()?>assets/img/favicon.png" alt="" width="40px"><h2 class="logo mr-auto"><a href="<?=base_url();?>">&nbsp;DISDIKBUD<br>&nbsp;KAB. BIREUEN<span></span></a></h2></img>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
@@ -89,7 +89,7 @@
         </div>  
 
         <div class="form-group">
-        <label for=""><b>NAMA SEKOLAH ASAL (Menggunakan Huruf Kapital) :</b></label>
+        <label for=""><b>NAMA SEKOLAH ASAL (Menggunakan Huruf Kapital, <b class="text-danger">Sesuai Nomenklatur Nama Sekolah Sebenarnya</b>) :</b></label>
         <input  type="text" name="nama_sekolah" class="form-control" placeholder="NAMA SEKOLAH ASAL" maxlength="50" required>
 
         </div>  

@@ -72,7 +72,14 @@
 </div>
 <br>
     <div class="container">
-    <a href="#" class="btn btn-danger rounded-pill text-left" style="width:100%"><b>ISI DATA NISN DAN NPSN UNTUK PEMBUATAN AKUN</b></a><br><br>
+        <a href="#" class="btn btn-warning rounded-pill text-left" style="width:100%"><b>1. TAMBAH DATA SEKOLAH DILUAR KABUPATEN (HANYA SEKALI)</b></a><br><br>
+
+        <div class="alert alert-info" role="alert">
+            <b>PERHATIAN :</b><br>Form ini digunakan hanya untuk menambahkan sekolah asal siswa diluar kabupaten Bireuen <br>Apabila sudah di input sekali, maka sekolah yang sama tidak perlu ditambahkan lagi<br>Data diisi dengan menggunakan NPSN dan NISN siswa dari sekolah asal
+            <br><br><a href="<?=base_url('hal/addsekolahapi');?>" class="btn btn btn-success btn-block text-uppercase font-weight-bold">KLIK DISINI UNTUK MENAMBAH SEKOLAH LUAR KABUPATEN</a>
+        </div>
+        
+    <a href="#" class="btn btn-warning rounded-pill text-left" style="width:100%"><b>2. ISI DATA NISN DAN NPSN UNTUK PEMBUATAN AKUN</b></a><br><br>
     <form action="<?=base_url('hal/getdataapi')?>" method="get">
         <div class="form-group">
         <label for=""><b>NISN</b></label>
@@ -86,10 +93,7 @@
         <label for=""> | NPSN Kemenag <a href="http://emispendis.kemenag.go.id/dashboard/?content=pencarian" target="_blank " class="font-weight-bold">Cari Disini</a></label>
         </div>
         <button type="submit" class="btn font-weight-bold btn-block text-light" style="margin-bottom:14px;background-color:#17A589;">CARI DATA</button>
-        <p class="text-dark font-weight-bold text-center">ATAU</p>
-        <a href="<?=base_url('hal/addsekolahapi');?>" class="btn btn btn-danger btn-block text-uppercase font-weight-bold">TAMBAH SEKOLAH UNTUK LUAR KABUPATEN</a>
-
-        </form>
+`        </form>
         </div>
 
 

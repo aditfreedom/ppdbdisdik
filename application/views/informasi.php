@@ -81,9 +81,9 @@
           <li><a href="#team">Alur</a></li>
           <li><a href="<?=base_url('hal/progress_data')?>">Progres Data</a></li>
           <li><a href="<?=base_url('dinas/login')?>">Login Admin</a></li>
-
         </ul>
       </nav><!-- .nav-menu -->
+
 
     </div>
   </header><!-- End Header -->
@@ -111,12 +111,21 @@
   <div class="carousel-inner">
     <div class="carousel-item active" >
       <img class="d-block w-100" src="<?=base_url('/assets/img/hero-bg11.jpg')?>" alt="First slide" style="height: 100vh;">
+      <div class="carousel-caption d-none d-md-block">
+        <p class="text-dark font-weight-bold font-italic">Sekjen Kemendikbudristerk No : 6998/H5/HK.01.04/2022 Mengacu Pada Permendikbud RI No. 1 Tahun 2021<br></bt>Tentang Penerimaan Peserta Didik Baru</p>
+       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="<?=base_url('/assets/img/hero-bg11.jpg')?>" alt="Second slide" style="height: 100vh;">
+      <img class="d-block w-100" src="<?=base_url('/assets/img/bg2222.png')?>" alt="Second slide" style="height: 100vh;">
+      <div class="carousel-caption d-none d-md-block">
+        <p class="text-danger font-weight-bold font-italic">Sekjen Kemendikbudristerk No : 6998/H5/HK.01.04/2022 Mengacu Pada Permendikbud RI No. 1 Tahun 2021<br></bt>Tentang Penerimaan Peserta Didik Baru</p>
+       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="<?=base_url('/assets/img/hero-bg11.jpg')?>" alt="Third slide" style="height: 100vh;">
+      <img class="d-block w-100" src="<?=base_url('/assets/img/hero-bg22.jpg')?>" alt="Third slide" style="height: 100vh;">
+      <div class="carousel-caption d-none d-md-block">
+        <p class="text-light font-weight-bold font-italic">Sekjen Kemendikbudristerk No : 6998/H5/HK.01.04/2022 Mengacu Pada Permendikbud RI No. 1 Tahun 2021<br></bt>Tentang Penerimaan Peserta Didik Baru</p>
+       </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -276,7 +285,7 @@
           <h3>Alur <span>Pendaftaran</span></h3>
         </div>
         <img src="<?=base_url('assets/img/alur.jpeg')?>" width="1150px"><br><br>
-        <h3>VIDEO TATA CARA PNDAFTARAN : </h3>
+        <!--<h3>VIDEO TATA CARA PNDAFTARAN : </h3>-->
         <!-- <a href="<?=base_url('PPDB.pdf')?>" class="btn btn-success rounded-pill">Klik Disini</a>  -->
 
       </div>
@@ -329,7 +338,7 @@
 
 <script>
   // Set the date we're counting down to
-  var countDownDate = new Date("Apr 6, 2022 23:59:00").getTime();
+  var countDownDate = new Date("Apr 6, 2022 08:00:00").getTime();
   
   // Update the count down every 1 second
   var x = setInterval(function() {
@@ -354,7 +363,7 @@
     // If the count down is over, write some text 
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("demo").innerHTML = "PENDAFTARAN TELAH DITUTUP";
+      document.getElementById("demo").innerHTML = "PENDAFTARAN SUDAH DIBUKA";
       document.getElementById('demo2').style.display = 'none';
     }
   }, 1000);

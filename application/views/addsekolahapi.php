@@ -67,7 +67,7 @@
   
     <div class="container text-center">
     <br>
-<h3 class="text-dark" style="margin-top:10px;">CARI DATA SEKOLAH DILUAR KABUPATEN BIREUEN MELALUI NISN DAN NPSN</h3>
+<h3 class="text-dark" style="margin-top:10px;">CARI DATA SEKOLAH DILUAR KABUPATEN BIREUEN MELALUI NISN DAN NPSN SISWA SEKOLAH ASAL</h3>
 <hr>
 </div>
 <br>

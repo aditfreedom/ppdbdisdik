@@ -14,7 +14,7 @@ function jsFunction(){
     Swal.fire(
         'Gagal!',
         'Sekolah Sudah Terdaftar',
-        'success'
+        'error'
 ).then(function() {
     window.location = "./addsekolahapi";
 });
