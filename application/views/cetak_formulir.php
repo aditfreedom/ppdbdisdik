@@ -186,18 +186,13 @@
             <tr>
                 <td  style="width: 48%;">Nama Ayah Kandung</td>
                 <td style="width: 10px;">:</td>
-                <td style="width: 50%;text-transform: uppercase;><?=$siswa['nama_ayah'];?></td>
+                <td style="width: 50%;text-transform: uppercase;"><?=$siswa['nama_ayah'];?></td>
             </tr>
                 <tr>
                 <td>Pekerjaan Ayah</td>
                 <td>:</td>
-                <td style="text-transform: uppercase;"><?=$siswa['nama_ayah'];?></td>
-            </tr>
-            <tr>
-                <td>Pekerjaan Ayah</td>
-                <td>:</td>
                 <td style="text-transform: uppercase;"><?=$siswa['pekerjaan_ayah'];?></td>
-            </tr>
+            </tr>   
             <tr>
                 <td>Nama Ibu Kandung</td>
                 <td>:</td>
