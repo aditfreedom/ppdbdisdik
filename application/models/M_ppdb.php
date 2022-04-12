@@ -340,6 +340,17 @@ class M_ppdb extends CI_Model
         return $query;
     }
 
+    public function tampil_lulus_multi($id_sekolah)
+    {
+        $query = $this->db->query("SELECT * from sekolah_tujuan 
+        LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+        LEFT JOIN datasiswa ON sekolah_tujuan.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
+        LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+        WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.approve_formulir='Diterima' AND pengguna.status='1'");
+        return $query;
+    }
+
     public function tampil_daftarulang($id_sekolah)
     {
         $query = $this->db->query("SELECT * from sekolah_tujuan 
@@ -847,6 +858,11 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
     }
 
     public function updatelulus($approve_lulus, $id)
+    {
+        $this->db->query("UPDATE pengguna SET approve_lulus='$approve_lulus' WHERE id = '$id'");
+    }
+
+    public function updatelulusmulti($approve_lulus, $id)
     {
         $this->db->query("UPDATE pengguna SET approve_lulus='$approve_lulus' WHERE id = '$id'");
     }

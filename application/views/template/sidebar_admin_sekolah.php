@@ -42,16 +42,6 @@
             </a>
           </li>
 
-
-          <!-- <li class="nav-item ">
-            <a href="<?=base_url('admin/kuota');?>" class="nav-link">
-              <i class="nav-icon fa fa-tasks"></i>
-              <p>
-                Kuota
-              </p>
-            </a>
-          </li> -->
-
           <li class="nav-item ">
             <a href="<?=base_url('admin/approve_formulir');?>" class="nav-link">
               <i class="nav-icon fa fa-clipboard-check"></i>
@@ -60,23 +50,72 @@
               </p>
             </a>
           </li>
-          <li class="nav-item ">
+
+          <li class="nav-item menu-open">
+          <a href="#" class="nav-link">
+          <i class="nav-icon fa fa fa-building"></i>
+          <p>
+          Approval Kelulusan
+          <i class="right fas fa-angle-left"></i>
+          </p>
+          </a>
+          <ul class="nav nav-treeview">
+          <li class="nav-item">
+          <a href="<?=base_url('admin/approve_lulus');?>" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Approve Kelulusan Individu</p>
+          </a>
+          </li>
+          <li class="nav-item">
+          <a href="<?=base_url('admin/approve_lulus_multi');?>" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Approve Kelulusan Multi</p>
+          </a>
+          </li>
+          </ul>
+          </li>
+
+          <!-- <li class="nav-item ">
             <a href="<?=base_url('admin/approve_lulus');?>" class="nav-link">
               <i class="nav-icon fa fa-building"></i>
               <p>
                 Approve Kelulusan
               </p>
             </a>
+          </li> -->
+
+          <li class="nav-item menu-open">
+          <a href="#" class="nav-link">
+          <i class="nav-icon fa fa fa-building"></i>
+          <p>
+          Approval Daftar Ulang
+          <i class="right fas fa-angle-left"></i>
+          </p>
+          </a>
+          <ul class="nav nav-treeview">
+          <li class="nav-item">
+          <a href="<?=base_url('admin/approve_daftarulang');?>" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Approve Individu</p>
+          </a>
+          </li>
+          <li class="nav-item">
+          <a href="<?=base_url('admin/approve_daftarulang_multi');?>" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Approve Daftar Ulang Multi</p>
+          </a>
+          </li>
+          </ul>
           </li>
 
-          <li class="nav-item ">
+          <!-- <li class="nav-item ">
             <a href="<?=base_url('admin/approve_daftarulang');?>" class="nav-link">
               <i class="nav-icon fa fa-user-check"></i>
               <p>
                 Approve Daftar Ulang
               </p>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item ">
             <a href="<?=base_url('admin/status_finalisasi');?>" class="nav-link">

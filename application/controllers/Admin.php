@@ -256,6 +256,17 @@ class Admin extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function approve_lulus_multi()
+	{
+		$sess_data = $this->session->userdata();
+		$id_sekolah = $this->session->userdata('id_pesertadidik');
+		$data['lulus_multi'] = $this->M_ppdb->tampil_lulus_multi($id_sekolah)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
+		$this->load->view('approve_lulus_multi',$data);
+		$this->load->view('template/footer2');
+	}
+
 	public function editlulus($id){
 		$sess_data = $this->session->userdata();
 		$data['lulus'] = $this->M_ppdb->tampilpengguna_lulus($id)->result();
@@ -385,6 +396,40 @@ class Admin extends CI_Controller {
 			$this->M_ppdb->updatelulus($approve_lulus,$id,'pengguna');
 			$this->load->view('berhasil_ubah_lulus');	
 		}
+	}
+
+	public function updatelulusmulti(){
+		$id                	= $this->input->post('checked');
+        $approve_lulus   	= $this->input->post('approve_lulus');
+		
+		$count = count($id);
+
+
+			for ($i=0; $i < $count; $i++) { 
+				$dataid=$id[$i];
+				$this->M_ppdb->updatelulusmulti($approve_lulus,$dataid,'pengguna');
+			}
+
+			redirect(base_url('admin/approve_lulus_multi'));
+		    
+		 	// $this->M_ppdb->updatelulusmulti($approve_lulus,$id,'pengguna');
+		 	// $this->load->view('berhasil_ubah_lulus');	
+
+
+		// $data = array(
+		// 	'id_pesertadidik' => $id_pesertadidik,
+        //     'keterangan' => $keterangan
+        // );
+
+		// if ($hitungdata ==1) {
+        //     $this->M_ppdb->updateketerangan($id_pesertadidik, $keterangan);
+		// 	$this->M_ppdb->updatelulus($approve_lulus,$id,'pengguna');
+		// 	$this->load->view('berhasil_ubah_lulus');	
+		// }else{
+        //     $this->M_ppdb->tambahketerangan($data);
+		// 	$this->M_ppdb->updatelulus($approve_lulus,$id,'pengguna');
+		// 	$this->load->view('berhasil_ubah_lulus');	
+		// }
 	}
 	
 		public function datapengguna()
