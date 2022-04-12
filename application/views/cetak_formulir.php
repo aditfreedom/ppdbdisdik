@@ -105,7 +105,7 @@
 
     <?php date_default_timezone_set("Asia/Bangkok");?>
     <h3 class="text-center">FORMULIR PENDAFTARAN PESERTA DIDIK BARU</h3>
-    <h3 class="text-center">TAHUN PELAJARAN 2021/2022</h3>
+    <h3 class="text-center">TAHUN PELAJARAN 2022/2023</h3>
     <table style="width: 100%; margin-bottom: 10px" class="table-data">
         <thead>
             <tr>
@@ -206,7 +206,7 @@
             <tr>
                 <td>Nama Wali Siswa</td>
                 <td>:</td>
-                <td></td>
+                <td style="text-transform: uppercase;"><?=$siswa['nama_wali'];?></td>
             </tr>
         </tbody>
     </table>
