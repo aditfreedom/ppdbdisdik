@@ -324,6 +324,17 @@ class Admin extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function approve_daftarulang_multi()
+	{
+		$sess_data = $this->session->userdata();
+		$id_sekolah = $this->session->userdata('id_pesertadidik');
+		$data['daftarulang_multi'] = $this->M_ppdb->tampil_daftarulang_multi($id_sekolah)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar_admin_sekolah',$sess_data);
+		$this->load->view('approve_daftarulang_multi',$data);
+		$this->load->view('template/footer2');
+	}
+
 	public function status_finalisasi()
 	{
 		$sess_data = $this->session->userdata();
@@ -373,6 +384,23 @@ class Admin extends CI_Controller {
 			$this->load->view('berhasil_ubah_daftarulang');	
 		}
 	}
+
+	public function updatedaftarulangmulti(){
+		$id                	= $this->input->post('checked');
+        $approve_lulus   	= $this->input->post('approve_lulus');
+		
+		$count = count($id);
+
+
+			for ($i=0; $i < $count; $i++) { 
+				$dataid=$id[$i];
+				$this->M_ppdb->updatedaftarulangmulti($approve_lulus,$dataid,'pengguna');
+			}
+
+			redirect(base_url('admin/approve_daftarulang_multi'));
+		    
+	}
+
 
 	public function updatelulus(){
 		$id                	= $this->input->post('id');

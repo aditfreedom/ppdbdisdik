@@ -362,6 +362,17 @@ class M_ppdb extends CI_Model
         return $query;
     }
 
+    public function tampil_daftarulang_multi($id_sekolah)
+    {
+        $query = $this->db->query("SELECT * from sekolah_tujuan 
+        LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+        LEFT JOIN datasiswa ON sekolah_tujuan.id_pesertadidik = datasiswa.id_pesertadidik
+        LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
+        LEFT JOIN jenis_pendaftaran ON sekolah_tujuan.jenis_pendaftaran = jenis_pendaftaran.id_jenis
+        WHERE sekolah_tujuan.id_sekolah ='$id_sekolah' AND pengguna.role='2' AND pengguna.approve_lulus='Lulus' AND pengguna.status='1'");
+        return $query;
+    }
+
     public function tampil_finalisasi($id_sekolah)
     {
         $query = $this->db->query("SELECT * from sekolah_tujuan 
@@ -541,8 +552,7 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
 
     public function cari_id_kuota($id)
     {
-        $query = $this->db->query("SELECT * FROM kuota_siswa
-        WHERE id_kuota='$id'");
+        $query = $this->db->query("SELECT * FROM kuota_siswa WHERE id_kuota='$id'");
         return $query;
     }
 
@@ -880,6 +890,11 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
     }
 
     public function updatedaftarulang($approve_daftarulang, $id)
+    {
+        $this->db->query("UPDATE pengguna SET approve_daftarulang='$approve_daftarulang' WHERE id = '$id'");
+    }
+
+    public function updatedaftarulangmulti($approve_daftarulang, $id)
     {
         $this->db->query("UPDATE pengguna SET approve_daftarulang='$approve_daftarulang' WHERE id = '$id'");
     }

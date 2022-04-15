@@ -97,14 +97,6 @@ function getJSON(url, data={},) {
 </script>
 
 <script type="text/javascript">
-function select()
-{
-    var cek = document.getElementsByName("checked2");
-
-    if (cek.checked=true) {
-      selectall();
-    }
-}
 
 function selectall()
 {
