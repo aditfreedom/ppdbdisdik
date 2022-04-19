@@ -96,11 +96,22 @@ function getJSON(url, data={},) {
 }
 </script>
 
+
+
 <script type="text/javascript">
+
+var checkbox = document.getElementById('cb');
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    selectall();
+  } else {
+    bersihkan();
+  }
+});
 
 function selectall()
 {
-    
     var daftarku = document.getElementsByName("checked[]");
     var jml=daftarku.length;
     var b=0;
@@ -109,6 +120,7 @@ function selectall()
         daftarku[b].checked=true;
         
     }
+    clicks++;
     
 }
 
@@ -122,5 +134,7 @@ function bersihkan()
         daftarku[b].checked=false;
         
     }
+    clicks++;
+
 }
 </script>

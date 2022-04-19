@@ -6,7 +6,7 @@ $(document).ready(() => {
 
 		if (getDesa.status == "success") {
 			let { data } = getDesa;
-			let html = '<option value="">-- Pilih Desa -- </option>';
+			let html = '<option value="">-- Pilih Kampung -- </option>';
 			data.forEach((item) => {
 				html += `<option value='${item.id_desa}'>
                             ${item.nama_desa}

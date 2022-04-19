@@ -29,9 +29,7 @@
               <th scope="col">SEKOLAH ASAL</th>
               <th scope="col">JENIS PENERIMAAN</th>
               <th scope="col">STATUS KELULUSAN</th>
-              <th scope="col" >CENTANG<br>
-              <a href="#" onclick="selectall()">ALL
-              <a href="#" class="text-danger" onclick="bersihkan()">CLEAR</th>
+              <th scope="col" ><input type="checkbox" name="checkbox33" id="cb"></th>
             </tr>
           </thead>
           <tbody>
