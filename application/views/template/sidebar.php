@@ -68,6 +68,36 @@
             </a>
           </li>
 
+          <li class="nav-item menu-open">
+          <a href="#" class="nav-link">
+          <i class="nav-icon fa fa fa-building"></i>
+          <p>
+          Approval 
+          <i class="right fas fa-angle-left"></i>
+          </p>
+          </a>
+          <ul class="nav nav-treeview">
+          <li class="nav-item">
+          <a href="<?=base_url('home/tampil_sekolah_all');?>" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Approve Formulir</p>
+          </a>
+          </li>
+          <li class="nav-item">
+          <a href="<?=base_url('home/tampil_sekolah_all_lulus');?>" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Approve Kelulusan </p>
+          </a>
+          </li>
+          <li class="nav-item">
+          <a href="<?=base_url('home/tampil_sekolah_all_daftarulang');?>" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Approve Daftar Ulang </p>
+          </a>
+          </li>
+          </ul>
+          </li>
+
           <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">      
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->

@@ -52,7 +52,7 @@
       }    
     ?>
             <td><a class="font-weight-bold text-uppercase <?= $class;?> rounded-pill" href="#" role="button">&nbsp&nbsp<?php echo $data->approve_daftarulang?>&nbsp&nbsp</a></td>
-            <form action="<?=base_url('admin/updatedaftarulangmulti')?>" method="post">
+            <form action="<?=base_url('home/updatedaftarulangmulti')?>" method="post">
             <td><input type="checkbox" name="checked[]"  id="checked[]" value="<?php echo $data->id;?>"/></td>	            
 		</tr>
 		<?php $i++; ?>

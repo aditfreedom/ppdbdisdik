@@ -118,6 +118,131 @@ class Home extends CI_Controller
 	// }
 
 
+	public function tampil_sekolah_all()
+	{
+		$this->load->model('M_ppdb');
+		$sess_data = $this->session->userdata();
+		$data['tampil_sekolah'] = $this->M_ppdb->tampil_sekolah_all()->result();
+
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('tampil_sekolah',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function tampil_sekolah_all_lulus()
+	{
+		$this->load->model('M_ppdb');
+		$sess_data = $this->session->userdata();
+		$data['tampil_sekolah'] = $this->M_ppdb->tampil_sekolah_all()->result();
+
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('tampil_sekolah_lulus',$data);
+		$this->load->view('template/footer');
+	}
+
+
+	public function approve_formulir_admin()
+	{
+		$sess_data = $this->session->userdata();
+		$id = $this->input->get('id');
+		$data['formulir'] = $this->M_ppdb->tampil_approval($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar',$sess_data);
+		$this->load->view('approve_formulir_multi',$data);
+		$this->load->view('template/footer2');
+	}
+
+	public function updateformulirmulti(){
+		$id           	     	= $this->input->post('checked');
+        $approve_formulir   	= $this->input->post('approve_formulir');
+		$id_sekolah				= $this->input->post('id_sekolah');
+		
+		$count = count($id);
+
+
+			for ($i=0; $i < $count; $i++) { 
+				$dataid=$id[$i];
+				$this->M_ppdb->updateformulirmulti($approve_formulir,$dataid,'pengguna');
+			}
+
+			redirect(base_url('home/approve_formulir_admin?id=').$id_sekolah);
+		    
+	}
+
+	public function approve_kelulusan_admin()
+	{
+		$sess_data = $this->session->userdata();
+		$id = $this->input->get('id');
+		$data['lulus_multi'] = $this->M_ppdb->tampil_lulus_multi($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar',$sess_data);
+		$this->load->view('approve_lulus_multi_admin',$data);
+		$this->load->view('template/footer2');
+	}
+
+	public function updatelulusmulti(){
+		$id           	     	= $this->input->post('checked');
+        $approve_lulus   	= $this->input->post('approve_lulus');
+		$id_sekolah				= $this->input->post('id_sekolah');
+		
+		$count = count($id);
+
+
+			for ($i=0; $i < $count; $i++) { 
+				$dataid=$id[$i];
+				$this->M_ppdb->updatelulusmulti($approve_lulus,$dataid,'pengguna');
+			}
+
+			redirect(base_url('home/approve_kelulusan_admin?id=').$id_sekolah);
+		    
+	}
+
+	public function approve_daftarulang_admin()
+	{
+		$sess_data = $this->session->userdata();
+		$id = $this->input->get('id');
+		$data['daftarulang_multi'] = $this->M_ppdb->tampil_daftarulang_multi($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar',$sess_data);
+		$this->load->view('approve_daftarulang_multi_admin',$data);
+		$this->load->view('template/footer2');
+	}
+
+	public function updatedaftarulangmulti(){
+		$id           	     	= $this->input->post('checked');
+        $approve_daftarulang   	= $this->input->post('approve_daftarulang');
+		$id_sekolah				= $this->input->post('id_sekolah');
+		
+		$count = count($id);
+
+
+			for ($i=0; $i < $count; $i++) { 
+				$dataid=$id[$i];
+				$this->M_ppdb->updatedaftarulangmulti($approve_daftarulang,$dataid,'pengguna');
+			}
+
+			redirect(base_url('home/approve_daftarulang_admin?id=').$id_sekolah);
+		    
+	}
+
+
+	public function tampil_sekolah_all_daftarulang()
+	{
+		$this->load->model('M_ppdb');
+		$sess_data = $this->session->userdata();
+		$data['tampil_sekolah'] = $this->M_ppdb->tampil_sekolah_all()->result();
+
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('tampil_sekolah_daftarulang',$data);
+		$this->load->view('template/footer');
+	}
+
 
 
 	public function zonasi()

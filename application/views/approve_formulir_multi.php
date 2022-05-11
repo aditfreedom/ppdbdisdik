@@ -4,12 +4,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">APPROVAL DAFTAR ULANG MULTI</h1>
+            <h1 class="m-0 text-dark">APPROVAL FORMULIR</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">PPDB</a></li>
-              <li class="breadcrumb-item active">Approval Daftar Ulang</li>
+              <li class="breadcrumb-item active">Approval Formulir</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -28,20 +28,20 @@
               <th scope="col">NAMA LENGKAP</th>
               <th scope="col">SEKOLAH ASAL</th>
               <th scope="col">JENIS PENERIMAAN</th>
-              <th scope="col">STATUS DAFTAR ULANG</th>
+              <th scope="col">STATUS FORMULIR</th>
              <th scope="col" ><input type="checkbox" name="checkbox33" id="cb"></th>
             </tr>
           </thead>
           <tbody>
           <?php $i = 1; 
-	        foreach ($daftarulang_multi as $data) : ?>
+	        foreach ($formulir as $data) : ?>
 		<tr class="nomor text-center">
             <td><?php echo $data->nisn;?></td>
             <td><?php echo $data->nama_siswa;?></td>
             <td><?php echo $data->nama_sekolah;?></td>
             <td><?php echo $data->nama;?></td>
     <?php
-    $approval= $data->approve_daftarulang;
+    $approval= $data->approve_formulir;
       if ($approval=="Antrian") {
         $class="btn-warning";
       }elseif($approval=="Diterima"){
@@ -49,20 +49,20 @@
       }
       else{
         $class="btn-danger";
-      }    
+      }   
     ?>
-            <td><a class="font-weight-bold text-uppercase <?= $class;?> rounded-pill" href="#" role="button">&nbsp&nbsp<?php echo $data->approve_daftarulang?>&nbsp&nbsp</a></td>
-            <form action="<?=base_url('admin/updatedaftarulangmulti')?>" method="post">
+            <td><a class="font-weight-bold text-uppercase <?= $class;?> rounded-pill" href="#" role="button">&nbsp&nbsp<?php echo $data->approve_formulir?>&nbsp&nbsp</a></td>
+            <form action="<?=base_url('home/updateformulirmulti')?>" method="post">
             <td><input type="checkbox" name="checked[]"  id="checked[]" value="<?php echo $data->id;?>"/></td>	            
-		</tr>
+		</tr>            
 		<?php $i++; ?>
 	<?php endforeach ;?>
             </tbody>
         </table>
 
         <div class="form-group">
-            <label for="">Approve Daftar Ulang</label>
-            <select class="form-control form-control" name="approve_daftarulang">
+            <label for="">Approve Formulir</label>
+            <select class="form-control form-control" name="approve_formulir">
               <option>Antrian</option>
               <option>Diterima</option>
               <option>Ditolak</option>
@@ -116,5 +116,6 @@
   </div>
 </div>
 </div>
+
 
 

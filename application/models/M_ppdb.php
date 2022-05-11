@@ -824,6 +824,13 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
         return $result->num_rows();
     }
 
+    public function tampil_sekolah_all()
+    {
+        $result = $this->db->query("SELECT*FROM data_smp");
+        return $result;
+    }
+
+
     public function hitungpdtidakdaftarulang()
     {
         $result = $this->db->query("SELECT*FROM pengguna WHERE approve_lulus='Ditolak'");
@@ -897,6 +904,11 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
     public function updatedaftarulangmulti($approve_daftarulang, $id)
     {
         $this->db->query("UPDATE pengguna SET approve_daftarulang='$approve_daftarulang' WHERE id = '$id'");
+    }
+
+    public function updateformulirmulti($approve_formulir, $id)
+    {
+        $this->db->query("UPDATE pengguna SET approve_formulir='$approve_formulir' WHERE id = '$id'");
     }
 
     public function tambahiddaftarulang($data)

@@ -68,6 +68,10 @@
               <option>Tidak Lulus</option>
               </select>
           </div>
+          <div class="form-group" hidden>
+            <label for="">ID</label>
+            <input type="text" class="form-control" value="<?=$this->input->get('id')?>" name="id_sekolah" readonly>
+          </div>
           <button type="submit" id="btn" class="btn btn-primary font-weight-bold" style="width:100%;"> SIMPAN DATA</button><br><br>
           </form>
 
