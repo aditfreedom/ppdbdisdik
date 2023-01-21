@@ -53,7 +53,7 @@
         </div>
 
         <div class="alert alert-danger alert-dismissible fade show" role="alert" <?=$tidaklulus;?>>
-          <strong>Maaf! Anda Tidak Lulus Seleksi PPDB 2021/2022 Dengan Alasan :<br>
+          <strong>Maaf! Anda Tidak Lulus Seleksi PPDB 2022/2023 Dengan Alasan :<br>
           <ul>
           <li><?=$keterangan;?></li></strong>
           <br>
@@ -72,12 +72,14 @@
           <li>Foto Copy KTP Orang Tua</li>
           <li>Foto Copy Akte Kelahiran</li>
           <li>Foto Copy Kartu NISN</li>
-          <li>Semua Berkas Dimasukkan Ke Dalam :</li>
+          <li>Foto Copy Kartu PKH, KIP ( Jika Ada )</li>
+          <li>Pas Photo Hitam Putih<br>* 3 x 4 = 3 Lembar<br>* 2 x 3 = 3 Lembar</bt></li>
           </ul>
           <b><a href="#" class="btn btn-primary text-decoration-none rounded-pill"><b>Zonasi :  Map Biru</b></a> 
           <a href="#" class="btn btn-warning text-dark text-decoration-none rounded-pill"><b>Afirmasi :  Map Kuning</b></a> 
           <a href="#" class="btn btn-danger text-decoration-none rounded-pill"><b>Pindahan :  Map Merah</b></a> 
           <a href="#" class="btn btn-success text-decoration-none rounded-pill"><b>Prestasi :  Map Hijau</b></a></b>
+        <li><b>Semua Berkas Dimasukkan Ke Dalam :</b></li>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

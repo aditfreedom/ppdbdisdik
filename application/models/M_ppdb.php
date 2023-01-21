@@ -145,7 +145,7 @@ class M_ppdb extends CI_Model
              LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah
              LEFT JOIN sekolah_tujuan ON datasiswa.id_pesertadidik = sekolah_tujuan.id_pesertadidik
              LEFT JOIN data_smp ON sekolah_tujuan.id_sekolah = data_smp.id_sekolah
-             WHERE pengguna.status = '1' AND pengguna.approve_daftarulang='Diterima'");
+             WHERE pengguna.status = '1' AND pengguna.approve_formulir='Diterima' AND pengguna.approve_lulus='Lulus' AND pengguna.approve_daftarulang='Diterima'");
      }
 
 
@@ -600,12 +600,28 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
                                 LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
                                 WHERE jenis_pendaftaran='1' AND pengguna.status='1'");
     }
+    
+     public function tampilpendaftarzonasi1()
+    {
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan 
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='1' AND pengguna.status='1' AND pengguna.approve_daftarulang='Diterima'");
+    }
+    
+    
 
     public function tampilpendaftarafirmasi()
     {
         return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan 
                                 LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
                                 WHERE jenis_pendaftaran='2' AND pengguna.status='1';");
+    }
+    
+     public function tampilpendaftarafirmasi1()
+    {
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan 
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='2' AND pengguna.status='1' AND pengguna.approve_daftarulang='Diterima'");
     }
 
 
@@ -647,6 +663,21 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
                                 LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
                                 WHERE jenis_pendaftaran='3' AND pengguna.status='1'");
     }
+    
+      public function tampilpendaftarpindahan1()
+    {
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan 
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='3' AND pengguna.status='1' AND pengguna.approve_daftarulang='Diterima'");
+    }
+    
+     public function tampilpendaftarprestasi1()
+    {
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='4' AND pengguna.status='1' AND pengguna.approve_daftarulang='Diterima'");
+    }
+
 
     public function tampilpendaftarprestasi()
     {
@@ -659,6 +690,15 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
     {
         return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan WHERE jenis_pendaftaran='5';");
     }
+    
+      public function tampilpendaftarumum1()
+    {
+        return $this->db->query("SELECT jenis_pendaftaran FROM sekolah_tujuan
+                                LEFT JOIN pengguna ON sekolah_tujuan.id_pesertadidik = pengguna.id_pesertadidik
+                                WHERE jenis_pendaftaran='5
+                                ' AND pengguna.status='1'");
+    }
+
 
     public function tampilafirmasi($id)
     {

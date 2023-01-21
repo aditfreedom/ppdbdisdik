@@ -12,8 +12,8 @@
   </head>
   <body>
     <img src="<?=base_url('assets/img/kopi.gif')?>" alt="" class="mx-auto d-block" width="400px">
-    <h1 class="text-center">SERVER SEDANG MAINTENANCE</h1>
-    <h1 class="text-center">HARAP MENCOBA DI LAIN WAKTU</h1>
+    <h1 class="text-center">PENDATAAN PPDB TAHUN 2022 - 2023 SUDAH BERAKHIR</h1>
+    <h1 class="text-center">TERIMA KASIH ATAS KERJA KERASNYA</h1>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

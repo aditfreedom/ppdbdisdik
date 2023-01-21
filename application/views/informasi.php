@@ -98,8 +98,8 @@
                         <br>TINGKAT <span>SMP</SPAN></h1>
                         <h2 class="text-right text-bold">KABUPATEN BIREUEN <b style="font-weight:bold; color:#17A589;">TP. 2022/2023</b></h2>
                         <p align="right">
-                          <a href="<?=base_url()?>hal/registrasi" id="demo222" class="btn btn-get-started rounded-pill scrollto text-center">Daftar Akun</a> 
-                          <a href="<?=base_url()?>hal/login" class="btn rounded-pill btn-get-started scrollto text-center">Login</a>        
+                          <a href="<?=base_url()?>hal/registrasi" id="demo222" class="btn btn-get-started rounded-pill scrollto text-center" >Daftar Akun</a> 
+                          <a href="<?=base_url()?>hal/login" class="btn rounded-pill btn-get-started scrollto text-center " >Login</a>        
                         </p>
           </div>
       </div>
@@ -363,7 +363,7 @@
     // If the count down is over, write some text 
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("demo").innerHTML = "PENDAFTARAN SUDAH DIBUKA";
+      document.getElementById("demo").innerHTML = "MASA PENDAFTARAN SUDAH DITUTUP";
       document.getElementById('demo2').style.display = 'none';
     }
   }, 1000);

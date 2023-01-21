@@ -38,11 +38,11 @@ class Home extends CI_Controller
 		$data['pindahan'] = $this->M_ppdb->tampilpindahan2()->result();
 		$data['prestasi'] = $this->M_ppdb->tampilprestasi2()->result();
 		$data['umum'] = $this->M_ppdb->tampilumum2()->result();
-		$data['pendaftarzonasi'] = $this->M_ppdb->tampilpendaftarzonasi()->num_rows();
-		$data['pendaftarafirmasi'] = $this->M_ppdb->tampilpendaftarafirmasi()->num_rows();
-		$data['pendaftarpindahan'] = $this->M_ppdb->tampilpendaftarpindahan()->num_rows();
-		$data['pendaftarprestasi'] = $this->M_ppdb->tampilpendaftarprestasi()->num_rows();
-		$data['pendaftarumum'] = $this->M_ppdb->tampilpendaftarumum()->num_rows();
+		$data['pendaftarzonasi'] = $this->M_ppdb->tampilpendaftarzonasi1()->num_rows();
+		$data['pendaftarafirmasi'] = $this->M_ppdb->tampilpendaftarafirmasi1()->num_rows();
+		$data['pendaftarpindahan'] = $this->M_ppdb->tampilpendaftarpindahan1()->num_rows();
+		$data['pendaftarprestasi'] = $this->M_ppdb->tampilpendaftarprestasi1()->num_rows();
+		$data['pendaftarumum'] = $this->M_ppdb->tampilpendaftarumum1()->num_rows();
 
 		$data['tampilsekolah'] = $this->M_ppdb->tampilsekolah()->result();
 		$data['kecamatan'] = $this->M_ppdb->tampilkuotawilayah();
